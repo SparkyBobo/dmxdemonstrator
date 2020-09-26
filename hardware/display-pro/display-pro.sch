@@ -1,0 +1,490 @@
+EESchema Schematic File Version 4
+LIBS:display-pro-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "DMX Demonstrator - Display-Pro (DMX-DSP)"
+Date "2020-09-14"
+Rev "1.0"
+Comp "Crazy Giraffe Software"
+Comment1 ""
+Comment2 "Designed by: SparkyBobo"
+Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
+Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 License"
+$EndDescr
+$Comp
+L Connector:Screw_Terminal_01x02 J5
+U 1 1 5F594F09
+P 7950 2000
+F 0 "J5" H 8030 1992 50  0000 L CNN
+F 1 "Clock" H 8030 1901 50  0000 L CNN
+F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 7950 2000 50  0001 C CNN
+F 3 "~" H 7950 2000 50  0001 C CNN
+	1    7950 2000
+	1    0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J3
+U 1 1 5F3037EB
+P 4650 4850
+F 0 "J3" H 4730 4892 50  0000 L CNN
+F 1 "Input" H 4730 4801 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 4650 4850 50  0001 C CNN
+F 3 "~" H 4650 4850 50  0001 C CNN
+	1    4650 4850
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5F306EF9
+P 5150 5150
+F 0 "#PWR0101" H 5150 4900 50  0001 C CNN
+F 1 "GND" H 5155 4977 50  0000 C CNN
+F 2 "" H 5150 5150 50  0001 C CNN
+F 3 "" H 5150 5150 50  0001 C CNN
+	1    5150 5150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5F3120EF
+P 6550 7450
+F 0 "#FLG0101" H 6550 7525 50  0001 C CNN
+F 1 "PWR_FLAG" H 6550 7623 50  0000 C CNN
+F 2 "" H 6550 7450 50  0001 C CNN
+F 3 "~" H 6550 7450 50  0001 C CNN
+	1    6550 7450
+	-1   0    0    1   
+$EndComp
+Text Label 4850 4950 0    50   ~ 0
+DATA
+Text Label 4850 4750 0    50   ~ 0
+CLOCK
+$Comp
+L power:GND #PWR0102
+U 1 1 5F4D0A99
+P 6150 7450
+F 0 "#PWR0102" H 6150 7200 50  0001 C CNN
+F 1 "GND" H 6155 7277 50  0000 C CNN
+F 2 "" H 6150 7450 50  0001 C CNN
+F 3 "" H 6150 7450 50  0001 C CNN
+	1    6150 7450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J2
+U 1 1 5F4DF77C
+P 4650 7300
+F 0 "J2" H 4570 7517 50  0000 C CNN
+F 1 "POWER_B" H 4570 7426 50  0000 C CNN
+F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 4650 7300 50  0001 C CNN
+F 3 "~" H 4650 7300 50  0001 C CNN
+	1    4650 7300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Barrel_Jack J1
+U 1 1 5F4DF88A
+P 4800 6700
+F 0 "J1" H 4855 7025 50  0000 C CNN
+F 1 "POWER_A" H 4855 6934 50  0000 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 4850 6660 50  0001 C CNN
+F 3 "~" H 4850 6660 50  0001 C CNN
+	1    4800 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Diode:1N5819 D1
+U 1 1 5F4E4812
+P 5550 6600
+F 0 "D1" H 5550 6816 50  0000 C CNN
+F 1 "1N5819" H 5550 6725 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 5550 6425 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 5550 6600 50  0001 C CNN
+	1    5550 6600
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 6600 5300 6600
+Wire Wire Line
+	5100 6800 5200 6800
+Wire Wire Line
+	5200 6800 5200 7300
+$Comp
+L power:GND #PWR0103
+U 1 1 5F4F41D4
+P 5200 7450
+F 0 "#PWR0103" H 5200 7200 50  0001 C CNN
+F 1 "GND" H 5205 7277 50  0000 C CNN
+F 2 "" H 5200 7450 50  0001 C CNN
+F 3 "" H 5200 7450 50  0001 C CNN
+	1    5200 7450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 7300 5200 7300
+Connection ~ 5200 7300
+Wire Wire Line
+	5200 7300 5200 7450
+Wire Wire Line
+	4850 7200 5300 7200
+Wire Wire Line
+	5300 7200 5300 6600
+Connection ~ 5300 6600
+Wire Wire Line
+	5300 6600 5400 6600
+$Comp
+L power:PWR_FLAG #FLG0102
+U 1 1 5F5EFD36
+P 6150 6550
+F 0 "#FLG0102" H 6150 6625 50  0001 C CNN
+F 1 "PWR_FLAG" H 6150 6723 50  0000 C CNN
+F 2 "" H 6150 6550 50  0001 C CNN
+F 3 "~" H 6150 6550 50  0001 C CNN
+	1    6150 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 6550 6150 6600
+Connection ~ 6150 6600
+$Comp
+L Device:R_US R1
+U 1 1 5F6535F2
+P 6350 2550
+F 0 "R1" V 6450 2550 50  0000 C CNN
+F 1 "10k" V 6550 2550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6390 2540 50  0001 C CNN
+F 3 "~" H 6350 2550 50  0001 C CNN
+	1    6350 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 5F6535F9
+P 6700 2600
+F 0 "#PWR0104" H 6700 2350 50  0001 C CNN
+F 1 "GND" H 6705 2427 50  0000 C CNN
+F 2 "" H 6700 2600 50  0001 C CNN
+F 3 "" H 6700 2600 50  0001 C CNN
+	1    6700 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 2500 6700 2550
+Wire Wire Line
+	6700 2550 6500 2550
+Connection ~ 6700 2550
+Wire Wire Line
+	6700 2550 6700 2600
+Wire Wire Line
+	6400 2400 6100 2400
+Wire Wire Line
+	6200 2550 6100 2550
+Wire Wire Line
+	6100 2550 6100 2400
+Connection ~ 6100 2400
+Wire Wire Line
+	6700 2100 6700 2000
+Wire Wire Line
+	6700 2000 6900 2000
+$Comp
+L Device:R_US R2
+U 1 1 5F657E37
+P 6350 3900
+F 0 "R2" V 6450 3900 50  0000 C CNN
+F 1 "10k" V 6550 3900 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6390 3890 50  0001 C CNN
+F 3 "~" H 6350 3900 50  0001 C CNN
+	1    6350 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0105
+U 1 1 5F657E3E
+P 6700 3950
+F 0 "#PWR0105" H 6700 3700 50  0001 C CNN
+F 1 "GND" H 6705 3777 50  0000 C CNN
+F 2 "" H 6700 3950 50  0001 C CNN
+F 3 "" H 6700 3950 50  0001 C CNN
+	1    6700 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3850 6700 3900
+Wire Wire Line
+	6700 3900 6500 3900
+Connection ~ 6700 3900
+Wire Wire Line
+	6700 3900 6700 3950
+Wire Wire Line
+	6400 3750 6100 3750
+Wire Wire Line
+	6200 3900 6100 3900
+Wire Wire Line
+	6100 3900 6100 3750
+Wire Wire Line
+	6700 3450 6700 3350
+Wire Wire Line
+	6700 3350 6900 3350
+Wire Wire Line
+	4850 4850 5150 4850
+Wire Wire Line
+	6150 7450 6150 7350
+Wire Wire Line
+	6150 7350 6550 7350
+Wire Wire Line
+	6550 6600 6550 6550
+Wire Wire Line
+	6150 6600 6550 6600
+Wire Wire Line
+	5150 5150 5150 4850
+$Comp
+L Connector_Generic:Conn_01x03 J4
+U 1 1 5F615187
+P 7250 4850
+F 0 "J4" H 7330 4892 50  0000 L CNN
+F 1 "Output" H 7330 4801 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 7250 4850 50  0001 C CNN
+F 3 "~" H 7250 4850 50  0001 C CNN
+	1    7250 4850
+	1    0    0    -1  
+$EndComp
+Text Label 7050 4950 2    50   ~ 0
+DATA
+Text Label 7050 4750 2    50   ~ 0
+CLOCK
+Wire Wire Line
+	7050 4850 6750 4850
+Wire Wire Line
+	4850 4950 6100 4950
+Wire Wire Line
+	6750 4850 6750 5150
+$Comp
+L power:GND #PWR0107
+U 1 1 5F61744A
+P 6750 5150
+F 0 "#PWR0107" H 6750 4900 50  0001 C CNN
+F 1 "GND" H 6755 4977 50  0000 C CNN
+F 2 "" H 6750 5150 50  0001 C CNN
+F 3 "" H 6750 5150 50  0001 C CNN
+	1    6750 5150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 2400 6100 2400
+Wire Wire Line
+	6100 3900 6100 4950
+Connection ~ 6100 3900
+Connection ~ 6100 4950
+Wire Wire Line
+	6100 4950 7050 4950
+$Comp
+L Connector:Screw_Terminal_01x02 J6
+U 1 1 5F61B235
+P 7950 3350
+F 0 "J6" H 8030 3342 50  0000 L CNN
+F 1 "Data" H 8030 3251 50  0000 L CNN
+F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 7950 3350 50  0001 C CNN
+F 3 "~" H 7950 3350 50  0001 C CNN
+	1    7950 3350
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	7750 1900 7650 1900
+Wire Wire Line
+	7650 1900 7650 1800
+Wire Wire Line
+	7750 3250 7650 3250
+Wire Wire Line
+	7650 3250 7650 3150
+Wire Wire Line
+	6550 7450 6550 7350
+$Comp
+L Device:R_US R3
+U 1 1 5F61D682
+P 7150 2000
+F 0 "R3" V 7350 2000 50  0000 C CNN
+F 1 "R?" V 7250 2000 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0411_L9.9mm_D3.6mm_P15.24mm_Horizontal" V 7190 1990 50  0001 C CNN
+F 3 "~" H 7150 2000 50  0001 C CNN
+	1    7150 2000
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	6900 1700 6900 2000
+Connection ~ 6900 2000
+Wire Wire Line
+	7400 1700 7400 2000
+Connection ~ 7400 2000
+Wire Wire Line
+	7400 2000 7750 2000
+$Comp
+L Device:R_US R4
+U 1 1 5F61F425
+P 7150 3350
+F 0 "R4" V 7350 3350 50  0000 C CNN
+F 1 "R?" V 7250 3350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0411_L9.9mm_D3.6mm_P15.24mm_Horizontal" V 7190 3340 50  0001 C CNN
+F 3 "~" H 7150 3350 50  0001 C CNN
+	1    7150 3350
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	7400 3050 7400 3350
+Connection ~ 7400 3350
+Wire Wire Line
+	7400 3350 7750 3350
+Wire Wire Line
+	6900 3050 6900 3350
+Connection ~ 6900 3350
+Wire Wire Line
+	4850 4750 5800 4750
+Wire Wire Line
+	5800 2400 5800 4750
+Connection ~ 5800 4750
+Wire Wire Line
+	5800 4750 7050 4750
+Wire Wire Line
+	5700 6600 6150 6600
+$Comp
+L Mechanical:MountingHole MH1
+U 1 1 5F62CEA2
+P 3750 6700
+F 0 "MH1" H 3850 6746 50  0000 L CNN
+F 1 "MountingHole" H 3850 6655 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 3750 6700 50  0001 C CNN
+F 3 "~" H 3750 6700 50  0001 C CNN
+	1    3750 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH2
+U 1 1 5F62CF32
+P 3750 6950
+F 0 "MH2" H 3850 6996 50  0000 L CNN
+F 1 "MountingHole" H 3850 6905 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 3750 6950 50  0001 C CNN
+F 3 "~" H 3750 6950 50  0001 C CNN
+	1    3750 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH3
+U 1 1 5F62CF6A
+P 3750 7200
+F 0 "MH3" H 3850 7246 50  0000 L CNN
+F 1 "MountingHole" H 3850 7155 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 3750 7200 50  0001 C CNN
+F 3 "~" H 3750 7200 50  0001 C CNN
+	1    3750 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH4
+U 1 1 5F62CFA4
+P 3750 7450
+F 0 "MH4" H 3850 7496 50  0000 L CNN
+F 1 "MountingHole" H 3850 7405 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 3750 7450 50  0001 C CNN
+F 3 "~" H 3750 7450 50  0001 C CNN
+	1    3750 7450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 2000 7000 2000
+Wire Wire Line
+	6900 3350 7000 3350
+Text Notes 6900 1650 0    50   ~ 0
+Cut trace to\nuse resistor
+Text Notes 6950 3000 0    50   ~ 0
+Cut trace to\nuse resistor
+$Comp
+L Graphic:Logo_Open_Hardware_Small #LOGO1
+U 1 1 5F637DE7
+P 10900 6850
+F 0 "#LOGO1" H 10900 7125 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Small" H 10900 6625 50  0001 C CNN
+F 2 "Aesthetics:OSHW-LOGO-S" H 10900 7144 50  0001 C CNN
+F 3 "~" H 10900 6850 50  0001 C CNN
+	1    10900 6850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7300 3350 7400 3350
+Wire Wire Line
+	7300 2000 7400 2000
+Wire Wire Line
+	6900 1700 7400 1700
+Wire Wire Line
+	6900 3050 7400 3050
+$Comp
+L Graphic:Logo_Open_Hardware_Small #LOGO2
+U 1 1 5F63D8C9
+P 10900 6850
+F 0 "#LOGO2" H 10900 7125 50  0001 C CNN
+F 1 "Logo_Open_Hardware_Small" H 10900 6625 50  0001 C CNN
+F 2 "Aesthetics:OSHW-LOGO-S" H 10900 7144 50  0001 C CNN
+F 3 "~" H 10900 6850 50  0001 C CNN
+	1    10900 6850
+	1    0    0    -1  
+$EndComp
+$Comp
+L SparkFun-DiscreteSemi:MOSFET-NCH-FQP30N06L Q2
+U 1 1 5F63E22E
+P 6600 3650
+F 0 "Q2" H 6765 3692 45  0000 L CNN
+F 1 "FQP30N06L" H 6765 3608 45  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 6600 3900 20  0001 C CNN
+F 3 "" H 6600 3650 50  0001 C CNN
+F 4 "TRANS-10060" H 6765 3566 60  0001 L CNN "Field4"
+	1    6600 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SparkFun-DiscreteSemi:MOSFET-NCH-FQP30N06L Q1
+U 1 1 5F640FDC
+P 6600 2300
+F 0 "Q1" H 6765 2342 45  0000 L CNN
+F 1 "FQP30N06L" H 6765 2258 45  0000 L CNN
+F 2 "TO220V" H 6600 2550 20  0001 C CNN
+F 3 "" H 6600 2300 50  0001 C CNN
+F 4 "TRANS-10060" H 6765 2216 60  0001 L CNN "Field4"
+	1    6600 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+VDC #PWR0106
+U 1 1 5F6D48B2
+P 6550 6550
+F 0 "#PWR0106" H 6550 6450 50  0001 C CNN
+F 1 "+VDC" H 6550 6825 50  0000 C CNN
+F 2 "" H 6550 6550 50  0001 C CNN
+F 3 "" H 6550 6550 50  0001 C CNN
+	1    6550 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+VDC #PWR0108
+U 1 1 5F6D4968
+P 7650 3150
+F 0 "#PWR0108" H 7650 3050 50  0001 C CNN
+F 1 "+VDC" H 7650 3425 50  0000 C CNN
+F 2 "" H 7650 3150 50  0001 C CNN
+F 3 "" H 7650 3150 50  0001 C CNN
+	1    7650 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+VDC #PWR0109
+U 1 1 5F6D4A8E
+P 7650 1800
+F 0 "#PWR0109" H 7650 1700 50  0001 C CNN
+F 1 "+VDC" H 7650 2075 50  0000 C CNN
+F 2 "" H 7650 1800 50  0001 C CNN
+F 3 "" H 7650 1800 50  0001 C CNN
+	1    7650 1800
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
