@@ -14,4 +14,4 @@ Additionally, you'll need some parts from the common parts lists as well. You ca
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-RX1](https://oshpark.com/shared_projects/IDtKKv4v).
+- [DMX-RX1 1.0](https://oshpark.com/shared_projects/IDtKKv4v).
