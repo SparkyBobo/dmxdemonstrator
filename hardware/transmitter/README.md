@@ -15,3 +15,8 @@ Additionally, you'll need some parts from the common parts lists as well. You ca
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
 - [DMX-TX1](https://oshpark.com/shared_projects/dOW0ooLv).
+
+Note: The rotary potentiometer offered by sparkfun stands a total of 30mm from the board. It's a little tall but perfectly functional, not to mention the sell everything else. However, you can opt for a short potentiometer, the Bourns PTV09A-4020F-B103 is a great choice:
+- [DataSheet](https://www.bourns.com/docs/Product-Datasheets/PTV09.pdf)
+- [Digikey PTV09A-4020F-B103-ND](https://www.digikey.com/products/en?keywords=PTV09A-4020F-B103)
+- [Mouser 652-PTV09A-4020FB103](https://www.mouser.com/ProductDetail/Bourns/PTV09A-4020F-B103?qs=Qzws7J6gxqx9VaKCiVoniw%3D%3D)
