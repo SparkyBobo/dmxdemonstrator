@@ -19,4 +19,4 @@ Note: The rotary potentiometer offered by sparkfun stands a total of 30mm from t
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-TX1](https://oshpark.com/shared_projects/dOW0ooLv)
+- [DMX-TX1 1.0](https://oshpark.com/shared_projects/dOW0ooLv)
