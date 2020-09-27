@@ -13,7 +13,7 @@
   (title_block
     (title "DMX Demonstrator - Control-Pro Faceplate (DMX-CPF)")
     (date 2020-09-15)
-    (rev 1.0)
+    (rev 1.1)
     (company "Crazy Giraffe Software")
     (comment 2 "Designed by: SparkyBobo")
     (comment 3 https://creativecommons.org/licenses/by-sa/4.0/)
@@ -172,7 +172,7 @@
     (pad "" np_thru_hole circle (at 0 0) (size 6.2 6.2) (drill 6.2) (layers *.Cu *.Mask))
   )
 
-  (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 5F6FAEFE) (tstamp 5F71D0FD)
+  (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 5F70FC15) (tstamp 5F71D0FD)
     (at 184.25 100)
     (descr "Mounting Hole 3.2mm, no annular, M3")
     (tags "mounting hole 3.2mm no annular m3")
@@ -192,7 +192,7 @@
     (pad "" np_thru_hole oval (at 0 0.5) (size 2.6 60) (drill oval 2.6 60) (layers *.Cu *.Mask))
   )
 
-  (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 5F6FAF07) (tstamp 5F71D0F5)
+  (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 5F70FC95) (tstamp 5F71D0F5)
     (at 154 94.25)
     (descr "Mounting Hole 3.2mm, no annular, M3")
     (tags "mounting hole 3.2mm no annular m3")
@@ -209,10 +209,10 @@
     )
     (fp_circle (center 0 0) (end 3.2 0) (layer Cmts.User) (width 0.15))
     (fp_circle (center 0 0) (end 3.45 0) (layer F.CrtYd) (width 0.05))
-    (pad "" np_thru_hole oval (at 0 6.25) (size 2.6 60) (drill oval 2 60) (layers *.Cu *.Mask))
+    (pad "" np_thru_hole oval (at 0 6.25) (size 2.6 60) (drill oval 2.6 60) (layers *.Cu *.Mask))
   )
 
-  (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 5F6FAF19) (tstamp 5F71D203)
+  (module MountingHole:MountingHole_3.2mm_M3 (layer F.Cu) (tedit 5F70FBBC) (tstamp 5F71D203)
     (at 124 94.25)
     (descr "Mounting Hole 3.2mm, no annular, M3")
     (tags "mounting hole 3.2mm no annular m3")
@@ -2452,7 +2452,7 @@
   (gr_text Clock (at 214 78) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
-  (gr_text "DMX-CPF, Rev 1.0\nCrazy Giraffe Software" (at 240.75 72.25 90) (layer B.SilkS)
+  (gr_text "DMX-CPF, Rev 1.1\nCrazy Giraffe Software" (at 240.75 72.25 90) (layer B.SilkS)
     (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
   )
   (gr_text Fast (at 204 80.25) (layer F.SilkS)
