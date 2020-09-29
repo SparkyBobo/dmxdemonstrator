@@ -14,8 +14,8 @@ Sparkfun offers some, but not all, of the components required for the control-pr
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [Control: DMX-CPB 1.0](https://oshpark.com/shared_projects/JQNIThBR).
-- [Faceplate: DMX-CPF 1.1](https://oshpark.com/shared_projects/rXztu83J)
+- [Control: DMX-CPB 1.0](https://oshpark.com/shared_projects/FsiFJvO2).
+- [Faceplate: DMX-CPF 1.1](https://oshpark.com/shared_projects/MJkV3Dfu)
 - [Transmitter: DMX-TX2 1.0](https://oshpark.com/shared_projects/5JnCfRjj)
 
 ## Parts

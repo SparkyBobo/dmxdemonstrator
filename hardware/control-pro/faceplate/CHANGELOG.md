@@ -5,6 +5,7 @@
 ### 1.1
 
 Removed copper from 3rd slider slot by enlarging slot width.
+Added rounded corners.
 
 ### 1.0
 
