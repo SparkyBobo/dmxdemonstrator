@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Control-Pro (DMX-CPB)"
 Date "2020-09-25"
-Rev "1.0"
+Rev "1.1"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
