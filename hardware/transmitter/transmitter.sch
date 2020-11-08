@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Transmitter (DMX-TX1)"
-Date "2020-09-25"
-Rev "1.0"
+Date "2020-11-07"
+Rev "1.1"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -20,7 +20,7 @@ U 1 1 5F3035A0
 P 6200 3350
 F 0 "A1" H 6000 4400 50  0000 C CNN
 F 1 "Arduino_UNO_R3" H 5750 4300 50  0000 C CNN
-F 2 "Module:Arduino_UNO_R3" H 6350 2300 50  0001 L CNN
+F 2 "footprints:ARDUINO_R3_NO_HOLES" H 6350 2300 50  0001 L CNN
 F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 6000 4400 50  0001 C CNN
 	1    6200 3350
 	-1   0    0    -1  
@@ -539,7 +539,7 @@ F 2 "Resistors:POT-PTH-ALPS" V 4700 4900 20  0001 C CNN
 F 3 "" H 4850 4900 60  0001 C CNN
 F 4 "RES-09177" H 4782 4816 60  0001 R CNN "Field4"
 	1    4850 4900
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L SparkFun-Resistors:POTENTIOMETER_SLIDE-20MM-1_10W-20% VR1
@@ -551,7 +551,7 @@ F 2 "Resistors:SLIDER-SMALL" V 4750 2300 20  0001 C CNN
 F 3 "" H 4900 2300 60  0001 C CNN
 F 4 "RES-11924" H 4832 2216 60  0001 R CNN "Field4"
 	1    4900 2300
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L SparkFun-Switches:MOMENTARY-SWITCH-SPST-PTH-12MM S1
