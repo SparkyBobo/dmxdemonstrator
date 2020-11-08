@@ -16,4 +16,14 @@ If you plan to use something else for the display, you can leave out the Big Dom
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-DSP 1.0](https://oshpark.com/shared_projects/xJNV8qwc).
+- [DMX-DSP, Rev 1.1](https://oshpark.com/shared_projects/8XSYAJun).
+
+## Version History
+
+### Rev 1.1
+
+- Added rounded corners
+
+### Rev 1.0
+
+- Initial draft
