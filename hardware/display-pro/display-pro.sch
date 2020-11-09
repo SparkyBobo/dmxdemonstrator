@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Display-Pro (DMX-DSP)"
-Date "2020-09-14"
-Rev "1.0"
+Date "2020-11-08"
+Rev "1.2"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -76,24 +76,13 @@ $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J2
 U 1 1 5F4DF77C
-P 4650 7300
-F 0 "J2" H 4570 7517 50  0000 C CNN
-F 1 "POWER_B" H 4570 7426 50  0000 C CNN
-F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 4650 7300 50  0001 C CNN
-F 3 "~" H 4650 7300 50  0001 C CNN
-	1    4650 7300
+P 4900 6700
+F 0 "J2" H 4800 6400 50  0000 C CNN
+F 1 "POWER" H 4800 6500 50  0000 C CNN
+F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 4900 6700 50  0001 C CNN
+F 3 "~" H 4900 6700 50  0001 C CNN
+	1    4900 6700
 	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Barrel_Jack J1
-U 1 1 5F4DF88A
-P 4800 6700
-F 0 "J1" H 4855 7025 50  0000 C CNN
-F 1 "POWER_A" H 4855 6934 50  0000 C CNN
-F 2 "Connector_BarrelJack:BarrelJack_CUI_PJ-063AH_Horizontal" H 4850 6660 50  0001 C CNN
-F 3 "~" H 4850 6660 50  0001 C CNN
-	1    4800 6700
-	1    0    0    -1  
 $EndComp
 $Comp
 L Diode:1N5819 D1
@@ -107,11 +96,7 @@ F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 5550 6600 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	5100 6600 5300 6600
-Wire Wire Line
-	5100 6800 5200 6800
-Wire Wire Line
-	5200 6800 5200 7300
+	5100 6700 5200 6700
 $Comp
 L power:GND #PWR0103
 U 1 1 5F4F41D4
@@ -123,18 +108,6 @@ F 3 "" H 5200 7450 50  0001 C CNN
 	1    5200 7450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4850 7300 5200 7300
-Connection ~ 5200 7300
-Wire Wire Line
-	5200 7300 5200 7450
-Wire Wire Line
-	4850 7200 5300 7200
-Wire Wire Line
-	5300 7200 5300 6600
-Connection ~ 5300 6600
-Wire Wire Line
-	5300 6600 5400 6600
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 5F5EFD36
@@ -448,7 +421,7 @@ U 1 1 5F640FDC
 P 6600 2300
 F 0 "Q1" H 6765 2342 45  0000 L CNN
 F 1 "FQP30N06L" H 6765 2258 45  0000 L CNN
-F 2 "TO220V" H 6600 2550 20  0001 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 6600 2550 20  0001 C CNN
 F 3 "" H 6600 2300 50  0001 C CNN
 F 4 "TRANS-10060" H 6765 2216 60  0001 L CNN "Field4"
 	1    6600 2300
@@ -487,4 +460,8 @@ F 3 "" H 7650 1800 50  0001 C CNN
 	1    7650 1800
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5100 6600 5400 6600
+Wire Wire Line
+	5200 6700 5200 7450
 $EndSCHEMATC
