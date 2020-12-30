@@ -147,7 +147,7 @@ const char dataMarkFormat[] PROGMEM = "Mark (%d)";
 const char frameMarkMessage[] PROGMEM = "Mark between Frames";
 const char endFrameMessage[] PROGMEM = "End of Frame";
 
-const char invalidFrameStepFormat[] PROGMEM = "Invalid frame number: %d";
+const char invalidFrameStepFormat[] PROGMEM = "Invalid frame step: %d";
 const char frameStepFormat[] PROGMEM = "Step: %2d\t";
 const char dataOutBitFormat[] PROGMEM = "Data: %d\t\t";
 const char dimmerDataFormat[] PROGMEM = ", level: %3dd, %02Xh, %d%d%d%d%d%d%d%db";
