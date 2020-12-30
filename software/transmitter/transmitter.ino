@@ -276,6 +276,9 @@ char serialPortFormat[100];
 char serialPortArgument[50];
 char serialPortMessage[255];
 
+bool compactStatus = LOW;
+bool verboseStatus = LOW;
+
 /**
  * The serial responses and help menu.
  */
@@ -283,6 +286,12 @@ const char newlineMessage[] PROGMEM = "\r\n";
 const char startUpMessage[] PROGMEM = "DMX Demonstrator Transmitter starting up...\r\n";
 const char readyMessage[] PROGMEM = "DMX Demonstrator Transmitter ready!\r\n";
 const char versionFormat[] PROGMEM = "DMX Demonstrator Transmitter Version %s\r\n";
+
+const char compactStatusFormat[] PROGMEM = "Compact Status: %s\r\n";
+const char verboseStatusFormat[] PROGMEM = "Verbose Status: %s\r\n";
+const char statusOffMessage[] PROGMEM = "Off";
+const char statusOnMessage[] PROGMEM = "On";
+const char* const statusMessages[] PROGMEM = { statusOffMessage, statusOnMessage, };
 
 const char helpTitle[] PROGMEM = "Help:\r\n";
 const char helpClockTitle[] PROGMEM = "Clock modes:\r\n";
@@ -298,8 +307,9 @@ const char helpDimmer2[] PROGMEM = "  2: Set dimmer select: 2\r\n";
 const char helpDimmer3[] PROGMEM = "  3: Set dimmer select: 3\r\n";
 const char helpDimmer4[] PROGMEM = "  4: Set dimmer select: 4\r\n";
 const char helpInfoTitle[] PROGMEM = "Info:\r\n";
-const char helpInfo[] PROGMEM = "  i: Display info\r\n";
-const char helpVersion[] PROGMEM = "  v: Display version\r\n";
+const char helpCompact[] PROGMEM = "  m: Toggle sending compact status\r\n";
+const char helpVerbose[] PROGMEM = "  v: Toggle sending verbose status\r\n";
+const char helpInfo[] PROGMEM = "  i: Display program info\r\n";
 
 /**
  * Setup
@@ -678,6 +688,38 @@ void InitializeClockTimer(int mode, int clockValue) {
  */
 void SendStatus() {
 
+  static bool previousCompactStatus = LOW;
+  if (previousCompactStatus != compactStatus) {
+    SendProgmemStringArrayFormat(compactStatusFormat, statusMessages, compactStatus);
+    previousCompactStatus = compactStatus;
+  }
+
+  static bool previousVerboseStatus = LOW;
+  if (previousVerboseStatus != verboseStatus) {
+    SendProgmemStringArrayFormat(verboseStatusFormat, statusMessages, verboseStatus);
+    previousVerboseStatus = verboseStatus;
+  }
+
+  if (compactStatus) {
+    SendCompactStatus();
+  }
+
+  if (verboseStatus) {
+    SendVerboseStatus();
+  }
+}
+
+/**
+ * Send the compact status of the transmitter to the serial port.
+ */
+void SendCompactStatus() {
+}
+
+/**
+ * Send the verbose status of the transmitter to the serial port.
+ */
+void SendVerboseStatus() {
+
   // Only send on changes.
   static int previousClockMode = -1;
   if (previousClockMode != currentClockMode) {
@@ -702,8 +744,7 @@ void SendStatus() {
       return;
     }
 
-    // Don't send details status in fast mode; it's just too much text
-    // and slows down the transmitter clock rate.
+    // Don't send details status in fast mode; it's just too much text.
     if (currentClockMode == clockModeFast) {
       return;
     }
@@ -791,8 +832,12 @@ int HandleReceivedChar(char receivedChar) {
       SelectDimmer(3);
       break;
 
+    case 'm':
+      compactStatus = !compactStatus;
+      break;
+
     case 'v':
-      SendProgmemStringFormat(versionFormat, _VERSION_);
+      verboseStatus = !verboseStatus;
       break;
 
     case 'i':
@@ -800,29 +845,32 @@ int HandleReceivedChar(char receivedChar) {
       SendProgmemStringArrayFormat(hardwareDetectFormat, hardwareDetectMessages, usingControlPro);
       SendProgmemStringArrayFormat(setClockResponseFormat, clockModeMessages, currentClockMode);
       SendProgmemIntFormat(setDimmerResponseFormat, currentSelectedDimmer+1);
+      SendProgmemStringArrayFormat(compactStatusFormat, statusMessages, compactStatus);
+      SendProgmemStringArrayFormat(verboseStatusFormat, statusMessages, verboseStatus);
       break;
 
     case '?':
       SendProgmemMessage(helpTitle);
-      Serial.println();
+      SendProgmemMessage(newlineMessage);
       SendProgmemMessage(helpClockTitle);
       SendProgmemMessage(helpClockToggle);
       SendProgmemMessage(helpClockOff);
       SendProgmemMessage(helpClockFast);
       SendProgmemMessage(helpClockSlow);
       SendProgmemMessage(helpClockStep);
-      Serial.println();
+      SendProgmemMessage(newlineMessage);
       SendProgmemMessage(helpDimmerTitle);
       SendProgmemMessage(helpDimmerToggle);
       SendProgmemMessage(helpDimmer1);
       SendProgmemMessage(helpDimmer2);
       SendProgmemMessage(helpDimmer3);
       SendProgmemMessage(helpDimmer4);
-      Serial.println();
+      SendProgmemMessage(newlineMessage);
       SendProgmemMessage(helpInfoTitle);
+      SendProgmemMessage(helpCompact);
+      SendProgmemMessage(helpVerbose);
       SendProgmemMessage(helpInfo);
-      SendProgmemMessage(helpVersion);
-      Serial.println();
+      SendProgmemMessage(newlineMessage);
       break;
 
     default:
