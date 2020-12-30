@@ -75,13 +75,13 @@ const int frameStateDimmerData = 3;
 const int frameStateMarkAfterData = 4;
 const int frameStateUnexpectedStartCode = 254;
 const int frameStateError = 255;
-const int unknownFrameIndex = 1000;
+const int unknownFrameStep = 1000;
 volatile int nextFrameState = 255;
 volatile int frameState = 255;
 volatile int clockInBit = 0;
 volatile int dataInBit = 0;
 volatile int startCodeMatch = 0;
-volatile int currentFrameIndex = 1000;
+volatile int currentFrameStep = 1000;
 volatile int frameBreakCounter = 0;
 volatile int markCounter = 0;
 volatile int dataCounter = 0;
@@ -242,8 +242,8 @@ void OnClockPulse() {
     // Read the data pin when the clock is high.
     dataInBit = digitalRead(dataInPin);
 
-    // Increment the frame index.
-    currentFrameIndex++;
+    // Increment the frame step.
+    currentFrameStep++;
 
     // Look for frame break, i.e. 22 consecutive "0"s.
     // Similar to the Break Detector.
@@ -251,10 +251,10 @@ void OnClockPulse() {
       frameBreakCounter++;
       if (frameBreakCounter >= 22) {
 
-        // Move to the break received state and set the index
+        // Move to the break received state and set the step
         // to 22, since we've received 22 frame breaks.
         nextFrameState = frameStateBreak;
-        currentFrameIndex = frameBreakCounter;
+        currentFrameStep = frameBreakCounter;
       }
     } else {
       frameBreakCounter = 0;
@@ -298,7 +298,7 @@ void OnClockPulse() {
       dataCounter++;
       if (dataCounter < 0 || dataCounter > 9) {
         nextFrameState = frameStateError;
-        currentFrameIndex = unknownFrameIndex;
+        currentFrameStep = unknownFrameStep;
       }
 
       // 0-7 are data: write dataInBit to the bit indicated by dataCounter into receivedData.
@@ -310,7 +310,7 @@ void OnClockPulse() {
       else if (dataCounter == 8) {
         if (!dataInBit) {
           nextFrameState = frameStateError;
-          currentFrameIndex = unknownFrameIndex;
+          currentFrameStep = unknownFrameStep;
         }
       }
 
@@ -319,7 +319,7 @@ void OnClockPulse() {
       else if (dataCounter == 9) {
         if (!dataInBit) {
           nextFrameState = frameStateError;
-          currentFrameIndex = unknownFrameIndex;
+          currentFrameStep = unknownFrameStep;
         }
 
         // Ensure the capture data matches the expected start code.
@@ -329,7 +329,7 @@ void OnClockPulse() {
             // start code state and wait for a frame break;
             if (expectedStartCode != receivedData) {
               nextFrameState = frameStateUnexpectedStartCode;
-              currentFrameIndex = unknownFrameIndex;
+              currentFrameStep = unknownFrameStep;
             }
 
             // If the start code is expected, wait for the mark after data.
@@ -370,7 +370,7 @@ void OnClockPulse() {
     // Error condition.
     else {
 
-      // Reset the index to an invalid state.
+      // Reset to an invalid state.
       frameState == frameStateError;
     }
   }
@@ -415,14 +415,14 @@ void SendVerboseStatus() {
 
   // Only send on changes. Note that this runs after the data has been processed
   // so report on the state as it was before the data was processed.
-  static int previousFrameIndex = -1;
-  if (previousFrameIndex != currentFrameIndex) {
+  static int previousFrameStep = -1;
+  if (previousFrameStep != currentFrameStep) {
 
     // Display the step number of the frame, then increment the frame step.
-    if (currentFrameIndex >= unknownFrameIndex) {
+    if (currentFrameStep >= unknownFrameStep) {
       SendProgmemMessage(frameStepUnknownMessage);
     } else {
-      SendProgmemIntFormat(frameStepFormat, currentFrameIndex);
+      SendProgmemIntFormat(frameStepFormat, currentFrameStep);
     }
 
     // Display the serial data.
@@ -546,7 +546,7 @@ void SendVerboseStatus() {
     }
 
     // Remember current step.
-    previousFrameIndex = currentFrameIndex;
+    previousFrameStep = currentFrameStep;
   }
 }
 
