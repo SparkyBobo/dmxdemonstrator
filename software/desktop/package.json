@@ -1,0 +1,91 @@
+{
+	"name": "dmx-demonstrator",
+	"productName": "DMX Demonstrator",
+	"version": "0.0.1",
+	"description": "DMX Demonstrator display software",
+	"license": "MIT",
+	"repository": "https://github.com/crazy-giraffe-software/dmxdemonstrator/tree/master/software/desktop",
+	"author": {
+		"name": "SparkyBobo",
+		"email": "sparky@crazygiraffesoftware.net",
+		"url": "http://crazygiraffesoftware.net"
+	},
+	"main": "src/index.js",
+	"scripts": {
+		"postinstall": "electron-builder install-app-deps && npm run rebuild && npm run install-uikit",
+		"rebuild": "npx electron-rebuild && npm run rebuild-serialport",
+		"rebuild-serialport": "npx electron-rebuild -f -w serialport",
+		"install-uikit": "cd ./node_modules/uikit && yarn && cd ../../ && symlink-dir ./node_modules/uikit ./src/assets/uikit",
+		"lint": "xo",
+		"test": "npm run lint",
+		"start": "electron .",
+		"pack": "electron-builder --dir",
+		"dist": "electron-builder --macos --linux --windows",
+		"release": "np"
+	},
+	"dependencies": {
+		"avrgirl-arduino": "^5.0.0",
+		"electron-context-menu": "^0.15.0",
+		"electron-debug": "^3.2.0",
+		"electron-log": "^4.3.1",
+		"electron-notarize": "^1.0.0",
+		"electron-settings": "^4.0.2",
+		"electron-store": "^5.1.0",
+		"electron-unhandled": "^3.0.0",
+		"electron-updater": "^4.0.6",
+		"electron-util": "^0.13.0",
+		"electron-window-state": "^5.0.3",
+		"serialport": "^9.0.4",
+		"tableify": "^1.1.0",
+		"uikit": "^3.6.9",
+		"webpack": "^5.11.1"
+	},
+	"devDependencies": {
+		"electron": "^7.1.1",
+		"electron-builder": "^21.2.0",
+		"electron-rebuild": "^2.3.4",
+		"np": "^6.5.0",
+		"symlink-dir": "^4.1.0",
+		"xo": "^0.33.1",
+		"yarn": "^1.22.10"
+	},
+	"xo": {
+		"envs": [
+			"node",
+			"browser"
+		]
+	},
+	"np": {
+		"publish": false,
+		"releaseDraft": false
+	},
+	"build": {
+		"appId": "net.crazygiraffesoftware.dmx-demonstrator",
+		"mac": {
+			"category": "public.app-category.education",
+			"darkModeSupport": true
+		},
+		"dmg": {
+			"iconSize": 160,
+			"contents": [
+				{
+					"x": 180,
+					"y": 170
+				},
+				{
+					"x": 480,
+					"y": 170,
+					"type": "link",
+					"path": "/Applications"
+				}
+			]
+		},
+		"linux": {
+			"target": [
+				"AppImage",
+				"deb"
+			],
+			"category": "Network;Chat"
+		}
+	}
+}

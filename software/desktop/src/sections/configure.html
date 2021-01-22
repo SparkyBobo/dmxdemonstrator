@@ -1,0 +1,66 @@
+<!--
+ * DMX Demonstrator Configure Page
+ * Copyright (C) 2020 Crazy Giraffe Software
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<template class="task-template">
+    <section id="configure-section" class="section js-section u-category-windows">
+        <header class="section-header">
+            <div class="section-wrapper">
+                <h1>Configure</h1>
+            </div>
+        </header>
+        <div class="uk-section uk-section-default uk-section-xsmall">
+            <div class="uk-container">
+                <div class="uk-flex uk-flex-column">
+                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
+                        <h3 class="uk-card-title">Transmitter</h3>
+                        <form>
+                            <select class="uk-select">
+                                <option>COM6</option>
+                                <option>COM15</option>
+                            </select>
+                        </form>
+                        <p></p>
+                        <img src=".\assets/img/Leonardo.jpg" height="150" width="200"></src>
+                        <div class="uk-card-badge uk-label">Unconfigured</div>
+                    </div>
+                    <hr class="uk-margin-xsmall">
+                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
+                        <h3 class="uk-card-title">Receiver</h3>
+                        <form>
+                            <select class="uk-select">
+                                <option>COM6</option>
+                                <option>COM15</option>
+                            </select>
+                        </form>
+                        <p></p>
+                        <img src=".\assets/img/Uno.jpg" height="150" width="200"></src>
+                        <div class="uk-card-badge uk-label">Unconfigured</div>
+                    </div>
+                    <hr class="uk-margin-xsmall">
+                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
+                        <h3 class="uk-card-title">Ports</h3>
+                        <button class="uk-button uk-button-default">Refresh</button>
+                        <div id="error"></div>
+                        <div id="ports"></div>
+                    </div>
+                    <hr class="uk-margin-xsmall">
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

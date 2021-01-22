@@ -1,0 +1,65 @@
+<!--
+ * DMX Demonstrator Main Page
+ * Copyright (C) 2020 Crazy Giraffe Software
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DMX Demonstrator</title>
+
+    <link rel="stylesheet" href="./assets/css/nativize.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+
+    <link rel="stylesheet" href="./assets/uikit/dist/css/uikit.min.css">
+
+    <link rel="import" href="./sections/configure.html">
+    <link rel="import" href="./sections/demo.html">
+    <link rel="import" href="./sections/getting-started.html">
+    <link rel="import" href="./sections/lecture.html">
+    <link rel="import" href="./sections/settings.html">
+
+</head>
+
+<body>
+
+    <nav class="nav js-nav">
+        <div class="nav-item u-category-windows">
+            <button type="button" id="button-start" data-section="getting-started" class="nav-button">Get Started</em></button>
+            <button type="button" id="button-configure" data-section="configure" class="nav-button">Configure your devices</button>
+            <button type="button" id="button-demo" data-section="demo" class="nav-button">Demonstration</em></button>
+            <button type="button" id="button-lecture" data-section="lecture" class="nav-button">Lecture</em></button>
+        </div>
+
+        <footer class="nav-footer">
+            <button type="button" id="button-settings" data-section="settings"
+                class="nav-footer-button">Settings</button>
+        </footer>
+    </nav>
+
+    <main class="content js-content"></main>
+
+    <script>
+        require('./renderer.js')
+        require('./assets/uikit/dist/js/uikit.min.js')
+        require('./assets/uikit/dist/js/uikit-icons.min.js')
+    </script>
+</body>
+
+</html>
