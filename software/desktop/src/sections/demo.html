@@ -17,40 +17,115 @@
  *
 -->
 <template class="task-template">
-    <section id="demo-section" class="section js-section u-category-windows">
-        <header class="section-header">
-            <div class="section-wrapper">
-                <h1>
-                    Demo
-                </h1>
-            </div>
-        </header>
-        <div class="uk-section uk-section-default uk-section-xsmall">
+    <section id="demo-section" class="section js-section">
+        <div class="uk-section uk-section-default uk-section-xsmall uk-padding-remove-top">
             <div class="uk-container">
-                <div class="uk-flex uk-flex-row">
-                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
-                        <h3 class="uk-card-title">Transmitter</h3>
-                        <form>
-                            <select class="uk-select">
-                                <option>COM6</option>
-                                <option>COM15</option>
-                            </select>
-                        </form>
-                        <p></p>
-                        <img src=".\assets/img/Leonardo.jpg" height="150" width="200"></src>
-                        <div class="uk-card-badge uk-label">Step: 1</div>
+                <div class="uk-flex uk-flex-column">
+                    <div id="id-demo-tx" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Transmitter</h3>
+                        <div class="uk-card-badge uk-label">Step: <div id="id-demo-tx-step" class="uk-display-inline">1</div></div>
+                        <div class="uk-card-body uk-padding-small">
+                            <div class="uk-flex uk-flex-row uk-text-center">
+                                <div
+                                    class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 id="id-demo-tx-board" class="uk-card-title">DMX-TX1</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <img id="id-demo-tx-board-img" src=".\assets\img\shield-tx1.png" height="220" width="300" />
+                                    </div>
+                                </div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Dimmers</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-tx-dim-0" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-tx-dim-1" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-tx-dim-2" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-tx-dim-3" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Controls</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <div class="uk-flex uk-flex-column uk-flex-left uk-text-center">
+                                            <button id="id-demo-tx-dim-select" class="uk-button uk-button-primary uk-margin-small">Dimmer Select</button>
+                                            <button id="id-demo-tx-clk-mode" class="uk-button uk-button-primary uk-margin-small">Clock Mode</button>
+                                            <button id="id-demo-tx-clk-step" class="uk-button uk-button-primary uk-margin-small">Clock Step</button>
+                                            <button id="id-demo-tx-out-toggle" class="uk-button uk-button-primary uk-margin-small" uk-toggle="target: #id-demo-tx-output">Show Output</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="id-demo-tx-output" class="uk-card-footer uk-padding-small" hidden>
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">Output</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <textarea id="id-demo-tx-out-text" class="uk-textarea uk-width-1-1" rows="2" spellcheck="false"
+                                        data-ms-editor="true"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
-                        <h3 class="uk-card-title">Receiver</h3>
-                        <form>
-                            <select class="uk-select">
-                                <option>COM6</option>
-                                <option>COM15</option>
-                            </select>
-                        </form>
-                        <p></p>
-                        <img src=".\assets/img/Uno.jpg" height="150" width="200"></src>
-                        <div class="uk-card-badge uk-label">Step: 1</div>
+                    <hr class="uk-margin-xsmall">
+                    <div id="id-demo-rx" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Receiver</h3>
+                        <div class="uk-card-badge uk-label">Step: <div id="id-demo-rx-step" class="uk-display-inline">1</div></div>
+                        <div class="uk-card-body uk-padding-small">
+                            <div class="uk-flex uk-flex-row uk-text-center">
+                                <div
+                                    class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 id="id-demo-rx-board" class="uk-card-title">DMX-RX1</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <img id="id-demo-rx-board-img"  src=".\assets\img\shield-rx1.png" height="220" width="300" />
+                                    </div>
+                                </div>
+                                <div class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Dimmers</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-rx-dim-0" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-rx-dim-1" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-rx-dim-2" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                        <div class="slider-wrapper">
+                                            <input id="id-demo-rx-dim-3" class="uk-range" type="range" min="0" max="255" value="7" step="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Status</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <div class="uk-flex uk-flex-column uk-text-center">
+                                            <button id="id-demo-rx-start-code" class="uk-button uk-button-primary uk-margin-small">Start Code Match</button>
+                                            <button id="id-demo-rx-error" class="uk-button uk-button-primary uk-margin-small">Error</button>
+                                            <button id="id-demo-rx-out-toggle" class="uk-button uk-button-primary uk-margin-small" uk-toggle="target: #id-demo-rx-output">Show Output</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="id-demo-rx-output" class="uk-card-footer uk-padding-small" hidden>
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">Output</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <textarea id="id-demo-rx-out-text" class="uk-textarea uk-width-1-1" rows="2" spellcheck="false"
+                                        data-ms-editor="true"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

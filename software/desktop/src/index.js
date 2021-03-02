@@ -1,20 +1,28 @@
 /**
+ * @file Main Application Entry Point.
+ * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
+ * @license Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+'use strict';
+
+/**
  * @file Main Application.
  * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
  * @license Licensed under the MIT License. See License.txt in the project root for license information.
  */
 'use strict';
 
-const path = require('path');
-const {app, session, ipcMain, BrowserWindow, Menu} = require('electron');
-const {autoUpdater} = require('electron-updater');
+const {app, BrowserWindow, Menu} = require('electron');
 const {is, centerWindow, enforceMacOSAppLocation, isFirstAppLaunch, setContentSecurityPolicy} = require('electron-util');
+const path = require('path');
+const {autoUpdater} = require('electron-updater');
 const windowStateKeeper = require('electron-window-state');
 const unhandled = require('electron-unhandled');
 const debug = require('electron-debug');
 const contextMenu = require('electron-context-menu');
 const config = require('./main-process/config');
 const menu = require('./main-process/menu');
+require('./main-process/boards');
 
 // Enable the unhandled exception handler, debug options, and context menus.
 unhandled();
@@ -57,12 +65,6 @@ const createMainWindow = async () => {
         'height': mainWindowState.height,
         webPreferences: {
             nodeIntegration: true
-        // webPreferences: {
-        //     nodeIntegration: true, // is default value after Electron v5
-        //     sandbox : false,
-        //     webSecurity : false,
-        //     contextIsolation: true, // protect against prototype pollution
-        //     enableRemoteModule: true // turn off remote
         }
 	});
 
@@ -72,8 +74,6 @@ const createMainWindow = async () => {
 	});
 
 	win.on('closed', () => {
-		// Dereference the window
-		// For multiple windows store them in an array
 		mainWindow = undefined;
     });
 
@@ -86,19 +86,6 @@ const createMainWindow = async () => {
     await win.loadFile(path.join(__dirname, 'index.html'));
 	return win;
 };
-
-// Set the default security policy.
-// setContentSecurityPolicy(`
-// 	default-src 'none';
-// 	script-src 'self';
-// 	img-src 'self' data:;
-// 	style-src 'self';
-// 	font-src 'self';
-// 	connect-src 'self';
-// 	base-uri 'none';
-// 	form-action 'none';
-// 	frame-ancestors 'none';
-// `);
 
 // Prevent multiple instances of the app
 if (!app.requestSingleInstanceLock()) {

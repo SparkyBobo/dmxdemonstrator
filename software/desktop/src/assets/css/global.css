@@ -8,13 +8,14 @@
 /**
  * Fonts.
  */
+ /**
 @font-face {
     font-family: 'Source Code Pro';
     font-style: normal;
     font-weight: 400;
     src: local('Source Code Pro'), local('SourceCodePro'), url(fonts/SourceCodePro-Regular.ttf) format('truetype');
 }
-
+*/
 /**
  * Colors.
  */
@@ -50,10 +51,16 @@ html {
     /* To cover OSes with no default background color */
 }
 
-body {
+main {
     margin: 0;
     height: 100%;
     display: flex;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    /*display: flex;*/
 }
 
 a {

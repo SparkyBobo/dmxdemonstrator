@@ -23,9 +23,12 @@
     <meta charset="utf-8">
     <title>DMX Demonstrator</title>
 
-    <link rel="stylesheet" href="./assets/css/nativize.css">
-    <link rel="stylesheet" href="./assets/css/global.css">
+    
+    <!--<link rel="stylesheet" href="./assets/css/nativize.css">
+    <link rel="stylesheet" href="./assets/css/global.css">-->
     <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/configure.css">
+    <link rel="stylesheet" href="./assets/css/demo.css">
 
     <link rel="stylesheet" href="./assets/uikit/dist/css/uikit.min.css">
 
@@ -39,22 +42,15 @@
 
 <body>
 
-    <nav class="nav js-nav">
-        <div class="nav-item u-category-windows">
-            <button type="button" id="button-start" data-section="getting-started" class="nav-button">Get Started</em></button>
-            <button type="button" id="button-configure" data-section="configure" class="nav-button">Configure your devices</button>
-            <button type="button" id="button-demo" data-section="demo" class="nav-button">Demonstration</em></button>
-            <button type="button" id="button-lecture" data-section="lecture" class="nav-button">Lecture</em></button>
-        </div>
-
-        <footer class="nav-footer">
-            <button type="button" id="button-settings" data-section="settings"
-                class="nav-footer-button">Settings</button>
-        </footer>
-    </nav>
+    <ul class="uk-margin-top" uk-tab>
+        <li><a href="" id="id-tab-getting-started"data-section="getting-started">Get Started</a></li>
+        <li><a href="" id="id-tab-configure"data-section="configure">Configure</a></li>
+        <li><a href="" id="id-tab-demo"data-section="demo" >Demonstration</a></li>
+        <li><a href="" id="id-tab-lecture"data-section="lecture" >Lecture</a></li>
+        <li><a href="" id="id-tab-settings"data-section="settings">Settings</a></li>
+    </ul>
 
     <main class="content js-content"></main>
-
     <script>
         require('./renderer.js')
         require('./assets/uikit/dist/js/uikit.min.js')

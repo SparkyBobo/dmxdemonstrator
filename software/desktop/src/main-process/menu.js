@@ -1,25 +1,13 @@
 /**
  * @file Menu templates
- * @author Sparky Bobo
  * @copyright Crazy Giraffe Software. All rights reserved.
  * @license Licensed under the MIT License. See License.txt in the project root for license information.
  */
 'use strict';
 
 const path = require('path');
-const {
-    app,
-    Menu,
-    shell
-} = require('electron');
-const {
-    is,
-    appMenu,
-    aboutMenuItem,
-    openUrlMenuItem,
-    openNewGitHubIssue,
-    debugInfo
-} = require('electron-util');
+const { app, Menu, shell } = require('electron');
+const { is, appMenu, aboutMenuItem, openUrlMenuItem, openNewGitHubIssue, debugInfo } = require('electron-util');
 const config = require('./config');
 
 // Add a helpmenu for links to github
@@ -54,7 +42,7 @@ ${debugInfo()}`;
     }
 ];
 
-// Add About to the help sub-menu except on Mac OS
+// Add About to the help sub-menu except on Mac OS.
 if (!is.macos) {
     helpSubmenu.push({
             type: 'separator'
@@ -66,7 +54,7 @@ if (!is.macos) {
     );
 }
 
-// Add a debug menu for easy development
+// Add a debug menu for easy development.
 const debugSubmenu = [{
         label: 'Show Settings',
         click() {
@@ -100,7 +88,7 @@ const debugSubmenu = [{
     }
 ];
 
-// Create main menu for Mac OS
+// Create main menu for Mac OS.
 const macosTemplate = [
     appMenu([{
         label: 'Preferences…',
@@ -137,7 +125,7 @@ const macosTemplate = [
     }
 ];
 
-// Create main menu for Linux and Windows
+// Create main menu for Linux and Windows.
 const otherTemplate = [{
         role: 'fileMenu',
         submenu: [{

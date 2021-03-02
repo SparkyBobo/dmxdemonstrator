@@ -6,64 +6,48 @@
  */
 'use strict';
 
-const settings = require('electron-settings')
+const settings = require('electron-settings');
+
+/**
+ * Hide all content sections and deselect the navigation buttons.
+ */
+function hideAllSections() {
+    const sections = document.querySelectorAll('.section.is-shown')
+    Array.prototype.forEach.call(sections, (section) => {
+        section.classList.remove('is-shown');
+    })
+};
+
+/**
+ * Navigate to a new section.
+ */
+function handleSectionTrigger(event) {
+    hideAllSections();
+
+    // Display the current section
+    const sectionId = `${event.target.dataset.section}-section`;
+    document.getElementById(sectionId).classList.add('is-shown');
+
+    // Save currently active button in localStorage
+    const buttonId = event.target.getAttribute('id');
+    settings.set('activeSectionButtonId', buttonId);
+};
 
 /**
  * Add a button listener for handling navigation.
  */
 document.body.addEventListener('click', (event) => {
     if (event.target.dataset.section) {
-        handleSectionTrigger(event)
+        handleSectionTrigger(event);
     }
-})
-
-/**
- * Navigate to a new section.
- */
-function handleSectionTrigger(event) {
-    hideAllSectionsAndDeselectButtons()
-
-    // Highlight clicked button and show view
-    event.target.classList.add('is-selected')
-
-    // Display the current section
-    const sectionId = `${event.target.dataset.section}-section`
-    document.getElementById(sectionId).classList.add('is-shown')
-
-    // Save currently active button in localStorage
-    const buttonId = event.target.getAttribute('id')
-    settings.set('activeSectionButtonId', buttonId)
-}
+});
 
 /**
  * Activate the default selection.
  */
 function activateDefaultSection() {
-    document.getElementById('button-demo').click()
-}
-
-/**
- * Show the navigation and main content
- */
-function showMainContent() {
-    document.querySelector('.js-nav').classList.add('is-shown')
-    document.querySelector('.js-content').classList.add('is-shown')
-}
-
-/**
- * Hide all content sections and deselect the navigation buttons.
- */
-function hideAllSectionsAndDeselectButtons() {
-    const sections = document.querySelectorAll('.js-section.is-shown')
-    Array.prototype.forEach.call(sections, (section) => {
-        section.classList.remove('is-shown')
-    })
-
-    const buttons = document.querySelectorAll('.nav-button.is-selected')
-    Array.prototype.forEach.call(buttons, (button) => {
-        button.classList.remove('is-selected')
-    })
-}
+    document.getElementById('id-tab-getting-started').click();
+};
 
 /**
  * Load all the templates into the DOM.
@@ -72,24 +56,25 @@ const links = document.querySelectorAll('link[rel="import"]')
 
 // Import and add each page to the DOM
 Array.prototype.forEach.call(links, (link) => {
-    let template = link.import.querySelector('.task-template')
-    let clone = document.importNode(template.content, true)
-    document.querySelector('.content').appendChild(clone)
-})
+    let template = link.import.querySelector('.task-template');
+    if (template) {
+        let clone = document.importNode(template.content, true);
+        document.querySelector('.content').appendChild(clone);
+    }
+});
 
 /**
  * Default to the view that was active the last time the app was open.
  */
 settings.get('activeSectionButtonId').then(function (sectionId) {
     if (sectionId) {
-        showMainContent()
-        const section = document.getElementById(sectionId)
+        const section = document.getElementById(sectionId);
         if (section) {
-            section.click()
+            section.click();
         } else {
-            activateDefaultSection()
+            activateDefaultSection();
         }
     } else {
-        activateDefaultSection()
+        activateDefaultSection();
     }
-})
+});

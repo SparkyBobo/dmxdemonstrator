@@ -1,0 +1,33 @@
+/**
+ * @file Demo styles.
+ * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
+ * @license Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+ .id-demo-tx.is-hidden {
+    display: none
+}
+
+.id-demo-rx.is-hidden {
+    display: none
+}
+
+.slider-wrapper {
+    display: inline-block;
+    width: 20px;
+    height: 150px;
+    margin: 20px;
+  }
+
+  .slider-wrapper input {
+    width: 150px;
+    height: 20px;
+    max-width: none; /* override class uk-range */
+    transform-origin: 75px 75px;
+    transform: rotate(-90deg);
+  }
+
+  textarea {
+    resize: none;
+  }
+

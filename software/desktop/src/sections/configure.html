@@ -17,48 +17,118 @@
  *
 -->
 <template class="task-template">
-    <section id="configure-section" class="section js-section u-category-windows">
-        <header class="section-header">
-            <div class="section-wrapper">
-                <h1>Configure</h1>
-            </div>
-        </header>
-        <div class="uk-section uk-section-default uk-section-xsmall">
+    <section id="configure-section" class="section js-section">
+        <div class="uk-section uk-section-default uk-section-xsmall uk-padding-remove-top">
             <div class="uk-container">
                 <div class="uk-flex uk-flex-column">
-                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
-                        <h3 class="uk-card-title">Transmitter</h3>
-                        <form>
-                            <select class="uk-select">
-                                <option>COM6</option>
-                                <option>COM15</option>
-                            </select>
-                        </form>
-                        <p></p>
-                        <img src=".\assets/img/Leonardo.jpg" height="150" width="200"></src>
-                        <div class="uk-card-badge uk-label">Unconfigured</div>
+                    <div class="configure-no-boards">
+                        <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title">No boards</h3>
+                            <div class="uk-card-body uk-padding-small">
+                                <button class="configure-board-refresh-btn uk-button uk-button-primary">Refresh</button>
+                                <div class="configure-get-started">
+                                    <div class="uk-padding-small">To get started, plug in an Arduino and click refresh.
+                                    </div>
+                                </div>
+                                <div class="configure-error is-hidden uk-alert-danger" uk-alert>
+                                    <div id="id-configure-error-text"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-xsmall">
                     </div>
-                    <hr class="uk-margin-xsmall">
-                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
-                        <h3 class="uk-card-title">Receiver</h3>
-                        <form>
-                            <select class="uk-select">
-                                <option>COM6</option>
-                                <option>COM15</option>
-                            </select>
-                        </form>
-                        <p></p>
-                        <img src=".\assets/img/Uno.jpg" height="150" width="200"></src>
-                        <div class="uk-card-badge uk-label">Unconfigured</div>
+                    <div class="configure-boards"></div>
+                    <div class="configure-boards-refresh">
+                        <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title">Refresh</h3>
+                            <div class="uk-card-body uk-padding-small">
+                                <button class="configure-board-refresh-btn uk-button uk-button-primary">Refresh</button>
+                                <div class="">
+                                    <div class="uk-padding-small">Not seeing your device? Click refresh.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <hr class="uk-margin-xsmall">
-                    <div class="uk-card uk-card-body uk-card-default uk-card-hover">
-                        <h3 class="uk-card-title">Ports</h3>
-                        <button class="uk-button uk-button-default">Refresh</button>
-                        <div id="error"></div>
-                        <div id="ports"></div>
-                    </div>
-                    <hr class="uk-margin-xsmall">
+                    <template class="configure-template">
+                        <div id="id-configure-board-x" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 id="id-configure-board-title-x" class="uk-card-title">Unconfigured</h3>
+                            <div id="id-configure-board-badge-x"
+                                class="configure-board-badge uk-card-badge uk-label uk-label-warning">Discovery needed</div>
+                            <div class="uk-card-body uk-padding-small">
+                                <div class="uk-flex uk-flex-middle uk-text-center">
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title">Main Board</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div id="id-configure-board-name-x"></div>
+                                            <img id="id-configure-board-img-x" class="configure-board-img"
+                                                src=".\assets\img\board-arduino.png" />
+                                        </div>
+                                        <div class="uk-card-footer uk-padding-small">
+                                            <div class="uk-container" class="id-configure-board-id-container">
+                                                <span id="id-configure-board-id-x"
+                                                    class="id-configure-board-id uk-label uk-label-success"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-text-middle uk-text-lead uk-margin-small-left uk-margin-small-right">
+                                        +</div>
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title">Shield</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div id="id-configure-board-shield-x" class="configure-board-shield">DMX-TX1
+                                            </div>
+                                            <img id="id-configure-board-shield-img-x" class="configure-board-shield-img"
+                                                src=".\assets\img\shield-tx1.png" />
+                                        </div>
+                                        <div class="uk-card-footer uk-padding-small">
+                                            <div class="uk-container">
+                                                <progress id="id-configure-board-shield-progress-x"
+                                                    class="configure-board-shield-progress uk-progress" value="30"
+                                                    max="100"></progress>
+                                                <span id="id-configure-board-shield-status-x"
+                                                    class="configure-board-shield-status uk-label uk-label-success">Detected</span>
+                                                <button id="id-configure-board-shield-discover-x"
+                                                    class="configure-board-shield-discover uk-button uk-button-primary">Discover</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-text-middle uk-text-lead uk-margin-small-left uk-margin-small-right">
+                                        +</div>
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title">Sketch</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div id="id-configure-board-sketch-x" class="configure-board-sketch">
+                                                Transmitter</div>
+                                            <div id="id-configure-board-sketch-container-x"
+                                                class="configure-board-sketch-container uk-padding-large">
+                                                <ul class="uk-list uk-text-middle">
+                                                    <li id="id-configure-board-sketch-file-x">Transmitter.ino</li>
+                                                    <li id="id-configure-board-sketch-ver-x">Version 1.0</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="uk-card-footer uk-padding-small">
+                                            <progress id="id-configure-board-sketch-progress-x"
+                                                class="configure-board-sketch-progress uk-progress" value="30"
+                                                max="100"></progress>
+                                            <span id="id-configure-board-sketch-status-x"
+                                                class="configure-board-sketch-status uk-label uk-label-success">Up to
+                                                date</span>
+                                            <button id="id-configure-board-sketch-update-x"
+                                                class="configure-board-sketch-update uk-button uk-button-default">Update</button>
+                                            <button id="id-configure-board-sketch-load-x"
+                                                class="configure-board-sketch-load uk-button uk-button-primary">Load</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-xsmall">
+                    </template>
                 </div>
             </div>
         </div>

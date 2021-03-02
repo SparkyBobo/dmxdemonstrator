@@ -1,0 +1,124 @@
+/**
+ * @file Configuration styles.
+ * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
+ * @license Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+ .configure-board-badge.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+ .configure-error.is-hidden {
+    display: none
+}
+
+.configure-get-started.is-hidden {
+    display: none
+}
+
+.configure-no-boards.is-hidden {
+    display: none
+}
+
+.configure-boards.is-hidden {
+    display: none
+}
+
+.configure-board-img {
+    width: 200px;
+    height: 150px;
+}
+
+.id-configure-board-id-container {
+    height: 38px;
+}
+
+.id-configure-board-id {
+    margin-top: 9px;
+}
+
+.configure-board-shield.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-board-shield-img {
+    width: 200px;
+    height: 150px;
+}
+
+.configure-board-shield-img.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-board-shield-progress.is-hidden {
+    display: none
+}
+
+.configure-board-shield-status.is-hidden {
+    display: none
+}
+
+.configure-board-shield-discover.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-board-sketch.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-board-sketch-container {
+    height:143px;
+    width:200px;
+}
+
+.configure-board-sketch-container.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-board-sketch-progress.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-status.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-update.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-load.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-boards-refresh.is-hidden {
+    display: none
+}
+
+/*
+ * Additional UK style for warning.
+ */
+ .uk-button-warning {
+    background-color: #faa05a;
+    color: #fff;
+    border: 1px solid transparent;
+  }
+  /* Hover + Focus */
+  .uk-button-warning:hover,
+  .uk-button-warning:focus {
+    background-color: #faa05a;
+    color: #fff;
+  }
+  /* OnClick + Active */
+  .uk-button-warning:active,
+  .uk-button-warning.uk-active {
+    background-color: #faa05a;
+    color: #fff;
+  }
