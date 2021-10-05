@@ -9,16 +9,22 @@
         name: 'Transmitter',
         file: 'Transmitter.ino',
         sketchId: 'Transmitter',
+        isTx: true,
+        isRx: false,
     },
     {
         name: 'Receiver',
         file: 'Receiver.ino',
         sketchId: 'Receiver',
+        isRx: true,
+        isTx: false,
     },
     {
         name: 'Discovery',
         file: 'Discovery.ino',
         sketchId: 'Discovery',
+        isTx: false,
+        isRx: false,
     }
  ];
 

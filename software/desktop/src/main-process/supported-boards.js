@@ -8,14 +8,16 @@
  let boards = [{
         name: 'Arduino Uno',
         image: '.\\assets\\img\\board-arduino.png',
-        productId: ['0x0043', '0x7523', '0x0001', '0xea60', '0x6015'],
-        boardOption: 'uno'
+        productIds: ['0x0043', '0x7523', '0x0001', '0xea60', '0x6015'],
+        boardOption: 'uno',
+        discoverySketch: null //'discovery.ino.hex.uno'
     },
     {
         name: 'Arduino Leonardo',
         image: '.\\assets\\img\\board-arduino.png',
         productIds: ['0x0036', '0x8036', '0x800c'],
-        boardOption: 'leonardo'
+        boardOption: 'leonardo',
+        discoverySketch: null //'discovery.ino.hex.leonardo'
     }
  ];
 

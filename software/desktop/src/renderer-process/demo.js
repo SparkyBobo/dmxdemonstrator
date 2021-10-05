@@ -7,14 +7,19 @@
 
 const ipc = require('electron').ipcRenderer
 
-let transmitterBoard = null;
-let receiverBoard = null;
+let currentTxBoard = null;
+let currentRxBoard = null;
+
+/* Request the boards on startup. */
+ipc.send('demo-board-request');
 
 /* Display the boards. */
-ipc.on('configure-board-tx', function (event, boards) {
+ipc.on('demo-board-tx', function (event, board) {
+    currentTxBoard = board;
 });
 
-ipc.on('configure-board-rx', function (event, boards) {
+ipc.on('demo-board-rx', function (event, board) {
+    currentRxBoard = board;
 });
 
 /* Display the board's data responses. */

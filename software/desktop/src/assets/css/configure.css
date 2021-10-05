@@ -30,17 +30,17 @@
     height: 150px;
 }
 
-.id-configure-board-id-container {
+.configure-board-id-container {
     height: 38px;
 }
 
-.id-configure-board-id {
+.configure-board-id {
     margin-top: 9px;
 }
 
-.configure-board-shield.is-hidden {
-    visibility: hidden;
-    opacity: 0;
+.configure-board-shield-img-container {
+    height:143px;
+    width:200px;
 }
 
 .configure-board-shield-img {
@@ -49,36 +49,47 @@
 }
 
 .configure-board-shield-img.is-hidden {
-    visibility: hidden;
-    opacity: 0;
+    display: none
+}
+
+.configure-board-shield-load {
+    word-wrap: break-word;
+}
+
+.configure-board-shield-load.is-hidden {
+    display: none
+}
+
+.configure-board-shield-status-container {
+    height: 38px;
+}
+
+.configure-board-shield-progress {
+    margin-top: 9px;
 }
 
 .configure-board-shield-progress.is-hidden {
     display: none
 }
 
+.configure-board-shield-status {
+    margin-top: 9px;
+}
 .configure-board-shield-status.is-hidden {
     display: none
 }
 
 .configure-board-shield-discover.is-hidden {
-    visibility: hidden;
-    opacity: 0;
+    display: none
 }
 
-.configure-board-sketch.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.configure-board-sketch-container {
+.configure-board-sketch-info-container {
     height:143px;
     width:200px;
 }
 
-.configure-board-sketch-container.is-hidden {
-    visibility: hidden;
-    opacity: 0;
+.configure-board-sketch-status-container {
+    height: 38px;
 }
 
 .configure-board-sketch-progress.is-hidden {
@@ -101,24 +112,3 @@
 .configure-boards-refresh.is-hidden {
     display: none
 }
-
-/*
- * Additional UK style for warning.
- */
- .uk-button-warning {
-    background-color: #faa05a;
-    color: #fff;
-    border: 1px solid transparent;
-  }
-  /* Hover + Focus */
-  .uk-button-warning:hover,
-  .uk-button-warning:focus {
-    background-color: #faa05a;
-    color: #fff;
-  }
-  /* OnClick + Active */
-  .uk-button-warning:active,
-  .uk-button-warning.uk-active {
-    background-color: #faa05a;
-    color: #fff;
-  }

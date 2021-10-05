@@ -1,251 +1,244 @@
  /**
- * @file Board support.
- * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
- * @license Licensed under the MIT License. See License.txt in the project root for license information.
+  * @file Board support.
+  * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
+  * @license Licensed under the MIT License. See License.txt in the project root for license information.
   */
  'use strict';
 
-const SerialPort = require('serialport');
-const Readline = SerialPort.parsers.Readline;
+ const SerialPort = require('serialport');
+ const Readline = SerialPort.parsers.Readline;
 
-const Avrgirl = require('avrgirl-arduino');
-const boards = require('./supported-boards');
-const shields = require('./supported-shields');
-const sketches = require('./supported-sketches');
-const ipc = require('electron').ipcMain;
+ const Avrgirl = require('avrgirl-arduino');
+ const boards = require('./supported-boards');
+ const shields = require('./supported-shields');
+ const sketches = require('./supported-sketches');
+ const ipc = require('electron').ipcMain;
+ const path = require('path');
 
-let currentBoards = null;
+ let currentBoards = null;
+ let currentTxBoard = null;
+ let currentRxBoard = null;
 
-const portOptions = {
-    autoOpen: false,
-    baudRate: 115200,
-    dataBits: 8,
-    stopBits: 1,
-    parity: 'none'
-};
+ const portOptions = {
+     autoOpen: false,
+     baudRate: 115200,
+     dataBits: 8,
+     stopBits: 1,
+     parity: 'none'
+ };
 
-/* Return the list of detected boards. */
-ipc.on('configure-board-request', function (event, arg) {
-    if (currentBoards) {
-        event.reply('configure-board-list', currentBoards);
-    } else {
-        refreshBoards(event, arg);
-    }
-});
+ /* Return the list of detected boards. */
+ ipc.on('configure-board-request', function (event, arg) {
+     if (currentBoards) {
+         event.reply('configure-board-list', currentBoards);
+     } else {
+         refreshBoards(event, arg);
+     }
+ });
 
-/* Refresh the list of detected boards. */
-ipc.on('configure-board-refresh', function (event, arg) {
-    refreshBoards(event, arg);
-});
+ ipc.on('demo-board-request', function (event, arg) {
+     if (currentTxBoard) {
+         event.reply('demo-board-tx', currentTxBoard);
+     }
+     if (currentRxBoard) {
+         event.reply('demo-board-rx', currentRxBoard);
+     }
+     // No need to refresh as "configure-board-request" is also
+     // sent, which refreshes the boards and send them is found.
+ });
 
-/* Discover the shield, i.e. load the discovery sketch. */
-ipc.on('configure-board-discover', function (event, index) {
-    if (currentBoards.length <= index) {
-        event.reply('configure-board-discover-invalid');
-        return;
-    }
+ /* Refresh the list of detected boards. */
+ ipc.on('configure-board-refresh', function (event, arg) {
+     refreshBoards(event, arg);
+ });
 
-    let boardOption = currentBoards[index].boardOption;
-    if (!boardOption) {
-        event.reply('configure-board-discover-invalid');
-        return;
-    }
+ /* Discover the shield, i.e. load the discovery sketch. */
+ ipc.on('configure-board-discover', function (event, index) {
+     if (currentBoards.length <= index) {
+         event.reply('configure-board-discover-invalid');
+         return;
+     }
 
-    // let avrgirl = new Avrgirl({
-    //     board: boardOption,
-    //     port: currentBoards[index].port
-    //     });
-    // avrgirl.flash('Blink.cpp.hex', function (error) {
-    //     if (error) {
-    //       console.error(error);
-    //     } else {
-    //       console.info('done.');
-    //     }
-    //   });
-});
+     let boardOption = currentBoards[index].boardOption;
+     if (!boardOption) {
+         event.reply('configure-board-discover-invalid');
+         return;
+     }
 
-/* Load the sketch */
-ipc.on('configure-board-load', function (event, index) {
-    if (currentBoards.length <= index) {
-        event.reply('configure-board-discover-invalid');
-        return;
-    }
+     loadSketch(event, 'configure-board-shield', index, boardOption);
+ });
 
-    let boardOption = currentBoards[index].boardOption;
-    if (!boardOption) {
-        event.reply('configure-board-discover-invalid');
-        return;
-    }
+ /* Load the sketch */
+ ipc.on('configure-board-load', function (event, index) {
+     if (currentBoards.length <= index) {
+         event.reply('configure-board-load-invalid');
+         return;
+     }
 
-    // let avrgirl = new Avrgirl({
-    //     board: boardOption,
-    //     port: currentBoards[index].port
-    //     });
-    // avrgirl.flash('Blink.cpp.hex', function (error) {
-    //     if (error) {
-    //       console.error(error);
-    //     } else {
-    //       console.info('done.');
-    //     }
-    //   });
-});
+     let boardOption = currentBoards[index].boardOption;
+     if (!boardOption) {
+         event.reply('configure-board-load-invalid');
+         return;
+     }
 
-/**
- * Return a list of supported devices on serial ports.
- *
- * @param {Object} event - The event from ipc.
- * @param {any} arg - The arg from ipc.
- */
-function refreshBoards(event, arg) {
-    Avrgirl.prototype.listPorts(function (error, ports) {
-        if (error) {
-            event.reply('configure-board-error', error);
-            return;
-        }
+     loadSketch(event, 'configure-board-sketch', index);
+ });
 
-        // filter for a match by product id
-        let validPorts = ports.filter(function (p) {
-            var currentPid = parseInt(p._standardPid, 16);
-            return boards[currentPid];
-        });
+ /**
+  * Return a list of supported devices on serial ports.
+  *
+  * @param {Object} event - The event from ipc.
+  * @param {any} arg - The arg from ipc.
+  */
+ function refreshBoards(event, arg) {
+     Avrgirl.prototype.listPorts(function (error, ports) {
+         if (error) {
+             event.reply('configure-board-error', error);
+             return;
+         }
 
-        // convert to a friendly list
-        let validBoards = validPorts.map(function (p) {
-            var currentPid = parseInt(p._standardPid, 16);
-            return {
-                path: p.path,
-                manufacturer: p.manufacturer,
-                productId: p._standardPid,
-                vendorId: p.vendorId,
-                serialNumber: p.serialNumber,
-                boardName: boards[currentPid].name,
-                boardImage: boards[currentPid].image,
-                boardOption: boards[currentPid].boardOption,
-                shieldName: null,
-                shieldImage: null,
-                shieldProgress: null,
-                sketchName: null,
-                sketchFile: null,
-                sketchVersion: null,
-                sketchProgress: null,
-                sketchStatus: null,
-                sketchNeedsUpdate: null,
-                sketchNeedsLoad: null,
-            };
-        });
+         // filter for a match by product id
+         let validPorts = ports.filter(function (p) {
+             var currentPid = parseInt(p._standardPid, 16);
+             let board = boards[currentPid];
+             return boards[currentPid];
+         });
 
-        currentBoards = validBoards;
-        event.reply('configure-board-list', validBoards);
+         console.log(`Found ports: ${JSON.stringify(validPorts)}`);
 
-        if (validBoards) {
-            let index = 0;
-            Array.prototype.forEach.call(validBoards, (validBoard) => {
-                discoverShieldAndSketch(event, index, validBoard);
-                index++;
-            });
-        }
-    });
-};
+         // convert to a friendly list
+         let validBoards = validPorts.map(function (p) {
+             var currentPid = parseInt(p._standardPid, 16);
+             return {
+                 path: p.path,
+                 manufacturer: p.manufacturer,
+                 productId: p._standardPid,
+                 vendorId: p.vendorId,
+                 serialNumber: p.serialNumber,
+                 boardName: boards[currentPid].name,
+                 boardImage: boards[currentPid].image,
+                 boardOption: boards[currentPid].boardOption,
+                 discoverySketch: boards[currentPid].discoverySketch,
+                 shieldName: null,
+                 shieldImage: null,
+                 shieldProgress: null,
+                 sketchName: null,
+                 sketchFile: null,
+                 sketchVersion: null,
+                 sketchProgress: null,
+                 sketchStatus: null,
+                 sketchNeedsUpdate: null,
+                 sketchNeedsLoad: null,
+             };
+         });
 
-/**
- * Discovery the shield sketch.
- *
- * @param {number} index - The UI index of the board.
- * @param {Object} boards - The board information.
- */
-function discoverShieldAndSketch(event, index, board) {
-    const discoverPort = new SerialPort(board.path, portOptions);
-    const parser = discoverPort.pipe(new Readline({ delimiter: '\r\n' }));
+         currentBoards = validBoards;
+         event.reply('configure-board-list', validBoards);
 
-    let autoCloseTimeoutId = setTimeout(() => {
-        discoverPort.close();
-    }, 1000);
+         if (validBoards) {
+             let index = 0;
+             Array.prototype.forEach.call(validBoards, (validBoard) => {
+                 discoverShieldAndSketch(event, index, validBoard);
+                 index++;
+             });
+         }
+     });
+ };
 
-    discoverPort.open(() => {
-        discoverPort.write("i\\r\\n");
-    });
+ /**
+  * Discovery the shield sketch.
+  *
+  * @param {number} index - The UI index of the board.
+  * @param {Object} boards - The board information.
+  */
+ function discoverShieldAndSketch(event, index, board) {
+     const discoverPort = new SerialPort(board.path, portOptions);
+     const parser = discoverPort.pipe(new Readline({
+         delimiter: '\r\n'
+     }));
 
-    parser.on('data', (line) => {
-        console.log(`Received ${line.length} bytes of data: ${line}`);
+    //  let discoverTimeoutId = setTimeout(() => {
+    //     console.log(`Sending 'i' to ${board.path}`);
+    //     discoverPort.write("i\\r\\n");
+    //  }, 2000);
 
-        let lineParts = line.split(" ");
-        if (lineParts.length >= 4) {
-            if (lineParts[0] == "DMX" && lineParts[1] == "Demonstrator" && lineParts[3] == "Version") {
-                let sketchId = lineParts[2];
-                let discoveredSketch = sketches[sketchId];
-                console.log(`Found ${sketchId}:${JSON.stringify(discoveredSketch)}`);
-                if (discoveredSketch) {
-                    currentBoards[index].sketchName = discoveredSketch.name;
-                    currentBoards[index].sketchFile = discoveredSketch.image;
-                    currentBoards[index].sketchVersion = lineParts[4];
-                    event.reply('configure-board-sketch', index, currentBoards[index]);
-                }
+     let autoCloseTimeoutId = setTimeout(() => {
+        console.log(`Closing ${board.path}`);
+        if (discoverPort.isOpen) discoverPort.close();
+     }, 1000);
 
-                // Temporary hack
-                if (discoveredSketch.name == "Receiver") {
-                    let shieldId = "DMX-RX1";
-                    currentBoards[index].shieldName = shields[shieldId].name;
-                    currentBoards[index].shieldImage = shields[shieldId].image;
-                    currentBoards[index].shieldProgress = null;
-                    event.reply('configure-board-shield', index, currentBoards[index]);
-                }
-            }
-        }
+     discoverPort.open(() => {
+         console.log(`Open port ${board.path}`);
+         discoverPort.write("i\\r\\n");
+     });
 
-        let shieldIndex = line.indexOf("DMX-");
-        if (shieldIndex >= 0) {
-            let shieldId = line.substring(shieldIndex, shieldIndex + 7);
-            let discoveredShield = shields[shieldId];
-            console.log(`Found ${shieldId}:${JSON.stringify(discoveredShield)}`);
-            if (discoveredShield) {
-                currentBoards[index].shieldName = discoveredShield.name;
-                currentBoards[index].shieldImage = discoveredShield.image;
-                currentBoards[index].shieldProgress = null;
-                event.reply('configure-board-shield', index, currentBoards[index]);
-            }
-        }
-    });
-}
+     parser.on('data', (line) => {
+         console.log(`Received ${line.length} bytes of data from ${board.path}: ${line}`);
 
-/*
-    // currentBoards[index].sketchName = "Transmitter";
-    // currentBoards[index].sketchFile = 'Transmitter.ino';
-    // currentBoards[index].sketchVersion = '1.0';
-    currentBoards[index].sketchStatus = true;
-    currentBoards[index].sketchNeedsUpdate = false;
-    currentBoards[index].sketchNeedsLoad = true;
-    currentBoards[index].shieldProgress = null;
-    //event.reply('configure-board-sketch', index, currentBoards[index]);
+         let lineParts = line.split(" ");
+         if (lineParts.length >= 4) {
+             if (lineParts[0] == "DMX" && lineParts[1] == "Demonstrator" && lineParts[3] == "Version") {
+                 let sketchId = lineParts[2];
+                 let discoveredSketch = sketches[sketchId];
+                 console.log(`Found ${sketchId}:${JSON.stringify(discoveredSketch)}`);
+                 if (discoveredSketch) {
+                     currentBoards[index].sketchName = discoveredSketch.name;
+                     currentBoards[index].sketchFile = discoveredSketch.file;
+                     currentBoards[index].sketchVersion = lineParts[4];
+                     event.reply('configure-board-sketch', index, currentBoards[index]);
 
-function attachEventsHandlers(error) {
-    var discoverButtons = document.querySelector('.configure-board-shield-discover')
-    if (discoverButtons) {
-        discoverButtons.addEventListener('click', (event) => {
+                     if (discoveredSketch.isTx && !currentTxBoard) {
+                         currentTxBoard = currentBoards[index];
+                         event.reply('demo-board-tx', currentTxBoard);
+                     }
 
-            // Get the index
-            let buttonIdParts = event.target.id.split('-');
-            let index = buttonIdParts[buttonIdParts.length-1];
+                     if (discoveredSketch.isRx && !currentRxBoard) {
+                         currentRxBoard = currentBoards[index];
+                         event.reply('demo-board-rx', currentRxBoard);
+                     }
+                 }
+             }
 
-            // Hide the button
-            event.target.classList.add('is-hidden');
+             if (lineParts[0] == "Hardware" && lineParts[1] == "Detection:") {
+                 let shieldId = lineParts[3];
+                 let discoveredShield = shields[shieldId];
+                 console.log(`Found ${shieldId}:${JSON.stringify(discoveredShield)}`);
+                 if (discoveredShield) {
+                     currentBoards[index].shieldName = discoveredShield.name;
+                     currentBoards[index].shieldImage = discoveredShield.image;
+                     currentBoards[index].shieldProgress = null;
+                     event.reply('configure-board-shield', index, currentBoards[index]);
+                 }
+             }
+         }
+     });
+ }
 
-            // Show the progress bar
-            let progressBar = document.querySelector(`#id-configure-board-shield-progress-${index}`);
-            if (progressBar) {
-                progressBar.value = 0;
-                progressBar.classList.remove('is-hidden');
+ /**
+  * Load a sketch.
+  *
+  * @param {Object} event - The event from ipc.
+  * @param {string} eventId - The event id  to send.
+  * @param {number} index - The UI index of the board.
+  * @param {Object} boardsOptions - The board options.
+  */
+ function loadSketch(event, eventId, index, boardOption) {
+    //  let avrgirl = new Avrgirl({
+    //      board: boardOption,
+    //      port: currentBoards[index].port
+    //  });
 
-                // Simulate progress bar.
-                var intervalId = setInterval(updateProgress, 100);
-                function updateProgress () {
-                    progressBar.value += 1;
-                    if (progressBar.value >= 100) {
-                        clearInterval(intervalId);
-                        updateShield(index);
-                    }
-                };
-            }
-        })
-    }
-};
-*/
+    //  currentBoards[index].shieldProgress = 50;
+    //  event.reply(eventId, index, currentBoards[index]);
+
+    //  avrgirl.flash('.\\src\\assets\\hex\\discovery.ino.hex.leonardo', function (error) {
+    //      if (error) {
+    //          console.error(error);
+    //      } else {
+    //          console.info('Loading complete.');
+    //          discoverShieldAndSketch(event, index, currentBoards[index]);
+    //      }
+    //      currentBoards[index].shieldProgress = null;
+    //      event.reply(eventId, index, currentBoards[index]);
+    //  });
+ }

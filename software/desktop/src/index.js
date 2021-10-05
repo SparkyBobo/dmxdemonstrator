@@ -5,13 +5,6 @@
  */
 'use strict';
 
-/**
- * @file Main Application.
- * @copyright Copyright (c) Crazy Giraffe Software. All rights reserved.
- * @license Licensed under the MIT License. See License.txt in the project root for license information.
- */
-'use strict';
-
 const {app, BrowserWindow, Menu} = require('electron');
 const {is, centerWindow, enforceMacOSAppLocation, isFirstAppLaunch, setContentSecurityPolicy} = require('electron-util');
 const path = require('path');

@@ -84,11 +84,12 @@ const int TX1Detected = 2;
 const int TX2Detected = 3;
 const int TX2AndControlProDetected = 4;
 
-const char NoBoardMessage[] PROGMEM = "No DMX Demonstrator boards detected.\r\n";
-const char rx1Message[] PROGMEM = "DMX-RX1 is detected.\r\n";
-const char tx1Message[] PROGMEM = "DMX-TX1 is detected.\r\n";
-const char tx2Message[] PROGMEM = "DMX-TX2 is detected.\r\n";
-const char controlProMessage[] PROGMEM = "DMX-CP1 is detected.\r\n";
+const char hardwareDetectFormat[] PROGMEM = "Hardware Detection: found %s\r\n";
+const char noBoardMessage[] PROGMEM = "no DMX Demonstrator";
+const char rx1Message[] PROGMEM = "DMX-RX1";
+const char tx1Message[] PROGMEM = "DMX-TX1";
+const char tx2Message[] PROGMEM = "DMX-TX2";
+const char controlProMessage[] PROGMEM = "DMX-CP1";
 
 /**
  *  Message for test loop.
@@ -326,21 +327,21 @@ void DetectConnectedBoard() {
 
   // Print discovery.
   if (isRX1) {
-    SendProgmemMessage(rx1Message);
+    SendProgmemStringFormat(hardwareDetectFormat, rx1Message);
     detectedBoard = RX1Detected;
   } else if (isTX1) {
-    SendProgmemMessage(tx1Message);
+    SendProgmemStringFormat(hardwareDetectFormat, tx1Message);
     detectedBoard = TX1Detected;
   } else if (isTX2) {
-    SendProgmemMessage(tx2Message);
+    SendProgmemStringFormat(hardwareDetectFormat, tx2Message);
     if (isControlPro) {
-      SendProgmemMessage(controlProMessage);
+      SendProgmemStringFormat(hardwareDetectFormat, controlProMessage);
       detectedBoard = TX2AndControlProDetected;
     } else {
         detectedBoard = TX2Detected;
     }
   } else {
-    SendProgmemMessage(NoBoardMessage);
+    SendProgmemStringFormat(hardwareDetectFormat, noBoardMessage);
     detectedBoard = NoBoardDetected;
   }
 }

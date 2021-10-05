@@ -7,6 +7,8 @@
 
 const ipc = require('electron').ipcRenderer
 
+let maxIndex = 0;
+
 /* Request the boards on startup. */
 ipc.send('configure-board-request');
 
@@ -77,6 +79,10 @@ function displayBoardList(boards) {
         displayShield(index, board);
         displaySketch(index, board);
         index++;
+
+        if (index > maxIndex) {
+            maxIndex = index;
+        }
     });
 };
 
@@ -108,13 +114,16 @@ function cloneBoardTemplate(index) {
     let boardImage = clone.querySelector('#id-configure-board-img-x');
     boardImage.id = `id-configure-board-img-${index}`
 
-    let shieldName = clone.querySelector('#id-configure-board-shield-x');
-    shieldName.id = `id-configure-board-shield-${index}`
-    shieldName.classList.add('is-hidden');
+    let shieldName = clone.querySelector('#id-configure-board-shield-name-x');
+    shieldName.id = `id-configure-board-shield-name-${index}`
 
     let shieldImage = clone.querySelector('#id-configure-board-shield-img-x');
     shieldImage.id = `id-configure-board-shield-img-${index}`
     shieldImage.classList.add('is-hidden');
+
+    let shieldLoad = clone.querySelector('#id-configure-board-shield-load-x');
+    shieldLoad.id = `id-configure-board-shield-load-${index}`
+    shieldLoad.classList.add('is-hidden');
 
     let shieldProgress = clone.querySelector('#id-configure-board-shield-progress-x');
     shieldProgress.id = `id-configure-board-shield-progress-${index}`
@@ -131,13 +140,8 @@ function cloneBoardTemplate(index) {
         ipc.send('configure-board-discover', index);
     });
 
-    let sketchName = clone.querySelector('#id-configure-board-sketch-x');
-    sketchName.id = `id-configure-board-sketch-${index}`;
-    sketchName.classList.add('is-hidden');
-
-    let sketchContainer = clone.querySelector('#id-configure-board-sketch-container-x');
-    sketchContainer.id = `id-configure-board-sketch-container-${index}`;
-    sketchContainer.classList.add('is-hidden');
+    let sketchName = clone.querySelector('#id-configure-board-sketch-name-x');
+    sketchName.id = `id-configure-board-sketch-name-${index}`;
 
     let sketchFile = clone.querySelector('#id-configure-board-sketch-file-x');
     sketchFile.id = `id-configure-board-sketch-file-${index}`
@@ -185,7 +189,16 @@ function displayTitleAndBadge(index, info) {
         boardTitle.textContent = "Unconfigured";
     }
 
-    //let boardBadge = document.querySelector(`#id-configure-board-badge-${index}`);
+    let boardBadge = document.querySelector(`#id-configure-board-badge-${index}`);
+    if (!info.shieldName) {
+        boardBadge.textContent = "Discovery Needed";
+        boardBadge.classList.remove('uk-label-success');
+        boardBadge.classList.add('uk-label-warning');
+    } else {
+        boardBadge.textContent = "Ready";
+        boardBadge.classList.remove('uk-label-warning');
+        boardBadge.classList.add('uk-label-success');
+    }
 }
 
 /**
@@ -217,12 +230,11 @@ function displayBoard(index, board) {
 function displayShield(index, shield) {
 
     // Update the shield info.
-    let shieldName = document.querySelector(`#id-configure-board-shield-${index}`);
+    let shieldName = document.querySelector(`#id-configure-board-shield-name-${index}`);
     if (shield.shieldName) {
         shieldName.textContent = shield.shieldName;
-        shieldName.classList.remove('is-hidden');
     } else {
-        shieldName.classList.add('is-hidden');
+        shieldName.textContent = "Unknown";
     }
 
     let shieldImage = document.querySelector(`#id-configure-board-shield-img-${index}`);
@@ -248,10 +260,14 @@ function displayShield(index, shield) {
         shieldImage.classList.add('is-hidden');
     }
 
+    let shieldLoad = document.querySelector(`#id-configure-board-shield-load-${index}`);
     let shieldDiscover = document.querySelector(`#id-configure-board-shield-discover-${index}`);
-    if (!shield.shieldName) {
+    // discoverySketch
+    if (!shield.shieldName && !shield.shieldProgress) {
+        shieldLoad.classList.remove('is-hidden');
         shieldDiscover.classList.remove('is-hidden');
     } else {
+        shieldLoad.classList.add('is-hidden');
         shieldDiscover.classList.add('is-hidden');
     }
 
@@ -265,28 +281,28 @@ function displayShield(index, shield) {
  * @param {Object} sketch - The sketch information.
  */
 function displaySketch(index, sketch) {
-    let sketchName = document.querySelector(`#id-configure-board-sketch-${index}`);
+    let sketchName = document.querySelector(`#id-configure-board-sketch-name-${index}`);
     if (sketch.sketchName) {
         sketchName.textContent = sketch.sketchName;
-        sketchName.classList.remove('is-hidden');
     } else {
-        sketchName.classList.add('is-hidden');
+        sketchName.textContent = "Unknown";
     }
 
     let sketchFile = document.querySelector(`#id-configure-board-sketch-file-${index}`);
-    if (sketch.sketchFile) sketchFile.textContent = sketch.sketchFile;
-
-    let sketchVersion = document.querySelector(`#id-configure-board-sketch-ver-${index}`);
-    if (sketch.sketchVersion) sketchVersion.textContent = `Version ${sketch.sketchVersion}`;
-
-    let sketchContainer = document.querySelector(`#id-configure-board-sketch-container-${index}`);
     if (sketch.sketchFile) {
-        sketchContainer.classList.remove('is-hidden');
+        sketchFile.textContent = sketch.sketchFile;
     } else {
-        sketchContainer.classList.add('is-hidden');
+        sketchFile.textContent = "";
     }
 
-    let sketchProgress = document.querySelector(`#id-configure-board-shield-progress-${index}`);
+    let sketchVersion = document.querySelector(`#id-configure-board-sketch-ver-${index}`);
+    if (sketch.sketchVersion) {
+        sketchVersion.textContent = `Version ${sketch.sketchVersion}`;
+    } else {
+        sketchVersion.textContent = "";
+    }
+
+    let sketchProgress = document.querySelector(`#id-configure-board-sketch-progress-${index}`);
     if (sketch.sketchProgress) {
         sketchProgress.value = sketch.sketchProgress;
         sketchProgress.classList.remove('is-hidden');

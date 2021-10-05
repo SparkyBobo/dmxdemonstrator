@@ -66,6 +66,12 @@ int dataInPin = 12;               // The data input from the transmitter.
 int clockInPin = 13;              // The clock input from the transmitter.
 
 /**
+ * Hardware detect data.
+ */
+const char hardwareDetectFormat[] PROGMEM = "Hardware Detection: found %s\r\n";
+const char hardwareDetectMessage[] = "DMX-RX1";
+
+/**
  * Protocol state.
  */
 const int frameStateBreak = 0;
@@ -171,6 +177,7 @@ void setup() {
   // Display startup message.
   SendProgmemMessage(startUpMessage);
   SendProgmemStringFormat(versionFormat, _VERSION_);
+  SendProgmemStringFormat(hardwareDetectFormat, hardwareDetectMessage);
 
   // Configure IO.
   pinMode(errorLedPin, OUTPUT);
@@ -565,6 +572,7 @@ int HandleReceivedChar(char receivedChar) {
 
     case 'i':
       SendProgmemStringFormat(versionFormat, _VERSION_);
+      SendProgmemStringFormat(hardwareDetectFormat, hardwareDetectMessage);
       SendProgmemStringArrayFormat(compactStatusFormat, statusMessages, compactStatus);
       SendProgmemStringArrayFormat(verboseStatusFormat, statusMessages, verboseStatus);
       break;
