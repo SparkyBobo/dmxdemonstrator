@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Transmitter (DMX-TX1)"
-Date "2020-11-07"
-Rev "1.1"
+Date "2020-12-28"
+Rev "1.2"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -192,7 +192,7 @@ L Device:LED D8
 U 1 1 5F34C092
 P 7700 4600
 F 0 "D8" H 7691 4816 50  0000 C CNN
-F 1 "CLK_FST" H 7691 4725 50  0000 C CNN
+F 1 "CLK_SLO" H 7691 4725 50  0000 C CNN
 F 2 "LED_THT:LED_D5.0mm" H 7700 4600 50  0001 C CNN
 F 3 "~" H 7700 4600 50  0001 C CNN
 	1    7700 4600
@@ -216,7 +216,7 @@ L Device:LED D7
 U 1 1 5F34C09F
 P 7700 4250
 F 0 "D7" H 7691 4466 50  0000 C CNN
-F 1 "CLK_SLO" H 7691 4375 50  0000 C CNN
+F 1 "CLK_FST" H 7691 4375 50  0000 C CNN
 F 2 "LED_THT:LED_D5.0mm" H 7700 4250 50  0001 C CNN
 F 3 "~" H 7700 4250 50  0001 C CNN
 	1    7700 4250
@@ -350,9 +350,9 @@ Select Dim 2
 Text Notes 3800 3850 0    50   ~ 0
 Clock Step
 Text Notes 8350 4600 0    50   ~ 0
-Clock Fast
-Text Notes 8350 4250 0    50   ~ 0
 Clock Slow
+Text Notes 8350 4250 0    50   ~ 0
+Clock Fast
 Wire Wire Line
 	5300 3350 5300 2300
 Wire Wire Line
@@ -621,9 +621,9 @@ Text Label 6750 2950 0    50   ~ 0
 Text Label 6750 3050 0    50   ~ 0
 ~CLOCK
 Text Label 6750 3550 0    50   ~ 0
-~CLK_SLO
-Text Label 6750 3650 0    50   ~ 0
 ~CLK_FST
+Text Label 6750 3650 0    50   ~ 0
+~CLK_SLO
 Wire Wire Line
 	8050 4900 6900 4900
 Text Label 7950 5100 0    50   ~ 0

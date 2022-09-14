@@ -19,9 +19,15 @@ Note: The rotary potentiometer offered by sparkfun stands a total of 30mm from t
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-TX1, Rev 1.1](https://oshpark.com/shared_projects/FhgNf6E6)
+- [DMX-TX1, Rev 1.2](https://oshpark.com/shared_projects/O0oApXTk)
 
 ## Version History
+
+### Rev 1.2
+
+- Moved Clock LED to avoid Arduino ICSP connector.
+- Relabeled the clock fast and slow LED connections in the
+  schematic to match the board layout.
 
 ### Rev 1.1
 
