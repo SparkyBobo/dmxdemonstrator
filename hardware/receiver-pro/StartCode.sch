@@ -19,8 +19,8 @@ L 74xx:74LS273 U?
 U 1 1 62873498
 P 7050 4350
 AR Path="/62873498" Ref="U?"  Part="1" 
-AR Path="/627E73CB/62873498" Ref="U?"  Part="1" 
-F 0 "U?" H 6950 5100 50  0000 C CNN
+AR Path="/627E73CB/62873498" Ref="U13"  Part="1" 
+F 0 "U13" H 6950 5100 50  0000 C CNN
 F 1 "74LS273" H 6850 5000 50  0000 C CNN
 F 2 "" H 7050 4350 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS273" H 7050 4350 50  0001 C CNN
@@ -32,8 +32,8 @@ L 74xx:74LS32 U?
 U 4 1 6287349F
 P 4250 4850
 AR Path="/6287349F" Ref="U?"  Part="4" 
-AR Path="/627E73CB/6287349F" Ref="U?"  Part="4" 
-F 0 "U?" H 4250 4550 50  0000 C CNN
+AR Path="/627E73CB/6287349F" Ref="U8"  Part="4" 
+F 0 "U8" H 4250 4550 50  0000 C CNN
 F 1 "74LS32" H 4250 4650 50  0000 C CNN
 F 2 "" H 4250 4850 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 4250 4850 50  0001 C CNN
@@ -45,8 +45,8 @@ L 74xx:74LS10 U?
 U 3 1 628734A6
 P 5200 4750
 AR Path="/628734A6" Ref="U?"  Part="3" 
-AR Path="/627E73CB/628734A6" Ref="U?"  Part="3" 
-F 0 "U?" H 5200 5050 50  0000 C CNN
+AR Path="/627E73CB/628734A6" Ref="U20"  Part="3" 
+F 0 "U20" H 5200 5050 50  0000 C CNN
 F 1 "74LS10" H 5200 4950 50  0000 C CNN
 F 2 "" H 5200 4750 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 5200 4750 50  0001 C CNN
@@ -190,8 +190,6 @@ F 3 "" H 4850 4550 50  0001 C CNN
 $EndComp
 Text Notes 6850 3500 2    50   ~ 0
 Start Code\nLatch
-Wire Wire Line
-	3950 4950 2550 4950
 $Comp
 L power:+5V #PWR?
 U 1 1 628734F9
@@ -588,7 +586,7 @@ Wire Wire Line
 	6450 5450 7750 5450
 Wire Wire Line
 	7750 5450 7750 5000
-Text HLabel 2550 4750 0    50   Input ~ 0
+Text HLabel 2650 4750 0    50   Input ~ 0
 STOP_BIT_IN
 Text HLabel 2650 3550 0    50   Input ~ 0
 DATA[0..7]
@@ -596,21 +594,8 @@ Wire Wire Line
 	7550 2250 8150 2250
 Wire Wire Line
 	7550 2350 8150 2350
-Text Notes 2400 5300 0    50   ~ 0
-Use a flip-flop and get off of the demux, leaving it with 16.
-Text HLabel 2550 5950 0    50   Input ~ 0
-~FRAME_RST_IN
-$Comp
-L 74xx:74LS74 U?
-U 1 1 634AA249
-P 3250 6000
-F 0 "U?" H 3250 6478 50  0000 C CNN
-F 1 "74LS74" H 3250 6387 50  0000 C CNN
-F 2 "" H 3250 6000 50  0001 C CNN
-F 3 "74xx/74hc_hct74.pdf" H 3250 6000 50  0001 C CNN
-	1    3250 6000
-	1    0    0    -1  
-$EndComp
+Text HLabel 2650 4950 0    50   Input ~ 0
+~SC_SEL_IN
 $Comp
 L 74xx:74LS32 U?
 U 3 1 634B2CE2
@@ -620,8 +605,8 @@ AR Path="/5F2B3F8A/634B2CE2" Ref="U?"  Part="3"
 AR Path="/6841E790/5F2B3F8A/634B2CE2" Ref="U?"  Part="3" 
 AR Path="/6A2CE0CC/634B2CE2" Ref="U?"  Part="3" 
 AR Path="/627E727E/634B2CE2" Ref="U?"  Part="3" 
-AR Path="/627E73CB/634B2CE2" Ref="U?"  Part="3" 
-F 0 "U?" H 8600 2625 50  0000 C CNN
+AR Path="/627E73CB/634B2CE2" Ref="U22"  Part="3" 
+F 0 "U22" H 8600 2625 50  0000 C CNN
 F 1 "74LS32" H 8600 2534 50  0000 C CNN
 F 2 "" H 8600 2300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 8600 2300 50  0001 C CNN
@@ -641,12 +626,14 @@ Wire Wire Line
 	5700 4050 5850 4050
 Wire Wire Line
 	5850 4050 5850 4750
-Wire Wire Line
-	2550 4750 3950 4750
 Text HLabel 9050 2300 2    50   Input ~ 0
 SC_MATCH_OUT
 Wire Wire Line
 	8900 2300 9050 2300
+Wire Wire Line
+	3950 4950 2650 4950
+Wire Wire Line
+	2650 4750 3950 4750
 Wire Bus Line
 	4300 900  8500 900 
 Wire Bus Line

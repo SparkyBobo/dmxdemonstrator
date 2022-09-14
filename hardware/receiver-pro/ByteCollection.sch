@@ -15,10 +15,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L 74xx:74LS161 U?
+L 74xx:74LS161 U4
 U 1 1 62477F8E
 P 3500 2100
-F 0 "U?" H 3600 2850 50  0000 C CNN
+F 0 "U4" H 3600 2850 50  0000 C CNN
 F 1 "74LS161" H 3700 2750 50  0000 C CNN
 F 2 "" H 3500 2100 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS161" H 3500 2100 50  0001 C CNN
@@ -46,10 +46,10 @@ F 12 "Active" H 3700 5350 60  0001 L CNN "Status"
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS10 U?
+L 74xx:74LS10 U5
 U 3 1 62477FA5
 P 4700 1700
-F 0 "U?" H 4700 2025 50  0000 C CNN
+F 0 "U5" H 4700 2025 50  0000 C CNN
 F 1 "74LS10" H 4700 1934 50  0000 C CNN
 F 2 "" H 4700 1700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 4700 1700 50  0001 C CNN
@@ -57,10 +57,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 4700 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS04 U?
+L 74xx:74LS04 U24
 U 1 1 62477FAC
 P 5050 5700
-F 0 "U?" H 5050 6017 50  0000 C CNN
+F 0 "U24" H 5050 6017 50  0000 C CNN
 F 1 "74LS04" H 5050 5926 50  0000 C CNN
 F 2 "" H 5050 5700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 5050 5700 50  0001 C CNN
@@ -68,10 +68,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 5050 5700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS04 U?
+L 74xx:74LS04 U24
 U 2 1 62477FB3
 P 5650 5700
-F 0 "U?" H 5650 6017 50  0000 C CNN
+F 0 "U24" H 5650 6017 50  0000 C CNN
 F 1 "74LS04" H 5650 5926 50  0000 C CNN
 F 2 "" H 5650 5700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 5650 5700 50  0001 C CNN
@@ -79,10 +79,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 5650 5700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS04 U?
+L 74xx:74LS04 U24
 U 3 1 62477FBA
 P 6250 5700
-F 0 "U?" H 6250 6017 50  0000 C CNN
+F 0 "U24" H 6250 6017 50  0000 C CNN
 F 1 "74LS04" H 6250 5926 50  0000 C CNN
 F 2 "" H 6250 5700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 6250 5700 50  0001 C CNN
@@ -90,10 +90,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 6250 5700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS04 U?
+L 74xx:74LS04 U24
 U 4 1 62477FC1
 P 6850 5700
-F 0 "U?" H 6850 6017 50  0000 C CNN
+F 0 "U24" H 6850 6017 50  0000 C CNN
 F 1 "74LS04" H 6850 5926 50  0000 C CNN
 F 2 "" H 6850 5700 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 6850 5700 50  0001 C CNN
@@ -101,10 +101,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS04" H 6850 5700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS10 U?
+L 74xx:74LS10 U5
 U 2 1 62477FC8
 P 6400 1800
-F 0 "U?" H 6400 2125 50  0000 C CNN
+F 0 "U5" H 6400 2125 50  0000 C CNN
 F 1 "74LS10" H 6400 2034 50  0000 C CNN
 F 2 "" H 6400 1800 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 6400 1800 50  0001 C CNN
@@ -112,10 +112,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS10" H 6400 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS32 U?
+L 74xx:74LS32 U22
 U 1 1 62477FCF
 P 7200 2300
-F 0 "U?" H 7200 2625 50  0000 C CNN
+F 0 "U22" H 7200 2625 50  0000 C CNN
 F 1 "74LS32" H 7200 2534 50  0000 C CNN
 F 2 "" H 7200 2300 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7200 2300 50  0001 C CNN
@@ -123,10 +123,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7200 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS32 U?
+L 74xx:74LS32 U22
 U 2 1 62477FD6
 P 7800 2400
-F 0 "U?" H 7800 2725 50  0000 C CNN
+F 0 "U22" H 7800 2725 50  0000 C CNN
 F 1 "74LS32" H 7800 2634 50  0000 C CNN
 F 2 "" H 7800 2400 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7800 2400 50  0001 C CNN
@@ -655,6 +655,9 @@ Wire Wire Line
 	9500 1200 9500 1100
 Wire Wire Line
 	9500 1100 9650 1100
+Connection ~ 9500 1200
+Wire Wire Line
+	7400 5700 9650 5700
 Wire Bus Line
 	8900 4800 9650 4800
 Wire Bus Line
@@ -667,7 +670,4 @@ Wire Bus Line
 	4150 3600 4150 4350
 Wire Bus Line
 	8800 3900 8800 4700
-Connection ~ 9500 1200
-Wire Wire Line
-	7400 5700 9650 5700
 $EndSCHEMATC
