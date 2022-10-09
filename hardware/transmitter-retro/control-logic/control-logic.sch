@@ -1,0 +1,381 @@
+EESchema Schematic File Version 4
+LIBS:control-logic-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 6
+Title "DMX Demonstrator - Transmitter-Pro (DMX-TX3)"
+Date "2022-10-02"
+Rev "0.1"
+Comp "Crazy Giraffe Software"
+Comment1 ""
+Comment2 "Designed by: SparkyBobo"
+Comment3 "https://creativecommons.org/licenses/by-sa/4.0/ "
+Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 License"
+$EndDescr
+$Sheet
+S 2400 3100 1900 1100
+U 6BB77A68
+F0 "power" 79
+F1 "power.sch" 79
+F2 "+5V_IN" I L 2400 3600 50 
+F3 "GND_IN" I L 2400 3700 50 
+$EndSheet
+$Sheet
+S 7300 1550 1900 1100
+U 63268641
+F0 "sample" 79
+F1 "sample.sch" 79
+F2 "~SAMPLE_RESET_OUT" I L 7300 2350 50 
+F3 "SAMPLE_LATCH_OUT" I L 7300 2250 50 
+F4 "CLK_TX_IN" I L 7300 1950 50 
+F5 "~FRAME_RESET_IN" I L 7300 2050 50 
+F6 "~SAMPLE_ENABLE_IN" I L 7300 1800 50 
+F7 "SAMPLE_SEL0_OUT" I L 7300 2450 50 
+F8 "SAMPLE_SEL1_OUT" I L 7300 2550 50 
+F9 "SAMPLE_SEL_MAX_OUT" I L 7300 1650 50 
+$EndSheet
+$Sheet
+S 2400 4650 1900 1100
+U 634170D9
+F0 "break" 79
+F1 "break.sch" 79
+F2 "~FRAME_RESET_IN" I R 4300 5650 50 
+F3 "DATA_MAB_OUT" I R 4300 5400 50 
+F4 "SHIFT_ENABLE_OUT" I R 4300 5050 50 
+F5 "CLK_TX_IN" I R 4300 5550 50 
+F6 "SAMPLE_ENABLE_OUT" I R 4300 4750 50 
+$EndSheet
+$Sheet
+S 2400 1550 1900 1100
+U 6341AE92
+F0 "reset" 79
+F1 "reset.sch" 79
+F2 "~FRAME_RESET_OUT" I R 4300 2050 50 
+F3 "CLK_TX_IN" I R 4300 1950 50 
+F4 "SAMPLE_SEL_MAX" I R 4300 1650 50 
+F5 "DATA_BREAK_OUT" I R 4300 2250 50 
+$EndSheet
+Wire Wire Line
+	4300 5050 7300 5050
+Wire Wire Line
+	7300 5400 4300 5400
+Wire Wire Line
+	4300 5650 4600 5650
+Wire Wire Line
+	4300 5550 4500 5550
+Wire Wire Line
+	7300 4750 7200 4750
+Wire Wire Line
+	7300 4850 7100 4850
+Wire Wire Line
+	7300 4950 7000 4950
+Wire Wire Line
+	7300 5200 6800 5200
+Wire Wire Line
+	6900 5650 6900 3950
+Connection ~ 6900 5650
+Wire Wire Line
+	6900 5650 7300 5650
+Wire Wire Line
+	7000 2350 7300 2350
+Wire Wire Line
+	6900 2250 7300 2250
+Wire Wire Line
+	7300 1650 4300 1650
+Wire Wire Line
+	4300 4750 4400 4750
+Wire Wire Line
+	4400 4750 4400 1800
+Wire Wire Line
+	4400 1800 7300 1800
+Wire Wire Line
+	7300 1950 4500 1950
+Connection ~ 4500 5550
+Wire Wire Line
+	4500 5550 7300 5550
+Wire Wire Line
+	7300 2050 4600 2050
+Wire Wire Line
+	4600 2050 4600 5650
+Connection ~ 4600 5650
+Wire Wire Line
+	4600 5650 6900 5650
+Wire Wire Line
+	4900 2450 4300 2450
+Wire Wire Line
+	4800 2550 4300 2550
+Wire Wire Line
+	4500 1950 4300 1950
+Connection ~ 4500 1950
+Wire Wire Line
+	4300 2050 4600 2050
+Connection ~ 4600 2050
+$Comp
+L power:+5V #PWR0129
+U 1 1 6343D150
+P 2250 3500
+AR Path="/6343D150" Ref="#PWR0129"  Part="1" 
+AR Path="/632F1F43/6343D150" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6343D150" Ref="#PWR?"  Part="1" 
+AR Path="/6344C470/6343D150" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0129" H 2250 3350 50  0001 C CNN
+F 1 "+5V" H 2265 3673 50  0000 C CNN
+F 2 "" H 2250 3500 50  0001 C CNN
+F 3 "" H 2250 3500 50  0001 C CNN
+	1    2250 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0130
+U 1 1 6343EB6C
+P 2250 3800
+AR Path="/6343EB6C" Ref="#PWR0130"  Part="1" 
+AR Path="/632F1F43/6343EB6C" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6343EB6C" Ref="#PWR?"  Part="1" 
+AR Path="/6344C470/6343EB6C" Ref="#PWR?"  Part="1" 
+F 0 "#PWR0130" H 2250 3550 50  0001 C CNN
+F 1 "GND" H 2400 3700 50  0000 C CNN
+F 2 "" H 2250 3800 50  0001 C CNN
+F 3 "" H 2250 3800 50  0001 C CNN
+	1    2250 3800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 3700 2400 3700
+Wire Wire Line
+	2250 3700 2250 3800
+Wire Wire Line
+	2250 3600 2400 3600
+Wire Wire Line
+	2250 3500 2250 3600
+Wire Wire Line
+	7100 2450 7300 2450
+Wire Wire Line
+	7300 2550 7200 2550
+Wire Wire Line
+	4300 2250 4700 2250
+Wire Wire Line
+	4700 2250 4700 5300
+Wire Wire Line
+	4700 5300 7300 5300
+Wire Wire Line
+	4500 1950 4500 4150
+$Comp
+L power:GND #PWR?
+U 1 1 6475E09B
+P 6150 4750
+AR Path="/6475E09B" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6475E09B" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6475E09B" Ref="#PWR?"  Part="1" 
+AR Path="/64755962/6475E09B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6150 4500 50  0001 C CNN
+F 1 "GND" H 6300 4650 50  0000 C CNN
+F 2 "" H 6150 4750 50  0001 C CNN
+F 3 "" H 6150 4750 50  0001 C CNN
+	1    6150 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 4550 6150 4550
+Wire Wire Line
+	6150 4550 6150 4650
+Wire Wire Line
+	6050 4650 6150 4650
+Connection ~ 6150 4650
+Wire Wire Line
+	6150 4650 6150 4750
+$Comp
+L power:GND #PWR?
+U 1 1 6475E0A6
+P 5450 4750
+AR Path="/6475E0A6" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6475E0A6" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6475E0A6" Ref="#PWR?"  Part="1" 
+AR Path="/64755962/6475E0A6" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5450 4500 50  0001 C CNN
+F 1 "GND" H 5600 4650 50  0000 C CNN
+F 2 "" H 5450 4750 50  0001 C CNN
+F 3 "" H 5450 4750 50  0001 C CNN
+	1    5450 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 4750 5450 4650
+Wire Wire Line
+	5450 4550 5550 4550
+Wire Wire Line
+	5550 4650 5450 4650
+Connection ~ 5450 4650
+Wire Wire Line
+	5450 4650 5450 4550
+$Comp
+L power:+5V #PWR?
+U 1 1 6475E0B1
+P 6150 2650
+AR Path="/6475E0B1" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6475E0B1" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6475E0B1" Ref="#PWR?"  Part="1" 
+AR Path="/64755962/6475E0B1" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6150 2500 50  0001 C CNN
+F 1 "+5V" H 6165 2823 50  0000 C CNN
+F 2 "" H 6150 2650 50  0001 C CNN
+F 3 "" H 6150 2650 50  0001 C CNN
+	1    6150 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 2850 6150 2850
+Wire Wire Line
+	6150 2850 6150 2750
+Wire Wire Line
+	6050 2750 6150 2750
+Connection ~ 6150 2750
+Wire Wire Line
+	6150 2750 6150 2650
+$Comp
+L power:+5V #PWR?
+U 1 1 6475E0BC
+P 5450 2650
+AR Path="/6475E0BC" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6475E0BC" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6475E0BC" Ref="#PWR?"  Part="1" 
+AR Path="/64755962/6475E0BC" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5450 2500 50  0001 C CNN
+F 1 "+5V" H 5465 2823 50  0000 C CNN
+F 2 "" H 5450 2650 50  0001 C CNN
+F 3 "" H 5450 2650 50  0001 C CNN
+	1    5450 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 2850 5450 2850
+Wire Wire Line
+	5450 2850 5450 2750
+Wire Wire Line
+	5550 2750 5450 2750
+Connection ~ 5450 2750
+Wire Wire Line
+	5450 2750 5450 2650
+Text Label 6050 3150 0    50   ~ 0
+SAMPLE_LATCH
+Text Label 6050 3250 0    50   ~ 0
+~SAMPLE_RESET
+Text Label 6050 3350 0    50   ~ 0
+SAMPLE_SEL0
+Text Label 6050 3450 0    50   ~ 0
+SAMPLE_SEL1
+Text Label 6050 3550 0    50   ~ 0
+~SHIFT_LOAD
+Text Label 6050 3650 0    50   ~ 0
+~SHIFT_ENABLE
+Text Label 6050 3750 0    50   ~ 0
+SHIFT_TRANSMIT
+Text Label 6050 4150 0    50   ~ 0
+DATA_FIXED
+Text Label 5150 4350 0    50   ~ 0
+CLK_FAST
+Text Label 5150 4450 0    50   ~ 0
+CLK_SLOW
+Text Label 5250 4150 0    50   ~ 0
+CLK_TX
+Text Label 6050 3950 0    50   ~ 0
+~FRAME_RESET
+NoConn ~ 6050 3850
+NoConn ~ 6050 4350
+NoConn ~ 6050 4450
+NoConn ~ 5550 2950
+NoConn ~ 5550 3050
+NoConn ~ 5550 3150
+NoConn ~ 5550 3250
+NoConn ~ 5550 3350
+NoConn ~ 5550 3450
+NoConn ~ 5550 3550
+NoConn ~ 5550 3650
+$Comp
+L Connector_Generic:Conn_02x20_Odd_Even J?
+U 1 1 6475E0DF
+P 5750 3650
+AR Path="/63267F40/6475E0DF" Ref="J?"  Part="1" 
+AR Path="/6475E0DF" Ref="J?"  Part="1" 
+AR Path="/64755962/6475E0DF" Ref="J?"  Part="1" 
+F 0 "J?" H 5800 4767 50  0000 C CNN
+F 1 "Expansion" H 5800 4676 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 5750 3650 50  0001 C CNN
+F 3 "~" H 5750 3650 50  0001 C CNN
+	1    5750 3650
+	1    0    0    -1  
+$EndComp
+NoConn ~ 5550 3850
+NoConn ~ 5550 3750
+NoConn ~ 5550 3950
+NoConn ~ 5550 4050
+Wire Wire Line
+	5550 4150 4500 4150
+Connection ~ 4500 4150
+Wire Wire Line
+	4500 4150 4500 5550
+Wire Wire Line
+	5550 4350 4900 4350
+Wire Wire Line
+	4900 2450 4900 4350
+Wire Wire Line
+	5550 4450 4800 4450
+Wire Wire Line
+	4800 2550 4800 4450
+Wire Wire Line
+	6050 3150 6900 3150
+Wire Wire Line
+	6900 2250 6900 3150
+Wire Wire Line
+	6050 3250 7000 3250
+Wire Wire Line
+	7000 2350 7000 3250
+Wire Wire Line
+	6050 3350 7100 3350
+Wire Wire Line
+	7100 2450 7100 3350
+Wire Wire Line
+	6050 3450 7200 3450
+Wire Wire Line
+	7200 2550 7200 3450
+Wire Wire Line
+	6050 3550 7200 3550
+Wire Wire Line
+	7200 3550 7200 4750
+Wire Wire Line
+	7100 4850 7100 3650
+Wire Wire Line
+	6050 3650 7100 3650
+Wire Wire Line
+	7000 4950 7000 3750
+Wire Wire Line
+	6050 3750 7000 3750
+Wire Wire Line
+	6050 4150 6800 4150
+Wire Wire Line
+	6800 4150 6800 5200
+Wire Wire Line
+	6050 3950 6900 3950
+NoConn ~ 6050 4050
+NoConn ~ 6050 4250
+NoConn ~ 5550 4250
+$Sheet
+S 7300 4650 1900 1100
+U 632F1F43
+F0 "shift" 79
+F1 "shift.sch" 79
+F2 "DATA_FIXED_OUT" I L 7300 5200 50 
+F3 "~SHIFT_LOAD_OUT" I L 7300 4750 50 
+F4 "SHIFT_TRANSMIT_OUT" I L 7300 4950 50 
+F5 "SHIFT_ENABLE_IN" I L 7300 5050 50 
+F6 "DATA_MAB_IN" I L 7300 5400 50 
+F7 "~FRAME_RESET_IN" I L 7300 5650 50 
+F8 "CLK_TX_IN" I L 7300 5550 50 
+F9 "~SHIFT_ENABLE_OUT" I L 7300 4850 50 
+F10 "DATA_BREAK_IN" I L 7300 5300 50 
+$EndSheet
+NoConn ~ 6050 2950
+NoConn ~ 6050 3050
+$EndSCHEMATC
