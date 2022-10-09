@@ -1,0 +1,98 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-4c: Sample Counter",
+        "tick": 0,
+        "every": 2
+    },
+    "foot": {
+        "tick": 23,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p..............."
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "SA0",
+                "wave": "0101010101010101"
+            },
+            {
+                "name": "SA1",
+                "wave": "0.1.0.1.0.1.0.1."
+            },
+            {
+                "name": "SA2",
+                "wave": "0...1...0...1..."
+            },
+            {
+                "name": "SA3",
+                "wave": "0.......1......."
+            }
+        ],
+        ["@0",
+            {
+                "name": "sequence",
+                "wave": "56.......7..x...",
+                "data": ["rst", "sample", "load"]
+            },
+            {
+                "name": "binary",
+                "wave": "22.......2..x...",
+                "data": ["0000", "0001-1000", "1001-1011"]
+            }
+        ],
+        ["@1",
+            {
+                "name": "sequence",
+                "wave": "x56.......7..x..",
+                "data": ["rst", "sample", "load"]
+            },
+            {
+                "name": "binary",
+                "wave": "x22.......2..x..",
+                "data": ["0001", "0010-1001", "1010-1100"]
+            }
+        ],
+        ["@2",
+            {
+                "name": "sequence",
+                "wave": "x.56.......7..x.",
+                "data": ["rst", "sample", "load"]
+            },
+            {
+                "name": "binary",
+                "wave": "x.22.......2..x.",
+                "data": ["0010", "0011-1010", "1011-1101"]
+            }
+        ],
+        ["@3",
+            {
+                "name": "sequence",
+                "wave": "x..56.......7..x",
+                "data": ["rst", "sample", "load"]
+            },
+            {
+                "name": "binary",
+                "wave": "x..22.......2..x",
+                "data": ["0011", "0100-1011", "1100-1110"]
+            }
+        ],
+        ["@4",
+            {
+                "name": "sequence",
+                "wave": "x...56.......7..",
+                "data": ["rst", "sample", "load"]
+            },
+            {
+                "name": "binary",
+                "wave": "x...22.......2..",
+                "data": ["0100", "0101-1100", "1101-1111"]
+            }
+        ]
+    ]
+}

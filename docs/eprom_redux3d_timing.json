@@ -1,0 +1,40 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-3d: Mask, Extend, and Decompose Fixed3",
+        "tick": -5,
+        "every": 2
+    },
+    "config": {
+        "skin": "narrow"
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p........................"
+            }
+        ],
+        ["dmx",
+            {
+                "name": "packet",
+                "wave": "8.7..9.3.................",
+                "data": ["mer4", "mark", "end", "break"]
+            },
+            {
+                "name": "dmx_out",
+                "wave": "1......0................."
+            }
+        ],
+        ["fixed3",
+            {
+                "name": "sequence",
+                "wave": "x....9.x.................",
+                "data": ["end"]
+            },
+            {
+                "name": "data",
+                "wave": "0....1.x................."
+            }
+        ]
+    ]
+}

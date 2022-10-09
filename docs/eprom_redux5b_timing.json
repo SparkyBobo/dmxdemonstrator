@@ -1,0 +1,114 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-5b:  Fixed2 & Shift Design",
+        "tick": 0,
+        "every": 2
+    },
+    "foot": {
+        "tick": 23,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "x..p...........x"
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "SH0",
+                "wave": "x..101010101010x"
+            },
+            {
+                "name": "SH1",
+                "wave": "x..10.1.0.1.0.1x"
+            },
+            {
+                "name": "SH2",
+                "wave": "x..01...0...1..x"
+            },
+            {
+                "name": "SH3",
+                "wave": "x..0....1......x"
+            }
+        ],
+        {},
+        ["shift_fixed",
+            {
+                "name": "sequence",
+                "wave": "x..5x.......7..x",
+                "data": ["sb", "mark"]
+            },
+            ["mark",
+                {
+                    "name": "data",
+                    "wave": "x..0........1..0"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..2........2..x",
+                    "data": ["SH3&SH2=0", "1"]
+                }
+            ]
+        ],
+        {},
+        ["shift",
+            {
+                "name": "sequence",
+                "wave": "x..76.......2..x",
+                "data": ["ld", "transmit start code", "idle"]
+            },
+            ["transmit",
+                {
+                    "name": "data",
+                    "wave": "x..01.......0..x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..22.......2..x",
+                    "data": ["0", "SH3^SH2=1", "0"]
+                }
+            ],
+            {},
+            ["~enable",
+                {
+                    "name": "data",
+                    "wave": "x..10.......1..x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..22.......2..x",
+                    "data": ["1", "!(SH3^SH2)=0", "1"]
+                }
+            ],
+            {},
+            ["~load",
+                {
+                    "name": "data",
+                    "wave": "x..01..........x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..22..........x",
+                    "data": ["0", "SH3|SH2=1"]
+                }
+            ]
+        ],
+        {},
+        ["control",
+            ["reset",
+                {
+                    "name": "data",
+                    "wave": "x..1..........0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..2..........2x",
+                    "data": ["!((SH3&SH2)&SH1)=1", "0"]
+                }
+            ]
+        ]
+    ]
+}

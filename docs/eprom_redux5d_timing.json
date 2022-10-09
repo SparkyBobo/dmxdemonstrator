@@ -1,0 +1,73 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-5d: Fixed3 Design",
+        "tick": 0,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p..............."
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "*C0",
+                "wave": "101010101010101x"
+            },
+            {
+                "name": "*C1",
+                "wave": "01.0.1.0.1.0.1.x"
+            },
+            {
+                "name": "*C2",
+                "wave": "0..1...0...1...x"
+            },
+            {
+                "name": "*C3",
+                "wave": "0......1.......x"
+            }
+        ],
+        {},
+        ["reset counter",
+            {
+                "name": "sequence",
+                "wave": "x............9.x",
+                "data": ["end"]
+            },
+            ["break",
+                {
+                    "name": "data",
+                    "wave": "0............1.x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "2............2.x",
+                    "data": ["TC=0", "TC=1"]
+                }
+            ]
+        ],
+        {},
+        ["break counter",
+            {
+                "name": "sequence",
+                "wave": "x............9.x",
+                "data": ["end"]
+            },
+            {},
+            ["~frame_reset",
+                {
+                    "name": "data",
+                    "wave": "1.............0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "2.............2x",
+                    "data": ["!TC=1", "0"]
+                }
+            ]
+        ]
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-4d: Fixed3 Counter",
+        "tick": 0,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p................"
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "*C0",
+                "wave": "0101010101010101x"
+            },
+            {
+                "name": "*C1",
+                "wave": "0.1.0.1.0.1.0.1.x"
+            },
+            {
+                "name": "*C2",
+                "wave": "0...1...0...1...x"
+            },
+            {
+                "name": "*C3",
+                "wave": "0.......1.......x"
+            }
+        ],
+
+         ["@14",
+            {
+                "name": "sequence",
+                "wave": "x.............9.x",
+                "data": ["end"]
+            },
+            {
+                "name": "data",
+                "wave": "x.............1.x"
+            }
+        ],
+        {},
+        ["reset counter@14",
+            {
+                "name": "sequence",
+                "wave": "x.............9.x",
+                "data": ["end"]
+            },
+            {
+                "name": "binary",
+                "wave": "x............22.2",
+                "data": ["1110", "1111", "0000"]
+            }
+        ],
+        {},
+        {},
+        {},
+        ["break counter@14",
+            {
+                "name": "sequence",
+                "wave": "x.............9.x",
+                "data": ["end"]
+            },
+            {
+                "name": "binary",
+                "wave": "x.............22x",
+                "data": ["1110", "1111", "0"]
+            }
+        ],
+        {}
+    ]
+}

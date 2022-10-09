@@ -1,0 +1,96 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-5c: Sample Design",
+        "tick": 0,
+        "every": 2
+    },
+    "foot": {
+        "tick": 23,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "x..p...........x"
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "SA0",
+                "wave": "x..101010101010x"
+            },
+            {
+                "name": "SA1",
+                "wave": "x..10.1.0.1.0.1x"
+            },
+            {
+                "name": "SA2",
+                "wave": "x..01...0...1..x"
+            },
+            {
+                "name": "SA3",
+                "wave": "x..0....1......x"
+            }
+        ],
+        {},
+        ["sample",
+            {
+                "name": "sequence",
+                "wave": "x..56.......7..x",
+                "data": ["rst", "sample", "load"]
+            },
+            ["reset",
+                {
+                    "name": "data",
+                    "wave": "x..01..........x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..22..........x",
+                    "data": ["0", "SA3|SA2=1"]
+                }
+            ],
+            {},
+            ["load",
+                {
+                    "name": "data",
+                    "wave": "x..0........1..x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..2........2..x",
+                    "data": ["SA3&SA2=0", "1"]
+                }
+            ]
+        ],
+        {},
+        ["control",
+            ["next",
+                {
+                    "name": "data",
+                    "wave": "x..0..........1x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..2..........2x",
+                    "data": ["(SA3&SA2)&SA1=0", "1"]
+                }
+            ],
+            {},
+            ["reset",
+                {
+                    "name": "data",
+                    "wave": "x..1..........0x",
+                    "data": ["(B4&B3)&B2", "(B4&B3)&B2"]
+                },
+                {
+                    "name": "logic",
+                    "wave": "x..2..........2x",
+                    "data": ["!SA3&SA2&SA1=1", "0"]
+                }
+            ]
+        ]
+    ]
+}

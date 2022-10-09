@@ -1,0 +1,67 @@
+{
+    "head": {
+        "text": "DMX Demonstrator EPROM Redux-3b: Mask, Extend, and Decompose Fixed2 & Shift",
+        "tick": -1,
+        "every": 2
+    },
+    "config": {
+        "skin": "narrow"
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p..........................................................."
+            }
+        ],
+        ["dmx",
+            {
+                "name": "sequence",
+                "wave": "x56.......7..58.......7..58.......7..58.......7..58.......7..",
+                "data": ["sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end"]
+            },
+            {
+                "name": "dmx_out",
+                "wave": "x0........1..0========1..0========1..0========1..0========1.."
+            }
+        ],
+        ["fixed2",
+            {
+                "name": "sequence",
+                "wave": "x5x.......7..5x.......7..5x.......7..5x.......7..5x.......7..",
+                "data": ["sb", "mark", "sb", "mark", "sb", "mark", "sb", "mark", "sb", "mark"]
+            },
+            {
+                "name": "data",
+                "wave": "x0........1..0........1..0........1..0........1..0........1.."
+            }
+        ],
+        ["shift",
+            {
+                "name": "sequence",
+                "wave": "x76.......2..78.......2..78.......2..78.......2..78.......2..",
+                "data": ["ld", "transmit start code", "idle", "ld", "transmit dimmer 1", "idle", "ld", "transmit dimmer 2", "idle", "ld", "transmit dimmer 3", "idle", "ld", "transmit dimmer 4", "idle"]
+            },
+            {
+                "name": "transmit",
+                "wave": "x01.......0...1.......0...1.......0...1.......0...1.......0.."
+            },
+            {
+                "name": "~enable",
+                "wave": "x10.......1...0.......1...0.......1...0.......1...0.........."
+            },
+            {
+                "name": "~load",
+                "wave": "x01..........01..........01..........01..........01.........."
+            }
+        ],
+        ["pattern",
+            {
+                "name": "repeat",
+                "wave": "x=...........=...........=...........=...........=...........",
+                "node": "xA...........B...........C...........D...........E...........F"
+            }
+        ]
+    ],
+    "edge": ["A<->B 1","B<->C 2","C<->D 3","D<->E 4","E<->F 5"]
+}
