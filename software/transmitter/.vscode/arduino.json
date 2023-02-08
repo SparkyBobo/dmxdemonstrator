@@ -1,0 +1,6 @@
+{
+    "programmer": "USBtinyISP",
+    "board": "arduino:avr:leonardo",
+    "port": "COM15",
+    "sketch": "transmitter.ino"
+}
