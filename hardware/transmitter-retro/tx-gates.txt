@@ -1,0 +1,18 @@
+2 x 3 input nand
+1 or
+1 and 
+1 or
+1 not
+1 not (needed?)
+1 or
+2 x nand
+1 x 74ls153 (could be easier)
+1 d-flip-flop
+2 d-flip-flop
+2 x or
+2 x 74ls85
+
+
+IC20 - 7410 nand
+IC18 - 7432 or 
+IC19 - 7408 and

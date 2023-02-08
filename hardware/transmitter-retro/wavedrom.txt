@@ -1,0 +1,191 @@
+{signal: [
+  {name: 'sample_clk',      wave: 'p....................................................................'},
+  {name: 'u2a_qd (/16)',    wave: 'l.H.......l.......H.......l.......H.......l.......H.......l.......H..'},
+  {name: 'tx_clk (/32)',    wave: 'l.H...............l...............H...............l...............H..'},
+  {name: 'tx_step',         wave: 'l.3...............4...............5...............6...............7..', data: ["Step 0 (hi)", "Step 0 (lo)", "Step 1 (hi)", "Step 1 (lo)", "Step 2 (hi)"]},
+  {name: 'rx_clk (/32+16)', wave: 'h.l...............H...............l...............H...............l..'},
+  {name: 'rx_step',         wave: 'x.................3...............4...............5...............6..', data: ["Step 0 (hi)", "Step 0 (lo)", "Step 1 (hi)", "Step 1 (lo)"]},
+],
+head:{
+   text:'DMX Demonstrator Clock Timing',
+   tick:-2,
+   every:1
+ },
+}
+
+
+{signal: [
+  {name: 'tx_clk',      wave: 'p............................'},
+  {name: 'dmx_out',     wave: 'xh.l......................h..'},
+],
+head:{
+   text:'DMX Demonstrator Packet Break',
+   tick:-3,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',      wave: 'p............'},
+  {name: 'sample_reset',wave: 'h.lh.........'},
+  {name: 'sample_load', wave: 'l..........hl'},
+  {name: 'sample_sel0', wave: 'x.3.........x', data: ["sample select valid"]},
+  {name: 'sample_sel1', wave: 'x.3.........x', data: ["sample select valid"]},
+],
+head:{
+   text:'DMX Demonstrator Dimmer Capture',
+   tick:-2,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',       wave: 'p...........'},
+  {name: 'sr_shift_load',wave: '0.1.........'},
+  {name: 'sr_enable',    wave: '10........1.'},
+  {name: 'sr_transmit',  wave: '0.1.......0.'},
+],
+head:{
+   text:'DMX Demonstrator Dimmer Transmit',
+   tick:-2,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',       wave: 'p......................'},
+  ['sample',
+    {name: 'sample_sel0',  wave: 'x.3.........x..........', data: ["sample select valid"]},
+    {name: 'sample_sel1',  wave: 'x.3.........x..........', data: ["sample select valid"]},
+    {name: 'sample_reset', wave: '1.01.........x.........'},
+    {name: 'sample_load',  wave: '0..........10x.........'},
+  ],
+  ['shift',
+    {name: 'sr_shift_load',wave: 'x..........0.1.........'},
+    {name: 'sr_enable',    wave: 'x..........10........1.'},
+    {name: 'sr_transmit',  wave: 'x..........0.1.......0.'},
+  ],
+  ['data',
+    {name: 'sample_data',  wave: 'x..4........x..........', data: ["sample data"]},
+    {name: 'tx_data',      wave: 'x............4.......x.', data: ["transmit data"]},
+  ],
+],
+head:{
+   text:'DMX Demonstrator Dimmer Sample/Transmit',
+   tick:-2,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',              wave: 'p..........................................................................................|'},
+  ['dmx data',
+    {name: 'packet_data',       wave: 'x9.3......................4..56.......7..58.......7..58.......7..58.......7..58.......7..9.|', data: ["end","break", "mark after break", "sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end"]},
+    {name: 'dmx_out (d0)',      wave: 'x1.0......................1..0........1..0........1..0........1..0........1..0........1....|', data: ["end"]},
+  ],
+  ['sample',
+    {name: 'sample_data',       wave: 'x...............................8........x...8........x...8........x...8........x..........|', data: ["sample dimmer 1","sample dimmer 2","sample dimmer 3","sample dimmer 4"]},
+    {name: 'sample_reset (d4)', wave: 'x.............................101...........01...........01...........01........x..........|'},
+    {name: 'sample_load (d7)',  wave: 'x..............................0........10...........10...........10...........1x..........|'},
+    {name: 'sample_sel0 (d6)',  wave: 'x..............................0............1............0............1.........x..........|', data: ["sample select valid"]},
+    {name: 'sample_sel1 (d5)',  wave: 'x..............................0.........................1......................x..........|', data: ["sample select valid"]},
+  ],
+  ['shift',
+    {name: 'sr_data',           wave: 'x.........................................4.......x...4.......x...4.......x...4.......x....|', data: ["transmit dimmer 1","transmit dimmer 2","transmit dimmer 3","transmit dimmer 4"]},
+    {name: 'sr_disable (d2)',   wave: 'x........................................10........1..0........1..0........1..0........1x..|'},
+    {name: 'sr_shift_load (d3)',wave: 'x.......................................0.1.........0.1.........0.1.........0.1.........0x.|'},
+    {name: 'sr_transmit (d1)',  wave: 'x.......................................0.1.......0...1.......0...1.......0...1.......0x...|'},
+  ],
+],
+config: { hscale: 1 },
+head:{
+   text:'DMX Demonstrator Packet',
+   tick:-3,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',              wave: 'p..........................................................................................|'},
+  ['dmx data',
+    {name: 'packet_data',       wave: 'x9.3......................4..56.......7..58.......7..58.......7..58.......7..58.......7..9.|', data: ["end","break", "mark after break", "sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end"]},
+    {name: 'dmx_out (d0)',      wave: 'x1.0......................1..0........1..0........1..0........1..0........1..0........1....|', data: ["end"]},
+  ],
+  ['sample',
+    {name: 'sample_data',       wave: 'x..............................58.......7x..58.......7x..58.......7x..58.......7x..........|', data: ["reset", "sample dimmer 1","load", "reset", "sample dimmer 2","load", "reset", "sample dimmer 3","load", "reset", "sample dimmer 4","load", ]},
+    {name: 'sample_reset (d4)', wave: 'x.............................101...........01...........01...........01........x..........|'},
+    {name: 'sample_load (d7)',  wave: 'x..............................0........10...........10...........10...........1x..........|'},
+    {name: 'sample_sel0 (d6)',  wave: 'x..............................0............1............0............1.........x..........|', data: ["sample select valid"]},
+    {name: 'sample_sel1 (d5)',  wave: 'x..............................0.........................1......................x..........|', data: ["sample select valid"]},
+  ],
+  ['shift',
+    {name: 'sr_data',           wave: 'x.......................................7.4.......5x7.4.......5x7.4.......5x7.4.......5x...|', data: ["load", "transmit dimmer 1","nop","load","transmit dimmer 2","nop","load","transmit dimmer 3","nop","load","transmit dimmer 4","nop"]},
+    {name: 'sr_disable (d2)',   wave: 'x........................................10........1..0........1..0........1..0........1x..|'},
+    {name: 'sr_shift_load (d3)',wave: 'x.......................................0.1.........0.1.........0.1.........0.1.........0x.|'},
+    {name: 'sr_transmit (d1)',  wave: 'x.......................................0.1.......0...1.......0...1.......0...1.......0x...|'},
+  ],
+],
+config: { hscale: 1 },
+head:{
+   text:'DMX Demonstrator Packet',
+   tick:-3,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',              wave: 'p.........................................................................................'},
+  ['dmx data',
+    {name: 'packet_data',       wave: '93......................4..56.......7..58.......7..58.......7..58.......7..58.......7..9.3', data: [".d","break", "mab", "sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end", "b."]},
+    {name: 'dmx_out (d0)',      wave: '10......................1..0........1..0........1..0........1..0........1..0........1....0'},
+  ],
+  ['sample',
+    {name: 'sample_data',       wave: 'x...............56.......7x..58.......7x..58.......7x..58.......7x..58.......7x...........', data: ["rst", "sample start code","ld", "rst", "sample dimmer 1","ld", "rst", "sample dimmer 2","ld", "rst", "sample dimmer 3","ld", "rst", "sample dimmer 4","ld", ]},
+    {name: 'sample_reset (d4)', wave: 'x..............10.........1..01...........01...........01...........01........x...........'},
+    {name: 'sample_load (d7)',  wave: 'x...............0........10...........10...........10...........10...........1x...........'},
+    {name: 'sample_sel0 (d6)',  wave: 'x...............0.........................1............0............1.........x...........'},
+    {name: 'sample_sel1 (d5)',  wave: 'x...............0......................................1......................x...........'},
+  ],
+  ['shift',
+    {name: 'sr_data',           wave: 'x.........................7.6.......5x7.8.......5x7.8.......5x7.8.......5x7.8.......5x....', data: ["load", "transmit start code", "0", "load", "transmit dimmer 1","0","load","transmit dimmer 2","0","load","transmit dimmer 3","0","load","transmit dimmer 4","0"]},
+    {name: 'sr_disable (d2)',   wave: 'x..........................10..........10........1..0........1..0........1..0........1x...'},
+    {name: 'sr_shift_load (d3)',wave: 'x.........................0.1.........0.1.........0.1.........0.1.........0.1.........0x..'},
+    {name: 'sr_transmit (d1)',  wave: 'x.........................0.1........0..1.......0...1.......0...1.......0...1.......0x....'},
+  ],
+],
+config: { skin: 'narrow' },
+head:{
+   text:'DMX Demonstrator Packet',
+   tick:-1,
+   every:1
+ },
+}
+
+{signal: [
+  {name: 'tx_clk',              wave: 'p........................................................................................'},
+  ['dmx data',
+    {name: 'packet_data',       wave: '79.3......................4..56.......7..58.......7..58.......7..58.......7..58.......7..', data: ["", "end","break", "mab", "sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end", "b."]},
+    {name: 'dmx_out (d0)',      wave: '1..0......................1..0........1..0........1..0........1..0........1..0........1..'},
+  ],
+  ['sample',
+    {name: 'sample_data',       wave: 'x.................56.......7x..58.......7x..58.......7x..58.......7x..58.......7x........', data: ["rst", "sample start code","ld", "rst", "sample dimmer 1","ld", "rst", "sample dimmer 2","ld", "rst", "sample dimmer 3","ld", "rst", "sample dimmer 4","ld", ]},
+    {name: 'sample_reset (d4)', wave: 'x................10.........1..01...........01...........01...........01........x........'},
+    {name: 'sample_load (d7)',  wave: 'x.................0........10...........10...........10...........10...........1x........'},
+    {name: 'sample_sel0 (d6)',  wave: 'x.................0.........................1............0............1.........x........'},
+    {name: 'sample_sel1 (d5)',  wave: 'x.................0......................................1......................x........'},
+  ],
+  ['shift',
+    {name: 'sr_data',           wave: 'x...........................7.6.......5x7.8.......5x7.8.......5x7.8.......5x7.8.......5x.', data: ["load", "transmit start code", "0", "load", "transmit dimmer 1","0","load","transmit dimmer 2","0","load","transmit dimmer 3","0","load","transmit dimmer 4","0"]},
+    {name: 'sr_disable (d2)',   wave: 'x............................10..........10........1..0........1..0........1..0........1x'},
+    {name: 'sr_shift_load (d3)',wave: 'x...........................0.1.........0.1.........0.1.........0.1.........0.1.........x'},
+    {name: 'sr_transmit (d1)',  wave: 'x...........................0.1........0..1.......0...1.......0...1.......0...1.......0x.'},
+  ],
+],
+config: { skin: 'narrow' },
+head:{
+   text:'DMX Demonstrator Packet',
+   tick:-1,
+   every:1
+ },
+}
+

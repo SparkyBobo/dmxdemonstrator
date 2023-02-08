@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 556
+D 556 Dual 555 timer 2 555 timers in one package<br>1MHZ 14DIP <a href="https://cdn.sparkfun.com/datasheets/Kits/icm7555-56.pdf">Datasheet</a> <h4>SparkFun Products</h4><ul><li><a href="https://www.sparkfun.com/products/11177">SparkFun SparkPunk Sound Kit</a> (KIT-11177)</li></ul>
+K PROD_ID:IC-11898
+$ENDCMP
+#
+#End Doc Library

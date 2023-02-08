@@ -1,0 +1,389 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js" type="text/javascript">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js" type="text/javascript"></script>
+</head>
+
+<body onload="WaveDrom.ProcessAll()">
+    <script type="WaveDrom">
+        {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-5a: Fixed1 Design",
+                    "tick": 0,
+                    "every": 2
+                },
+                "foot": {
+                    "tick": 0,
+                    "every": 2
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "xp..........................x..."
+                        }
+                    ],
+                    {},
+                    ["counter",
+                        {
+                            "name": "B0",
+                            "wave": "x101010101010101010101010101x..."
+                        },
+                        {
+                            "name": "B1",
+                            "wave": "x01.0.1.0.1.0.1.0.1.0.1.0.1.x..."
+                        },
+                        {
+                            "name": "B2",
+                            "wave": "x0..1...0...1...0...1...0...x..."
+                        },
+                        {
+                            "name": "B3",
+                            "wave": "x0......1.......0.......1...x..."
+                        },
+                        {
+                            "name": "B4",
+                            "wave": "x0..............1...........x..."
+                        }
+                    ],
+                    {},
+                    ["fixed1",
+                        {
+                            "name": "sequence",
+                            "wave": "x3......................4..5x...",
+                            "data": ["break", "mab", "sb"]
+                        },
+                        ["mark",
+                            {
+                                "name": "data",
+                                "wave": "x0......................1..0x..."
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x2......................2..2x...",
+                                "data": ["(B4&B3)&!(B1&B0)=0", "1", "0"]
+                            }
+                        ]
+                    ],
+                    {},
+                    ["control",
+                        ["count",
+                            {
+                                "name": "data",
+                                "wave": "x1.........................0x..."
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x2.........................2x...",
+                                "data": ["!((B4&B3)&(B1&B0))=1", "0"]
+                            }
+                        ],
+                        {},
+                        ["shift",
+                            {
+                                "name": "sequence",
+                                "wave": "x..........................56...",
+                                "data": ["sb", "start code"]
+                            },
+                            {
+                                "name": "data",
+                                "wave": "x0.........................1x..."
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x2.........................2x...",
+                                "data": ["(B4&B3)&(B1&B0)=0", "1"]
+                            }
+                        ],
+                        {},
+                        ["sample",
+                            {
+                                "name": "sequence",
+                                "wave": "x...........................58..",
+                                "data": ["rst", "dimmer 1"]
+                            },
+                            {
+                                "name": "data",
+                                "wave": "x0..........................1x.."
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x2..........................2x..",
+                                "data": ["(B4&B3)&(B1&B0)@t-1=0", "1"]
+                            }
+                        ]
+                    ]
+                ]
+            }
+                </script>
+    <script type="WaveDrom">
+        {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-5b:  Fixed2 & Shift Design",
+                    "tick": 0,
+                    "every": 2
+                },
+                "foot": {
+                    "tick": 23,
+                    "every": 2
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "x..p...........x"
+                        }
+                    ],
+                    {},
+                    ["counter",
+                        {
+                            "name": "SH0",
+                            "wave": "x..101010101010x"
+                        },
+                        {
+                            "name": "SH1",
+                            "wave": "x..10.1.0.1.0.1x"
+                        },
+                        {
+                            "name": "SH2",
+                            "wave": "x..01...0...1..x"
+                        },
+                        {
+                            "name": "SH3",
+                            "wave": "x..0....1......x"
+                        }
+                    ],
+                    {},
+                    ["shift_fixed",
+                        {
+                            "name": "sequence",
+                            "wave": "x..5x.......7..x",
+                            "data": ["sb", "mark"]
+                        },
+                        ["mark",
+                            {
+                                "name": "data",
+                                "wave": "x..0........1..0"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x..2........2..x",
+                                "data": ["SH3&SH2=0", "1"]
+                            }
+                        ]
+                    ],
+                    {},
+                    ["shift",
+                        {
+                            "name": "sequence",
+                            "wave": "x..76.......2..x",
+                            "data": ["ld", "transmit start code", "idle"]
+                        },
+                        ["transmit",
+                            {
+                                "name": "data",
+                                "wave": "x..01.......0..x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x..22.......2..x",
+                                "data": ["0", "SH3^SH2=1", "0"]
+                            }
+                        ],
+                        {},
+                        ["~enable",
+                            {
+                                "name": "data",
+                                "wave": "x..10.......1..x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x..22.......2..x",
+                                "data": ["1", "!(SH3^SH2)=0", "1"]
+                            }
+                        ],
+                        {},
+                        ["~load",
+                            {
+                                "name": "data",
+                                "wave": "x..01..........x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x..22..........x",
+                                "data": ["0", "SH3|SH2=1"]
+                            }
+                        ]
+                    ],
+                    {},
+                    ["control",
+                        ["reset",
+                            {
+                                "name": "data",
+                                "wave": "x..1..........0x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "x..2..........2x",
+                                "data": ["!((SH3&SH2)&SH1)=1", "0"]
+                            }
+                        ]
+                    ]
+                ]
+            }
+                </script>
+    <script type="WaveDrom">
+        {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-5d: Fixed3 Design",
+                    "tick": 0,
+                    "every": 2
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p..............."
+                        }
+                    ],
+                    {},
+                    ["counter",
+                        {
+                            "name": "*C0",
+                            "wave": "101010101010101x"
+                        },
+                        {
+                            "name": "*C1",
+                            "wave": "01.0.1.0.1.0.1.x"
+                        },
+                        {
+                            "name": "*C2",
+                            "wave": "0..1...0...1...x"
+                        },
+                        {
+                            "name": "*C3",
+                            "wave": "0......1.......x"
+                        }
+                    ],
+                    {},
+                    ["reset counter",
+                        {
+                            "name": "sequence",
+                            "wave": "x............9.x",
+                            "data": ["end"]
+                        },
+                        ["break",
+                            {
+                                "name": "data",
+                                "wave": "0............1.x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "2............2.x",
+                                "data": ["TC=0", "TC=1"]
+                            }
+                        ]
+                    ],
+                    {},
+                    ["break counter",
+                        {
+                            "name": "sequence",
+                            "wave": "x............9.x",
+                            "data": ["end"]
+                        },
+                        {},
+                        ["~frame_reset",
+                            {
+                                "name": "data",
+                                "wave": "1.............0x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "2.............2x",
+                                "data": ["!TC=1", "0"]
+                            }
+                        ]
+                    ]
+                ]
+            }
+                </script>
+    <script type="WaveDrom">
+        {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-5d: Fixed3 Design",
+                    "tick": 0,
+                    "every": 2
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p..............."
+                        }
+                    ],
+                    {},
+                    ["counter",
+                        {
+                            "name": "*C0",
+                            "wave": "101010101010101x"
+                        },
+                        {
+                            "name": "*C1",
+                            "wave": "01.0.1.0.1.0.1.x"
+                        },
+                        {
+                            "name": "*C2",
+                            "wave": "0..1...0...1...x"
+                        },
+                        {
+                            "name": "*C3",
+                            "wave": "0......1.......x"
+                        }
+                    ],
+                    {},
+                    ["reset counter",
+                        {
+                            "name": "sequence",
+                            "wave": "x............9.x",
+                            "data": ["end"]
+                        },
+                        ["break",
+                            {
+                                "name": "data",
+                                "wave": "0............1.x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "2............2.x",
+                                "data": ["TC=0", "TC=1"]
+                            }
+                        ]
+                    ],
+                    {},
+                    ["break counter",
+                        {
+                            "name": "sequence",
+                            "wave": "x............9.x",
+                            "data": ["end"]
+                        },
+                        {},
+                        ["~frame_reset",
+                            {
+                                "name": "data",
+                                "wave": "1.............0x"
+                            },
+                            {
+                                "name": "logic",
+                                "wave": "2.............2x",
+                                "data": ["!TC=1", "0"]
+                            }
+                        ]
+                    ]
+                ]
+            }
+                </script>
+</body>
+
+</html>

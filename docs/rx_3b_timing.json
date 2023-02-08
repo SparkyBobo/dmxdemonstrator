@@ -1,0 +1,95 @@
+{
+    "head": {
+        "text": "DMX Demonstrator Rx-3b:  Shift Design",
+        "tick": 0,
+        "every": 2
+    },
+    "foot": {
+        "tick": 23,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p..........x"
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "SH0",
+                "wave": "01010101010x"
+            },
+            {
+                "name": "SH1",
+                "wave": "0.1.0.1.0.1x"
+            },
+            {
+                "name": "SH2",
+                "wave": "0...1...0..x"
+            },
+            {
+                "name": "SH3",
+                "wave": "0.......1..x"
+            }
+        ],
+        {},
+        ["shift",
+            {
+                "name": "sequence",
+                "wave": "58.......7.x",
+                "data": ["sb", "receive", "mark"]
+            },
+            ["latch",
+                {
+                    "name": "data",
+                    "wave": "0.......10.x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "2.......22.x",
+                    "data": ["SH3=0", "1", "0"]
+                }
+            ],
+            {},
+            ["~received",
+                {
+                    "name": "data",
+                    "wave": "1.........0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "2.........2x",
+                    "data": ["!(SH3&SH1)=1", "0"]
+                }
+            ],
+            {},
+            ["~valid",
+                {
+                    "name": "data",
+                    "wave": "1.........0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "2.........2x",
+                    "data": ["!((SH3&SH1)&(SB1&SB0))=1", "0"]
+                }
+            ]
+        ],
+        {},
+        ["control",
+            ["reset",
+                {
+                    "name": "data",
+                    "wave": "1.........0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "2.........2x",
+                    "data": ["!(SH3&SH1)=1", "0"]
+                }
+            ]
+        ]
+    ]
+}

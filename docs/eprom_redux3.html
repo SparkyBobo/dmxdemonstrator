@@ -1,0 +1,239 @@
+
+
+<html>
+
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js" type="text/javascript">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js" type="text/javascript"></script>
+    </head>
+    
+    <body onload="WaveDrom.ProcessAll()">
+        <script type="WaveDrom">
+            {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-3a: Mask, Extend, and Decompose Fixed1",
+                    "tick": -1,
+                    "every": 2
+                },
+                "foot": {
+                    "tick": -1,
+                    "every": 2
+                },
+                "config": {
+                    "skin": "narrow"
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p..........................."
+                        }
+                    ],
+                    ["dmx",
+                        {
+                            "name": "packet",
+                            "wave": "93......................4..5",
+                            "data": ["", "break", "mab", "sb"]
+                        },
+                        {
+                            "name": "dmx_data",
+                            "wave": "10......................1..0"
+                        }
+                    ],
+                    ["fixed1",
+                        {
+                            "name": "sequence",
+                            "wave": "x3......................4..x",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "data",
+                            "wave": "x0......................1..x"
+                        }
+                    ]
+                ]
+            }
+                </script>
+        <script type="WaveDrom">
+            {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-3b: Mask, Extend, and Decompose Fixed2 & Shift",
+                    "tick": -1,
+                    "every": 2
+                },
+                "config": {
+                    "skin": "narrow"
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p..........................................................."
+                        }
+                    ],
+                    ["dmx",
+                        {
+                            "name": "sequence",
+                            "wave": "x56.......7..58.......7..58.......7..58.......7..58.......7..",
+                            "data": ["sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end"]
+                        },
+                        {
+                            "name": "dmx_out",
+                            "wave": "x0........1..0========1..0========1..0========1..0========1.."
+                        }
+                    ],
+                    ["fixed2",
+                        {
+                            "name": "sequence",
+                            "wave": "x5x.......7..5x.......7..5x.......7..5x.......7..5x.......7..",
+                            "data": ["sb", "mark", "sb", "mark", "sb", "mark", "sb", "mark", "sb", "mark"]
+                        },
+                        {
+                            "name": "data",
+                            "wave": "x0........1..0........1..0........1..0........1..0........1.."
+                        }
+                    ],
+                    ["shift",
+                        {
+                            "name": "sequence",
+                            "wave": "x76.......2..78.......2..78.......2..78.......2..78.......2..",
+                            "data": ["ld", "transmit start code", "idle", "ld", "transmit dimmer 1", "idle", "ld", "transmit dimmer 2", "idle", "ld", "transmit dimmer 3", "idle", "ld", "transmit dimmer 4", "idle"]
+                        },
+                        {
+                            "name": "transmit",
+                            "wave": "x01.......0...1.......0...1.......0...1.......0...1.......0.."
+                        },
+                        {
+                            "name": "~enable",
+                            "wave": "x10.......1...0.......1...0.......1...0.......1...0.........."
+                        },
+                        {
+                            "name": "~load",
+                            "wave": "x01..........01..........01..........01..........01.........."
+                        }
+                    ],
+                    ["pattern",
+                        {
+                            "name": "repeat",
+                            "wave": "x=...........=...........=...........=...........=...........",
+                            "node": "xA...........B...........C...........D...........E...........F"
+                        }
+                    ]
+                ],
+                "edge": ["A<->B 1","B<->C 2","C<->D 3","D<->E 4","E<->F 5"]
+            }
+                </script>
+        <script type="WaveDrom">
+            {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-3c: Mask, Extend, and Decompose Sample",
+                    "tick": -1,
+                    "every": 2
+                },
+                "foot": {
+                    "tick": 15,
+                    "every": 2
+                },
+                "config": {
+                    "skin": "narrow"
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p................................................"
+                        }
+                    ],
+                    ["dmx",
+                        {
+                            "name": "packet",
+                            "wave": "56.......7..58.......7..58.......7..58.......7..5x",
+                            "data": ["sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4"]
+                        },
+                        {
+                            "name": "dmx_out",
+                            "wave": "0........1..0========1..0========1..0========1..0x"
+                        }
+                    ],
+                    ["sample",
+                        {
+                            "name": "sequence",
+                            "wave": "x58.......7..58.......7..58.......7..58.......7..x",
+                            "data": ["rst", "sample start code", "load", "rst", "sample dimmer 1", "load", "rst", "sample dimmer 2", "load", "rst", "sample dimmer 3", "load", "rst", "sample dimmer 4", "load"]
+                        },
+                        {
+                            "name": "reset",
+                            "wave": "x01..........01..........01..........01..........x"
+                        },
+                        {
+                            "name": "load",
+                            "wave": "x0........1..0........1..0........1..0........1..x"
+                        },
+                        {
+                            "name": "select0",
+                            "wave": "x0............1...........0...........1..........x"
+                        },
+                        {
+                            "name": "select1",
+                            "wave": "x0........................1......................x"
+                        }
+                    ],
+                    ["pattern",
+                        {
+                            "name": "repeat",
+                            "wave": "x=...........=...........=...........=...........x",
+                            "node": "xA...........B...........C...........D...........Ex"
+                        }
+                    ]
+                ],
+                "edge": ["A<->B 1","B<->C 2","C<->D 3","D<->E 4","E<->F 5"]
+            }
+                </script>
+        <script type="WaveDrom">
+            {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-3d: Mask, Extend, and Decompose Fixed3",
+                    "tick": -5,
+                    "every": 2
+                },
+                "config": {
+                    "skin": "narrow"
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p........................"
+                        }
+                    ],
+                    ["dmx",
+                        {
+                            "name": "packet",
+                            "wave": "8.7..9.3.................",
+                            "data": ["mer4", "mark", "end", "break"]
+                        },
+                        {
+                            "name": "dmx_out",
+                            "wave": "1......0................."
+                        }
+                    ],
+                    ["fixed3",
+                        {
+                            "name": "sequence",
+                            "wave": "x....9.x.................",
+                            "data": ["end"]
+                        },
+                        {
+                            "name": "data",
+                            "wave": "0....1.x................."
+                        }
+                    ]
+                ]
+            }
+                </script>
+    </body>
+    
+    </html>
+    
+    

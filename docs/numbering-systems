@@ -1,0 +1,22 @@
+# Numbering Systems
+
+The intent of the DMX Demonstrator project is to teach theater technicians how the DMS protocols works.
+Is it not intended to teach numbering systems such as binary, octal, hex, etc... As a result, the
+ DMX Demonstrator project focuses on only 2 numbering systems:
+- decimal - It is expacted everyone is familar with decimal, a.k.a base-10 math.
+- binary - It is expacted everyone will gain a basic  familarity with binary, a.k.a, base-2 math.
+- Conversion between these numbering system will be kept to a minimum.
+
+As a result of this, you'll see the project pick on of these two systems for describing DMX.
+The entire DMX stream will be approached as a series of binary values. Each bit within the DMX
+stream will be refered to as a step which has a value of 0 or 1. When refering to a particular
+point in the sequence, it will be  called by it's step number in decimal, e.g., step 42. With
+very little excpetion, the binary representation of the step is not present in the system design.
+
+A common collection of binary data in DMX is 8 bits used for dimmer values, start code, etc... 
+While this is commonly called a byte and represented in hex, this will be presented as binary data
+from 0-255 which maps 0-100%. This is the only conversion from binary to decimal. And while the hex
+value 0xFF represents 255 and may be familar to theater technicians due to it's display on some (older)
+lighting consoles, we'll avoid any inference between the two and let your favorite theory for this value
+remain unchallenged.
+

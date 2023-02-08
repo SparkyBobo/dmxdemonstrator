@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name transmitter-pro)(type Legacy)(uri E:/OpenSource/dmxdemonstrator/hardware/transmitter-pro/transmitter-pro.lib)(options "")(descr ""))
+  (lib (name transmitter-retro)(type Legacy)(uri E:/OpenSource/dmxdemonstrator/hardware/transmitter-retro/transmitter-retro.lib)(options "")(descr ""))
+)

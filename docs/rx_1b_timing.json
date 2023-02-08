@@ -1,0 +1,56 @@
+{
+    "head": {
+        "text": "DMX Demonstrator Rx-1b: Shift",
+        "tick": -1,
+        "every": 2
+    },
+    "config": {
+        "skin": "narrow"
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p............................................................"
+            }
+        ],
+        ["dmx",
+            {
+                "name": "sequence",
+                "wave": "x56.......7..58.......7..58.......7..58.......7..58.......7..",
+                "data": ["sb", "start code", "mark", "sb", "dimmer1", "mark", "sb", "dimmer2", "mark", "sb", "dimmer3", "mark", "sb", "dimmer4", "mark", "end"]
+            },
+            {
+                "name": "dmx_out",
+                "wave": "x0........1..0========1..0========1..0========1..0========1.."
+            }
+        ],
+        ["shift",
+            {
+                "name": "sequence",
+                "wave": "x56.......7.x58.......7.x58.......7.x58.......7.x58.......7.x",
+                "data": ["sb", "receive start code", "mark", "sb", "receive dimmer 1", "mark", "sb", "receive dimmer 2", "mark", "sb", "receive dimmer 3", "mark", "sb", "receive dimmer 4", "mark"]
+            },
+            {
+                "name": "enable",
+                "wave": "x1..........01..........01..........01..........01..........0"
+            },
+            {
+                "name": "latch",
+                "wave": "x0.......10..........10..........10..........10..........10.."
+            },
+            {
+                "name": "stop",
+                "wave": "x0.........10..........10..........10..........10..........10"
+            }
+        ],
+        ["pattern",
+            {
+                "name": "repeat",
+                "wave": "x=...........=...........=...........=...........=...........",
+                "node": "xA...........B...........C...........D...........E...........F"
+            }
+        ]
+    ],
+    "edge": ["A<->B 1","B<->C 2","C<->D 3","D<->E 4","E<->F 5"]
+}

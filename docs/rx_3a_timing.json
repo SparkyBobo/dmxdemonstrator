@@ -1,0 +1,75 @@
+{
+    "head": {
+        "text": "DMX Demonstrator Rx-3a: Break Design",
+        "tick": -1,
+        "every": 2
+    },
+    "foot": {
+        "tick": 0,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p.......................x"
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "clk_break",
+                "wave": "0hlhlhlhlhlhlhlhlhlhlhlhx"
+            },
+            {
+                "name": "B0",
+                "wave": "10.1.0.1.0.1.0.1.0.1.0.1x"
+            },
+            {
+                "name": "B1",
+                "wave": "10...1...0...1...0...1..x"
+            },
+            {
+                "name": "B2",
+                "wave": "01.......0......1.......x"
+            },
+            {
+                "name": "B3",
+                "wave": "0........1..............x"
+            }
+        ],
+        {},
+        ["break",
+            {
+                "name": "sequence",
+                "wave": "x3.....................4x",
+                "data": ["break", "rst"]
+            },
+            ["reset",
+                {
+                    "name": "data",
+                    "wave": "x1.....................0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x2.....................2x",
+                    "data": ["!TC=1", "0"]
+                }
+            ]
+        ],
+        {},
+        ["control",
+            ["count",
+                {
+                    "name": "data",
+                    "wave": "x1.....................0x"
+                },
+                {
+                    "name": "logic",
+                    "wave": "x2.....................2x",
+                    "data": ["!TC=1", "0"]
+                }
+            ]
+        ]
+    ]
+}

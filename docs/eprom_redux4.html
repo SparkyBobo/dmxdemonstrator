@@ -1,0 +1,448 @@
+
+
+<html>
+
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/skins/default.js" type="text/javascript">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/2.6.8/wavedrom.min.js" type="text/javascript"></script>
+    </head>
+    
+    <body onload="WaveDrom.ProcessAll()">
+        <script type="WaveDrom">
+            {
+                "head": {
+                    "text": "DMX Demonstrator EPROM Redux-4a: Mask, Extend, and Decompose Fixed1",
+                    "tick": 0,
+                    "every": 2
+                },
+                "foot": {
+                    "tick": 0,
+                    "every": 2
+                },
+                "signal": [
+                    ["clock",
+                        {
+                            "name": "tx_clk",
+                            "wave": "p...............................x."
+                        }
+                    ],
+                    {},
+                    ["counter",
+                        {
+                            "name": "B0",
+                            "wave": "01010101010101010101010101010101x."
+                        },
+                        {
+                            "name": "B1",
+                            "wave": "0.1.0.1.0.1.0.1.0.1.0.1.0.1.0.1.x."
+                        },
+                        {
+                            "name": "B2",
+                            "wave": "0...1...0...1...0...1...0...1...x."
+                        },
+                        {
+                            "name": "B3",
+                            "wave": "0.......1.......0.......1.......x."
+                        },
+                        {
+                            "name": "B4",
+                            "wave": "0...............1...............x."
+                        }
+                    ],
+                    {},
+                    ["@0",
+                        {
+                            "name": "sequence",
+                            "wave": "3......................4..x.......",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "2......................2..x.......",
+                            "data": ["00000-10110", "10111-11010"]
+                        }
+                    ],
+                    ["@1",
+                        {
+                            "name": "sequence",
+                            "wave": "x3......................4..x......",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "x2......................2..x......",
+                            "data": ["00001-10111", "11000-11010"]
+                        }
+                    ],
+                    ["@2",
+                        {
+                            "name": "sequence",
+                            "wave": "x.3......................4..x.....",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "x.2......................2..x.....",
+                            "data": ["00010-11000", "11001-11011"]
+                        }
+                    ],
+                    ["@3",
+                        {
+                            "name": "sequence",
+                            "wave": "x..3......................4..x....",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "x..2......................2..x....",
+                            "data": ["00011-11001", "11010-11100"]
+                        }
+                    ],
+                    ["@4",
+                        {
+                            "name": "sequence",
+                            "wave": "x...3......................4..x...",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "x...2......................2..x...",
+                            "data": ["00100-11010", "11011-11101"]
+                        }
+                    ],
+                    ["@5",
+                        {
+                            "name": "sequence",
+                            "wave": "x....3......................4..x..",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "x....2......................2..x..",
+                            "data": ["00101-11011", "11100-11110"]
+                        }
+                    ],
+                    ["@6",
+                        {
+                            "name": "sequence",
+                            "wave": "x.....3......................4..x.",
+                            "data": ["break", "mab"]
+                        },
+                        {
+                            "name": "binary",
+                            "wave": "x.....2......................2..x.",
+                            "data": ["00110-11100", "11101-11111"]
+                        }
+                    ]
+                ]
+            }
+         </script>
+                <script type="WaveDrom">
+                    {
+                        "head": {
+                            "text": "DMX Demonstrator EPROM Redux-4b:  Fixed2 & Shift Counter",
+                            "tick": 0,
+                            "every": 2
+                        },
+                        "foot": {
+                            "tick": 23,
+                            "every": 2
+                        },
+                        "signal": [
+                            ["clock",
+                                {
+                                    "name": "tx_clk",
+                                    "wave": "p..............."
+                                }
+                            ],
+                            {},
+                            ["counter",
+                                {
+                                    "name": "SH0",
+                                    "wave": "0101010101010101"
+                                },
+                                {
+                                    "name": "SH1",
+                                    "wave": "0.1.0.1.0.1.0.1."
+                                },
+                                {
+                                    "name": "SH2",
+                                    "wave": "0...1...0...1..."
+                                },
+                                {
+                                    "name": "SH3",
+                                    "wave": "0.......1......."
+                                }
+                            ],
+                            {},
+                            ["@0",
+                                {
+                                    "name": "fixed_sequence",
+                                    "wave": "5x.......7..x...",
+                                    "data": ["sb", "mark"]
+                                },
+                                {
+                                    "name": "shift_sequence",
+                                    "wave": "76.......2..x...",
+                                    "data": ["ld", "transmit start code", "idle"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "22.......2..x...",
+                                    "data": ["0000", "0001-1000", "1001-1011"]
+                                }
+                            ],
+                            ["@1",
+                                {
+                                    "name": "fixed_sequence",
+                                    "wave": "x5x.......7..x..",
+                                    "data": ["sb", "mark"]
+                                },
+                                {
+                                    "name": "shift_sequence",
+                                    "wave": "x76.......2..x..",
+                                    "data": ["ld", "transmit start code", "idle"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x22.......2..x..",
+                                    "data": ["0001", "0010-1001", "1010-1100"]
+                                }
+                            ],
+                            ["@2",
+                                {
+                                    "name": "fixed_sequence",
+                                    "wave": "x.5x.......7..x.",
+                                    "data": ["sb", "mark"]
+                                },
+                                {
+                                    "name": "shift_sequence",
+                                    "wave": "x.76.......2..x.",
+                                    "data": ["ld", "transmit start code", "idle"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x.22.......2..x.",
+                                    "data": ["0010", "0011-1010", "1011-1101"]
+                                }
+                            ],
+                            ["@3",
+                                {
+                                    "name": "fixed_sequence",
+                                    "wave": "x..5x.......7..x",
+                                    "data": ["sb", "mark"]
+                                },
+                                {
+                                    "name": "shift_sequence",
+                                    "wave": "x..76.......2..x",
+                                    "data": ["ld", "transmit start code", "idle"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x..22.......2..x",
+                                    "data": ["0011", "0100-1011", "1100-1110"]
+                                }
+                            ],
+                            ["@4",
+                                {
+                                    "name": "fixed_sequence",
+                                    "wave": "x...5x.......7..",
+                                    "data": ["sb", "mark"]
+                                },
+                                {
+                                    "name": "shift_sequence",
+                                    "wave": "x...76.......2..",
+                                    "data": ["ld", "transmit start code", "idle"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x...22.......2..",
+                                    "data": ["0100", "0101-1100", "1101-1111"]
+                                }
+                            ]
+                        ]
+                    }
+                                </script>
+                <script type="WaveDrom">
+                    {
+                        "head": {
+                            "text": "DMX Demonstrator EPROM Redux-4c: Sample Counter",
+                            "tick": 0,
+                            "every": 2
+                        },
+                        "foot": {
+                            "tick": 23,
+                            "every": 2
+                        },
+                        "signal": [
+                            ["clock",
+                                {
+                                    "name": "tx_clk",
+                                    "wave": "p..............."
+                                }
+                            ],
+                            {},
+                            ["counter",
+                                {
+                                    "name": "SA0",
+                                    "wave": "0101010101010101"
+                                },
+                                {
+                                    "name": "SA1",
+                                    "wave": "0.1.0.1.0.1.0.1."
+                                },
+                                {
+                                    "name": "SA2",
+                                    "wave": "0...1...0...1..."
+                                },
+                                {
+                                    "name": "SA3",
+                                    "wave": "0.......1......."
+                                }
+                            ],
+                            ["@0",
+                                {
+                                    "name": "sequence",
+                                    "wave": "56.......7..x...",
+                                    "data": ["rst", "sample", "load"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "22.......2..x...",
+                                    "data": ["0000", "0001-1000", "1001-1011"]
+                                }
+                            ],
+                            ["@1",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x56.......7..x..",
+                                    "data": ["rst", "sample", "load"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x22.......2..x..",
+                                    "data": ["0001", "0010-1001", "1010-1100"]
+                                }
+                            ],
+                            ["@2",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x.56.......7..x.",
+                                    "data": ["rst", "sample", "load"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x.22.......2..x.",
+                                    "data": ["0010", "0011-1010", "1011-1101"]
+                                }
+                            ],
+                            ["@3",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x..56.......7..x",
+                                    "data": ["rst", "sample", "load"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x..22.......2..x",
+                                    "data": ["0011", "0100-1011", "1100-1110"]
+                                }
+                            ],
+                            ["@4",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x...56.......7..",
+                                    "data": ["rst", "sample", "load"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x...22.......2..",
+                                    "data": ["0100", "0101-1100", "1101-1111"]
+                                }
+                            ]
+                        ]
+                    }
+                                </script>
+                <script type="WaveDrom">
+                    {
+                        "head": {
+                            "text": "DMX Demonstrator EPROM Redux-4d: Fixed3 Counter",
+                            "tick": 0,
+                            "every": 2
+                        },
+                        "signal": [
+                            ["clock",
+                                {
+                                    "name": "tx_clk",
+                                    "wave": "p................"
+                                }
+                            ],
+                            {},
+                            ["counter",
+                                {
+                                    "name": "*C0",
+                                    "wave": "0101010101010101x"
+                                },
+                                {
+                                    "name": "*C1",
+                                    "wave": "0.1.0.1.0.1.0.1.x"
+                                },
+                                {
+                                    "name": "*C2",
+                                    "wave": "0...1...0...1...x"
+                                },
+                                {
+                                    "name": "*C3",
+                                    "wave": "0.......1.......x"
+                                }
+                            ],
+                    
+                             ["@14",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x.............9.x",
+                                    "data": ["end"]
+                                },
+                                {
+                                    "name": "data",
+                                    "wave": "x.............1.x"
+                                }
+                            ],
+                            {},
+                            ["reset counter@14",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x.............9.x",
+                                    "data": ["end"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x............22.2",
+                                    "data": ["1110", "1111", "0000"]
+                                }
+                            ],
+                            {},
+                            {},
+                            {},
+                            ["break counter@14",
+                                {
+                                    "name": "sequence",
+                                    "wave": "x.............9.x",
+                                    "data": ["end"]
+                                },
+                                {
+                                    "name": "binary",
+                                    "wave": "x.............22x",
+                                    "data": ["1110", "1111", "0"]
+                                }
+                            ],
+                            {}
+                        ]
+                    }
+                </script>
+            </body>
+    
+    </html>
+    
+    

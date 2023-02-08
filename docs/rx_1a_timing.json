@@ -1,0 +1,44 @@
+{
+    "head": {
+        "text": "DMX Demonstrator Rx-1a: Break Detection",
+        "tick": -1,
+        "every": 2
+    },
+    "foot": {
+        "tick": -1,
+        "every": 2
+    },
+    "config": {
+        "skin": "narrow"
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p..........................."
+            }
+        ],
+        ["dmx",
+            {
+                "name": "packet",
+                "wave": "93......................4..5",
+                "data": ["", "break", "mab", "sb"]
+            },
+            {
+                "name": "dmx_data",
+                "wave": "10......................1..0"
+            }
+        ],
+        ["break",
+            {
+                "name": "sequence",
+                "wave": "x3.....................4x...",
+                "data": ["break", "rst", "idle"]
+            },
+            {
+                "name": "reset",
+                "wave": "x1.....................0x..."
+            }
+        ]
+    ]
+}

@@ -1,0 +1,111 @@
+{
+    "head": {
+        "text": "DMX Demonstrator Rx-2b: Shift Counter",
+        "tick": 0,
+        "every": 2
+    },
+    "foot": {
+        "tick": 23,
+        "every": 2
+    },
+    "signal": [
+        ["clock",
+            {
+                "name": "tx_clk",
+                "wave": "p..............."
+            }
+        ],
+        {},
+        ["counter",
+            {
+                "name": "SH0",
+                "wave": "0101010101010101"
+            },
+            {
+                "name": "SH1",
+                "wave": "0.1.0.1.0.1.0.1."
+            },
+            {
+                "name": "SH2",
+                "wave": "0...1...0...1..."
+            },
+            {
+                "name": "SH3",
+                "wave": "0.......1......."
+            }
+        ],
+        {},
+        ["@0",
+            {
+                "name": "sequence",
+                "wave": "58.......7.x....",
+                "data": ["sb", "receive", "mark"]
+            },
+            {
+                "name": "binary",
+                "wave": "22......22.x....",
+                "data": ["0000", "0001-0111", "1000", "1001-1010"]
+            }
+        ],
+        ["@1",
+            {
+                "name": "shift_sequence",
+                "wave": "x58.......7.x...",
+                "data": ["sb", "receive", "mark"]
+            },
+            {
+                "name": "binary",
+                "wave": "x22......22.x...",
+                "data": ["0001", "0010-1000", "1001", "1010-1011"]
+            }
+        ],
+        ["@2",
+            {
+                "name": "shift_sequence",
+                "wave": "x.58.......7.x..",
+                "data": ["sb", "receive", "mark"]
+            },
+            {
+                "name": "binary",
+                "wave": "x.22......22.x..",
+                "data": ["0010", "0011-1001", "1010", "1011-1100"]
+            }
+        ],
+        ["@3",
+            {
+                "name": "shift_sequence",
+                "wave": "x..58.......7.x.",
+                "data": ["sb", "receive", "mark"]
+            },
+            {
+                "name": "binary",
+                "wave": "x..22......22.x.",
+                "data": ["0011", "0100-1010", "1011", "1100-1101"]
+            }
+        ],
+        ["@4",
+            {
+                "name": "shift_sequence",
+                "wave": "x...58.......7.x",
+                "data": ["sb", "receive", "mark"]
+            },
+            {
+                "name": "binary",
+                "wave": "x...22......22.x",
+                "data": ["0100", "0101-1011", "1100", "1101-1110"]
+            }
+        ],
+        ["@5",
+            {
+                "name": "shift_sequence",
+                "wave": "x....58.......7.",
+                "data": ["sb", "receive", "mark"]
+            },
+            {
+                "name": "binary",
+                "wave": "x....22......22.",
+                "data": ["0011", "0100-1100", "1101", "1110-1111"]
+            }
+        ]
+    ]
+}
