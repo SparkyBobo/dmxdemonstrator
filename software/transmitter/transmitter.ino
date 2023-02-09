@@ -94,15 +94,15 @@ const char* const hardwareDetectMessages[] PROGMEM = { hardwareDetectTX1, hardwa
 /**
  * Analog capture data.
  */
-volatile int analogCaptureChannel = -1;
+volatile int analogCaptureChannel = -1; // O = Clock, 1-4 = dimmers
 
 /**
  * Clock mode & speed data.
  */
-#define CLOCK_FAST_FREQUENCY 30000
-#define CLOCK_MAX_FREQUENCY 20
-#define CLOCK_MIN_FREQUENCY 1
-#define CLOCK_OFF_FREQUENCY 2
+const long clockFastFrequency = 3000;
+const long clockSlowMaxFrequency = 200;
+const long clockSlowMinFrequency = 1;
+const long clockOffFrequency = 2;
 
 int currentClockMode = -1;
 const int clockModeOff = 0;
@@ -292,6 +292,7 @@ const char verboseStatusFormat[] PROGMEM = "Verbose Status: %s\r\n";
 const char statusOffMessage[] PROGMEM = "Off";
 const char statusOnMessage[] PROGMEM = "On";
 const char* const statusMessages[] PROGMEM = { statusOffMessage, statusOnMessage, };
+const char disableVerboseModeClockTooFast[] PROGMEM = "Verbose Status disable due to fast clock speed\r\n";
 
 const char helpTitle[] PROGMEM = "Help:\r\n";
 const char helpClockTitle[] PROGMEM = "Clock modes:\r\n";
@@ -374,7 +375,7 @@ void setup() {
   SelectClockMode(clockModeSlow);
   SelectDimmer(0);
 
-  // Start the first capture.
+  // Start the first capture: clock speed.
   analogCaptureChannel = 0;
   StartAnalogCapture(analogCaptureChannel);
 
@@ -607,10 +608,10 @@ int ReadAnalogCapture(int channel) {
 
   // Validate channel.
   if (channel < 0 || channel > 4) {
-    return -1;
+    return 0;
   }
 
-  // analogRead/analogReadAsync returns 0-1024, the dimmer level is 0-255.
+  // analogRead/analogReadAsync returns 0-1023.
   // analogReadAsync return -1 if the capture is still in progress.
   int analogLevel = analogReadAsync();
   if (analogLevel < 0) {
@@ -618,10 +619,18 @@ int ReadAnalogCapture(int channel) {
   }
 
   // Store the value in the clock speed or dimmer level array.
+  // clockValue is 0-1023, dimmer level is 0-255.
   if (channel == 0) {
     clockValue = analogLevel;
   } else {
-    currentDimmerLevels[channel - 1] = analogLevel / 4;
+    
+    // The DMX-TX2/DMX-CPB has 4 different dimmer levels so read/store using the capture channel.
+    // The DMX-TX1 only has a single dimmer level so read/store using the selected channel.
+    int dimmerChannel = usingControlPro
+        ? channel - 1
+        : currentSelectedDimmer;
+    
+    currentDimmerLevels[dimmerChannel] = analogLevel / 4;
   }
 
   return analogLevel;
@@ -658,23 +667,23 @@ void SelectClockMode(int mode) {
  */
 void InitializeClockTimer(int mode, int clockValue) {
 
-  long clockFrequency = CLOCK_MIN_FREQUENCY;
+  long clockFrequency = clockSlowMinFrequency;
 
   switch (mode) {
     case clockModeFast:
-      clockFrequency = CLOCK_FAST_FREQUENCY;
+      clockFrequency = clockFastFrequency;
       break;
 
     case clockModeSlow:
-      clockFrequency = (clockValue * (CLOCK_MAX_FREQUENCY - CLOCK_MIN_FREQUENCY) / 1024);
-      clockFrequency += CLOCK_MIN_FREQUENCY;
+      clockFrequency = (clockValue * (clockSlowMaxFrequency - clockSlowMinFrequency) / 1024);
+      clockFrequency += clockSlowMinFrequency;
       break;
 
     case clockModeOff:
     default:
       // Even when the clock is off, it runs at the minimum frequency in order
       // to turn off the manually stepped clock pulse.
-      clockFrequency = CLOCK_OFF_FREQUENCY;
+      clockFrequency = clockOffFrequency;
       break;
   }
 
@@ -737,6 +746,16 @@ void SendVerboseStatus() {
   // Only send on changes.
   static int previousFrameStep = -1;
   if (previousFrameStep != currentFrameStep) {
+
+    // Detect case when speed is too fast for verbose mode.
+    if (previousFrameStep > 0 && currentFrameStep > previousFrameStep && (currentFrameStep - previousFrameStep) > 1) {
+      if (verboseStatus) {
+        SendProgmemMessage(disableVerboseModeClockTooFast);
+      }
+      verboseStatus = LOW;
+      previousFrameStep = currentFrameStep;
+      return;
+    }
 
     // Validate currentFrameStep
     if (currentFrameStep >= frameStepCount) {

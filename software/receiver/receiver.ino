@@ -73,6 +73,7 @@ const int frameStateMarkAfterBreak = 1;
 const int frameStateStartCode = 2;
 const int frameStateDimmerData = 3;
 const int frameStateMarkAfterData = 4;
+const int frameStatePotentialBreak = 253;
 const int frameStateUnexpectedStartCode = 254;
 const int frameStateError = 255;
 const int unknownFrameStep = 1000;
@@ -107,6 +108,7 @@ const char invalidDataCounterFormat[] PROGMEM = "Invalid data counter value dete
 const char invalidStopBitMessage[] PROGMEM = "Invalid Stop bit detected; error.\r\n";
 const char validStopBitMessage[] PROGMEM = "Stop Bit detected.\r\n";
 const char unexpectedStartCodeMessage[] PROGMEM = "ignoring data due to start code, waiting for frame break.\r\n";
+const char potentialBreakMessage[] PROGMEM = "ignoring data due to possible frame break, waiting for frame break.\r\n";
 const char errorStateMessage[] PROGMEM = "ignoring data due to error, waiting for frame break.\r\n";
 
 const char frameStepUnknownMessage[] PROGMEM = "Step: ??\t";
@@ -123,20 +125,6 @@ const char invalidFrameStateFormat[] PROGMEM = "Invalid frame state: %d\r\n";
 const char potentialFrameBreakFormat[] PROGMEM = "Potential frame break step: %d, ";
 
 /**
- * Serial data definitions.
- */
-const long baudRate = 250000;
-char serialPortFormat[100];
-char serialPortArgument[10];
-char serialPortMessage[255];
-
-char currentDescription[100];
-int descriptionCounter = 0;
-
-bool compactStatus = LOW;
-bool verboseStatus = LOW;
-
-/**
  * The serial respones and help menu.
  */
 const char newlineMessage[] PROGMEM = "\r\n";
@@ -149,12 +137,27 @@ const char verboseStatusFormat[] PROGMEM = "Verbose Status: %s\r\n";
 const char statusOffMessage[] PROGMEM = "Off";
 const char statusOnMessage[] PROGMEM = "On";
 const char* const statusMessages[] PROGMEM = { statusOffMessage, statusOnMessage, };
+const char disableVerboseModeClockTooFast[] PROGMEM = "Verbose Status disable due to fast clock speed\r\n";
 
 const char helpTitle[] PROGMEM = "Help:\r\n";
 const char helpInfoTitle[] PROGMEM = "Info:\r\n";
 const char helpCompact[] PROGMEM = "  m: Toggle sending compact status\r\n";
 const char helpVerbose[] PROGMEM = "  v: Toggle sending verbose status\r\n";
 const char helpInfo[] PROGMEM = "  i: Display program info\r\n";
+
+/**
+ * Serial data definitions.
+ */
+const long baudRate = 250000;
+char serialPortFormat[100];
+char serialPortArgument[10];
+char serialPortMessage[255];
+
+char currentDescription[100];
+int descriptionCounter = 0;
+
+bool compactStatus = LOW;
+bool verboseStatus = LOW;
 
 /**
  * Setup
@@ -274,7 +277,7 @@ void OnClockPulse() {
     }
 
     // Look for the start bit after mark after break, i.e. a "0" after the mark after frame.
-    // Thi is the start code start bit, capture the start code.
+    // This is the start code start bit, capture the start code.
     else if (frameState == frameStateMarkAfterBreak) {
       if (!dataInBit) {
         nextFrameState = frameStateStartCode;
@@ -309,8 +312,17 @@ void OnClockPulse() {
       // Data bit 8 is the first stop bit. Ensure it is a "1".
       else if (dataCounter == 8) {
         if (!dataInBit) {
-          nextFrameState = frameStateError;
-          currentFrameStep = unknownFrameStep;
+
+          // If there have been 10 or more break bits counted and we hit the max dimmer,
+          // this is likely the break so don't treat it as an error.
+          if (frameBreakCounter && dimmerCounter >= maxDimmerCount) {
+            nextFrameState = frameStatePotentialBreak;
+            currentFrameStep = unknownFrameStep;
+          }
+          else {
+            nextFrameState = frameStateError;
+            currentFrameStep = unknownFrameStep;
+          }
         }
       }
 
@@ -367,6 +379,13 @@ void OnClockPulse() {
       }
     }
 
+    // Look for an unexpected bit in what is potentially a break, i.e. a "1" during the break.
+    else if(frameState == frameStatePotentialBreak) {
+      if (dataInBit) {
+        nextFrameState = frameStateError;
+      }
+    }
+
     // Error condition.
     else {
 
@@ -417,6 +436,16 @@ void SendVerboseStatus() {
   // so report on the state as it was before the data was processed.
   static int previousFrameStep = -1;
   if (previousFrameStep != currentFrameStep) {
+
+    // Detect case when speed is too fast for verbose mode.
+    if (previousFrameStep > 0 && currentFrameStep > previousFrameStep && (currentFrameStep - previousFrameStep) > 1) {
+      if (verboseStatus) {
+        SendProgmemMessage(disableVerboseModeClockTooFast);
+      }
+      verboseStatus = LOW;
+      previousFrameStep = currentFrameStep;
+      return;
+    }
 
     // Display the step number of the frame, then increment the frame step.
     if (currentFrameStep >= unknownFrameStep) {
@@ -469,6 +498,9 @@ void SendVerboseStatus() {
       else if (dataCounter == 8) {
         if (nextFrameState == frameStateError) {
           SendProgmemMessage(invalidStopBitMessage);
+        } else if (nextFrameState == frameStatePotentialBreak) {
+          SendProgmemIntFormat(potentialFrameBreakFormat, frameBreakCounter);
+          SendProgmemMessage(potentialBreakMessage);
         } else {
           SendProgmemMessage(validStopBitMessage);
         }
@@ -519,6 +551,17 @@ void SendVerboseStatus() {
         SendProgmemMessage(markAfterDataMessage);
       }
     }
+
+    // If this is a potential break, print the frameBreakCounter
+    else if (frameState == frameStatePotentialBreak) {
+
+      // While a frame break is technically 22 consecutive 0's, there does not
+      // exist another instance of 10 or more 0's in a row except for the frame break.
+      if (frameBreakCounter >= 10) {
+        SendProgmemIntFormat(potentialFrameBreakFormat, frameBreakCounter);
+        SendProgmemMessage(potentialBreakMessage);
+      }
+    }    
 
     // Error condition.
     else {

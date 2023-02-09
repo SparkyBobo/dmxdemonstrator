@@ -44,8 +44,8 @@ class FixedTimer2 {
         TCCR3C = 0;                   // Reset Timer 3 control register C.
         TCNT3  = 0;                   // Reset timer 3 counter value.
 
-        clockSelect = (1 << CS30);    // Clock source is F_CPU.
-        clockCount = 64;              // Maps to about 250kHz for F_CPU==16Mhz
+        clockSelect = (1 << CS30);    // Clock source is F_CPU / 8.
+        clockCount = 64;              // Maps to about 62.5kHz for F_CPU==16Mhz
 #else
         TCCR2A = 0;                   // Reset Timer 2 control register A.
         TCCR2B = 0;                   // Reset Timer 2 control register B.
@@ -53,7 +53,7 @@ class FixedTimer2 {
         TCCR2A = (1 << WGM21);        // CTC mode: count to OCR1A, clear clock source.
 
         clockSelect = _BV(CS21);      // Clock source is F_CPU / 8.
-        clockCount = 8;               // Maps to about 250kHz for F_CPU==16Mhz
+        clockCount = 32;              // Maps to about 62.5kHz for F_CPU==16Mhz
 #endif
 
         Stop();
