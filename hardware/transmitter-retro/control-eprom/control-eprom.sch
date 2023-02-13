@@ -473,10 +473,10 @@ NoConn ~ 4100 2850
 Wire Wire Line
 	5800 3500 6450 3500
 $Comp
-L 74xx:74LS32 U18
+L 74xx:74LS32 U1
 U 3 1 63E3B12B
 P 7500 4000
-F 0 "U18" H 7500 4325 50  0000 C CNN
+F 0 "U1" H 7500 4325 50  0000 C CNN
 F 1 "74LS32" H 7500 4234 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 7500 4000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7500 4000 50  0001 C CNN
@@ -484,10 +484,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7500 4000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS32 U18
+L 74xx:74LS32 U1
 U 4 1 63E3B1AE
 P 8200 4100
-F 0 "U18" H 8200 4425 50  0000 C CNN
+F 0 "U1" H 8200 4425 50  0000 C CNN
 F 1 "74LS32" H 8200 4334 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 8200 4100 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 8200 4100 50  0001 C CNN
@@ -495,10 +495,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 8200 4100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS32 U18
+L 74xx:74LS32 U1
 U 5 1 63E3B20B
 P 2150 6900
-F 0 "U18" H 2380 6946 50  0000 L CNN
+F 0 "U1" H 2380 6946 50  0000 L CNN
 F 1 "74LS32" H 2380 6855 50  0000 L CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 2150 6900 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 2150 6900 50  0001 C CNN
@@ -557,8 +557,8 @@ AR Path="/5F2B3F8A/681C43A0" Ref="C?"  Part="1"
 AR Path="/5F2B505F/681C43A0" Ref="C?"  Part="1" 
 AR Path="/6BB77A68/681C43A0" Ref="C1"  Part="1" 
 AR Path="/64132440/6413313E/681C43A0" Ref="C?"  Part="1" 
-AR Path="/681C43A0" Ref="C3"  Part="1" 
-F 0 "C3" H 3715 6946 50  0000 L CNN
+AR Path="/681C43A0" Ref="C1"  Part="1" 
+F 0 "C1" H 3715 6946 50  0000 L CNN
 F 1 ".01uF" H 3715 6855 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3638 6750 50  0001 C CNN
 F 3 "~" H 3600 6900 50  0001 C CNN
@@ -573,8 +573,8 @@ AR Path="/5F2B3F8A/681C4400" Ref="C?"  Part="1"
 AR Path="/5F2B505F/681C4400" Ref="C?"  Part="1" 
 AR Path="/6BB77A68/681C4400" Ref="C2"  Part="1" 
 AR Path="/64132440/6413313E/681C4400" Ref="C?"  Part="1" 
-AR Path="/681C4400" Ref="C4"  Part="1" 
-F 0 "C4" H 4215 6946 50  0000 L CNN
+AR Path="/681C4400" Ref="C2"  Part="1" 
+F 0 "C2" H 4215 6946 50  0000 L CNN
 F 1 ".01uF" H 4215 6855 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 4138 6750 50  0001 C CNN
 F 3 "~" H 4100 6900 50  0001 C CNN
@@ -589,8 +589,8 @@ AR Path="/5F2B3F8A/681C443E" Ref="C?"  Part="1"
 AR Path="/5F2B505F/681C443E" Ref="C?"  Part="1" 
 AR Path="/6BB77A68/681C443E" Ref="C3"  Part="1" 
 AR Path="/64132440/6413313E/681C443E" Ref="C?"  Part="1" 
-AR Path="/681C443E" Ref="C5"  Part="1" 
-F 0 "C5" H 4665 6946 50  0000 L CNN
+AR Path="/681C443E" Ref="C3"  Part="1" 
+F 0 "C3" H 4665 6946 50  0000 L CNN
 F 1 ".01uF" H 4665 6855 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 4588 6750 50  0001 C CNN
 F 3 "~" H 4550 6900 50  0001 C CNN
@@ -605,8 +605,8 @@ AR Path="/5F2B3F8A/714E8297" Ref="C?"  Part="1"
 AR Path="/5F2B505F/714E8297" Ref="C?"  Part="1" 
 AR Path="/6BB77A68/714E8297" Ref="C4"  Part="1" 
 AR Path="/64132440/6413313E/714E8297" Ref="C?"  Part="1" 
-AR Path="/714E8297" Ref="C18"  Part="1" 
-F 0 "C18" H 5115 6946 50  0000 L CNN
+AR Path="/714E8297" Ref="C4"  Part="1" 
+F 0 "C4" H 5115 6946 50  0000 L CNN
 F 1 ".01uF" H 5115 6855 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5038 6750 50  0001 C CNN
 F 3 "~" H 5000 6900 50  0001 C CNN
@@ -621,8 +621,8 @@ AR Path="/5F2B3F8A/714E8299" Ref="C?"  Part="1"
 AR Path="/5F2B505F/714E8299" Ref="C?"  Part="1" 
 AR Path="/6BB77A68/714E8299" Ref="C5"  Part="1" 
 AR Path="/64132440/6413313E/714E8299" Ref="C?"  Part="1" 
-AR Path="/714E8299" Ref="C20"  Part="1" 
-F 0 "C20" H 5565 6946 50  0000 L CNN
+AR Path="/714E8299" Ref="C5"  Part="1" 
+F 0 "C5" H 5565 6946 50  0000 L CNN
 F 1 ".01uF" H 5565 6855 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5488 6750 50  0001 C CNN
 F 3 "~" H 5450 6900 50  0001 C CNN
@@ -734,13 +734,13 @@ Wire Wire Line
 Text Notes 6400 2700 0    50   ~ 0
 Reset: 10001101b (0x4d, 141d)\nThis is the final value in a packet. At this point,\nthe counter will reset and start the break again.\n\nIts' chosen because it's a value which is unlikely\nto be used in a packet, i.e. sample reset and latch \nany dimmer and shift load while enabled while \ntransmitting a break.\n
 $Comp
-L 74xx:74LS32 U18
+L 74xx:74LS32 U1
 U 2 1 63871246
 P 6800 5050
-AR Path="/63871246" Ref="U18"  Part="2" 
+AR Path="/63871246" Ref="U1"  Part="2" 
 AR Path="/632F1F43/63871246" Ref="U?"  Part="2" 
 AR Path="/63267F40/63871246" Ref="U?"  Part="2" 
-F 0 "U18" H 6800 4733 50  0000 C CNN
+F 0 "U1" H 6800 4733 50  0000 C CNN
 F 1 "74LS32" H 6800 4824 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 6800 5050 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6800 5050 50  0001 C CNN
@@ -770,10 +770,10 @@ Wire Wire Line
 Wire Wire Line
 	6450 3800 6450 3500
 $Comp
-L 74xx:74LS00 U20
+L 74xx:74LS00 U2
 U 1 1 639D9D08
 P 6800 3900
-F 0 "U20" H 6800 4225 50  0000 C CNN
+F 0 "U2" H 6800 4225 50  0000 C CNN
 F 1 "74LS00" H 6800 4134 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 6800 3900 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 6800 3900 50  0001 C CNN
@@ -781,10 +781,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 6800 3900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS00 U20
+L 74xx:74LS00 U2
 U 3 1 639D9E78
 P 1250 6900
-F 0 "U20" H 1250 7225 50  0000 C CNN
+F 0 "U2" H 1250 7225 50  0000 C CNN
 F 1 "74LS00" H 1250 7134 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 6900 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 1250 6900 50  0001 C CNN
@@ -798,10 +798,10 @@ Wire Wire Line
 Wire Wire Line
 	6150 4600 6500 4600
 $Comp
-L 74xx:74LS32 U18
+L 74xx:74LS32 U1
 U 1 1 639F9CBD
 P 6800 4500
-F 0 "U18" H 6800 4825 50  0000 C CNN
+F 0 "U1" H 6800 4825 50  0000 C CNN
 F 1 "74LS32" H 6800 4734 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 6800 4500 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6800 4500 50  0001 C CNN
@@ -845,10 +845,10 @@ Wire Wire Line
 Wire Wire Line
 	6250 3400 9400 3400
 $Comp
-L 74xx:74LS00 U20
+L 74xx:74LS00 U2
 U 2 1 63AF0D80
 P 1250 6350
-F 0 "U20" H 1250 6675 50  0000 C CNN
+F 0 "U2" H 1250 6675 50  0000 C CNN
 F 1 "74LS00" H 1250 6584 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 6350 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 1250 6350 50  0001 C CNN
@@ -856,10 +856,10 @@ F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 1250 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74xx:74LS00 U20
+L 74xx:74LS00 U2
 U 4 1 639D9EE1
 P 1250 7450
-F 0 "U20" H 1250 7775 50  0000 C CNN
+F 0 "U2" H 1250 7775 50  0000 C CNN
 F 1 "74LS00" H 1250 7684 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 1250 7450 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 1250 7450 50  0001 C CNN
@@ -871,10 +871,10 @@ Wire Wire Line
 Wire Wire Line
 	850  6150 850  6250
 $Comp
-L 74xx:74LS00 U20
+L 74xx:74LS00 U2
 U 5 1 63AF9174
 P 2950 6900
-F 0 "U20" H 3180 6946 50  0000 L CNN
+F 0 "U2" H 3180 6946 50  0000 L CNN
 F 1 "74LS00" H 3180 6855 50  0000 L CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 2950 6900 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 2950 6900 50  0001 C CNN
@@ -882,38 +882,14 @@ F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 2950 6900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
-U 1 1 64610829
-P 9300 4400
-AR Path="/64610829" Ref="#PWR?"  Part="1" 
-AR Path="/632F1F43/64610829" Ref="#PWR?"  Part="1" 
-AR Path="/63267F40/64610829" Ref="#PWR?"  Part="1" 
-AR Path="/646018E8/64610829" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9300 4150 50  0001 C CNN
-F 1 "GND" H 9450 4300 50  0000 C CNN
-F 2 "" H 9300 4400 50  0001 C CNN
-F 3 "" H 9300 4400 50  0001 C CNN
-	1    9300 4400
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	9400 4200 9300 4200
-Wire Wire Line
-	9300 4200 9300 4300
-Wire Wire Line
-	9400 4300 9300 4300
-Connection ~ 9300 4300
-Wire Wire Line
-	9300 4300 9300 4400
-$Comp
-L power:GND #PWR?
+L power:GND #PWR0113
 U 1 1 64610834
 P 10000 4400
-AR Path="/64610834" Ref="#PWR?"  Part="1" 
+AR Path="/64610834" Ref="#PWR0113"  Part="1" 
 AR Path="/632F1F43/64610834" Ref="#PWR?"  Part="1" 
 AR Path="/63267F40/64610834" Ref="#PWR?"  Part="1" 
 AR Path="/646018E8/64610834" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10000 4150 50  0001 C CNN
+F 0 "#PWR0113" H 10000 4150 50  0001 C CNN
 F 1 "GND" H 10150 4300 50  0000 C CNN
 F 2 "" H 10000 4400 50  0001 C CNN
 F 3 "" H 10000 4400 50  0001 C CNN
@@ -930,14 +906,14 @@ Connection ~ 10000 4300
 Wire Wire Line
 	10000 4300 10000 4200
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0114
 U 1 1 6461083F
 P 9300 2300
-AR Path="/6461083F" Ref="#PWR?"  Part="1" 
+AR Path="/6461083F" Ref="#PWR0114"  Part="1" 
 AR Path="/632F1F43/6461083F" Ref="#PWR?"  Part="1" 
 AR Path="/63267F40/6461083F" Ref="#PWR?"  Part="1" 
 AR Path="/646018E8/6461083F" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 9300 2150 50  0001 C CNN
+F 0 "#PWR0114" H 9300 2150 50  0001 C CNN
 F 1 "+5V" H 9315 2473 50  0000 C CNN
 F 2 "" H 9300 2300 50  0001 C CNN
 F 3 "" H 9300 2300 50  0001 C CNN
@@ -954,14 +930,14 @@ Connection ~ 9300 2400
 Wire Wire Line
 	9300 2400 9300 2300
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0115
 U 1 1 6461084A
 P 10000 2300
-AR Path="/6461084A" Ref="#PWR?"  Part="1" 
+AR Path="/6461084A" Ref="#PWR0115"  Part="1" 
 AR Path="/632F1F43/6461084A" Ref="#PWR?"  Part="1" 
 AR Path="/63267F40/6461084A" Ref="#PWR?"  Part="1" 
 AR Path="/646018E8/6461084A" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 10000 2150 50  0001 C CNN
+F 0 "#PWR0115" H 10000 2150 50  0001 C CNN
 F 1 "+5V" H 10015 2473 50  0000 C CNN
 F 2 "" H 10000 2300 50  0001 C CNN
 F 3 "" H 10000 2300 50  0001 C CNN
@@ -982,9 +958,9 @@ L Connector_Generic:Conn_02x20_Odd_Even J?
 U 1 1 6461086D
 P 9700 3300
 AR Path="/63267F40/6461086D" Ref="J?"  Part="1" 
-AR Path="/6461086D" Ref="J?"  Part="1" 
+AR Path="/6461086D" Ref="J1"  Part="1" 
 AR Path="/646018E8/6461086D" Ref="J?"  Part="1" 
-F 0 "J?" H 9750 4417 50  0000 C CNN
+F 0 "J1" H 9750 4417 50  0000 C CNN
 F 1 "Expansion" H 9750 4326 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 9700 3300 50  0001 C CNN
 F 3 "~" H 9700 3300 50  0001 C CNN
@@ -1032,8 +1008,6 @@ NoConn ~ 9900 3400
 NoConn ~ 9900 3500
 NoConn ~ 9900 3600
 NoConn ~ 9900 3700
-NoConn ~ 9900 4100
-NoConn ~ 9900 4000
 NoConn ~ 9900 3900
 NoConn ~ 9400 3700
 NoConn ~ 9400 3900
@@ -1107,6 +1081,21 @@ Wire Wire Line
 	2150 7400 2150 7450
 Wire Wire Line
 	2950 7400 2950 7450
+Connection ~ 2950 7450
+Wire Wire Line
+	2950 7450 3600 7450
+Wire Wire Line
+	9900 4000 10000 4000
+Wire Wire Line
+	10000 4000 10000 4100
+Connection ~ 10000 4200
+Wire Wire Line
+	9900 4100 10000 4100
+Connection ~ 10000 4100
+Wire Wire Line
+	10000 4100 10000 4200
+NoConn ~ 9400 4200
+NoConn ~ 9400 4300
 Wire Bus Line
 	2750 1800 4650 1800
 Wire Bus Line
@@ -1115,7 +1104,4 @@ Wire Bus Line
 	4350 1900 4350 2550
 Wire Bus Line
 	4750 1900 4750 3400
-Connection ~ 2950 7450
-Wire Wire Line
-	2950 7450 3600 7450
 $EndSCHEMATC

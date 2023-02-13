@@ -82,7 +82,7 @@ F10 "CLK_RX_OUT" I R 4200 4200 50
 F11 "~CLK_SLOW_OUT" I R 4200 4400 50 
 F12 "~CLK_FAST_OUT" I R 4200 4300 50 
 F13 "CLK_EXT_IN" I R 4200 4000 50 
-F14 "~CLK_EXT_SEL_IN" I R 4200 3900 50 
+F14 "~CLK_EXT_SEL_IN" I R 4200 4600 50 
 $EndSheet
 $Sheet
 S 4850 5100 1950 1200
@@ -122,8 +122,8 @@ U 1 1 645E6BD8
 P 9000 5800
 AR Path="/6BB77683/645E6BD8" Ref="J?"  Part="1" 
 AR Path="/645E6BD8" Ref="J2"  Part="1" 
-F 0 "J2" H 9080 5842 50  0000 L CNN
-F 1 "Output" H 9080 5751 50  0000 L CNN
+F 0 "J2" H 9100 5750 50  0000 L CNN
+F 1 "Output" H 9100 5850 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 9000 5800 50  0001 C CNN
 F 3 "~" H 9000 5800 50  0001 C CNN
 	1    9000 5800
@@ -245,29 +245,6 @@ Wire Wire Line
 Connection ~ 6200 4600
 Wire Wire Line
 	6200 4600 6200 4700
-$Comp
-L power:GND #PWR0147
-U 1 1 635885B3
-P 5500 4700
-AR Path="/635885B3" Ref="#PWR0147"  Part="1" 
-AR Path="/632F1F43/635885B3" Ref="#PWR?"  Part="1" 
-AR Path="/63267F40/635885B3" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0147" H 5500 4450 50  0001 C CNN
-F 1 "GND" H 5650 4600 50  0000 C CNN
-F 2 "" H 5500 4700 50  0001 C CNN
-F 3 "" H 5500 4700 50  0001 C CNN
-	1    5500 4700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5500 4700 5500 4600
-Wire Wire Line
-	5500 4500 5600 4500
-Wire Wire Line
-	5600 4600 5500 4600
-Connection ~ 5500 4600
-Wire Wire Line
-	5500 4600 5500 4500
 $Comp
 L power:+5V #PWR0148
 U 1 1 635885BE
@@ -690,8 +667,6 @@ Wire Wire Line
 Wire Wire Line
 	6800 5900 7750 5900
 NoConn ~ 6100 3800
-NoConn ~ 6100 4300
-NoConn ~ 6100 4400
 Wire Wire Line
 	6100 4200 7050 4200
 Wire Wire Line
@@ -718,6 +693,26 @@ Wire Wire Line
 Wire Wire Line
 	8050 3000 7350 3000
 Connection ~ 7350 3000
+Text Label 8000 5700 0    50   ~ 0
+DATA_RX
+Text Label 8000 5900 0    50   ~ 0
+CLK_RX_OUT
+Wire Wire Line
+	6100 4300 6200 4300
+Wire Wire Line
+	6200 4300 6200 4400
+Connection ~ 6200 4500
+Wire Wire Line
+	6100 4400 6200 4400
+Connection ~ 6200 4400
+Wire Wire Line
+	6200 4400 6200 4500
+Text Label 5100 4600 0    50   ~ 0
+~CLK_EXT_SEL
+Wire Wire Line
+	4200 4600 5600 4600
+NoConn ~ 5600 4500
+NoConn ~ 10800 1300
 Wire Bus Line
 	6950 2150 6950 5100
 Wire Bus Line

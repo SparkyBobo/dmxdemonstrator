@@ -163,14 +163,14 @@ Wire Wire Line
 Wire Wire Line
 	4500 1950 4500 4150
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0101
 U 1 1 6475E09B
 P 6150 4750
-AR Path="/6475E09B" Ref="#PWR?"  Part="1" 
+AR Path="/6475E09B" Ref="#PWR0101"  Part="1" 
 AR Path="/632F1F43/6475E09B" Ref="#PWR?"  Part="1" 
 AR Path="/63267F40/6475E09B" Ref="#PWR?"  Part="1" 
 AR Path="/64755962/6475E09B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6150 4500 50  0001 C CNN
+F 0 "#PWR0101" H 6150 4500 50  0001 C CNN
 F 1 "GND" H 6300 4650 50  0000 C CNN
 F 2 "" H 6150 4750 50  0001 C CNN
 F 3 "" H 6150 4750 50  0001 C CNN
@@ -187,38 +187,14 @@ Connection ~ 6150 4650
 Wire Wire Line
 	6150 4650 6150 4750
 $Comp
-L power:GND #PWR?
-U 1 1 6475E0A6
-P 5450 4750
-AR Path="/6475E0A6" Ref="#PWR?"  Part="1" 
-AR Path="/632F1F43/6475E0A6" Ref="#PWR?"  Part="1" 
-AR Path="/63267F40/6475E0A6" Ref="#PWR?"  Part="1" 
-AR Path="/64755962/6475E0A6" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5450 4500 50  0001 C CNN
-F 1 "GND" H 5600 4650 50  0000 C CNN
-F 2 "" H 5450 4750 50  0001 C CNN
-F 3 "" H 5450 4750 50  0001 C CNN
-	1    5450 4750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5450 4750 5450 4650
-Wire Wire Line
-	5450 4550 5550 4550
-Wire Wire Line
-	5550 4650 5450 4650
-Connection ~ 5450 4650
-Wire Wire Line
-	5450 4650 5450 4550
-$Comp
-L power:+5V #PWR?
+L power:+5V #PWR0102
 U 1 1 6475E0B1
 P 6150 2650
-AR Path="/6475E0B1" Ref="#PWR?"  Part="1" 
+AR Path="/6475E0B1" Ref="#PWR0102"  Part="1" 
 AR Path="/632F1F43/6475E0B1" Ref="#PWR?"  Part="1" 
 AR Path="/63267F40/6475E0B1" Ref="#PWR?"  Part="1" 
 AR Path="/64755962/6475E0B1" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 6150 2500 50  0001 C CNN
+F 0 "#PWR0102" H 6150 2500 50  0001 C CNN
 F 1 "+5V" H 6165 2823 50  0000 C CNN
 F 2 "" H 6150 2650 50  0001 C CNN
 F 3 "" H 6150 2650 50  0001 C CNN
@@ -235,14 +211,14 @@ Connection ~ 6150 2750
 Wire Wire Line
 	6150 2750 6150 2650
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR0103
 U 1 1 6475E0BC
 P 5450 2650
-AR Path="/6475E0BC" Ref="#PWR?"  Part="1" 
+AR Path="/6475E0BC" Ref="#PWR0103"  Part="1" 
 AR Path="/632F1F43/6475E0BC" Ref="#PWR?"  Part="1" 
 AR Path="/63267F40/6475E0BC" Ref="#PWR?"  Part="1" 
 AR Path="/64755962/6475E0BC" Ref="#PWR?"  Part="1" 
-F 0 "#PWR?" H 5450 2500 50  0001 C CNN
+F 0 "#PWR0103" H 5450 2500 50  0001 C CNN
 F 1 "+5V" H 5465 2823 50  0000 C CNN
 F 2 "" H 5450 2650 50  0001 C CNN
 F 3 "" H 5450 2650 50  0001 C CNN
@@ -283,8 +259,6 @@ CLK_TX
 Text Label 6050 3950 0    50   ~ 0
 ~FRAME_RESET
 NoConn ~ 6050 3850
-NoConn ~ 6050 4350
-NoConn ~ 6050 4450
 NoConn ~ 5550 2950
 NoConn ~ 5550 3050
 NoConn ~ 5550 3150
@@ -298,9 +272,9 @@ L Connector_Generic:Conn_02x20_Odd_Even J?
 U 1 1 6475E0DF
 P 5750 3650
 AR Path="/63267F40/6475E0DF" Ref="J?"  Part="1" 
-AR Path="/6475E0DF" Ref="J?"  Part="1" 
+AR Path="/6475E0DF" Ref="J1"  Part="1" 
 AR Path="/64755962/6475E0DF" Ref="J?"  Part="1" 
-F 0 "J?" H 5800 4767 50  0000 C CNN
+F 0 "J1" H 5800 4767 50  0000 C CNN
 F 1 "Expansion" H 5800 4676 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 5750 3650 50  0001 C CNN
 F 3 "~" H 5750 3650 50  0001 C CNN
@@ -378,4 +352,16 @@ F10 "DATA_BREAK_IN" I L 7300 5300 50
 $EndSheet
 NoConn ~ 6050 2950
 NoConn ~ 6050 3050
+Wire Wire Line
+	6050 4350 6150 4350
+Wire Wire Line
+	6150 4350 6150 4450
+Connection ~ 6150 4550
+Wire Wire Line
+	6050 4450 6150 4450
+Connection ~ 6150 4450
+Wire Wire Line
+	6150 4450 6150 4550
+NoConn ~ 5550 4550
+NoConn ~ 5550 4650
 $EndSCHEMATC

@@ -37,7 +37,7 @@ L MCU_Module:Arduino_Nano_v2.x A1
 U 1 1 636D64C8
 P 6000 3550
 F 0 "A1" H 6350 2600 50  0000 C CNN
-F 1 "Monitor" H 6500 2500 50  0000 C CNN
+F 1 "Monitor" H 6450 2500 50  0000 C CNN
 F 2 "Module:Arduino_Nano" H 6150 2600 50  0001 L CNN
 F 3 "https://www.arduino.cc/en/uploads/Main/ArduinoNanoManual23.pdf" H 6000 2550 50  0001 C CNN
 	1    6000 3550
