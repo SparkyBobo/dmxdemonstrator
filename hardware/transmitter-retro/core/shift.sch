@@ -169,8 +169,8 @@ Wire Wire Line
 Wire Wire Line
 	6050 4350 6050 4000
 Wire Bus Line
-	4850 2000 7650 2000
-Text HLabel 7650 2000 2    50   Input ~ 0
+	4850 2000 8550 2000
+Text HLabel 8550 2000 2    50   Input ~ 0
 D[0..7]
 Text HLabel 7650 4650 2    50   Input ~ 0
 DATA_RX_OUT
@@ -190,43 +190,35 @@ Wire Wire Line
 	4950 4050 3700 4050
 Text HLabel 3700 1250 0    50   Input ~ 0
 ~CLK_SLOW_IN
-Text HLabel 7650 1050 2    50   Input ~ 0
+Text HLabel 8550 1050 2    50   Input ~ 0
 ~CLK_STEP_OUT
 Text HLabel 3700 1050 0    50   Input ~ 0
 ~CLK_STEP_IN
 Text HLabel 3700 1150 0    50   Input ~ 0
 ~CLK_FAST_IN
-Text HLabel 7650 1250 2    50   Input ~ 0
+Text HLabel 8550 1250 2    50   Input ~ 0
 ~CLK_SLOW_OUT
-Text HLabel 7650 1150 2    50   Input ~ 0
+Text HLabel 8550 1150 2    50   Input ~ 0
 ~CLK_FAST_OUT
-Text HLabel 7650 1400 2    50   Input ~ 0
+Text HLabel 8550 1400 2    50   Input ~ 0
 CLK_RX_OUT
 Text HLabel 3700 1400 0    50   Input ~ 0
 CLK_RX_IN
 Wire Wire Line
-	7650 1400 7550 1400
+	8550 1400 7550 1400
 Wire Wire Line
-	3700 1150 7650 1150
+	3700 1150 8550 1150
 Wire Wire Line
-	3700 1250 7650 1250
+	3700 1250 8550 1250
 Wire Wire Line
-	7650 1050 3700 1050
-Text HLabel 7650 4750 2    50   Input ~ 0
-DATA_OUT
-Text HLabel 7650 1500 2    50   Input ~ 0
-CLK_OUT
-Wire Wire Line
-	7650 4750 7550 4750
-Wire Wire Line
-	7550 4750 7550 4650
+	8550 1050 3700 1050
+Text HLabel 8550 2900 2    50   Input ~ 0
+~DATA_OUT
+Text HLabel 8550 2800 2    50   Input ~ 0
+~CLK_OUT
 Connection ~ 7550 4650
 Wire Wire Line
 	7550 4650 7650 4650
-Wire Wire Line
-	7650 1500 7550 1500
-Wire Wire Line
-	7550 1500 7550 1400
 Connection ~ 7550 1400
 Wire Wire Line
 	7550 1400 3700 1400
@@ -234,13 +226,61 @@ Wire Wire Line
 	3700 3750 4950 3750
 Wire Wire Line
 	3700 3950 4950 3950
-Text HLabel 7550 4000 2    50   Input ~ 0
+Text HLabel 8600 4000 2    50   Input ~ 0
 DATA_SHIFT_OUT
 Wire Wire Line
-	7550 4000 6050 4000
+	8600 4000 6050 4000
 Connection ~ 6050 4000
 Wire Wire Line
 	6050 4000 6050 2750
+Wire Wire Line
+	7550 4650 7550 2900
+Wire Wire Line
+	7550 2900 7650 2900
+Wire Wire Line
+	7550 2800 7650 2800
+Wire Wire Line
+	7550 1400 7550 2800
+$Comp
+L Transistor_Array:ULN2003A U17
+U 1 1 63EEB811
+P 8050 3000
+F 0 "U17" H 8050 3667 50  0000 C CNN
+F 1 "ULN2003A" H 8050 3576 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 8100 2450 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 8150 2800 50  0001 C CNN
+	1    8050 3000
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7650 3000
+NoConn ~ 7650 3100
+NoConn ~ 7650 3200
+NoConn ~ 7650 3300
+NoConn ~ 7650 3400
+NoConn ~ 8450 2600
+NoConn ~ 8450 3000
+NoConn ~ 8450 3100
+NoConn ~ 8450 3200
+NoConn ~ 8450 3300
+NoConn ~ 8450 3400
+Wire Wire Line
+	8450 2800 8550 2800
+Wire Wire Line
+	8450 2900 8550 2900
+$Comp
+L power:GND #PWR?
+U 1 1 63EF339F
+P 8050 3600
+AR Path="/6841E790/63EF339F" Ref="#PWR?"  Part="1" 
+AR Path="/63EF339F" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/63EF339F" Ref="#PWR0146"  Part="1" 
+F 0 "#PWR0146" H 8050 3350 50  0001 C CNN
+F 1 "GND" H 8200 3500 50  0000 C CNN
+F 2 "" H 8050 3600 50  0001 C CNN
+F 3 "" H 8050 3600 50  0001 C CNN
+	1    8050 3600
+	1    0    0    -1  
+$EndComp
 Wire Bus Line
 	4750 2100 4750 3450
 $EndSCHEMATC

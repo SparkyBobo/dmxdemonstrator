@@ -19,10 +19,10 @@ L Comparator:LM339 U?
 U 1 1 63304670
 P 2200 2050
 AR Path="/63304670" Ref="U?"  Part="1" 
-AR Path="/63268641/63304670" Ref="U17"  Part="1" 
-F 0 "U17" H 2200 1750 50  0000 C CNN
+AR Path="/63268641/63304670" Ref="U16"  Part="1" 
+F 0 "U16" H 2200 1750 50  0000 C CNN
 F 1 "LM339" H 2200 1850 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2150 2150 50  0001 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 2150 2150 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm339.pdf" H 2250 2250 50  0001 C CNN
 	1    2200 2050
 	1    0    0    1   
@@ -32,10 +32,10 @@ L Comparator:LM339 U?
 U 4 1 63304677
 P 2200 4050
 AR Path="/63304677" Ref="U?"  Part="4" 
-AR Path="/63268641/63304677" Ref="U17"  Part="4" 
-F 0 "U17" H 2200 3750 50  0000 C CNN
+AR Path="/63268641/63304677" Ref="U16"  Part="4" 
+F 0 "U16" H 2200 3750 50  0000 C CNN
 F 1 "LM339" H 2200 3850 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2150 4150 50  0001 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 2150 4150 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm339.pdf" H 2250 4250 50  0001 C CNN
 	4    2200 4050
 	1    0    0    1   
@@ -45,10 +45,10 @@ L Comparator:LM339 U?
 U 2 1 6330467E
 P 2200 2700
 AR Path="/6330467E" Ref="U?"  Part="2" 
-AR Path="/63268641/6330467E" Ref="U17"  Part="2" 
-F 0 "U17" H 2200 2400 50  0000 C CNN
+AR Path="/63268641/6330467E" Ref="U16"  Part="2" 
+F 0 "U16" H 2200 2400 50  0000 C CNN
 F 1 "LM339" H 2200 2500 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2150 2800 50  0001 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 2150 2800 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm339.pdf" H 2250 2900 50  0001 C CNN
 	2    2200 2700
 	1    0    0    1   
@@ -58,10 +58,10 @@ L Comparator:LM339 U?
 U 3 1 63304685
 P 2200 3400
 AR Path="/63304685" Ref="U?"  Part="3" 
-AR Path="/63268641/63304685" Ref="U17"  Part="3" 
-F 0 "U17" H 2200 3100 50  0000 C CNN
+AR Path="/63268641/63304685" Ref="U16"  Part="3" 
+F 0 "U16" H 2200 3100 50  0000 C CNN
 F 1 "LM339" H 2200 3200 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 2150 3500 50  0001 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 2150 3500 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm339.pdf" H 2250 3600 50  0001 C CNN
 	3    2200 3400
 	1    0    0    1   
@@ -545,12 +545,12 @@ Entry Wire Line
 Wire Wire Line
 	6700 1100 6950 1100
 $Comp
-L transmitter-retro:TLC7524CN U16
+L transmitter-retro:TLC7524CN U15
 U 1 1 634200B5
 P 6300 1500
-F 0 "U16" H 6100 2150 50  0000 C CNN
+F 0 "U15" H 6100 2150 50  0000 C CNN
 F 1 "TLC7524CN" H 6000 2050 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 6300 1500 50  0001 C CNN
+F 2 "Package_DIP:DIP-20_W7.62mm" H 6300 1500 50  0001 C CNN
 F 3 "http://www.pinballpcb.com/datasheets/OnMC1408-dac.pdf" H 6300 1500 50  0001 C CNN
 	1    6300 1500
 	-1   0    0    -1  
@@ -709,10 +709,10 @@ Wire Wire Line
 Wire Wire Line
 	5750 3950 5800 3950
 $Comp
-L 74xx:74LS373 U15
+L 74xx:74LS373 U14
 U 1 1 638DE1BD
 P 9550 3750
-F 0 "U15" H 9700 4500 50  0000 C CNN
+F 0 "U14" H 9700 4500 50  0000 C CNN
 F 1 "74LS373" H 9800 4400 50  0000 C CNN
 F 2 "Package_DIP:DIP-20_W7.62mm" H 9550 3750 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS373" H 9550 3750 50  0001 C CNN
