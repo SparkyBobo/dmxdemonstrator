@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP XLR-3-5
+D XLR Connector, Male or Female, 5 Pins
+K xlr connector
+F  ~
+$ENDCMP
+#
+#End Doc Library
