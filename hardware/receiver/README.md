@@ -14,4 +14,23 @@ Additionally, you'll need some parts from the common parts lists as well. You ca
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-RX1 1.0](https://oshpark.com/shared_projects/IDtKKv4v).
+- [DMX-RX1, Rev 1.2](https://oshpark.com/shared_projects/VdwUWld0).
+
+## Version History
+
+### Rev 1.2
+
+- Moved clock LED to avoid Arduino ICSP connector.
+- Add RXCLK to D9 connection for Leonardo PCINT5.
+
+### Rev 1.1
+
+- Fixed shield footprint
+- Added error and start code LEDs.
+- Added Fcu power plane
+- Redid Fcu layout
+- Added rounded corners
+
+### Rev 1.0
+
+- Initial draft

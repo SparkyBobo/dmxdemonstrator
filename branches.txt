@@ -1,0 +1,35 @@
+users/sparky/txrx12 - hw, already merged
+
+users/sparky/discovery -> PR
+users/sparky/tx-refactor -> PR
+users/sparky/rx-refactor -> PR
+
+desktop - Basic desktop
+desktopAndSketch - Desktop with above PRs and tweaks
+
+users/sparky/controlPro11 - New control pro
+users/sparky/tx-pro-multi-sheet - New tx pro
+users/sparky/rx-pro-multi-sheet - New rx pro
+  - Core needs work
+     - rx1-3a looks good
+     - rx1-3b neds work
+  - display is copy of rx-pro
+  - start-code is copy of rx-pro
+
+
+Rx shift goals
+reset at frame reset
+start counting when 0 is on data line
+on the 9th clock pulse, load shifted + data bit if shifted highest bit is 0.
+on the 11th clock pulse, data is valid if data bit + shifted lowest bits are 1
+on the 11th clock pulse, reset. 
+
+shift data available 40ns after clock pulses high
+latch data on 1001
+check stop bits on 1011
+the problem with shift is I don't want the incoming data to impact the decision
+so must check it on rising edge only, so before shift, or latch it and falling edge
+So if 9, latch data into buffer. Orig used to drive this onto the bus feeding into secondary latches
+So if 11, decide to latch the bus to secondary latches based on stop bits.
+
+
