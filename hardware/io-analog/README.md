@@ -1,10 +1,10 @@
 # DMX Demonstrator Analog IO MOdule (DMX-IO2)
 
+![status](https://img.shields.io/badge/status-prototype-orange)
+
 ## Overview
 
 The PWM IO Module is a stand-alone module which generates an analog signal where the voltage to the channels brightness. This module is for us with the Receiver IO Module (DMX-RX2) and other DMX Demonstrator components. The voltage of the analog signal is 0-10v by default but can be changed by adjusting the voltage regulator resistors.
-
-## Parts
 
 ## Dimmer Options
 

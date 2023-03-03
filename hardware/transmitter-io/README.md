@@ -1,6 +1,6 @@
 # DMX Demonstrator Transmitter IO Interface (DMX-TX2)
 
-![status](https://img.shields.io/badge/status-prototype-orange]
+![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 

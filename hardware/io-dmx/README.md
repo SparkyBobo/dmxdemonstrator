@@ -1,6 +1,6 @@
 # DMX Demonstrator DMX-512 IO Module (DMX-IO1)
 
-![status](https://img.shields.io/badge/status-prototype-orange]
+![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 
@@ -94,7 +94,6 @@ You can use the DMX-IO1 without isolation by leaving out these parts and install
 ### Rev 1.2
 
 - Switched to a stand-along module
-- 
 
 ### Rev 1.1
 

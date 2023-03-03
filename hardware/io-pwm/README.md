@@ -1,6 +1,6 @@
 # DMX Demonstrator PWM IO Module (DMX-IO3)
 
-![status](https://img.shields.io/badge/status-prototype-orange]
+![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 
