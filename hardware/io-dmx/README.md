@@ -1,17 +1,17 @@
-# DMX Demonstrator DMX Dimmer (DMX-DD1)
+# DMX Demonstrator DMX-512 IO Module (DMX-IO1)
+
+![status](https://img.shields.io/badge/status-prototype-orange]
 
 ## Overview
 
-The digital dimmer is an [Arduino](https://www.arduino.cc/) Shield board designed to communicate with DMX compatible and RDM-compatible equipment.
-When used in the DMX Demonstrator, it is used with the receiver to pass the
-received dimmer levels to a DMX universe.
+The DMX-512 IO Module is a stand-alone module which generates or receives a DMX-512 signal,allowing the DMS Demonstrator system to communicate with DMX-512-compatible and RDM-compatible equipment. It can be used with a Receiver (DMX-RX2, DMX-RX?) to receive DMX-512. It can also be used with a Transmitter (DMX-TX2, DMX-TX?) to transmit the data stream to DMX-512.
 
 ## Online parts list
 
-Sadly, Sparkfun does not offer all of the components required for the digital dimmer. Additionally, Digikey does not carry Neutrik for connecting
+Sadly, Sparkfun does not offer all of the components required for DMX-512 IO Module. Additionally, Digikey does not carry Neutrik for connecting
 to the DMX/RDM devices.
 
-The major parts can be purchased from [Mouser](https://www.mouser.com/) or [Newark](https://www.newark.com/). Links and part numbers are listed below.
+The parts can be purchased from [Mouser](https://www.mouser.com/) or [Newark](https://www.newark.com/). Links and part numbers are listed below.
 
 - U5, MAX3485CPA+ -
 [Newark 81Y9431](https://www.newark.com/maxim-integrated-products/max3485cpa/rs422-rs485-transceiver-10mbps/dp/81Y9431?st=max3485)
@@ -43,10 +43,9 @@ Additionally, you'll need some parts from the common parts lists as well. You ca
 
 ### DMX Connectors
 
-Of course DMX commonly uses a 5-pin XLR, it is often used with a 3-pin XLR. I'm not a fan of the 3-pin variant since it is the same as the audio connector making it seem as if DMX and Mic cables can be used interchangeably.
+As you know, DMX commonly uses a 5-pin XLR connector. However, it is sometimes used with a 3-pin XLR connector which does not comply with the USITT spec. I'm not a fan of the 3-pin variant since it is the same as the audio connector making it seem as if DMX-512 and Mic cables can be used interchangeably, which they cannot reliably (your milage may vary).
 
-That said, the DMX-DD1 supports both XLR-5 and XLR-3 connectors, one male and one female. You can choose between XLR-5 and XLR-3 but cannot use both at the same time. The design is made for Neutrik connectors (which is not a brand that Digikey carries). There are a few variation of the basic part numbers listed below with different shielding configurations. For instance,
-Newark only carries the NC3FAH-2, which works fine in place of the NC3FAH.
+That said, the DMX-IO1 supports both XLR-5 and XLR-3 connectors, one male and one female. You can choose between XLR-5 and XLR-3 but cannot use both at the same time. The design is made for Neutrik connectors (which is not a brand that Digikey carries). There are a few variation of the basic part numbers listed below with different shielding configurations. For instance, Newark only carries the NC3FAH-2, which works fine in place of the NC3FAH.
 
 - 5-pin male XLR:
 [Newark 25C4313](https://www.newark.com/neutrik/nc5mah/connector-xlr-audio-plug-5pos/dp/25C4313?ost=nc5mah)
@@ -82,7 +81,7 @@ There are a few different DMX Arduino shields but many of them do not have isola
 [Mouser 782-6N137](https://www.mouser.com/ProductDetail/Vishay-Semiconductors/6N137/?qs=xCMk%252BIHWTZMrQz4FyDXhMg%3D%3D)
 [6N137 Datasheet](https://www.mouser.com/datasheet/2/427/6n137-1767489.pdf)
 
-You can use the DMX-DD1 without isolation by leaving out these parts and installing 5 solder bridges to bypass the isolation circuits:
+You can use the DMX-IO1 without isolation by leaving out these parts and installing 5 solder bridges to bypass the isolation circuits:
 
 - Under U1, you will find a pair of bypass pads for +5v
 - Under U1, you will find a pair of bypass pads for GND
@@ -90,15 +89,12 @@ You can use the DMX-DD1 without isolation by leaving out these parts and install
 - Under U3, you will find a pair of bypass pads for DIR
 - Under U4, you will find a pair of bypass pads for TX
 
-Additionally, the [mathertel.de DMX Shield for Arduino with isolation](http://www.mathertel.de/Arduino/DMXShield.aspx) properly implements isolation as well. In fact, the DMX-DD1 design implements Isolation Bypass modelled after the mathertel.de device, see the "Simplifying opportunities" section for using the mathertel.de with and without isolation as well as making is RDM-compatible.
-
-## PCB
-
-You can order the PCB from [OHS Park](https://oshpark.com/):
-
-- [DMX-DD1, Rev 1.1]()
-
 ## Version History
+
+### Rev 1.2
+
+- Switched to a stand-along module
+- 
 
 ### Rev 1.1
 

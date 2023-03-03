@@ -1,11 +1,11 @@
 EESchema Schematic File Version 4
-LIBS:dimmer-dmx-cache
+LIBS:io-dmx-512-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "DMX Demonstrator - DMX-512 IO Module (DMX-DD1)"
+Title "DMX Demonstrator - DMX-512 IO Module (DMX-IO1)"
 Date "2023-02-19"
 Rev "1.1"
 Comp "Crazy Giraffe Software"
@@ -914,34 +914,6 @@ Wire Wire Line
 Wire Wire Line
 	4150 3750 5150 3750
 $Comp
-L Device:R_US R1
-U 1 1 63F76368
-P 4500 3850
-F 0 "R1" V 4400 3850 50  0000 C CNN
-F 1 "330" V 4300 3850 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4540 3840 50  0001 C CNN
-F 3 "~" H 4500 3850 50  0001 C CNN
-	1    4500 3850
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	4150 3850 4350 3850
-Wire Wire Line
-	4650 3850 4750 3850
-Wire Wire Line
-	4750 3850 4750 4050
-$Comp
-L power:GND #PWR0131
-U 1 1 63F877A0
-P 4750 4050
-F 0 "#PWR0131" H 4750 3800 50  0001 C CNN
-F 1 "GND" H 4755 3877 50  0000 C CNN
-F 2 "" H 4750 4050 50  0001 C CNN
-F 3 "" H 4750 4050 50  0001 C CNN
-	1    4750 4050
-	1    0    0    -1  
-$EndComp
-$Comp
 L Mechanical:MountingHole MH1
 U 1 1 63F9E49B
 P 7650 6350
@@ -1003,4 +975,11 @@ Wire Wire Line
 Wire Wire Line
 	4600 3350 4250 3350
 Connection ~ 4250 3350
+Text Label 3350 3750 0    50   ~ 0
+DMX-RX
+Text Label 3350 3850 0    50   ~ 0
+DMX-TX
+Text Label 4200 3750 0    50   ~ 0
+DMX-DIR
+NoConn ~ 4150 3850
 $EndSCHEMATC

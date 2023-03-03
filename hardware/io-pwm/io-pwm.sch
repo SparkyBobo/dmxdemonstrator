@@ -1,11 +1,11 @@
 EESchema Schematic File Version 4
-LIBS:dimmer-led-cache
+LIBS:io-pwm-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "DMX Demonstrator - PWM IO Module (DMX-DA2)"
+Title "DMX Demonstrator - PWM IO Module (DMX-IO3)"
 Date "2023-02-19"
 Rev "1.1"
 Comp "Crazy Giraffe Software"
@@ -38,39 +38,27 @@ A1
 $Comp
 L power:GND #PWR0105
 U 1 1 5F38BF2A
-P 5350 3950
-F 0 "#PWR0105" H 5350 3700 50  0001 C CNN
-F 1 "GND" H 5355 3777 50  0000 C CNN
-F 2 "" H 5350 3950 50  0001 C CNN
-F 3 "" H 5350 3950 50  0001 C CNN
-	1    5350 3950
+P 4800 3950
+F 0 "#PWR0105" H 4800 3700 50  0001 C CNN
+F 1 "GND" H 4805 3777 50  0000 C CNN
+F 2 "" H 4800 3950 50  0001 C CNN
+F 3 "" H 4800 3950 50  0001 C CNN
+	1    4800 3950
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0106
 U 1 1 5F38F11C
-P 5350 2850
-F 0 "#PWR0106" H 5350 2700 50  0001 C CNN
-F 1 "+5V" H 5365 3023 50  0000 C CNN
-F 2 "" H 5350 2850 50  0001 C CNN
-F 3 "" H 5350 2850 50  0001 C CNN
-	1    5350 2850
+P 4800 2850
+F 0 "#PWR0106" H 4800 2700 50  0001 C CNN
+F 1 "+5V" H 4815 3023 50  0000 C CNN
+F 2 "" H 4800 2850 50  0001 C CNN
+F 3 "" H 4800 2850 50  0001 C CNN
+	1    4800 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4900 3250 4950 3250
-Wire Wire Line
-	6000 3650 5700 3650
-Wire Wire Line
-	6000 3550 5700 3550
-Wire Wire Line
-	6000 3350 5700 3350
-Wire Wire Line
-	6000 3250 5700 3250
-Wire Wire Line
-	6000 3150 5700 3150
-Wire Wire Line
-	6000 3050 5700 3050
+	4350 3250 4400 3250
 $Comp
 L power:GND #PWR0108
 U 1 1 5F3EDDE0
@@ -418,27 +406,27 @@ Wire Wire Line
 $Comp
 L CrazyGiraffe_DMXDemonstrator:74LS164 U2
 U 1 1 5F546852
-P 5350 3450
-F 0 "U2" H 5450 4100 60  0000 C CNN
-F 1 "74LS164" H 5600 4000 60  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4650 2600 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164" H 2850 2450 60  0001 L CNN
-	1    5350 3450
+P 4800 3450
+F 0 "U2" H 4900 4100 60  0000 C CNN
+F 1 "74LS164" H 5050 4000 60  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4100 2600 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164" H 2300 2450 60  0001 L CNN
+	1    4800 3450
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0124
 U 1 1 5F546BC2
-P 4900 2850
-F 0 "#PWR0124" H 4900 2700 50  0001 C CNN
-F 1 "+5V" H 4915 3023 50  0000 C CNN
-F 2 "" H 4900 2850 50  0001 C CNN
-F 3 "" H 4900 2850 50  0001 C CNN
-	1    4900 2850
+P 4350 2850
+F 0 "#PWR0124" H 4350 2700 50  0001 C CNN
+F 1 "+5V" H 4365 3023 50  0000 C CNN
+F 2 "" H 4350 2850 50  0001 C CNN
+F 3 "" H 4350 2850 50  0001 C CNN
+	1    4350 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4900 2850 4900 3250
+	4350 2850 4350 3250
 $Comp
 L CrazyGiraffe_DMXDemonstrator:TLC7226A U3
 U 1 1 5F546EA4
@@ -500,10 +488,6 @@ Entry Wire Line
 	5750 4100 5850 4000
 Entry Wire Line
 	5750 4200 5850 4100
-Wire Wire Line
-	5700 3450 6000 3450
-Wire Wire Line
-	5700 3750 6000 3750
 $Comp
 L Graphic:Logo_Open_Hardware_Small #LOGO1
 U 1 1 5F5D2833
@@ -714,11 +698,9 @@ Wire Wire Line
 Wire Wire Line
 	4050 3850 4050 3950
 Wire Wire Line
-	4950 3350 3950 3350
+	4400 3350 3950 3350
 Wire Wire Line
-	3950 3450 4950 3450
-Wire Wire Line
-	4950 3550 3950 3550
+	4400 3550 3950 3550
 NoConn ~ 3950 3650
 NoConn ~ 3950 3750
 Wire Bus Line
@@ -1077,23 +1059,137 @@ Wire Wire Line
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 6400C378
-P 4400 2850
-F 0 "#FLG0102" H 4400 2925 50  0001 C CNN
-F 1 "PWR_FLAG" H 4400 3023 50  0000 C CNN
-F 2 "" H 4400 2850 50  0001 C CNN
-F 3 "~" H 4400 2850 50  0001 C CNN
-	1    4400 2850
+P 3050 2850
+F 0 "#FLG0102" H 3050 2925 50  0001 C CNN
+F 1 "PWR_FLAG" H 3050 3023 50  0000 C CNN
+F 2 "" H 3050 2850 50  0001 C CNN
+F 3 "~" H 3050 2850 50  0001 C CNN
+	1    3050 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4050 3250 4400 3250
+	3350 3250 3050 3250
 Wire Wire Line
-	4400 3250 4400 2850
+	3050 3250 3050 2850
+Text Label 3950 3350 0    50   ~ 0
+SR-OUT
+Text Label 3950 3450 0    50   ~ 0
+SR-CLK
+Text Label 3950 3550 0    50   ~ 0
+~SR_CLR
+Connection ~ 3350 3250
+Text Label 5900 3050 0    50   ~ 0
+D0
+Text Label 5900 3150 0    50   ~ 0
+D1
+Text Label 5900 3250 0    50   ~ 0
+D2
+Text Label 5900 3350 0    50   ~ 0
+D3
+Text Label 5900 3450 0    50   ~ 0
+D4
+Text Label 5900 3550 0    50   ~ 0
+D5
+Text Label 5900 3650 0    50   ~ 0
+D6
+Text Label 5900 3750 0    50   ~ 0
+D7
+Text Label 5150 3050 0    50   ~ 0
+D7
+Text Label 5150 3750 0    50   ~ 0
+D0
+Text Label 5150 3650 0    50   ~ 0
+D1
+Text Label 5150 3550 0    50   ~ 0
+D2
+Text Label 5150 3450 0    50   ~ 0
+D3
+Text Label 5150 3350 0    50   ~ 0
+D4
+Text Label 5150 3250 0    50   ~ 0
+D5
+Text Label 5150 3150 0    50   ~ 0
+D6
+Entry Wire Line
+	5750 3650 5850 3750
+Entry Wire Line
+	5750 3550 5850 3650
+Entry Wire Line
+	5750 3450 5850 3550
+Entry Wire Line
+	5750 3350 5850 3450
+Entry Wire Line
+	5750 3250 5850 3350
+Entry Wire Line
+	5750 3150 5850 3250
+Entry Wire Line
+	5750 3050 5850 3150
+Entry Wire Line
+	5750 2950 5850 3050
+Entry Wire Line
+	5300 3050 5400 2950
+Entry Wire Line
+	5300 3150 5400 3050
+Entry Wire Line
+	5300 3250 5400 3150
+Entry Wire Line
+	5300 3350 5400 3250
+Entry Wire Line
+	5300 3450 5400 3350
+Entry Wire Line
+	5300 3550 5400 3450
+Entry Wire Line
+	5300 3650 5400 3550
+Entry Wire Line
+	5300 3750 5400 3650
+Wire Wire Line
+	3950 3450 4400 3450
+Wire Wire Line
+	5850 3050 6000 3050
+Wire Wire Line
+	5850 3150 6000 3150
+Wire Wire Line
+	5850 3250 6000 3250
+Wire Wire Line
+	5850 3350 6000 3350
+Wire Wire Line
+	5850 3450 6000 3450
+Wire Wire Line
+	5850 3550 6000 3550
+Wire Wire Line
+	5850 3650 6000 3650
+Wire Wire Line
+	5850 3750 6000 3750
+Wire Wire Line
+	5150 3050 5300 3050
+Wire Wire Line
+	5150 3150 5300 3150
+Wire Wire Line
+	5150 3250 5300 3250
+Wire Wire Line
+	5150 3350 5300 3350
+Wire Wire Line
+	5150 3450 5300 3450
+Wire Wire Line
+	5150 3550 5300 3550
+Wire Wire Line
+	5150 3650 5300 3650
+Wire Wire Line
+	5150 3750 5300 3750
+Entry Bus Bus
+	5400 2850 5500 2750
+Entry Bus Bus
+	5650 2750 5750 2850
+Wire Bus Line
+	5500 2750 5650 2750
 Wire Bus Line
 	5750 4000 5750 4450
 Wire Bus Line
 	3150 3450 3150 4450
 Wire Bus Line
 	7050 2350 7050 4550
-Connection ~ 4050 3250
+Wire Bus Line
+	5400 2850 5400 3650
+Wire Bus Line
+	5750 2850 5750 3650
 $EndSCHEMATC

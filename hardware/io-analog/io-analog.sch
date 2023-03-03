@@ -1,11 +1,11 @@
 EESchema Schematic File Version 4
-LIBS:dimmer-analog-cache
+LIBS:io-analog-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "DMX Demonstrator - Analog IO Module (DMX-DA1)"
+Title "DMX Demonstrator - Analog IO Module (DMX-IO2)"
 Date "2023-02-19"
 Rev "1.1"
 Comp "Crazy Giraffe Software"
@@ -38,39 +38,29 @@ A1
 $Comp
 L power:GND #PWR0105
 U 1 1 5F38BF2A
-P 5800 3950
-F 0 "#PWR0105" H 5800 3700 50  0001 C CNN
-F 1 "GND" H 5805 3777 50  0000 C CNN
-F 2 "" H 5800 3950 50  0001 C CNN
-F 3 "" H 5800 3950 50  0001 C CNN
-	1    5800 3950
+P 5250 3950
+F 0 "#PWR0105" H 5250 3700 50  0001 C CNN
+F 1 "GND" H 5255 3777 50  0000 C CNN
+F 2 "" H 5250 3950 50  0001 C CNN
+F 3 "" H 5250 3950 50  0001 C CNN
+	1    5250 3950
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0106
 U 1 1 5F38F11C
-P 5800 2850
-F 0 "#PWR0106" H 5800 2700 50  0001 C CNN
-F 1 "+5V" H 5815 3023 50  0000 C CNN
-F 2 "" H 5800 2850 50  0001 C CNN
-F 3 "" H 5800 2850 50  0001 C CNN
-	1    5800 2850
+P 5250 2850
+F 0 "#PWR0106" H 5250 2700 50  0001 C CNN
+F 1 "+5V" H 5265 3023 50  0000 C CNN
+F 2 "" H 5250 2850 50  0001 C CNN
+F 3 "" H 5250 2850 50  0001 C CNN
+	1    5250 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5350 3250 5400 3250
+	4800 3250 4850 3250
 Wire Wire Line
-	6450 3650 6150 3650
-Wire Wire Line
-	6450 3550 6150 3550
-Wire Wire Line
-	6450 3350 6150 3350
-Wire Wire Line
-	6450 3250 6150 3250
-Wire Wire Line
-	6450 3150 6150 3150
-Wire Wire Line
-	6450 3050 6150 3050
+	6450 3050 6300 3050
 $Comp
 L power:GND #PWR0108
 U 1 1 5F3EDDE0
@@ -418,27 +408,27 @@ Wire Wire Line
 $Comp
 L CrazyGiraffe_DMXDemonstrator:74LS164 U2
 U 1 1 5F546852
-P 5800 3450
-F 0 "U2" H 5900 4100 60  0000 C CNN
-F 1 "74LS164" H 6050 4000 60  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 5100 2600 60  0001 L CNN
-F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164" H 3300 2450 60  0001 L CNN
-	1    5800 3450
+P 5250 3450
+F 0 "U2" H 5350 4100 60  0000 C CNN
+F 1 "74LS164" H 5500 4000 60  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4550 2600 60  0001 L CNN
+F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164" H 2750 2450 60  0001 L CNN
+	1    5250 3450
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0124
 U 1 1 5F546BC2
-P 5350 2850
-F 0 "#PWR0124" H 5350 2700 50  0001 C CNN
-F 1 "+5V" H 5365 3023 50  0000 C CNN
-F 2 "" H 5350 2850 50  0001 C CNN
-F 3 "" H 5350 2850 50  0001 C CNN
-	1    5350 2850
+P 4800 2850
+F 0 "#PWR0124" H 4800 2700 50  0001 C CNN
+F 1 "+5V" H 4815 3023 50  0000 C CNN
+F 2 "" H 4800 2850 50  0001 C CNN
+F 3 "" H 4800 2850 50  0001 C CNN
+	1    4800 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5350 2850 5350 3250
+	4800 2850 4800 3250
 $Comp
 L CrazyGiraffe_DMXDemonstrator:TLC7226A U3
 U 1 1 5F546EA4
@@ -500,10 +490,6 @@ Entry Wire Line
 	6200 4100 6300 4000
 Entry Wire Line
 	6200 4200 6300 4100
-Wire Wire Line
-	6150 3450 6450 3450
-Wire Wire Line
-	6150 3750 6450 3750
 $Comp
 L Graphic:Logo_Open_Hardware_Small #LOGO1
 U 1 1 5F5D2833
@@ -820,12 +806,6 @@ Wire Wire Line
 	4400 3850 4500 3850
 Wire Wire Line
 	4500 3850 4500 3950
-Wire Wire Line
-	5400 3350 4400 3350
-Wire Wire Line
-	4400 3450 5400 3450
-Wire Wire Line
-	5400 3550 4400 3550
 NoConn ~ 4400 3650
 Wire Bus Line
 	6100 4550 3700 4550
@@ -896,53 +876,142 @@ F 3 "~" H 7650 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_US R1
-U 1 1 63F3E0AC
-P 4750 3750
-F 0 "R1" V 4650 3800 50  0000 R CNN
-F 1 "330" V 4550 3800 50  0000 R CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4790 3740 50  0001 C CNN
-F 3 "~" H 4750 3750 50  0001 C CNN
-	1    4750 3750
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	4400 3750 4600 3750
-Wire Wire Line
-	5000 3950 5000 3750
-Wire Wire Line
-	5000 3750 4900 3750
-$Comp
-L power:GND #PWR0113
-U 1 1 63F4CE08
-P 5000 3950
-F 0 "#PWR0113" H 5000 3700 50  0001 C CNN
-F 1 "GND" H 5005 3777 50  0000 C CNN
-F 2 "" H 5000 3950 50  0001 C CNN
-F 3 "" H 5000 3950 50  0001 C CNN
-	1    5000 3950
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 63F506A7
-P 4850 2850
-F 0 "#FLG0102" H 4850 2925 50  0001 C CNN
-F 1 "PWR_FLAG" H 4850 3023 50  0000 C CNN
-F 2 "" H 4850 2850 50  0001 C CNN
-F 3 "~" H 4850 2850 50  0001 C CNN
-	1    4850 2850
+P 3500 2850
+F 0 "#FLG0102" H 3500 2925 50  0001 C CNN
+F 1 "PWR_FLAG" H 3500 3023 50  0000 C CNN
+F 2 "" H 3500 2850 50  0001 C CNN
+F 3 "~" H 3500 2850 50  0001 C CNN
+	1    3500 2850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4500 3250 4850 3250
+	3800 3250 3500 3250
 Wire Wire Line
-	4850 3250 4850 2850
-Connection ~ 4500 3250
+	3500 3250 3500 2850
+NoConn ~ 4400 3750
+Text Label 4400 3350 0    50   ~ 0
+SR-OUT
+Text Label 4400 3450 0    50   ~ 0
+SR-CLK
+Text Label 4400 3550 0    50   ~ 0
+~SR_CLR
+Connection ~ 3800 3250
+Wire Wire Line
+	4400 3350 4850 3350
+Wire Wire Line
+	4400 3450 4850 3450
+Wire Wire Line
+	4400 3550 4850 3550
+Text Label 5600 3050 0    50   ~ 0
+D7
+Text Label 5600 3150 0    50   ~ 0
+D6
+Text Label 5600 3250 0    50   ~ 0
+D5
+Text Label 5600 3350 0    50   ~ 0
+D4
+Text Label 5600 3450 0    50   ~ 0
+D3
+Text Label 5600 3550 0    50   ~ 0
+D2
+Text Label 5600 3650 0    50   ~ 0
+D1
+Text Label 5600 3750 0    50   ~ 0
+D0
+Text Label 6300 3050 0    50   ~ 0
+D0
+Text Label 6300 3150 0    50   ~ 0
+D1
+Text Label 6300 3250 0    50   ~ 0
+D2
+Text Label 6300 3350 0    50   ~ 0
+D3
+Text Label 6300 3450 0    50   ~ 0
+D4
+Text Label 6300 3550 0    50   ~ 0
+D5
+Text Label 6300 3650 0    50   ~ 0
+D6
+Text Label 6300 3750 0    50   ~ 0
+D7
+Entry Wire Line
+	5750 3050 5850 2950
+Entry Wire Line
+	5750 3150 5850 3050
+Entry Wire Line
+	5750 3250 5850 3150
+Entry Wire Line
+	5750 3350 5850 3250
+Entry Wire Line
+	5750 3450 5850 3350
+Entry Wire Line
+	5750 3550 5850 3450
+Entry Wire Line
+	5750 3650 5850 3550
+Entry Wire Line
+	5750 3750 5850 3650
+Entry Wire Line
+	6200 2950 6300 3050
+Entry Wire Line
+	6200 3050 6300 3150
+Entry Wire Line
+	6200 3150 6300 3250
+Entry Wire Line
+	6200 3250 6300 3350
+Entry Wire Line
+	6200 3350 6300 3450
+Entry Wire Line
+	6200 3450 6300 3550
+Entry Wire Line
+	6200 3550 6300 3650
+Entry Wire Line
+	6200 3650 6300 3750
+Wire Wire Line
+	6300 3150 6450 3150
+Wire Wire Line
+	6300 3250 6450 3250
+Wire Wire Line
+	6300 3350 6450 3350
+Wire Wire Line
+	6300 3450 6450 3450
+Wire Wire Line
+	6300 3550 6450 3550
+Wire Wire Line
+	6300 3650 6450 3650
+Wire Wire Line
+	6300 3750 6450 3750
+Wire Wire Line
+	5600 3050 5750 3050
+Wire Wire Line
+	5600 3150 5750 3150
+Wire Wire Line
+	5600 3250 5750 3250
+Wire Wire Line
+	5600 3350 5750 3350
+Wire Wire Line
+	5600 3450 5750 3450
+Wire Wire Line
+	5600 3550 5750 3550
+Wire Wire Line
+	5600 3650 5750 3650
+Wire Wire Line
+	5600 3750 5750 3750
+Wire Bus Line
+	6100 2750 5950 2750
+Entry Bus Bus
+	5850 2850 5950 2750
+Entry Bus Bus
+	6100 2750 6200 2850
 Wire Bus Line
 	6200 4000 6200 4450
 Wire Bus Line
 	3600 3450 3600 4450
 Wire Bus Line
 	7500 2350 7500 4550
+Wire Bus Line
+	6200 2850 6200 3650
+Wire Bus Line
+	5850 2850 5850 3650
 $EndSCHEMATC
