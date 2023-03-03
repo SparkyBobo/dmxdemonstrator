@@ -1,6 +1,6 @@
 # DMX Demonstrator Receiver IO Interface (DMX-RX2)
 
-![status](https://img.shields.io/badge/status-prototype-orange]
+![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 
