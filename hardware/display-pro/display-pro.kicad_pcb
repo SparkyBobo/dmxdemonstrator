@@ -596,7 +596,7 @@
     (at 144.434781 64.194141)
     (descr "Barrel Jack, 2.0mm ID, 5.5mm OD, 24V, 8A, no switch, https://www.cui.com/product/resource/pj-063ah.pdf")
     (tags "barrel jack cui dc power")
-    (path /5F4DF88A)
+    (path /64053ABC)
     (fp_text reference J1 (at -6.258781 -0.059141 270) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
@@ -647,7 +647,7 @@
     (fp_text reference J2 (at 2.575781 -2.861859 180) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value POWER (at 2.54 11 180) (layer F.Fab)
+    (fp_text value POWER_B (at 2.54 11 180) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_line (start -3.62 -2.08) (end -3.62 10.08) (layer F.SilkS) (width 0.12))
@@ -912,7 +912,7 @@
     )
   )
 
-  (module Aesthetics:OSHW-LOGO-S (layer F.Cu) (tedit 200000) (tstamp 5F8AB0F5)
+  (module Aesthetics:OSHW-LOGO-S locked (layer F.Cu) (tedit 200000) (tstamp 5F8AB0F5)
     (at 144.272 115.189)
     (descr "OPEN-SOURCE HARDWARE (OSHW) LOGO - SMALL - SILKSCREEN")
     (tags "OPEN-SOURCE HARDWARE (OSHW) LOGO - SMALL - SILKSCREEN")
@@ -940,7 +940,7 @@
       (xy 0.4191 0.20574) (xy 0.35814 0.29972) (xy 0.27686 0.37592) (xy 0.1778 0.4318)) (layer F.SilkS) (width 0.01))
   )
 
-  (module footprints:logo_cr_5x5 (layer B.Cu) (tedit 0) (tstamp 5F85345A)
+  (module footprints:logo_cr_5x5 locked (layer B.Cu) (tedit 0) (tstamp 5F85345A)
     (at 133.858 116.586 180)
     (fp_text reference G*** (at 0 0 180) (layer B.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3)) (justify mirror))
