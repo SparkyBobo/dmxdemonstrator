@@ -96,7 +96,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "D:/Users/rob/Desktop/GerberOrder/2023-03-04/tx1/"))
+      (outputdirectory "grb"))
   )
 
   (net 0 "")
@@ -3500,7 +3500,7 @@
   (segment (start 173.482 103.886) (end 173.482 103.124) (width 0.1524) (layer F.Cu) (net 37))
   (segment (start 173.482 103.124) (end 167.4876 97.1296) (width 0.1524) (layer F.Cu) (net 37))
 
-  (zone (net 3) (net_name GND) (layer B.Cu) (tstamp 64051D26) (hatch edge 0.508)
+  (zone (net 3) (net_name GND) (layer B.Cu) (tstamp 64157A84) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
@@ -3823,7 +3823,7 @@
       )
     )
   )
-  (zone (net 1) (net_name +5V) (layer F.Cu) (tstamp 64051D23) (hatch edge 0.508)
+  (zone (net 1) (net_name +5V) (layer F.Cu) (tstamp 64157A81) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
