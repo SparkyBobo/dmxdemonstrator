@@ -49,8 +49,6 @@ F 3 "" H 3650 3650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3150 3050 3000 3050
-Wire Wire Line
 	3150 2650 3000 2650
 Wire Wire Line
 	3000 2650 3000 2700
@@ -107,11 +105,11 @@ Wire Wire Line
 Wire Wire Line
 	4150 2550 4300 2550
 Wire Wire Line
-	2850 2050 2850 2350
+	2800 2050 2800 2350
 $Comp
 L power:+5V #PWR?
 U 1 1 6341745C
-P 2850 2050
+P 2800 2050
 AR Path="/6841E790/6341745C" Ref="#PWR?"  Part="1" 
 AR Path="/6341745C" Ref="#PWR?"  Part="1" 
 AR Path="/632F1F43/6341745C" Ref="#PWR?"  Part="1" 
@@ -119,11 +117,11 @@ AR Path="/63267F40/6341745C" Ref="#PWR?"  Part="1"
 AR Path="/6328016E/6341745C" Ref="#PWR?"  Part="1" 
 AR Path="/63397143/6341745C" Ref="#PWR?"  Part="1" 
 AR Path="/634170D9/6341745C" Ref="#PWR0145"  Part="1" 
-F 0 "#PWR0145" H 2850 1900 50  0001 C CNN
-F 1 "+5V" H 2865 2223 50  0000 C CNN
-F 2 "" H 2850 2050 50  0001 C CNN
-F 3 "" H 2850 2050 50  0001 C CNN
-	1    2850 2050
+F 0 "#PWR0145" H 2800 1900 50  0001 C CNN
+F 1 "+5V" H 2815 2223 50  0000 C CNN
+F 2 "" H 2800 2050 50  0001 C CNN
+F 3 "" H 2800 2050 50  0001 C CNN
+	1    2800 2050
 	1    0    0    -1  
 $EndComp
 Entry Wire Line
@@ -165,16 +163,6 @@ F 3 "74xx/74hc_hct74.pdf" H 5450 2950 50  0001 C CNN
 	1    5450 2950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5150 2850 5100 2850
-Wire Wire Line
-	5100 2850 5100 3300
-Wire Wire Line
-	5100 3300 5800 3300
-Wire Wire Line
-	5800 3300 5800 3050
-Wire Wire Line
-	5800 3050 5750 3050
 $Comp
 L power:+5V #PWR?
 U 1 1 63417487
@@ -221,22 +209,20 @@ B3
 Text Label 6200 3400 0    50   ~ 0
 B4
 Wire Wire Line
-	2850 2350 3150 2350
-Connection ~ 2850 2350
-Wire Wire Line
-	2850 2350 2850 2950
+	2800 2350 3150 2350
+Connection ~ 2800 2350
 $Comp
 L 74xx:74LS08 U?
 U 1 1 634174A2
-P 4700 2950
+P 2200 3850
 AR Path="/63397143/634174A2" Ref="U?"  Part="1" 
 AR Path="/634174A2" Ref="U?"  Part="1" 
 AR Path="/634170D9/634174A2" Ref="U3"  Part="1" 
-F 0 "U3" H 4700 3275 50  0000 C CNN
-F 1 "74LS08" H 4700 3184 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 4700 2950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 4700 2950 50  0001 C CNN
-	1    4700 2950
+F 0 "U3" H 2200 4175 50  0000 C CNN
+F 1 "74LS08" H 2200 4084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 2200 3850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 2200 3850 50  0001 C CNN
+	1    2200 3850
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -255,10 +241,6 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 7550 2850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	6200 3950 6350 3950
-Wire Wire Line
-	3000 3050 3000 4700
-Wire Wire Line
-	2900 4850 4300 4850
 Text HLabel 2700 5000 0    50   Input ~ 0
 ~FRAME_RESET_IN
 Text HLabel 9700 2850 2    50   Input ~ 0
@@ -277,15 +259,9 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6650 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5150 2950 5000 2950
-Wire Wire Line
-	4400 3050 4300 3050
-Wire Wire Line
-	4300 3050 4300 4850
+	5050 2950 5050 4850
 Wire Wire Line
 	3100 2850 3100 5000
-Wire Wire Line
-	4150 2850 4400 2850
 Wire Bus Line
 	4500 2050 6000 2050
 Wire Wire Line
@@ -386,12 +362,9 @@ F 3 "74xx/74hc_hct74.pdf" H 8750 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4300 4850 8350 4850
-Wire Wire Line
 	8350 4850 8350 4400
 Wire Wire Line
 	8350 4400 8450 4400
-Connection ~ 4300 4850
 Wire Wire Line
 	5450 5000 8750 5000
 Wire Wire Line
@@ -464,14 +437,76 @@ Text Label 6200 2300 0    50   ~ 0
 B2
 NoConn ~ 6350 2300
 Wire Wire Line
-	2850 2950 3150 2950
-Wire Wire Line
-	3150 3350 2850 3350
-Wire Wire Line
-	2850 3350 2850 2950
-Connection ~ 2850 2950
+	3150 3350 2800 3350
 Wire Wire Line
 	2900 3150 3150 3150
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 6459079D
+P 2250 2350
+F 0 "JP?" H 2250 2555 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 2250 2463 50  0001 C CNN
+F 2 "" H 2250 2350 50  0001 C CNN
+F 3 "~" H 2250 2350 50  0001 C CNN
+	1    2250 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 645908FD
+P 2250 2450
+F 0 "JP?" H 2250 2655 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 2250 2563 50  0001 C CNN
+F 2 "" H 2250 2450 50  0001 C CNN
+F 3 "~" H 2250 2450 50  0001 C CNN
+	1    2250 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 6459091C
+P 2250 2550
+F 0 "JP?" H 2250 2755 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 2250 2663 50  0001 C CNN
+F 2 "" H 2250 2550 50  0001 C CNN
+F 3 "~" H 2250 2550 50  0001 C CNN
+	1    2250 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 6459093B
+P 2250 2650
+F 0 "JP?" H 2250 2855 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 2250 2763 50  0001 C CNN
+F 2 "" H 2250 2650 50  0001 C CNN
+F 3 "~" H 2250 2650 50  0001 C CNN
+	1    2250 2650
+	1    0    0    -1  
+$EndComp
+Text Notes 2150 2250 0    50   ~ 0
+JP1-4
+Wire Wire Line
+	2800 2350 2800 3050
+Wire Wire Line
+	3000 2950 3150 2950
+Wire Wire Line
+	3000 2950 3000 4700
+Wire Wire Line
+	3150 3050 2800 3050
+Connection ~ 2800 3050
+Wire Wire Line
+	2800 3050 2800 3350
+Wire Wire Line
+	4150 2850 5150 2850
+Connection ~ 5050 4850
+Wire Wire Line
+	5050 4850 8350 4850
+Wire Wire Line
+	2900 4850 5050 4850
+Wire Wire Line
+	5050 2950 5150 2950
+NoConn ~ 5750 3050
 Wire Bus Line
 	4400 2150 4400 2550
 Wire Bus Line

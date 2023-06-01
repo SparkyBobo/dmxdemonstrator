@@ -1,0 +1,7 @@
+core + demo + control = basic demo unit
+core + demo + control + display = advanced demo unit
+core + demo + development = development unit/hackable unit
+core + development + dmx = dmx-512 transmitter
+
+
+

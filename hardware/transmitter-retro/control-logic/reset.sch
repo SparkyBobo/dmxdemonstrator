@@ -270,4 +270,58 @@ Wire Wire Line
 Connection ~ 3050 5050
 Wire Wire Line
 	2800 3850 3150 3850
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 64593377
+P 3950 2400
+AR Path="/634170D9/64593377" Ref="JP?"  Part="1" 
+AR Path="/6341AE92/64593377" Ref="JP?"  Part="1" 
+F 0 "JP?" H 3950 2605 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 3950 2513 50  0001 C CNN
+F 2 "" H 3950 2400 50  0001 C CNN
+F 3 "~" H 3950 2400 50  0001 C CNN
+	1    3950 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 6459337D
+P 3950 2500
+AR Path="/634170D9/6459337D" Ref="JP?"  Part="1" 
+AR Path="/6341AE92/6459337D" Ref="JP?"  Part="1" 
+F 0 "JP?" H 3950 2705 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 3950 2613 50  0001 C CNN
+F 2 "" H 3950 2500 50  0001 C CNN
+F 3 "~" H 3950 2500 50  0001 C CNN
+	1    3950 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 64593383
+P 3950 2600
+AR Path="/634170D9/64593383" Ref="JP?"  Part="1" 
+AR Path="/6341AE92/64593383" Ref="JP?"  Part="1" 
+F 0 "JP?" H 3950 2805 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 3950 2713 50  0001 C CNN
+F 2 "" H 3950 2600 50  0001 C CNN
+F 3 "~" H 3950 2600 50  0001 C CNN
+	1    3950 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 64593389
+P 3950 2700
+AR Path="/634170D9/64593389" Ref="JP?"  Part="1" 
+AR Path="/6341AE92/64593389" Ref="JP?"  Part="1" 
+F 0 "JP?" H 3950 2905 50  0001 C CNN
+F 1 "SolderJumper_2_Open" H 3950 2813 50  0001 C CNN
+F 2 "" H 3950 2700 50  0001 C CNN
+F 3 "~" H 3950 2700 50  0001 C CNN
+	1    3950 2700
+	1    0    0    -1  
+$EndComp
+Text Notes 3850 2300 0    50   ~ 0
+JP5-8
 $EndSCHEMATC

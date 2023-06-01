@@ -1,0 +1,987 @@
+EESchema Schematic File Version 4
+LIBS:demo-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 4 4
+Title "DMX Demonstrator - Transmitter-Retro Demo (DMX-TX4)"
+Date "2023-05-28"
+Rev "1.0"
+Comp "Crazy Giraffe Software"
+Comment1 ""
+Comment2 "Designed by: SparkyBobo"
+Comment3 "https://creativecommons.org/licenses/by-sa/4.0/ "
+Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 License"
+$EndDescr
+Text HLabel 2450 2800 0    50   Input ~ 0
+~CLK_STEPA_IN
+$Comp
+L 74xx:74LS74 U?
+U 1 1 64366DFB
+P 4550 2800
+AR Path="/63268613/64366DFB" Ref="U?"  Part="1" 
+AR Path="/6435FAB4/64366DFB" Ref="U4"  Part="1" 
+F 0 "U4" H 4700 3150 50  0000 C CNN
+F 1 "74LS74" H 4750 3050 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 4550 2800 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 4550 2800 50  0001 C CNN
+	1    4550 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 2800 4100 2800
+$Comp
+L 74xx:74LS32 U?
+U 3 1 64366E08
+P 6300 2800
+AR Path="/63268613/64366E08" Ref="U?"  Part="3" 
+AR Path="/6435FAB4/64366E08" Ref="U7"  Part="3" 
+F 0 "U7" H 6300 3125 50  0000 C CNN
+F 1 "74LS32" H 6300 3034 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6300 2800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6300 2800 50  0001 C CNN
+	3    6300 2800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 4850 2900
+NoConn ~ 8350 2200
+Wire Wire Line
+	7750 2200 7650 2200
+$Comp
+L 74xx:74LS08 U?
+U 2 1 64366E1D
+P 3700 2700
+AR Path="/63268613/64366E1D" Ref="U?"  Part="2" 
+AR Path="/6435FAB4/64366E1D" Ref="U6"  Part="2" 
+F 0 "U6" H 3700 3025 50  0000 C CNN
+F 1 "74LS08" H 3700 2934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 3700 2700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 3700 2700 50  0001 C CNN
+	2    3700 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 1550 4100 2800
+Wire Wire Line
+	8050 2000 8050 1750
+Text HLabel 2450 2600 0    50   Input ~ 0
+~CLK_STEPB_IN
+$Comp
+L power:+5V #PWR?
+U 1 1 64366E70
+P 4550 2400
+AR Path="/6841E790/64366E70" Ref="#PWR?"  Part="1" 
+AR Path="/64366E70" Ref="#PWR?"  Part="1" 
+AR Path="/64132440/64366E70" Ref="#PWR?"  Part="1" 
+AR Path="/63268613/64366E70" Ref="#PWR?"  Part="1" 
+AR Path="/64289A4A/64366E70" Ref="#PWR?"  Part="1" 
+AR Path="/6435FAB4/64366E70" Ref="#PWR0115"  Part="1" 
+F 0 "#PWR0115" H 4550 2250 50  0001 C CNN
+F 1 "+5V" H 4565 2573 50  0000 C CNN
+F 2 "" H 4550 2400 50  0001 C CNN
+F 3 "" H 4550 2400 50  0001 C CNN
+	1    4550 2400
+	1    0    0    -1  
+$EndComp
+Text HLabel 2450 1750 0    50   Input ~ 0
+CLK_RX_IN
+Wire Wire Line
+	2450 1750 7550 1750
+Text HLabel 2450 1550 0    50   Input ~ 0
+CLK_FAST_IN
+Text HLabel 9950 1950 2    50   Input ~ 0
+CLK_STEP_OUT
+Wire Wire Line
+	2950 2500 2950 2600
+Wire Wire Line
+	2450 2600 2950 2600
+Wire Wire Line
+	2450 2800 2650 2800
+Wire Wire Line
+	2650 2500 2650 2800
+$Comp
+L Device:R_US R?
+U 1 1 644A4ACD
+P 2950 2350
+AR Path="/644A4ACD" Ref="R?"  Part="1" 
+AR Path="/63268613/644A4ACD" Ref="R?"  Part="1" 
+AR Path="/64289A4A/644A4ACD" Ref="R?"  Part="1" 
+AR Path="/6435FAB4/644A4ACD" Ref="R10"  Part="1" 
+F 0 "R10" H 2750 2400 50  0000 L CNN
+F 1 "10k" H 2750 2300 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2990 2340 50  0001 C CNN
+F 3 "~" H 2950 2350 50  0001 C CNN
+	1    2950 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R?
+U 1 1 644A4AD4
+P 2650 2350
+AR Path="/644A4AD4" Ref="R?"  Part="1" 
+AR Path="/63268613/644A4AD4" Ref="R?"  Part="1" 
+AR Path="/64289A4A/644A4AD4" Ref="R?"  Part="1" 
+AR Path="/6435FAB4/644A4AD4" Ref="R9"  Part="1" 
+F 0 "R9" H 2450 2400 50  0000 L CNN
+F 1 "10k" H 2450 2300 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 2690 2340 50  0001 C CNN
+F 3 "~" H 2650 2350 50  0001 C CNN
+	1    2650 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 2200 2650 2150
+Wire Wire Line
+	2650 2150 2950 2150
+Wire Wire Line
+	2950 2150 2950 2200
+$Comp
+L power:+5V #PWR?
+U 1 1 644A4ADE
+P 2950 2100
+AR Path="/6841E790/644A4ADE" Ref="#PWR?"  Part="1" 
+AR Path="/644A4ADE" Ref="#PWR?"  Part="1" 
+AR Path="/64132440/644A4ADE" Ref="#PWR?"  Part="1" 
+AR Path="/63268613/644A4ADE" Ref="#PWR?"  Part="1" 
+AR Path="/64289A4A/644A4ADE" Ref="#PWR?"  Part="1" 
+AR Path="/6435FAB4/644A4ADE" Ref="#PWR0116"  Part="1" 
+F 0 "#PWR0116" H 2950 1950 50  0001 C CNN
+F 1 "+5V" H 2965 2273 50  0000 C CNN
+F 2 "" H 2950 2100 50  0001 C CNN
+F 3 "" H 2950 2100 50  0001 C CNN
+	1    2950 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2100 2950 2150
+Connection ~ 2950 2150
+Wire Wire Line
+	2950 2600 3400 2600
+Connection ~ 2950 2600
+Connection ~ 2650 2800
+Wire Notes Line
+	2100 4000 2100 3850
+Wire Notes Line
+	2250 3850 2250 4000
+Wire Notes Line
+	2250 4000 2400 4000
+Wire Notes Line
+	2100 3850 2250 3850
+Wire Notes Line
+	2400 4000 2400 3850
+Wire Notes Line
+	2550 3850 2550 4000
+Wire Notes Line
+	2400 3850 2550 3850
+Wire Notes Line
+	2550 4000 2700 4000
+Wire Notes Line
+	2700 4000 2700 3850
+Wire Notes Line
+	2850 3850 2850 4000
+Wire Notes Line
+	2700 3850 2850 3850
+Wire Notes Line
+	2850 4000 3000 4000
+Wire Notes Line
+	3000 4000 3000 3850
+Wire Notes Line
+	3150 3850 3150 4000
+Wire Notes Line
+	3000 3850 3150 3850
+Wire Notes Line
+	3150 4000 3300 4000
+Wire Notes Line
+	3300 4000 3300 3850
+Wire Notes Line
+	3450 3850 3450 4000
+Wire Notes Line
+	3300 3850 3450 3850
+Wire Notes Line
+	3450 4000 3600 4000
+Wire Notes Line
+	3600 4000 3600 3850
+Wire Notes Line
+	3750 3850 3750 4000
+Wire Notes Line
+	3600 3850 3750 3850
+Wire Notes Line
+	3750 4000 3900 4000
+Wire Notes Line
+	3900 4000 3900 3850
+Wire Notes Line
+	4050 3850 4050 4000
+Wire Notes Line
+	3900 3850 4050 3850
+Wire Notes Line
+	1900 4350 2100 4350
+Wire Notes Line
+	2100 4350 2100 4500
+Wire Notes Line
+	2100 4500 3000 4500
+Wire Notes Line
+	3000 4500 3000 4350
+Wire Notes Line
+	3000 4350 3300 4350
+Text Notes 1100 5950 0    50   ~ 0
+CLK_FAST_IN\n\n\n~CLK_STEPA/B_IN~\n\n\n~CLK_STEPIN~\n\n\nU4B ~Q~\n\n\n~CLK_STEP_PULSE~\n\n\nCLK_STEP_MODE\n\n\nCLK_SEND_ENABLE\n\n\nCLK_STEP_OUT\n\n\nCLK_RX_IN
+Text Label 7300 2700 0    50   ~ 0
+~CLK_STEP_PULSE
+Text Label 5300 2100 0    50   ~ 0
+~CLK_STEPIN
+Wire Notes Line
+	3300 4350 3300 4500
+Wire Notes Line
+	3300 4500 3900 4500
+Wire Notes Line
+	3900 4500 3900 4350
+Wire Notes Line
+	3900 4350 10700 4350
+Connection ~ 4100 1550
+Wire Notes Line
+	1900 5950 3000 5950
+Wire Notes Line
+	3000 5950 3000 6100
+Wire Notes Line
+	2100 5350 5400 5350
+Wire Notes Line
+	2100 5350 2100 5500
+Wire Notes Line
+	1900 5500 2100 5500
+Wire Notes Line
+	3000 6100 5400 6100
+Wire Notes Line
+	5400 6100 5400 5950
+Wire Notes Line
+	5400 5500 6000 5500
+Wire Notes Line
+	10500 5950 10700 5950
+Wire Notes Line
+	5400 5500 5400 5350
+Wire Notes Line
+	2250 5750 2400 5750
+Wire Notes Line
+	2400 5750 2400 5600
+Wire Notes Line
+	2550 5600 2550 5750
+Wire Notes Line
+	2400 5600 2550 5600
+Wire Notes Line
+	2550 5750 2700 5750
+Wire Notes Line
+	2700 5750 2700 5600
+Wire Notes Line
+	2850 5600 2850 5750
+Wire Notes Line
+	2700 5600 2850 5600
+Wire Notes Line
+	2850 5750 3000 5750
+Wire Notes Line
+	3000 5750 3000 5600
+Wire Notes Line
+	3150 5600 3150 5750
+Wire Notes Line
+	3000 5600 3150 5600
+Wire Notes Line
+	3150 5750 3300 5750
+Wire Notes Line
+	3300 5750 3300 5600
+Wire Notes Line
+	3450 5600 3450 5750
+Wire Notes Line
+	3300 5600 3450 5600
+Wire Notes Line
+	3450 5750 3600 5750
+Wire Notes Line
+	3600 5750 3600 5600
+Wire Notes Line
+	3750 5600 3750 5750
+Wire Notes Line
+	3600 5600 3750 5600
+Wire Notes Line
+	3750 5750 3900 5750
+Wire Notes Line
+	2250 5600 2250 5750
+Wire Notes Line
+	2100 5600 2250 5600
+Wire Notes Line
+	2100 5600 2100 5750
+Wire Notes Line
+	1900 5750 2100 5750
+Wire Notes Line
+	8800 5100 8800 5250
+Wire Notes Line
+	6000 5250 6000 5100
+Wire Notes Line
+	3900 5750 3900 5600
+Wire Notes Line
+	4050 5600 4050 5750
+Wire Notes Line
+	3900 5600 4050 5600
+Wire Wire Line
+	7550 2300 7750 2300
+Wire Wire Line
+	7300 2700 8050 2700
+Wire Wire Line
+	4100 1550 5100 1550
+Wire Wire Line
+	2450 1550 4100 1550
+Text Label 8600 2400 0    50   ~ 0
+CLK_SEND_ENABLE
+Text HLabel 2450 1150 0    50   Input ~ 0
+~CLK_S0_IN
+Text HLabel 2450 1350 0    50   Input ~ 0
+~CLK_S1_IN
+Wire Wire Line
+	2450 1350 3400 1350
+Wire Wire Line
+	2650 2800 3400 2800
+Wire Wire Line
+	2450 1150 3400 1150
+$Comp
+L 74xx:74LS08 U6
+U 1 1 649AB9CE
+P 3700 1250
+AR Path="/6435FAB4/649AB9CE" Ref="U6"  Part="1" 
+AR Path="/6BB77A68/649AB9CE" Ref="U?"  Part="1" 
+F 0 "U6" H 3700 1575 50  0000 C CNN
+F 1 "74LS08" H 3700 1484 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 3700 1250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 3700 1250 50  0001 C CNN
+	1    3700 1250
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	2400 4600 2400 4750
+Wire Notes Line
+	1900 4750 2400 4750
+Wire Notes Line
+	3300 4600 3300 4750
+Wire Notes Line
+	3600 4750 3600 4600
+Wire Notes Line
+	1900 4850 2100 4850
+Wire Notes Line
+	2100 4850 2100 5000
+Wire Notes Line
+	2100 5000 2400 5000
+Wire Notes Line
+	2400 5000 2400 4850
+Wire Notes Line
+	2400 4850 6000 4850
+Wire Wire Line
+	5800 2900 6000 2900
+Wire Wire Line
+	4850 2700 4950 2700
+Wire Wire Line
+	5200 2800 5100 2800
+Wire Wire Line
+	5100 2800 5100 1550
+Wire Wire Line
+	4000 2700 4250 2700
+Connection ~ 4950 2700
+Wire Wire Line
+	4950 2700 5200 2700
+NoConn ~ 5800 2700
+$Comp
+L power:+5V #PWR?
+U 1 1 64A3ED7F
+P 5500 2400
+AR Path="/6841E790/64A3ED7F" Ref="#PWR?"  Part="1" 
+AR Path="/64A3ED7F" Ref="#PWR?"  Part="1" 
+AR Path="/64132440/64A3ED7F" Ref="#PWR?"  Part="1" 
+AR Path="/63268613/64A3ED7F" Ref="#PWR?"  Part="1" 
+AR Path="/64289A4A/64A3ED7F" Ref="#PWR?"  Part="1" 
+AR Path="/6435FAB4/64A3ED7F" Ref="#PWR0118"  Part="1" 
+F 0 "#PWR0118" H 5500 2250 50  0001 C CNN
+F 1 "+5V" H 5515 2573 50  0000 C CNN
+F 2 "" H 5500 2400 50  0001 C CNN
+F 3 "" H 5500 2400 50  0001 C CNN
+	1    5500 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 2400 5500 2500
+Wire Wire Line
+	4550 3150 4550 3100
+$Comp
+L 74xx:74LS74 U?
+U 2 1 64AB3500
+P 8050 2300
+AR Path="/63268613/64AB3500" Ref="U?"  Part="2" 
+AR Path="/6435FAB4/64AB3500" Ref="U5"  Part="2" 
+F 0 "U5" H 8200 2650 50  0000 C CNN
+F 1 "74LS74" H 8250 2550 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 8050 2300 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 8050 2300 50  0001 C CNN
+	2    8050 2300
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	1950 3850 1950 4000
+Wire Notes Line
+	1950 4000 2100 4000
+Wire Notes Line
+	1900 3850 1950 3850
+Wire Notes Line
+	1900 4100 2000 4100
+Wire Notes Line
+	2000 4100 2000 4250
+Wire Notes Line
+	2000 4250 2800 4250
+Wire Notes Line
+	2800 4250 2800 4100
+Wire Notes Line
+	2800 4100 3100 4100
+Wire Notes Line
+	3100 4100 3100 4250
+Wire Notes Line
+	3100 4250 3850 4250
+Wire Notes Line
+	3850 4250 3850 4100
+Wire Notes Line
+	3850 4100 10700 4100
+Wire Notes Line
+	2400 4600 3300 4600
+Wire Notes Line
+	3300 4750 3600 4750
+Wire Notes Line
+	3600 4600 10700 4550
+Wire Wire Line
+	7550 2300 7550 1750
+Wire Wire Line
+	4550 2400 4550 2500
+$Comp
+L Device:R_US R?
+U 1 1 643E9743
+P 3250 2350
+AR Path="/643E9743" Ref="R?"  Part="1" 
+AR Path="/63268613/643E9743" Ref="R?"  Part="1" 
+AR Path="/64289A4A/643E9743" Ref="R?"  Part="1" 
+AR Path="/6435FAB4/643E9743" Ref="R11"  Part="1" 
+F 0 "R11" H 3050 2400 50  0000 L CNN
+F 1 "10k" H 3050 2300 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3290 2340 50  0001 C CNN
+F 3 "~" H 3250 2350 50  0001 C CNN
+	1    3250 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2150 3250 2150
+Wire Wire Line
+	3250 2150 3250 2200
+Wire Wire Line
+	3250 2500 3250 3150
+Wire Wire Line
+	3250 3150 4550 3150
+Wire Wire Line
+	6000 2700 5900 2700
+Wire Wire Line
+	5900 2700 5900 2100
+Wire Wire Line
+	5900 2100 4950 2100
+Wire Wire Line
+	4950 2100 4950 2700
+$Comp
+L 74xx:74LS74 U?
+U 2 1 64366DF4
+P 5500 2800
+AR Path="/63268613/64366DF4" Ref="U?"  Part="2" 
+AR Path="/6435FAB4/64366DF4" Ref="U4"  Part="2" 
+F 0 "U4" H 5650 3150 50  0000 C CNN
+F 1 "74LS74" H 5700 3050 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 5500 2800 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 5500 2800 50  0001 C CNN
+	2    5500 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 3100 5500 3150
+Wire Wire Line
+	5500 3150 4550 3150
+Connection ~ 4550 3150
+$Comp
+L Device:C_Small C18
+U 1 1 6440F97D
+P 3250 3300
+F 0 "C18" H 3158 3346 50  0000 R CNN
+F 1 "0.1uF" H 3158 3255 50  0000 R CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3250 3300 50  0001 C CNN
+F 3 "~" H 3250 3300 50  0001 C CNN
+	1    3250 3300
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 3200 3250 3150
+Connection ~ 3250 3150
+Wire Wire Line
+	3250 3400 3250 3450
+Wire Wire Line
+	7650 1750 7650 2200
+Wire Wire Line
+	8050 2600 8050 2700
+$Comp
+L power:GND #PWR0119
+U 1 1 644E10CA
+P 3250 3450
+F 0 "#PWR0119" H 3250 3200 50  0001 C CNN
+F 1 "GND" H 3255 3277 50  0000 C CNN
+F 2 "" H 3250 3450 50  0001 C CNN
+F 3 "" H 3250 3450 50  0001 C CNN
+	1    3250 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U6
+U 3 1 644E13E2
+P 7000 2700
+F 0 "U6" H 7000 3025 50  0000 C CNN
+F 1 "74LS08" H 7000 2934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 7000 2700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 7000 2700 50  0001 C CNN
+	3    7000 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6600 2800 6700 2800
+Wire Wire Line
+	6700 2600 6600 2600
+Wire Wire Line
+	6600 2600 6600 1250
+Wire Wire Line
+	4000 1250 6600 1250
+Connection ~ 5100 1550
+Wire Wire Line
+	5500 3150 8500 3150
+Wire Wire Line
+	8500 3150 8500 1750
+Wire Wire Line
+	8500 1750 8050 1750
+Connection ~ 5500 3150
+Connection ~ 8050 1750
+Wire Wire Line
+	8050 1750 7650 1750
+Wire Notes Line
+	1900 5100 6000 5100
+$Comp
+L 74xx:74LS74 U?
+U 1 1 6462632E
+P 9350 2050
+AR Path="/6BB77A68/6462632E" Ref="U?"  Part="1" 
+AR Path="/6435FAB4/6462632E" Ref="U5"  Part="1" 
+F 0 "U5" H 9500 2400 50  0000 C CNN
+F 1 "74LS74" H 9550 2300 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 9350 2050 50  0001 C CNN
+F 3 "74xx/74hc_hct74.pdf" H 9350 2050 50  0001 C CNN
+	1    9350 2050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 1750 9350 1350
+Wire Wire Line
+	9350 2350 9350 2400
+$Comp
+L power:+5V #PWR?
+U 1 1 6464DA38
+P 9350 1350
+AR Path="/6841E790/6464DA38" Ref="#PWR?"  Part="1" 
+AR Path="/6464DA38" Ref="#PWR?"  Part="1" 
+AR Path="/64132440/6464DA38" Ref="#PWR?"  Part="1" 
+AR Path="/63268613/6464DA38" Ref="#PWR?"  Part="1" 
+AR Path="/64289A4A/6464DA38" Ref="#PWR?"  Part="1" 
+AR Path="/6435FAB4/6464DA38" Ref="#PWR0120"  Part="1" 
+F 0 "#PWR0120" H 9350 1200 50  0001 C CNN
+F 1 "+5V" H 9365 1523 50  0000 C CNN
+F 2 "" H 9350 1350 50  0001 C CNN
+F 3 "" H 9350 1350 50  0001 C CNN
+	1    9350 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9650 2150 9800 2150
+Wire Wire Line
+	9800 2150 9800 1550
+Wire Wire Line
+	9800 1550 8950 1550
+Wire Wire Line
+	8950 1550 8950 1950
+Wire Wire Line
+	8950 1950 9050 1950
+Wire Wire Line
+	8850 2050 8850 1550
+Wire Wire Line
+	8850 2050 9050 2050
+Wire Wire Line
+	5100 1550 8850 1550
+Wire Wire Line
+	9650 1950 9950 1950
+Wire Wire Line
+	8350 2400 9350 2400
+Wire Notes Line
+	4200 4000 4200 3850
+Wire Notes Line
+	4350 3850 4350 4000
+Wire Notes Line
+	4350 4000 4500 4000
+Wire Notes Line
+	4200 3850 4350 3850
+Wire Notes Line
+	4500 4000 4500 3850
+Wire Notes Line
+	4650 3850 4650 4000
+Wire Notes Line
+	4500 3850 4650 3850
+Wire Notes Line
+	4650 4000 4800 4000
+Wire Notes Line
+	4800 4000 4800 3850
+Wire Notes Line
+	4950 3850 4950 4000
+Wire Notes Line
+	4800 3850 4950 3850
+Wire Notes Line
+	4950 4000 5100 4000
+Wire Notes Line
+	5100 4000 5100 3850
+Wire Notes Line
+	5250 3850 5250 4000
+Wire Notes Line
+	5100 3850 5250 3850
+Wire Notes Line
+	5250 4000 5400 4000
+Wire Notes Line
+	5400 4000 5400 3850
+Wire Notes Line
+	5550 3850 5550 4000
+Wire Notes Line
+	5400 3850 5550 3850
+Wire Notes Line
+	5550 4000 5700 4000
+Wire Notes Line
+	5700 4000 5700 3850
+Wire Notes Line
+	5850 3850 5850 4000
+Wire Notes Line
+	5700 3850 5850 3850
+Wire Notes Line
+	5850 4000 6000 4000
+Wire Notes Line
+	6000 4000 6000 3850
+Wire Notes Line
+	6150 3850 6150 4000
+Wire Notes Line
+	6000 3850 6150 3850
+Wire Notes Line
+	4050 4000 4200 4000
+Wire Notes Line
+	10650 4000 10700 4000
+Wire Notes Line
+	4200 5750 4200 5600
+Wire Notes Line
+	4350 5600 4350 5750
+Wire Notes Line
+	4350 5750 4500 5750
+Wire Notes Line
+	4200 5600 4350 5600
+Wire Notes Line
+	4500 5750 4500 5600
+Wire Notes Line
+	4650 5600 4650 5750
+Wire Notes Line
+	4500 5600 4650 5600
+Wire Notes Line
+	4650 5750 4800 5750
+Wire Notes Line
+	4800 5750 4800 5600
+Wire Notes Line
+	4950 5600 4950 5750
+Wire Notes Line
+	4800 5600 4950 5600
+Wire Notes Line
+	4950 5750 5100 5750
+Wire Notes Line
+	5100 5750 5100 5600
+Wire Notes Line
+	5250 5600 5250 5750
+Wire Notes Line
+	5100 5600 5250 5600
+Wire Notes Line
+	5250 5750 6000 5750
+Wire Notes Line
+	4050 5750 4200 5750
+Wire Notes Line
+	6000 5500 6000 5350
+Wire Notes Line
+	6000 5000 6000 4850
+Wire Notes Line
+	6000 5000 10700 5000
+Wire Notes Line
+	6000 5350 10500 5350
+Wire Notes Line
+	6300 4000 6300 3850
+Wire Notes Line
+	6450 3850 6450 4000
+Wire Notes Line
+	6450 4000 6600 4000
+Wire Notes Line
+	6300 3850 6450 3850
+Wire Notes Line
+	6600 4000 6600 3850
+Wire Notes Line
+	6750 3850 6750 4000
+Wire Notes Line
+	6600 3850 6750 3850
+Wire Notes Line
+	6750 4000 6900 4000
+Wire Notes Line
+	6900 4000 6900 3850
+Wire Notes Line
+	7050 3850 7050 4000
+Wire Notes Line
+	6900 3850 7050 3850
+Wire Notes Line
+	7050 4000 7200 4000
+Wire Notes Line
+	7200 4000 7200 3850
+Wire Notes Line
+	7350 3850 7350 4000
+Wire Notes Line
+	7200 3850 7350 3850
+Wire Notes Line
+	7350 4000 7500 4000
+Wire Notes Line
+	7500 4000 7500 3850
+Wire Notes Line
+	7650 3850 7650 4000
+Wire Notes Line
+	7500 3850 7650 3850
+Wire Notes Line
+	7650 4000 7800 4000
+Wire Notes Line
+	7800 4000 7800 3850
+Wire Notes Line
+	7950 3850 7950 4000
+Wire Notes Line
+	7800 3850 7950 3850
+Wire Notes Line
+	7950 4000 8100 4000
+Wire Notes Line
+	8100 4000 8100 3850
+Wire Notes Line
+	8250 3850 8250 4000
+Wire Notes Line
+	8100 3850 8250 3850
+Wire Notes Line
+	6150 4000 6300 4000
+Wire Notes Line
+	8400 4000 8400 3850
+Wire Notes Line
+	8550 3850 8550 4000
+Wire Notes Line
+	8550 4000 8700 4000
+Wire Notes Line
+	8400 3850 8550 3850
+Wire Notes Line
+	8700 4000 8700 3850
+Wire Notes Line
+	8850 3850 8850 4000
+Wire Notes Line
+	8700 3850 8850 3850
+Wire Notes Line
+	8850 4000 9000 4000
+Wire Notes Line
+	9000 4000 9000 3850
+Wire Notes Line
+	9150 3850 9150 4000
+Wire Notes Line
+	9000 3850 9150 3850
+Wire Notes Line
+	9150 4000 9300 4000
+Wire Notes Line
+	9300 4000 9300 3850
+Wire Notes Line
+	9450 3850 9450 4000
+Wire Notes Line
+	9300 3850 9450 3850
+Wire Notes Line
+	9450 4000 9600 4000
+Wire Notes Line
+	9600 4000 9600 3850
+Wire Notes Line
+	9750 3850 9750 4000
+Wire Notes Line
+	9600 3850 9750 3850
+Wire Notes Line
+	9750 4000 9900 4000
+Wire Notes Line
+	9900 4000 9900 3850
+Wire Notes Line
+	10050 3850 10050 4000
+Wire Notes Line
+	9900 3850 10050 3850
+Wire Notes Line
+	10050 4000 10200 4000
+Wire Notes Line
+	10200 4000 10200 3850
+Wire Notes Line
+	10650 3850 10650 4000
+Wire Notes Line
+	10500 3850 10650 3850
+Wire Notes Line
+	8250 4000 8400 4000
+Wire Notes Line
+	6000 5250 8800 5250
+Wire Notes Line
+	8800 5100 10700 5100
+Wire Notes Line
+	6150 5750 6300 5750
+Wire Notes Line
+	6300 5750 6300 5600
+Wire Notes Line
+	6450 5600 6450 5750
+Wire Notes Line
+	6300 5600 6450 5600
+Wire Notes Line
+	6450 5750 6600 5750
+Wire Notes Line
+	6600 5750 6600 5600
+Wire Notes Line
+	6750 5600 6750 5750
+Wire Notes Line
+	6600 5600 6750 5600
+Wire Notes Line
+	6750 5750 6900 5750
+Wire Notes Line
+	6900 5750 6900 5600
+Wire Notes Line
+	7050 5600 7050 5750
+Wire Notes Line
+	6900 5600 7050 5600
+Wire Notes Line
+	7050 5750 7200 5750
+Wire Notes Line
+	7200 5750 7200 5600
+Wire Notes Line
+	7350 5600 7350 5750
+Wire Notes Line
+	7200 5600 7350 5600
+Wire Notes Line
+	7350 5750 7500 5750
+Wire Notes Line
+	7500 5750 7500 5600
+Wire Notes Line
+	7650 5600 7650 5750
+Wire Notes Line
+	7500 5600 7650 5600
+Wire Notes Line
+	7650 5750 7800 5750
+Wire Notes Line
+	6150 5600 6150 5750
+Wire Notes Line
+	6000 5600 6150 5600
+Wire Notes Line
+	7800 5750 7800 5600
+Wire Notes Line
+	7950 5600 7950 5750
+Wire Notes Line
+	7800 5600 7950 5600
+Wire Notes Line
+	9600 5750 9600 5600
+Wire Notes Line
+	9750 5600 9750 5750
+Wire Notes Line
+	9750 5750 9900 5750
+Wire Notes Line
+	9600 5600 9750 5600
+Wire Notes Line
+	9900 5750 9900 5600
+Wire Notes Line
+	10050 5600 10050 5750
+Wire Notes Line
+	9900 5600 10050 5600
+Wire Notes Line
+	10050 5750 10200 5750
+Wire Notes Line
+	10200 5750 10200 5600
+Wire Notes Line
+	10350 5600 10350 5750
+Wire Notes Line
+	10200 5600 10350 5600
+Wire Notes Line
+	10350 5750 10500 5750
+Wire Notes Line
+	10500 5750 10500 5600
+Wire Notes Line
+	10650 5600 10650 5750
+Wire Notes Line
+	10500 5600 10650 5600
+Wire Notes Line
+	9450 5750 9600 5750
+Wire Notes Line
+	6000 5600 6000 5750
+Wire Notes Line
+	8400 5950 8400 6100
+Wire Notes Line
+	8400 6100 10500 6100
+Wire Notes Line
+	5400 5950 8400 5950
+Wire Notes Line
+	10500 6100 10500 5950
+Wire Notes Line
+	10650 5750 10700 5750
+Wire Notes Line
+	7950 5750 8100 5750
+Wire Notes Line
+	8100 5750 8100 5600
+Wire Notes Line
+	8250 5600 8250 5750
+Wire Notes Line
+	8100 5600 8250 5600
+Wire Notes Line
+	8250 5750 8400 5750
+Wire Notes Line
+	8400 5750 8400 5600
+Wire Notes Line
+	8550 5600 8550 5750
+Wire Notes Line
+	8400 5600 8550 5600
+Wire Notes Line
+	8550 5750 8700 5750
+Wire Notes Line
+	8700 5750 8700 5600
+Wire Notes Line
+	8850 5600 8850 5750
+Wire Notes Line
+	8700 5600 8850 5600
+Wire Notes Line
+	8850 5750 9000 5750
+Wire Notes Line
+	9000 5750 9000 5600
+Wire Notes Line
+	9150 5600 9150 5750
+Wire Notes Line
+	9000 5600 9150 5600
+Wire Notes Line
+	9150 5750 9300 5750
+Wire Notes Line
+	9300 5750 9300 5600
+Wire Notes Line
+	9450 5600 9450 5750
+Wire Notes Line
+	9300 5600 9450 5600
+Wire Notes Line
+	10500 5350 10500 5500
+Wire Notes Line
+	10500 5500 10700 5500
+Wire Notes Line
+	10350 3850 10350 4000
+Wire Notes Line
+	10200 3850 10350 3850
+Wire Notes Line
+	10350 4000 10500 4000
+Wire Notes Line
+	10500 4000 10500 3850
+Text Label 5950 1250 0    50   ~ 0
+CLK_STEP_MODE
+$EndSCHEMATC

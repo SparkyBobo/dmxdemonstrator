@@ -5,7 +5,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 6
-Title "DMX Demonstrator - Transmitter-Pro (DMX-TX3)"
+Title "DMX Demonstrator - Transmitter-Retro Logic (DMX-TX5)"
 Date "2022-10-02"
 Rev "0.1"
 Comp "Crazy Giraffe Software"
@@ -27,13 +27,13 @@ S 7300 1550 1900 1100
 U 63268641
 F0 "sample" 79
 F1 "sample.sch" 79
-F2 "~SAMPLE_RESET_OUT" I L 7300 2350 50 
-F3 "SAMPLE_LATCH_OUT" I L 7300 2250 50 
+F2 "~SAMPLE_RESET_OUT" I L 7300 2250 50 
+F3 "SAMPLE_LATCH_OUT" I L 7300 2350 50 
 F4 "CLK_TX_IN" I L 7300 1950 50 
 F5 "~FRAME_RESET_IN" I L 7300 2050 50 
 F6 "~SAMPLE_ENABLE_IN" I L 7300 1800 50 
-F7 "SAMPLE_SEL0_OUT" I L 7300 2450 50 
-F8 "SAMPLE_SEL1_OUT" I L 7300 2550 50 
+F7 "SAMPLE_SEL0_OUT" I L 7300 2550 50 
+F8 "SAMPLE_SEL1_OUT" I L 7300 2450 50 
 F9 "SAMPLE_SEL_MAX_OUT" I L 7300 1650 50 
 $EndSheet
 $Sheet
@@ -43,7 +43,7 @@ F0 "break" 79
 F1 "break.sch" 79
 F2 "~FRAME_RESET_IN" I R 4300 5650 50 
 F3 "DATA_MAB_OUT" I R 4300 5400 50 
-F4 "SHIFT_ENABLE_OUT" I R 4300 5050 50 
+F4 "SHIFT_ENABLE_OUT" I R 4300 5200 50 
 F5 "CLK_TX_IN" I R 4300 5550 50 
 F6 "SAMPLE_ENABLE_OUT" I R 4300 4750 50 
 $EndSheet
@@ -58,7 +58,7 @@ F4 "SAMPLE_SEL_MAX" I R 4300 1650 50
 F5 "DATA_BREAK_OUT" I R 4300 2250 50 
 $EndSheet
 Wire Wire Line
-	4300 5050 7300 5050
+	4300 5200 7300 5200
 Wire Wire Line
 	7300 5400 4300 5400
 Wire Wire Line
@@ -72,17 +72,6 @@ Wire Wire Line
 Wire Wire Line
 	7300 4950 7000 4950
 Wire Wire Line
-	7300 5200 6800 5200
-Wire Wire Line
-	6900 5650 6900 3950
-Connection ~ 6900 5650
-Wire Wire Line
-	6900 5650 7300 5650
-Wire Wire Line
-	7000 2350 7300 2350
-Wire Wire Line
-	6900 2250 7300 2250
-Wire Wire Line
 	7300 1650 4300 1650
 Wire Wire Line
 	4300 4750 4400 4750
@@ -94,18 +83,10 @@ Wire Wire Line
 	7300 1950 4500 1950
 Connection ~ 4500 5550
 Wire Wire Line
-	4500 5550 7300 5550
-Wire Wire Line
 	7300 2050 4600 2050
 Wire Wire Line
 	4600 2050 4600 5650
 Connection ~ 4600 5650
-Wire Wire Line
-	4600 5650 6900 5650
-Wire Wire Line
-	4900 2450 4300 2450
-Wire Wire Line
-	4800 2550 4300 2550
 Wire Wire Line
 	4500 1950 4300 1950
 Connection ~ 4500 1950
@@ -127,21 +108,6 @@ F 3 "" H 2250 3500 50  0001 C CNN
 	1    2250 3500
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR0130
-U 1 1 6343EB6C
-P 2250 3800
-AR Path="/6343EB6C" Ref="#PWR0130"  Part="1" 
-AR Path="/632F1F43/6343EB6C" Ref="#PWR?"  Part="1" 
-AR Path="/63267F40/6343EB6C" Ref="#PWR?"  Part="1" 
-AR Path="/6344C470/6343EB6C" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0130" H 2250 3550 50  0001 C CNN
-F 1 "GND" H 2400 3700 50  0000 C CNN
-F 2 "" H 2250 3800 50  0001 C CNN
-F 3 "" H 2250 3800 50  0001 C CNN
-	1    2250 3800
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	2250 3700 2400 3700
 Wire Wire Line
@@ -160,23 +126,6 @@ Wire Wire Line
 	4700 2250 4700 5300
 Wire Wire Line
 	4700 5300 7300 5300
-Wire Wire Line
-	4500 1950 4500 4150
-$Comp
-L power:GND #PWR0101
-U 1 1 6475E09B
-P 6150 4750
-AR Path="/6475E09B" Ref="#PWR0101"  Part="1" 
-AR Path="/632F1F43/6475E09B" Ref="#PWR?"  Part="1" 
-AR Path="/63267F40/6475E09B" Ref="#PWR?"  Part="1" 
-AR Path="/64755962/6475E09B" Ref="#PWR?"  Part="1" 
-F 0 "#PWR0101" H 6150 4500 50  0001 C CNN
-F 1 "GND" H 6300 4650 50  0000 C CNN
-F 2 "" H 6150 4750 50  0001 C CNN
-F 3 "" H 6150 4750 50  0001 C CNN
-	1    6150 4750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6050 4550 6150 4550
 Wire Wire Line
@@ -234,134 +183,217 @@ Wire Wire Line
 Connection ~ 5450 2750
 Wire Wire Line
 	5450 2750 5450 2650
-Text Label 6050 3150 0    50   ~ 0
-SAMPLE_LATCH
-Text Label 6050 3250 0    50   ~ 0
-~SAMPLE_RESET
-Text Label 6050 3350 0    50   ~ 0
-SAMPLE_SEL0
-Text Label 6050 3450 0    50   ~ 0
-SAMPLE_SEL1
-Text Label 6050 3550 0    50   ~ 0
-~SHIFT_LOAD
-Text Label 6050 3650 0    50   ~ 0
-~SHIFT_ENABLE
-Text Label 6050 3750 0    50   ~ 0
-SHIFT_TRANSMIT
-Text Label 6050 4150 0    50   ~ 0
-DATA_FIXED
-Text Label 5150 4350 0    50   ~ 0
-CLK_FAST
-Text Label 5150 4450 0    50   ~ 0
-CLK_SLOW
-Text Label 5250 4150 0    50   ~ 0
-CLK_TX
-Text Label 6050 3950 0    50   ~ 0
-~FRAME_RESET
-NoConn ~ 6050 3850
-NoConn ~ 5550 2950
-NoConn ~ 5550 3050
-NoConn ~ 5550 3150
-NoConn ~ 5550 3250
-NoConn ~ 5550 3350
-NoConn ~ 5550 3450
-NoConn ~ 5550 3550
-NoConn ~ 5550 3650
-$Comp
-L Connector_Generic:Conn_02x20_Odd_Even J?
-U 1 1 6475E0DF
-P 5750 3650
-AR Path="/63267F40/6475E0DF" Ref="J?"  Part="1" 
-AR Path="/6475E0DF" Ref="J1"  Part="1" 
-AR Path="/64755962/6475E0DF" Ref="J?"  Part="1" 
-F 0 "J1" H 5800 4767 50  0000 C CNN
-F 1 "Expansion" H 5800 4676 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 5750 3650 50  0001 C CNN
-F 3 "~" H 5750 3650 50  0001 C CNN
-	1    5750 3650
-	1    0    0    -1  
-$EndComp
-NoConn ~ 5550 3850
-NoConn ~ 5550 3750
-NoConn ~ 5550 3950
-NoConn ~ 5550 4050
 Wire Wire Line
-	5550 4150 4500 4150
-Connection ~ 4500 4150
+	7100 2450 7100 3150
 Wire Wire Line
-	4500 4150 4500 5550
-Wire Wire Line
-	5550 4350 4900 4350
-Wire Wire Line
-	4900 2450 4900 4350
-Wire Wire Line
-	5550 4450 4800 4450
-Wire Wire Line
-	4800 2550 4800 4450
-Wire Wire Line
-	6050 3150 6900 3150
-Wire Wire Line
-	6900 2250 6900 3150
-Wire Wire Line
-	6050 3250 7000 3250
-Wire Wire Line
-	7000 2350 7000 3250
-Wire Wire Line
-	6050 3350 7100 3350
-Wire Wire Line
-	7100 2450 7100 3350
-Wire Wire Line
-	6050 3450 7200 3450
-Wire Wire Line
-	7200 2550 7200 3450
-Wire Wire Line
-	6050 3550 7200 3550
-Wire Wire Line
-	7200 3550 7200 4750
-Wire Wire Line
-	7100 4850 7100 3650
-Wire Wire Line
-	6050 3650 7100 3650
-Wire Wire Line
-	7000 4950 7000 3750
-Wire Wire Line
-	6050 3750 7000 3750
-Wire Wire Line
-	6050 4150 6800 4150
-Wire Wire Line
-	6800 4150 6800 5200
-Wire Wire Line
-	6050 3950 6900 3950
-NoConn ~ 6050 4050
-NoConn ~ 6050 4250
-NoConn ~ 5550 4250
+	7200 2550 7200 3250
 $Sheet
 S 7300 4650 1900 1100
 U 632F1F43
 F0 "shift" 79
 F1 "shift.sch" 79
-F2 "DATA_FIXED_OUT" I L 7300 5200 50 
-F3 "~SHIFT_LOAD_OUT" I L 7300 4750 50 
+F2 "DATA_FIXED_OUT" I L 7300 4750 50 
+F3 "~SHIFT_LOAD_OUT" I L 7300 4850 50 
 F4 "SHIFT_TRANSMIT_OUT" I L 7300 4950 50 
-F5 "SHIFT_ENABLE_IN" I L 7300 5050 50 
+F5 "SHIFT_ENABLE_IN" I L 7300 5200 50 
 F6 "DATA_MAB_IN" I L 7300 5400 50 
 F7 "~FRAME_RESET_IN" I L 7300 5650 50 
 F8 "CLK_TX_IN" I L 7300 5550 50 
-F9 "~SHIFT_ENABLE_OUT" I L 7300 4850 50 
+F9 "~SHIFT_ENABLE_OUT" I L 7300 5100 50 
 F10 "DATA_BREAK_IN" I L 7300 5300 50 
 $EndSheet
-NoConn ~ 6050 2950
-NoConn ~ 6050 3050
 Wire Wire Line
-	6050 4350 6150 4350
+	5550 4550 5450 4550
 Wire Wire Line
-	6150 4350 6150 4450
-Connection ~ 6150 4550
+	5450 4550 5450 4650
 Wire Wire Line
-	6050 4450 6150 4450
-Connection ~ 6150 4450
+	5550 4650 5450 4650
+Connection ~ 5450 4650
 Wire Wire Line
-	6150 4450 6150 4550
-NoConn ~ 5550 4550
-NoConn ~ 5550 4650
+	5450 4650 5450 4750
+$Comp
+L power:GND #PWR?
+U 1 1 6432A30A
+P 5450 4750
+AR Path="/6432A30A" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6432A30A" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6432A30A" Ref="#PWR?"  Part="1" 
+AR Path="/6328016E/6432A30A" Ref="#PWR?"  Part="1" 
+AR Path="/63397143/6432A30A" Ref="#PWR?"  Part="1" 
+AR Path="/634170D9/6432A30A" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 5450 4500 50  0001 C CNN
+F 1 "GND" H 5455 4577 50  0000 C CNN
+F 2 "" H 5450 4750 50  0001 C CNN
+F 3 "" H 5450 4750 50  0001 C CNN
+	1    5450 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6432BD08
+P 6150 4750
+AR Path="/6432BD08" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6432BD08" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6432BD08" Ref="#PWR?"  Part="1" 
+AR Path="/6328016E/6432BD08" Ref="#PWR?"  Part="1" 
+AR Path="/63397143/6432BD08" Ref="#PWR?"  Part="1" 
+AR Path="/634170D9/6432BD08" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 6150 4500 50  0001 C CNN
+F 1 "GND" H 6155 4577 50  0000 C CNN
+F 2 "" H 6150 4750 50  0001 C CNN
+F 3 "" H 6150 4750 50  0001 C CNN
+	1    6150 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6432BD15
+P 2250 3800
+AR Path="/6432BD15" Ref="#PWR?"  Part="1" 
+AR Path="/632F1F43/6432BD15" Ref="#PWR?"  Part="1" 
+AR Path="/63267F40/6432BD15" Ref="#PWR?"  Part="1" 
+AR Path="/6328016E/6432BD15" Ref="#PWR?"  Part="1" 
+AR Path="/63397143/6432BD15" Ref="#PWR?"  Part="1" 
+AR Path="/634170D9/6432BD15" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2250 3550 50  0001 C CNN
+F 1 "GND" H 2255 3627 50  0000 C CNN
+F 2 "" H 2250 3800 50  0001 C CNN
+F 3 "" H 2250 3800 50  0001 C CNN
+	1    2250 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 5650 6800 5650
+Wire Wire Line
+	6800 4150 6800 5650
+Connection ~ 6800 5650
+Wire Wire Line
+	6800 5650 7300 5650
+Wire Wire Line
+	4500 1950 4500 4250
+Text Label 5450 3750 0    50   ~ 0
+D0
+Text Label 6050 3750 0    50   ~ 0
+D1
+Text Label 5450 3850 0    50   ~ 0
+D2
+Text Label 6050 3850 0    50   ~ 0
+D3
+Text Label 5450 3950 0    50   ~ 0
+D4
+Text Label 6050 3950 0    50   ~ 0
+D5
+Text Label 5450 4050 0    50   ~ 0
+D6
+Text Label 6050 4050 0    50   ~ 0
+D7
+Text Label 6050 3050 0    50   ~ 0
+~SAMPLE_OVERRIDE
+Text Label 5550 4450 2    50   ~ 0
+SAMPLE_LATCH
+Text Label 6600 4350 2    50   ~ 0
+~SAMPLE_RESET
+Text Label 6050 3250 0    50   ~ 0
+SAMPLE_SEL0
+Text Label 6050 3150 0    50   ~ 0
+SAMPLE_SEL1
+Text Label 6050 3450 0    50   ~ 0
+~SHIFT_LOAD
+Text Label 5550 4150 2    50   ~ 0
+~SHIFT_ENABLE
+Text Label 6050 3550 0    50   ~ 0
+SHIFT_TRANSMIT
+Text Label 6050 3350 0    50   ~ 0
+DATA_FIXED
+Text Label 6050 4250 0    50   ~ 0
+CLK_RX
+Text Label 5250 4250 0    50   ~ 0
+CLK_TX
+Text Label 6050 4150 0    50   ~ 0
+~FRAME_RESET
+Text Label 5550 4350 2    50   ~ 0
+DATA_RX
+Text Label 6050 2950 0    50   ~ 0
+SAMPLE_COUNT
+Text Label 5200 3650 0    50   ~ 0
+~BUS_ACK
+Text Label 5200 3550 0    50   ~ 0
+~BUS_REQ
+Text Label 6050 3650 0    50   ~ 0
+DATA_SHIFT
+Text Label 5200 3450 0    50   ~ 0
+SPD_HI
+Text Label 5200 3350 0    50   ~ 0
+SPD_MID
+Text Label 5200 3250 0    50   ~ 0
+SPD_LO
+Text Label 5200 3150 0    50   ~ 0
+~CLK_STEP
+Text Label 5200 3050 0    50   ~ 0
+~CLK_SLO
+Text Label 5200 2950 0    50   ~ 0
+~CLK_FST
+Text Label 6050 4450 0    50   ~ 0
+CLK_SAMPLE
+$Comp
+L Connector_Generic:Conn_02x20_Odd_Even J?
+U 1 1 647B511C
+P 5850 3650
+AR Path="/63267F40/647B511C" Ref="J?"  Part="1" 
+AR Path="/647B511C" Ref="J?"  Part="1" 
+AR Path="/647AC675/647B511C" Ref="J?"  Part="1" 
+F 0 "J?" H 5900 4767 50  0000 C CNN
+F 1 "Expansion" H 5900 4676 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x20_P2.54mm_Vertical" H 5850 3650 50  0001 C CNN
+F 3 "~" H 5850 3650 50  0001 C CNN
+	1    5850 3650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 4250 4500 4250
+Connection ~ 4500 4250
+Wire Wire Line
+	4500 4250 4500 5550
+Wire Wire Line
+	4500 5550 7300 5550
+Wire Wire Line
+	6050 4150 6800 4150
+Wire Wire Line
+	6050 4350 6700 4350
+Wire Wire Line
+	6700 4350 6700 5000
+Wire Wire Line
+	6700 5000 4800 5000
+Wire Wire Line
+	4800 5000 4800 2250
+Wire Wire Line
+	4800 2250 7300 2250
+Wire Wire Line
+	5550 4450 4900 4450
+Wire Wire Line
+	4900 4450 4900 2350
+Wire Wire Line
+	4900 2350 7300 2350
+Wire Wire Line
+	6050 3250 7200 3250
+Wire Wire Line
+	6050 3150 7100 3150
+Wire Wire Line
+	5550 4150 5000 4150
+Wire Wire Line
+	5000 4150 5000 5100
+Wire Wire Line
+	6050 3350 7200 3350
+Wire Wire Line
+	7200 3350 7200 4750
+Wire Wire Line
+	6050 3450 7100 3450
+Wire Wire Line
+	7100 3450 7100 4850
+Wire Wire Line
+	6050 3550 7000 3550
+Wire Wire Line
+	7000 3550 7000 4950
+Wire Wire Line
+	5000 5100 7300 5100
 $EndSCHEMATC

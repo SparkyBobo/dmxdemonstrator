@@ -4,10 +4,10 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 6
-Title "DMX Demonstrator - Transmitter-Pro (DMX-TX3)"
-Date "2022-09-30"
-Rev "0.1"
+Sheet 3 5
+Title "DMX Demonstrator - Transmitter-Retro Core (DMX-TX3)"
+Date "2023-05-27"
+Rev "1.0"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -15,50 +15,20 @@ Comment3 "https://creativecommons.org/licenses/by-sa/4.0/ "
 Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 License"
 $EndDescr
 $Comp
-L 74xx:74LS08 U?
-U 1 1 633286AB
-P 6350 4450
-AR Path="/633286AB" Ref="U?"  Part="1" 
-AR Path="/632F1F43/633286AB" Ref="U6"  Part="1" 
-F 0 "U6" H 6350 4775 50  0000 C CNN
-F 1 "74LS08" H 6350 4684 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 6350 4450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6350 4450 50  0001 C CNN
-	1    6350 4450
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS32 U?
-U 1 1 633286B2
-P 7150 4650
-AR Path="/633286B2" Ref="U?"  Part="1" 
-AR Path="/632F1F43/633286B2" Ref="U7"  Part="1" 
-F 0 "U7" H 7150 4975 50  0000 C CNN
-F 1 "74LS32" H 7150 4884 50  0000 C CNN
-F 2 "Package_DIP:DIP-14_W7.62mm" H 7150 4650 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7150 4650 50  0001 C CNN
-	1    7150 4650
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+5V #PWR?
 U 1 1 633286B9
-P 5450 2450
+P 5450 2650
 AR Path="/6841E790/633286B9" Ref="#PWR?"  Part="1" 
 AR Path="/633286B9" Ref="#PWR?"  Part="1" 
 AR Path="/632F1F43/633286B9" Ref="#PWR0113"  Part="1" 
-F 0 "#PWR0113" H 5450 2300 50  0001 C CNN
-F 1 "+5V" H 5550 2550 50  0000 C CNN
-F 2 "" H 5450 2450 50  0001 C CNN
-F 3 "" H 5450 2450 50  0001 C CNN
-	1    5450 2450
+F 0 "#PWR0113" H 5450 2500 50  0001 C CNN
+F 1 "+5V" H 5550 2750 50  0000 C CNN
+F 2 "" H 5450 2650 50  0001 C CNN
+F 3 "" H 5450 2650 50  0001 C CNN
+	1    5450 2650
 	1    0    0    -1  
 $EndComp
-NoConn ~ 5950 2850
-Entry Wire Line
-	4750 2750 4850 2850
-Entry Wire Line
-	4750 2850 4850 2950
+NoConn ~ 5950 3050
 Entry Wire Line
 	4750 2950 4850 3050
 Entry Wire Line
@@ -71,216 +41,176 @@ Entry Wire Line
 	4750 3350 4850 3450
 Entry Wire Line
 	4750 3450 4850 3550
-Text Label 4850 2850 0    50   ~ 0
+Entry Wire Line
+	4750 3550 4850 3650
+Entry Wire Line
+	4750 3650 4850 3750
+Text Label 4850 3750 0    50   ~ 0
 D0
-Text Label 4850 2950 0    50   ~ 0
+Text Label 4850 3650 0    50   ~ 0
 D1
-Text Label 4850 3050 0    50   ~ 0
-D2
-Text Label 4850 3150 0    50   ~ 0
-D3
-Text Label 4850 3250 0    50   ~ 0
-D4
-Text Label 4850 3350 0    50   ~ 0
-D5
-Text Label 4850 3450 0    50   ~ 0
-D6
 Text Label 4850 3550 0    50   ~ 0
+D2
+Text Label 4850 3450 0    50   ~ 0
+D3
+Text Label 4850 3350 0    50   ~ 0
+D4
+Text Label 4850 3250 0    50   ~ 0
+D5
+Text Label 4850 3150 0    50   ~ 0
+D6
+Text Label 4850 3050 0    50   ~ 0
 D7
 Entry Bus Bus
-	4750 2100 4850 2000
+	4650 2550 4750 2650
 $Comp
 L power:GND #PWR?
 U 1 1 633286D9
-P 5450 4350
+P 5450 4550
 AR Path="/6841E790/633286D9" Ref="#PWR?"  Part="1" 
 AR Path="/633286D9" Ref="#PWR?"  Part="1" 
 AR Path="/632F1F43/633286D9" Ref="#PWR0114"  Part="1" 
-F 0 "#PWR0114" H 5450 4100 50  0001 C CNN
-F 1 "GND" H 5600 4250 50  0000 C CNN
-F 2 "" H 5450 4350 50  0001 C CNN
-F 3 "" H 5450 4350 50  0001 C CNN
-	1    5450 4350
+F 0 "#PWR0114" H 5450 4300 50  0001 C CNN
+F 1 "GND" H 5600 4450 50  0000 C CNN
+F 2 "" H 5450 4550 50  0001 C CNN
+F 3 "" H 5450 4550 50  0001 C CNN
+	1    5450 4550
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 633286DF
-P 5100 2400
+P 5100 2600
 AR Path="/6841E790/633286DF" Ref="#PWR?"  Part="1" 
 AR Path="/633286DF" Ref="#PWR?"  Part="1" 
 AR Path="/632F1F43/633286DF" Ref="#PWR0115"  Part="1" 
-F 0 "#PWR0115" H 5100 2150 50  0001 C CNN
-F 1 "GND" H 5105 2227 50  0000 C CNN
-F 2 "" H 5100 2400 50  0001 C CNN
-F 3 "" H 5100 2400 50  0001 C CNN
-	1    5100 2400
+F 0 "#PWR0115" H 5100 2350 50  0001 C CNN
+F 1 "GND" H 5105 2427 50  0000 C CNN
+F 2 "" H 5100 2600 50  0001 C CNN
+F 3 "" H 5100 2600 50  0001 C CNN
+	1    5100 2600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 2750 4950 2350
+	5100 2550 5100 2600
+Text Notes 5300 2350 0    50   ~ 0
+Data Shift
 Wire Wire Line
-	4950 2350 5100 2350
+	4850 3650 4950 3650
 Wire Wire Line
-	5100 2350 5100 2400
-Text Notes 5850 2500 0    50   ~ 0
-Shift\nRegister
-Wire Wire Line
-	4850 2850 4950 2850
-Wire Wire Line
-	4850 2950 4950 2950
-Wire Wire Line
-	4850 3050 4950 3050
-Wire Wire Line
-	4850 3150 4950 3150
-Wire Wire Line
-	4850 3250 4950 3250
-Wire Wire Line
-	4850 3350 4950 3350
+	4850 3550 4950 3550
 Wire Wire Line
 	4850 3450 4950 3450
 Wire Wire Line
-	4850 3550 4950 3550
-Text HLabel 3700 3950 0    50   Input ~ 0
+	4850 3350 4950 3350
+Wire Wire Line
+	4850 3250 4950 3250
+Wire Wire Line
+	4850 3150 4950 3150
+Wire Wire Line
+	4850 3050 4950 3050
+Text HLabel 3700 4150 0    50   Input ~ 0
 CLK_TX_IN
 Wire Wire Line
-	6650 4450 6750 4450
+	6650 4650 6750 4650
 Wire Wire Line
-	6750 4450 6750 4550
+	6750 4650 6750 4750
 Wire Wire Line
-	6750 4550 6850 4550
+	6750 4750 6850 4750
 Wire Wire Line
-	5950 2750 6050 2750
+	5950 2950 6050 2950
 $Comp
 L 74xx:74LS165 U?
 U 1 1 633286A4
-P 5450 3350
+P 5450 3550
 AR Path="/633286A4" Ref="U?"  Part="1" 
-AR Path="/632F1F43/633286A4" Ref="U10"  Part="1" 
-F 0 "U10" H 5550 4200 50  0000 C CNN
-F 1 "74LS165" H 5650 4100 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 5450 3350 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS165" H 5450 3350 50  0001 C CNN
-	1    5450 3350
+AR Path="/632F1F43/633286A4" Ref="U2"  Part="1" 
+F 0 "U2" H 5550 4400 50  0000 C CNN
+F 1 "74LS165" H 5650 4300 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm" H 5450 3550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS165" H 5450 3550 50  0001 C CNN
+	1    5450 3550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7450 4650 7550 4650
-Wire Wire Line
-	6050 4350 6050 4000
+	6050 4550 6050 4200
 Wire Bus Line
-	4850 2000 8550 2000
-Text HLabel 8550 2000 2    50   Input ~ 0
+	4650 2550 3700 2550
+Text HLabel 3700 2550 0    50   Input ~ 0
 D[0..7]
-Text HLabel 7650 4650 2    50   Input ~ 0
+Text HLabel 8550 4850 2    50   Input ~ 0
 DATA_RX_OUT
-Text HLabel 3700 4050 0    50   Input ~ 0
+Text HLabel 3700 4250 0    50   Input ~ 0
 ~SHIFT_ENABLE_IN
-Text HLabel 3700 3750 0    50   Input ~ 0
+Text HLabel 3700 3950 0    50   Input ~ 0
 ~SHIFT_LOAD_IN
-Text HLabel 3700 4550 0    50   Input ~ 0
-SHIFT_TRANSMIT_IN
 Text HLabel 3700 4750 0    50   Input ~ 0
+SHIFT_TRANSMIT_IN
+Text HLabel 3700 4950 0    50   Input ~ 0
 DATA_FIXED_IN
 Wire Wire Line
-	3700 4750 6850 4750
+	3700 4950 6850 4950
 Wire Wire Line
-	6050 4550 3700 4550
+	6050 4750 3700 4750
 Wire Wire Line
-	4950 4050 3700 4050
-Text HLabel 3700 1250 0    50   Input ~ 0
-~CLK_SLOW_IN
-Text HLabel 8550 1050 2    50   Input ~ 0
-~CLK_STEP_OUT
-Text HLabel 3700 1050 0    50   Input ~ 0
-~CLK_STEP_IN
-Text HLabel 3700 1150 0    50   Input ~ 0
-~CLK_FAST_IN
-Text HLabel 8550 1250 2    50   Input ~ 0
-~CLK_SLOW_OUT
-Text HLabel 8550 1150 2    50   Input ~ 0
-~CLK_FAST_OUT
-Text HLabel 8550 1400 2    50   Input ~ 0
-CLK_RX_OUT
-Text HLabel 3700 1400 0    50   Input ~ 0
-CLK_RX_IN
-Wire Wire Line
-	8550 1400 7550 1400
-Wire Wire Line
-	3700 1150 8550 1150
-Wire Wire Line
-	3700 1250 8550 1250
-Wire Wire Line
-	8550 1050 3700 1050
-Text HLabel 8550 2900 2    50   Input ~ 0
-~DATA_OUT
-Text HLabel 8550 2800 2    50   Input ~ 0
-~CLK_OUT
-Connection ~ 7550 4650
-Wire Wire Line
-	7550 4650 7650 4650
-Connection ~ 7550 1400
-Wire Wire Line
-	7550 1400 3700 1400
-Wire Wire Line
-	3700 3750 4950 3750
+	4950 4250 3700 4250
 Wire Wire Line
 	3700 3950 4950 3950
-Text HLabel 8600 4000 2    50   Input ~ 0
+Wire Wire Line
+	3700 4150 4950 4150
+Text HLabel 8550 4200 2    50   Input ~ 0
 DATA_SHIFT_OUT
 Wire Wire Line
-	8600 4000 6050 4000
-Connection ~ 6050 4000
+	8550 4200 6050 4200
+Connection ~ 6050 4200
 Wire Wire Line
-	6050 4000 6050 2750
+	6050 4200 6050 2950
 Wire Wire Line
-	7550 4650 7550 2900
+	7450 4850 8550 4850
+Text HLabel 3700 5150 0    50   Input ~ 0
+CLK_RX_IN
 Wire Wire Line
-	7550 2900 7650 2900
+	3700 5150 8550 5150
+Text HLabel 8550 5150 2    50   Input ~ 0
+CLK_RX_OUT
+Text Notes 6250 3650 0    50   ~ 0
+"The ’LS165A is a 8-bit serial shift registers that shift the data\nin the direction of (D0) toward (D7) when clocked."\n\nWhen shifting, the Q7 output first see the data from D7, then D6, then D5,\netc...  Q7 output will see the data from D0 on the eighth clock pulse on CP.\n\nIn DMX, the least significant bit (LSB) is sent first, which equates to D0.\nTherefore, the D0 but from the bus is connected to the D7 input of the '165\nso that Q7 output first see the data from D0, then D1, then D2, etc...
 Wire Wire Line
-	7550 2800 7650 2800
+	4950 2950 4900 2950
 Wire Wire Line
-	7550 1400 7550 2800
+	4900 2950 4900 2550
+Wire Wire Line
+	4900 2550 5100 2550
+Text Notes 6050 5950 0    50   ~ 0
+The data sent to DATA_RX_OUT is a combination of the shoft register output\nand the data from DATA_FIXED_IN. DATA_FIXED_IN is always feed to  DATA_RX_OUT,\nso any value is has is seen at DATA_RX_OUT. For the portions of the packet that need\nto be 1, DATA_FIXED_IN is 1; for all other portions it is 0. \n\nSHIFT_TRANSMIT_IN combines with the shift register output using an AND gate so the\nshift register output is only sent to DATA_RX_OUT when SHIFT_TRANSMIT_IN is 1.\n\n
+Wire Wire Line
+	4950 3750 4850 3750
 $Comp
-L Transistor_Array:ULN2003A U17
-U 1 1 63EEB811
-P 8050 3000
-F 0 "U17" H 8050 3667 50  0000 C CNN
-F 1 "ULN2003A" H 8050 3576 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 8100 2450 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 8150 2800 50  0001 C CNN
-	1    8050 3000
+L 74xx:74LS08 U12
+U 3 1 6459E181
+P 6350 4650
+AR Path="/632F1F43/6459E181" Ref="U12"  Part="3" 
+AR Path="/63268641/6459E181" Ref="U?"  Part="3" 
+F 0 "U12" H 6350 4975 50  0000 C CNN
+F 1 "74LS08" H 6350 4884 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 6350 4650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 6350 4650 50  0001 C CNN
+	3    6350 4650
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7650 3000
-NoConn ~ 7650 3100
-NoConn ~ 7650 3200
-NoConn ~ 7650 3300
-NoConn ~ 7650 3400
-NoConn ~ 8450 2600
-NoConn ~ 8450 3000
-NoConn ~ 8450 3100
-NoConn ~ 8450 3200
-NoConn ~ 8450 3300
-NoConn ~ 8450 3400
-Wire Wire Line
-	8450 2800 8550 2800
-Wire Wire Line
-	8450 2900 8550 2900
 $Comp
-L power:GND #PWR?
-U 1 1 63EF339F
-P 8050 3600
-AR Path="/6841E790/63EF339F" Ref="#PWR?"  Part="1" 
-AR Path="/63EF339F" Ref="#PWR?"  Part="1" 
-AR Path="/632F1F43/63EF339F" Ref="#PWR0146"  Part="1" 
-F 0 "#PWR0146" H 8050 3350 50  0001 C CNN
-F 1 "GND" H 8200 3500 50  0000 C CNN
-F 2 "" H 8050 3600 50  0001 C CNN
-F 3 "" H 8050 3600 50  0001 C CNN
-	1    8050 3600
+L 74xx:74LS32 U11
+U 3 1 645B2287
+P 7150 4850
+AR Path="/632F1F43/645B2287" Ref="U11"  Part="3" 
+AR Path="/6BB77A68/645B2287" Ref="U?"  Part="3" 
+F 0 "U11" H 7150 5175 50  0000 C CNN
+F 1 "74LS32" H 7150 5084 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 7150 4850 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 7150 4850 50  0001 C CNN
+	3    7150 4850
 	1    0    0    -1  
 $EndComp
 Wire Bus Line
-	4750 2100 4750 3450
+	4750 2650 4750 3650
 $EndSCHEMATC
