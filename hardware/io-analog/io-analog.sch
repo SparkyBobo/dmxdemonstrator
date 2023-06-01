@@ -75,23 +75,23 @@ $EndComp
 $Comp
 L power:+5V #PWR0109
 U 1 1 5F3F84CE
-P 6750 2700
-F 0 "#PWR0109" H 6750 2550 50  0001 C CNN
-F 1 "+5V" H 6700 2900 50  0000 C CNN
-F 2 "" H 6750 2700 50  0001 C CNN
-F 3 "" H 6750 2700 50  0001 C CNN
-	1    6750 2700
+P 6950 2700
+F 0 "#PWR0109" H 6950 2550 50  0001 C CNN
+F 1 "+5V" H 7000 2900 50  0000 C CNN
+F 2 "" H 6950 2700 50  0001 C CNN
+F 3 "" H 6950 2700 50  0001 C CNN
+	1    6950 2700
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+10V #PWR0110
 U 1 1 5F3FED79
-P 6950 2700
-F 0 "#PWR0110" H 6950 2550 50  0001 C CNN
-F 1 "+10V" H 7000 2900 50  0000 C CNN
-F 2 "" H 6950 2700 50  0001 C CNN
-F 3 "" H 6950 2700 50  0001 C CNN
-	1    6950 2700
+P 6750 2700
+F 0 "#PWR0110" H 6750 2550 50  0001 C CNN
+F 1 "+10V" H 6700 2900 50  0000 C CNN
+F 2 "" H 6750 2700 50  0001 C CNN
+F 3 "" H 6750 2700 50  0001 C CNN
+	1    6750 2700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -904,21 +904,21 @@ Wire Wire Line
 	4400 3450 4850 3450
 Wire Wire Line
 	4400 3550 4850 3550
-Text Label 5600 3050 0    50   ~ 0
+Text Label 5650 3750 0    50   ~ 0
 D7
-Text Label 5600 3150 0    50   ~ 0
+Text Label 5650 3650 0    50   ~ 0
 D6
-Text Label 5600 3250 0    50   ~ 0
+Text Label 5650 3550 0    50   ~ 0
 D5
-Text Label 5600 3350 0    50   ~ 0
+Text Label 5650 3450 0    50   ~ 0
 D4
-Text Label 5600 3450 0    50   ~ 0
+Text Label 5650 3350 0    50   ~ 0
 D3
-Text Label 5600 3550 0    50   ~ 0
+Text Label 5650 3250 0    50   ~ 0
 D2
-Text Label 5600 3650 0    50   ~ 0
+Text Label 5650 3150 0    50   ~ 0
 D1
-Text Label 5600 3750 0    50   ~ 0
+Text Label 5650 3050 0    50   ~ 0
 D0
 Text Label 6300 3050 0    50   ~ 0
 D0
