@@ -1,4 +1,4 @@
-# DMX Demonstrator Analog Amplify Module (DMX-IO3)
+# DMX Demonstrator Analog Voltage Module (DMX-IO3)
 
 ![status](https://img.shields.io/badge/status-prototype-orange)
 

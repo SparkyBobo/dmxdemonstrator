@@ -1,11 +1,11 @@
 EESchema Schematic File Version 4
-LIBS:io-analog-amplify-cache
+LIBS:io-analog-voltage-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "DMX Demonstrator - Analog IO Amplify (DMX-IO3)"
+Title "DMX Demonstrator - Analog IO Voltage (DMX-IO3)"
 Date "2023-07-01"
 Rev "1.2"
 Comp "Crazy Giraffe Software"
