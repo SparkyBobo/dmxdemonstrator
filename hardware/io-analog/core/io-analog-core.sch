@@ -71,6 +71,15 @@ F 0 "C1" H 2065 7046 50  0000 L CNN
 F 1 "0.1uF" H 2065 6955 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 1988 6850 50  0001 C CNN
 F 3 "~" H 1950 7000 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 1950 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 1950 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 1950 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 1950 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 1950 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 1950 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 1950 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 1950 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 1950 7000 50  0001 C CNN "MO_Detail_Page"
 	1    1950 7000
 	-1   0    0    -1  
 $EndComp
@@ -112,6 +121,11 @@ F 0 "U1" H 4000 3650 60  0000 C CNN
 F 1 "74LS164" H 4150 3550 60  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 3200 2150 60  0001 L CNN
 F 3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164" H 1400 2000 60  0001 L CNN
+F 4 "en/products/detail/texas-instruments/SN74LS164N/277293" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-1647-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS164N?qs=spW5eSrOWB4KbXBVmPSWoA%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "595-SN74LS164N" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "8-Bit Parallel-Out Serial Shift Register" H 0   0   50  0001 C CNN "Description"
 	1    3900 3000
 	1    0    0    -1  
 $EndComp
@@ -179,7 +193,13 @@ AR Path="/647F57A0" Ref="J1"  Part="1"
 F 0 "J1" H 2800 3617 50  0000 C CNN
 F 1 "IO Extension" H 2800 3526 50  0000 C CNN
 F 2 "Connector_IDC:IDC-Header_2x07_P2.54mm_Horizontal" H 2750 3100 50  0001 C CNN
-F 3 "~" H 2750 3100 50  0001 C CNN
+F 3 "https://www.we-online.com/components/products/datasheet/61201421721.pdf" H 2750 3100 50  0001 C CNN
+F 4 "75AJ1395" H 2750 3100 50  0001 C CNN "NW_PN"
+F 5 "https://www.newark.com/wurth-elektronik/612014235221/conn-r-a-header-14pos-2row-2-54mm/dp/75AJ1395" H 2750 3100 50  0001 C CNN "NW_Detail_Page"
+F 6 "710-61201421721" H 2750 3100 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201421721?qs=PhR8RmCirEbQk5OcjPFu0A%3D%3D" H 2750 3100 50  0001 C CNN "MO_Detail_Page"
+F 8 "732-5407-ND" H 2750 3100 50  0001 C CNN "Digi-Key_PN"
+F 9 "en/products/detail/würth-elektronik/61201421721/4846921?s=N4IgTCBcDaIAQDYCMYAMSAsYkHZsgF0BfIA" H 2750 3100 50  0001 C CNN "DK_Detail_Page"
 	1    2750 3100
 	1    0    0    -1  
 $EndComp
@@ -412,19 +432,6 @@ Wire Wire Line
 	4650 6850 4650 6550
 Wire Wire Line
 	4650 7150 4650 7450
-$Comp
-L Device:C C?
-U 1 1 647F59D7
-P 5600 7250
-AR Path="/647E1209/647F59D7" Ref="C?"  Part="1" 
-AR Path="/647F59D7" Ref="C8"  Part="1" 
-F 0 "C8" H 5715 7296 50  0000 L CNN
-F 1 "0.1uF" H 5715 7205 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5638 7100 50  0001 C CNN
-F 3 "~" H 5600 7250 50  0001 C CNN
-	1    5600 7250
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5600 7050 5400 7050
 $Comp
@@ -435,8 +442,13 @@ AR Path="/647E1209/647F5A12" Ref="VR?"  Part="1"
 AR Path="/647F5A12" Ref="VR1"  Part="1" 
 F 0 "VR1" H 5100 7150 50  0000 R CNN
 F 1 "TL1431" H 5100 7050 50  0000 R CNN
-F 2 "Package_TO_SOT_THT:TO-92L_HandSolder" H 4500 6400 50  0001 L CNN
+F 2 "TO-92-3_Formed_Leads" H 4500 6400 50  0001 L CNN
 F 3 "https://www.ti.com/lit/gpn/TL1431" H 4500 6500 60  0001 L CNN
+F 4 "products/detail/texas-instruments/TL1431CLP/380747" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-10130-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TL1431CLPR?qs=UGVLDq%2F29ugvMf6UgtTXcg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "595-TL1431CLPR" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Precision Voltage Reference" H 0   0   50  0001 C CNN "Description"
 	1    5200 7050
 	1    0    0    -1  
 $EndComp
@@ -481,6 +493,12 @@ F 0 "R9" V 4745 6550 50  0000 C CNN
 F 1 "1.6k" V 4836 6550 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4990 6540 50  0001 C CNN
 F 3 "~" H 4950 6550 50  0001 C CNN
+F 4 "59K8662" V 4950 6550 50  0001 C CNN "NW_PN"
+F 5 "https://www.newark.com/multicomp-pro/mcmf0w4ff1601a50/metal-film-resistor-1-6kohm-250mw/dp/59K8662" V 4950 6550 50  0001 C CNN "NW_Detail_Page"
+F 6 "603-CFR-25JB-52-1K6" V 4950 6550 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/CFR-25JB-52-1K6?qs=oypCK0zG324gUY%252BXSosJrA%3D%3D" V 4950 6550 50  0001 C CNN "MO_Detail_Page"
+F 8 "1.6KQBK-ND" V 4950 6550 50  0001 C CNN "Digi-Key_PN"
+F 9 "en/products/detail/yageo/CFR-25JB-52-1K6/141" V 4950 6550 50  0001 C CNN "DK_Detail_Page"
 	1    4950 6550
 	0    1    1    0   
 $EndComp
@@ -512,10 +530,15 @@ $Comp
 L CrazyGiraffe_DMXDemonstrator:TLC7524CN U3
 U 1 1 648A85B8
 P 5850 2400
-F 0 "U3" H 6000 3050 50  0000 C CNN
-F 1 "TLC7524CN" H 6100 2950 50  0000 C CNN
+F 0 "U3" H 5950 3050 50  0000 L CNN
+F 1 "TLC7524CN" H 5950 2950 50  0000 L CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 5850 2400 50  0001 C CNN
-F 3 "" H 5850 2400 50  0001 C CNN
+F 3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" H 5950 3050 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLC7524CN/277513" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-1868-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLC7524CN?qs=YEaxc5757jOODnhHTXWKGQ%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "595-TLC7524CN" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "8-bit Multiplying Digital to Analog Converter" H 0   0   50  0001 C CNN "Description"
 	1    5850 2400
 	1    0    0    -1  
 $EndComp
@@ -647,7 +670,12 @@ P 5850 4400
 F 0 "U4" H 6000 5050 50  0000 C CNN
 F 1 "TLC7524CN" H 6100 4950 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 5850 4400 50  0001 C CNN
-F 3 "" H 5850 4400 50  0001 C CNN
+F 3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" H 5850 4400 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLC7524CN/277513" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-1868-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLC7524CN?qs=YEaxc5757jOODnhHTXWKGQ%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "595-TLC7524CN" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "8-bit Multiplying Digital to Analog Converter" H 0   0   50  0001 C CNN "Description"
 	1    5850 4400
 	1    0    0    -1  
 $EndComp
@@ -779,7 +807,12 @@ P 7850 2400
 F 0 "U5" H 8000 3050 50  0000 C CNN
 F 1 "TLC7524CN" H 8100 2950 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 7850 2400 50  0001 C CNN
-F 3 "" H 7850 2400 50  0001 C CNN
+F 3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" H 7850 2400 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLC7524CN/277513" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-1868-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLC7524CN?qs=YEaxc5757jOODnhHTXWKGQ%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "595-TLC7524CN" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "8-bit Multiplying Digital to Analog Converter" H 0   0   50  0001 C CNN "Description"
 	1    7850 2400
 	1    0    0    -1  
 $EndComp
@@ -911,7 +944,12 @@ P 7850 4400
 F 0 "U6" H 8000 5050 50  0000 C CNN
 F 1 "TLC7524CN" H 8100 4950 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 7850 4400 50  0001 C CNN
-F 3 "" H 7850 4400 50  0001 C CNN
+F 3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" H 7850 4400 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLC7524CN/277513" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "8-bit Multiplying Digital to Analog Converter" H 0   0   50  0001 C CNN "Description"
+F 6 "296-1868-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 7 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLC7524CN?qs=YEaxc5757jOODnhHTXWKGQ%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 8 "595-TLC7524CN" H 0   0   50  0001 C CNN "MO_PN"
 	1    7850 4400
 	1    0    0    -1  
 $EndComp
@@ -1006,7 +1044,12 @@ P 3500 4200
 F 0 "U2" H 3500 4567 50  0000 C CNN
 F 1 "74LS139" H 3500 4476 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 3500 4200 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS139" H 3500 4200 50  0001 C CNN
+F 3 "https://www.ti.com/lit/gpn/sn74ls139a" H 3500 4200 50  0001 C CNN
+F 4 "296-1640-5-ND" H 3500 4200 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/texas-instruments/SN74LS139AN/277286" H 3500 4200 50  0001 C CNN "DK_Detail_Page"
+F 6 "595-SN74LS139AN" H 3500 4200 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS139AN?qs=3pnr37ZAbK%2FhW2T3DHZDAw%3D%3D" H 3500 4200 50  0001 C CNN "MO_Detail_Page"
+F 8 "Dual 2-line to 4-line decoders" H 3500 4200 50  0001 C CNN "Description"
 	1    3500 4200
 	1    0    0    -1  
 $EndComp
@@ -1014,10 +1057,15 @@ $Comp
 L 74xx:74LS139 U2
 U 2 1 64A20F0B
 P 3500 5400
-F 0 "U2" H 3500 5767 50  0000 C CNN
-F 1 "74LS139" H 3500 5676 50  0000 C CNN
+F 0 "U2" H 3200 5750 50  0000 C CNN
+F 1 "74LS139" H 3200 5050 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 3500 5400 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS139" H 3500 5400 50  0001 C CNN
+F 3 "https://www.ti.com/lit/gpn/sn74ls139a" H 3500 5400 50  0001 C CNN
+F 4 "296-1640-5-ND" H 3500 5400 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/texas-instruments/SN74LS139AN/277286" H 3500 5400 50  0001 C CNN "DK_Detail_Page"
+F 6 "595-SN74LS139AN" H 3500 5400 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS139AN?qs=3pnr37ZAbK%2FhW2T3DHZDAw%3D%3D" H 3500 5400 50  0001 C CNN "MO_Detail_Page"
+F 8 "Dual 2-line to 4-line decoders" H 3500 5400 50  0001 C CNN "Description"
 	2    3500 5400
 	1    0    0    -1  
 $EndComp
@@ -1025,10 +1073,15 @@ $Comp
 L 74xx:74LS139 U2
 U 3 1 64A20F90
 P 1050 5450
-F 0 "U2" H 1280 5496 50  0000 L CNN
-F 1 "74LS139" H 1280 5405 50  0000 L CNN
+F 0 "U2" H 750 5800 50  0000 C CNN
+F 1 "74LS139" H 750 5100 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 1050 5450 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS139" H 1050 5450 50  0001 C CNN
+F 3 "https://www.ti.com/lit/gpn/sn74ls139a" H 1050 5450 50  0001 C CNN
+F 4 "296-1640-5-ND" H 1050 5450 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/texas-instruments/SN74LS139AN/277286" H 1050 5450 50  0001 C CNN "DK_Detail_Page"
+F 6 "595-SN74LS139AN" H 1050 5450 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS139AN?qs=3pnr37ZAbK%2FhW2T3DHZDAw%3D%3D" H 1050 5450 50  0001 C CNN "MO_Detail_Page"
+F 8 "Dual 2-line to 4-line decoders" H 1050 5450 50  0001 C CNN "Description"
 	3    1050 5450
 	1    0    0    -1  
 $EndComp
@@ -1082,71 +1135,6 @@ Wire Wire Line
 Wire Wire Line
 	3000 4400 2900 4400
 $Comp
-L Device:C C?
-U 1 1 64C58E6F
-P 4200 7000
-AR Path="/647E1209/64C58E6F" Ref="C?"  Part="1" 
-AR Path="/64C58E6F" Ref="C6"  Part="1" 
-F 0 "C6" H 4315 7046 50  0000 L CNN
-F 1 "0.1uF" H 4315 6955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 4238 6850 50  0001 C CNN
-F 3 "~" H 4200 7000 50  0001 C CNN
-	1    4200 7000
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 64C9AF48
-P 3750 7000
-AR Path="/647E1209/64C9AF48" Ref="C?"  Part="1" 
-AR Path="/64C9AF48" Ref="C5"  Part="1" 
-F 0 "C5" H 3865 7046 50  0000 L CNN
-F 1 "0.1uF" H 3865 6955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3788 6850 50  0001 C CNN
-F 3 "~" H 3750 7000 50  0001 C CNN
-	1    3750 7000
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 64C9AF4E
-P 3300 7000
-AR Path="/647E1209/64C9AF4E" Ref="C?"  Part="1" 
-AR Path="/64C9AF4E" Ref="C4"  Part="1" 
-F 0 "C4" H 3415 7046 50  0000 L CNN
-F 1 "0.1uF" H 3415 6955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3338 6850 50  0001 C CNN
-F 3 "~" H 3300 7000 50  0001 C CNN
-	1    3300 7000
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 64C9AF54
-P 2850 7000
-AR Path="/647E1209/64C9AF54" Ref="C?"  Part="1" 
-AR Path="/64C9AF54" Ref="C3"  Part="1" 
-F 0 "C3" H 2965 7046 50  0000 L CNN
-F 1 "0.1uF" H 2965 6955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 2888 6850 50  0001 C CNN
-F 3 "~" H 2850 7000 50  0001 C CNN
-	1    2850 7000
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 64CA9911
-P 2400 7000
-AR Path="/647E1209/64CA9911" Ref="C?"  Part="1" 
-AR Path="/64CA9911" Ref="C2"  Part="1" 
-F 0 "C2" H 2515 7046 50  0000 L CNN
-F 1 "0.1uF" H 2515 6955 50  0000 L CNN
-F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 2438 6850 50  0001 C CNN
-F 3 "~" H 2400 7000 50  0001 C CNN
-	1    2400 7000
-	-1   0    0    -1  
-$EndComp
-$Comp
 L Device:CP1 C7
 U 1 1 64CB0FCF
 P 4650 7000
@@ -1154,6 +1142,17 @@ F 0 "C7" H 4900 7050 50  0000 R CNN
 F 1 "10uF" H 4950 6950 50  0000 R CNN
 F 2 "Capacitor_THT:CP_Radial_D4.0mm_P1.50mm" H 4650 7000 50  0001 C CNN
 F 3 "~" H 4650 7000 50  0001 C CNN
+F 4 "COM-00523" H 4650 7000 50  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/523" H 4650 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "2195" H 4650 7000 50  0001 C CNN "AF_PN"
+F 7 "https://www.adafruit.com/product/2195" H 4650 7000 50  0001 C CNN "AF_Detail_Page"
+F 8 "P10425CT-ND" H 4650 7000 50  0001 C CNN "Digi-Key_PN"
+F 9 "en/products/detail/panasonic-electronic-components/ECA-1HM100I/268510" H 4650 7000 50  0001 C CNN "DK_Detail_Page"
+F 10 "667-ECA-1HM100I" H 4650 7000 50  0001 C CNN "MO_PN"
+F 11 "https://www.mouser.com/ProductDetail/Panasonic/ECA-1HM100I" H 4650 7000 50  0001 C CNN "MO_Detail_Page"
+F 12 "ECA-1HM100I" H 4650 7000 50  0001 C CNN "NW_PN"
+F 13 "https://www.newark.com/panasonic/eca-1hm100i/aluminum-electrolytic-capacitor/dp/48W7714?" H 4650 7000 50  0001 C CNN "NW_Page_Detail"
+F 14 "Filter Capacitor" H 4650 7000 50  0001 C CNN "Description"
 	1    4650 7000
 	-1   0    0    -1  
 $EndComp
@@ -1342,7 +1341,12 @@ P 9350 3800
 F 0 "U7" H 9350 4167 50  0000 C CNN
 F 1 "TLV2772" H 9350 4076 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 3800 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 9350 3800 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 3800 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    9350 3800
 	1    0    0    -1  
 $EndComp
@@ -1353,7 +1357,12 @@ P 9350 4500
 F 0 "U7" H 9350 4867 50  0000 C CNN
 F 1 "TLV2772" H 9350 4776 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 4500 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 9350 4500 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 4500 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	2    9350 4500
 	1    0    0    -1  
 $EndComp
@@ -1364,7 +1373,7 @@ P 1400 7000
 F 0 "U8" H 1500 7050 50  0000 R CNN
 F 1 "TLV2772" H 1650 6950 50  0000 R CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 1400 7000 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 1400 7000 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 1400 7000 50  0001 C CNN
 	3    1400 7000
 	-1   0    0    -1  
 $EndComp
@@ -1375,7 +1384,12 @@ P 9350 2400
 F 0 "U8" H 9350 2767 50  0000 C CNN
 F 1 "TLV2772" H 9350 2676 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 2400 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 9350 2400 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 2400 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    9350 2400
 	1    0    0    -1  
 $EndComp
@@ -1386,7 +1400,12 @@ P 9350 3100
 F 0 "U8" H 9350 3467 50  0000 C CNN
 F 1 "TLV2772" H 9350 3376 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 3100 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 9350 3100 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 3100 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	2    9350 3100
 	1    0    0    -1  
 $EndComp
@@ -1397,7 +1416,7 @@ P 1150 7000
 F 0 "U7" H 850 7050 50  0000 L CNN
 F 1 "TLV2772" H 700 6950 50  0000 L CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 1150 7000 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 1150 7000 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 1150 7000 50  0001 C CNN
 	3    1150 7000
 	1    0    0    -1  
 $EndComp
@@ -1409,6 +1428,11 @@ F 0 "J3" H 10480 3342 50  0000 L CNN
 F 1 "Analog Extension" H 10480 3251 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical" H 10400 3350 50  0001 C CNN
 F 3 "~" H 10400 3350 50  0001 C CNN
+F 4 "PRT-11895" H 10400 3350 50  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/11895" H 10400 3350 50  0001 C CNN "SP_Detail_Page"
+F 6 "992-8FX1-254MM" H 10400 3350 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Gravitech/8Fx1-254mm?qs=Vxac6xGyzPk0zR%2F1vGr2Gg%3D%3D" H 10400 3350 50  0001 C CNN "MO_Detail_Page"
+F 8 "Header - 8 Pin" H 10400 3350 50  0001 C CNN "Description"
 	1    10400 3350
 	1    0    0    -1  
 $EndComp
@@ -1546,12 +1570,148 @@ Wire Wire Line
 	5950 6550 5950 6500
 Wire Wire Line
 	5600 6550 5950 6550
+$Comp
+L Device:C C?
+U 1 1 64E35A2C
+P 2400 7000
+AR Path="/647E1209/64E35A2C" Ref="C?"  Part="1" 
+AR Path="/64E35A2C" Ref="C2"  Part="1" 
+F 0 "C2" H 2515 7046 50  0000 L CNN
+F 1 "0.1uF" H 2515 6955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 2438 6850 50  0001 C CNN
+F 3 "~" H 2400 7000 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 2400 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 2400 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 2400 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 2400 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 2400 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 2400 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 2400 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 2400 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 2400 7000 50  0001 C CNN "MO_Detail_Page"
+	1    2400 7000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64E35A8E
+P 2850 7000
+AR Path="/647E1209/64E35A8E" Ref="C?"  Part="1" 
+AR Path="/64E35A8E" Ref="C3"  Part="1" 
+F 0 "C3" H 2965 7046 50  0000 L CNN
+F 1 "0.1uF" H 2965 6955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 2888 6850 50  0001 C CNN
+F 3 "~" H 2850 7000 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 2850 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 2850 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 2850 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 2850 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 2850 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 2850 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 2850 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 2850 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 2850 7000 50  0001 C CNN "MO_Detail_Page"
+	1    2850 7000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64E35B08
+P 3300 7000
+AR Path="/647E1209/64E35B08" Ref="C?"  Part="1" 
+AR Path="/64E35B08" Ref="C4"  Part="1" 
+F 0 "C4" H 3415 7046 50  0000 L CNN
+F 1 "0.1uF" H 3415 6955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3338 6850 50  0001 C CNN
+F 3 "~" H 3300 7000 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 3300 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 3300 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 3300 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 3300 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 3300 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 3300 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 3300 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 3300 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 3300 7000 50  0001 C CNN "MO_Detail_Page"
+	1    3300 7000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64E35B6E
+P 3750 7000
+AR Path="/647E1209/64E35B6E" Ref="C?"  Part="1" 
+AR Path="/64E35B6E" Ref="C5"  Part="1" 
+F 0 "C5" H 3865 7046 50  0000 L CNN
+F 1 "0.1uF" H 3865 6955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3788 6850 50  0001 C CNN
+F 3 "~" H 3750 7000 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 3750 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 3750 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 3750 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 3750 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 3750 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 3750 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 3750 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 3750 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 3750 7000 50  0001 C CNN "MO_Detail_Page"
+	1    3750 7000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64E35BDE
+P 4200 7000
+AR Path="/647E1209/64E35BDE" Ref="C?"  Part="1" 
+AR Path="/64E35BDE" Ref="C6"  Part="1" 
+F 0 "C6" H 4315 7046 50  0000 L CNN
+F 1 "0.1uF" H 4315 6955 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 4238 6850 50  0001 C CNN
+F 3 "~" H 4200 7000 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 4200 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 4200 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 4200 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 4200 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 4200 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 4200 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 4200 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 4200 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 4200 7000 50  0001 C CNN "MO_Detail_Page"
+	1    4200 7000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 64E35C48
+P 5600 7250
+AR Path="/647E1209/64E35C48" Ref="C?"  Part="1" 
+AR Path="/64E35C48" Ref="C8"  Part="1" 
+F 0 "C8" H 5715 7296 50  0000 L CNN
+F 1 "0.1uF" H 5715 7205 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5638 7100 50  0001 C CNN
+F 3 "~" H 5600 7250 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 5600 7250 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 5600 7250 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 5600 7250 50  0001 C CNN "SP_PN"
+F 7 "753" H 5600 7250 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 5600 7250 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 5600 7250 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 5600 7250 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 5600 7250 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 5600 7250 50  0001 C CNN "MO_Detail_Page"
+	1    5600 7250
+	-1   0    0    -1  
+$EndComp
 Wire Bus Line
-	7200 1300 7200 4600
+	2750 4200 2750 4750
 Wire Bus Line
-	5200 1300 5200 4600
+	4600 1200 7100 1200
 Wire Bus Line
-	4500 1300 4500 3200
+	4800 1400 6900 1400
+Wire Bus Line
+	2250 3000 2250 4750
+Wire Bus Line
+	2350 4850 4600 4850
 Wire Bus Line
 	4350 4200 4350 4750
 Wire Bus Line
@@ -1559,13 +1719,9 @@ Wire Bus Line
 Wire Bus Line
 	5000 1500 5000 4850
 Wire Bus Line
-	2350 4850 4600 4850
+	4500 1300 4500 3200
 Wire Bus Line
-	2250 3000 2250 4750
+	5200 1300 5200 4600
 Wire Bus Line
-	2750 4200 2750 4750
-Wire Bus Line
-	4600 1200 7100 1200
-Wire Bus Line
-	4800 1400 6900 1400
+	7200 1300 7200 4600
 $EndSCHEMATC

@@ -115,6 +115,11 @@ F0 "U" -255 543 60 H V L CNN
 F1 "CrazyGiraffe_DMXDemonstrator:74LS164" 0 950 60 H V C CNN
 F2 "Package_DIP:DIP-14_W7.62mm" -700 -850 60 H I L CNN
 F3 "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164" -2500 -1000 60 H I L CNN
+F4 "296-1647-5-ND" -155 643 50 H V C CNN "Digi-Key_PN"
+F5 "en/products/detail/texas-instruments/SN74LS164N/277293" -55 743 50 H V C CNN "DK_Detail_Page"
+F6 "595-SN74LS164N" 45 843 50 H V C CNN "MO_PN"
+F7 "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS164N?qs=spW5eSrOWB4KbXBVmPSWoA%3D%3D" 145 943 50 H V C CNN "MO_Detail_Page"
+F8 "8-Bit Parallel-Out Serial Shift Register" 245 1043 50 H V C CNN "Description"
 DRAW
 S -300 500 250 -400 0 1 0 f
 X A 1 -400 200 100 R 50 50 1 1 I
@@ -141,6 +146,11 @@ F0 "VR" -100 125 50 H V C CNN
 F1 "CrazyGiraffe_DMXDemonstrator:TL1431" -225 0 50 V V C CNN
 F2 "TO-92-3_Formed_Leads" -700 -650 50 H I L CNN
 F3 "https://www.ti.com/lit/gpn/TL1431" -700 -550 60 H I L CNN
+F4 "296-10130-5-ND" 0 225 50 H V C CNN "Digi-Key_PN"
+F5 "products/detail/texas-instruments/TL1431CLP/380747" 100 325 50 H V C CNN "DK_Detail_Page"
+F6 "595-TL1431CLPR" 200 425 50 H V C CNN "MO_PN"
+F7 "https://www.mouser.com/ProductDetail/Texas-Instruments/TL1431CLPR?qs=UGVLDq%2F29ugvMf6UgtTXcg%3D%3D" 300 525 50 H V C CNN "MO_Detail_Page"
+F8 "Precision Voltage Reference" 400 625 50 H V C CNN "Description"
 DRAW
 P 2 0 1 0 -75 25 -50 50 N
 P 2 0 1 0 -50 50 50 50 N
@@ -159,7 +169,12 @@ DEF CrazyGiraffe_DMXDemonstrator:TLC7524CN U 0 20 Y Y 1 F N
 F0 "U" 100 650 50 H V L CNN
 F1 "CrazyGiraffe_DMXDemonstrator:TLC7524CN" 100 550 50 H V L CNN
 F2 "Package_DIP:DIP-16_W7.62mm" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
+F3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" 100 650 50 H I C CNN
+F4 "296-1868-5-ND" 300 850 50 H V C CNN "Digi-Key_PN"
+F5 "en/products/detail/texas-instruments/TLC7524CN/277513" 300 850 50 H V C CNN "DK_Detail_Page"
+F6 "595-TLC7524CN" 400 950 50 H V C CNN "MO_PN"
+F7 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLC7524CN?qs=YEaxc5757jOODnhHTXWKGQ%3D%3D" 500 1050 50 H V C CNN "MO_Detail_Page"
+F8 "8-bit Multiplying Digital to Analog Converter" 600 1150 50 H V C CNN "Description"
 $FPLIST
  DIP*W7.62mm*
 $ENDFPLIST
@@ -189,8 +204,13 @@ ENDDEF
 DEF CrazyGiraffe_DMXDemonstrator:TLV2772CP U 0 5 Y Y 3 L N
 F0 "U" 0 200 50 H V L CNN
 F1 "CrazyGiraffe_DMXDemonstrator:TLV2772CP" 0 -200 50 H V L CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
+F2 "Package_DIP:DIP-8_W7.62mm" -100 100 50 H I C CNN
+F3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" 0 200 50 H I C CNN
+F4 "296-7592-5-ND" 100 300 50 H V C CNN "Digi-Key_PN"
+F5 "en/products/detail/texas-instruments/TLV2772CP/374329" 200 400 50 H V C CNN "DK_Detail_Page"
+F6 "TLV2772CP" 300 500 50 H V C CNN "MO_PN"
+F7 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" 400 600 50 H V C CNN "MO_Detail_Page"
+F8 "Rail-to-Rail Operational Amplifier" 500 700 50 H V C CNN "Description"
 $FPLIST
  SOIC*3.9x4.9mm*P1.27mm*
  DIP*W7.62mm*

@@ -56,6 +56,11 @@ F 0 "J2" H 7650 2200 50  0000 L CNN
 F 1 "Output" H 7500 2300 50  0000 L CNN
 F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_5-G-5,08_1x05_P5.08mm_Horizontal" H 7650 2650 50  0001 C CNN
 F 3 "~" H 7650 2650 50  0001 C CNN
+F 4 "277-1109-ND" H 9100 3150 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/phoenix-contact/1757271/260477" H 9100 3150 50  0001 C CNN "DK_Detail_Page"
+F 6 "651-1757271" H 9100 3150 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Phoenix-Contact/1757271?qs=uD%2FdkN7XIa3szA65xzhSaQ%3D%3D" H 9100 3150 50  0001 C CNN "MO_Detail_Page"
+F 8 "Screw Terminal" H 7650 2650 50  0001 C CNN "Description"
 	1    7650 2650
 	1    0    0    1   
 $EndComp
@@ -69,6 +74,17 @@ F 0 "C3" H 3915 7096 50  0000 L CNN
 F 1 "10uF" H 3915 7005 50  0000 L CNN
 F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 3800 7050 50  0001 C CNN
 F 3 "~" H 3800 7050 50  0001 C CNN
+F 4 "COM-00523" H 4650 7000 50  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/523" H 4650 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "2195" H 4650 7000 50  0001 C CNN "AF_PN"
+F 7 "https://www.adafruit.com/product/2195" H 4650 7000 50  0001 C CNN "AF_Detail_Page"
+F 8 "P10425CT-ND" H 4650 7000 50  0001 C CNN "Digi-Key_PN"
+F 9 "en/products/detail/panasonic-electronic-components/ECA-1HM100I/268510" H 4650 7000 50  0001 C CNN "DK_Detail_Page"
+F 10 "667-ECA-1HM100I" H 4650 7000 50  0001 C CNN "MO_PN"
+F 11 "https://www.mouser.com/ProductDetail/Panasonic/ECA-1HM100I" H 4650 7000 50  0001 C CNN "MO_Detail_Page"
+F 12 "ECA-1HM100I" H 4650 7000 50  0001 C CNN "NW_PN"
+F 13 "https://www.newark.com/panasonic/eca-1hm100i/aluminum-electrolytic-capacitor/dp/48W7714?" H 4650 7000 50  0001 C CNN "NW_Page_Detail"
+F 14 "Filter Capacitor" H 3800 7050 50  0001 C CNN "Description"
 	1    3800 7050
 	1    0    0    -1  
 $EndComp
@@ -91,6 +107,8 @@ F 9 "/product-detail/en/stmicroelectronics/LM317T/497-1575-5-ND/591677" H 3050 7
 F 10 "IC REG LIN POS ADJ 1.5A TO220AB" H 3050 7600 60  0001 L CNN "Description"
 F 11 "STMicroelectronics" H 3050 7700 60  0001 L CNN "Manufacturer"
 F 12 "Active" H 3050 7800 60  0001 L CNN "Status"
+F 13 "511-LM317T" H 2950 6650 50  0001 C CNN "MO_PN"
+F 14 "https://www.mouser.com/ProductDetail/STMicroelectronics/LM317T?qs=swDD%252BF%252Bps7c8uLyY%252B3mJJw%3D%3D" H 2950 6650 50  0001 C CNN "MO_Detail_Page"
 	1    2850 6600
 	1    0    0    -1  
 $EndComp
@@ -104,6 +122,10 @@ F 0 "R9" H 3232 6804 50  0000 R CNN
 F 1 "392 1%" H 3232 6895 50  0000 R CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3340 6840 50  0001 C CNN
 F 3 "~" H 3300 6850 50  0001 C CNN
+F 4 "392XBK-ND" H 3400 6900 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-392R/12919" H 3400 6900 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-392R" H 3400 6900 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-392R?qs=oAGoVhmvjhy6pvrooMNCwg%3D%3D" H 3400 6900 50  0001 C CNN "MO_Detail_Page"
 	1    3300 6850
 	-1   0    0    1   
 $EndComp
@@ -117,6 +139,10 @@ F 0 "R10" H 3232 7204 50  0000 R CNN
 F 1 "2.74k 1%" H 3232 7295 50  0000 R CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3340 7240 50  0001 C CNN
 F 3 "~" H 3300 7250 50  0001 C CNN
+F 4 "13-MFR-25FRF52-2K74TR-ND" H 3400 7300 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FRF52-2K74/14933" H 3400 7300 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FRF52-2K74" H 3400 7300 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-2K74?qs=oAGoVhmvjhwhcYVvwkvvFg%3D%3D" H 3400 7300 50  0001 C CNN "MO_Detail_Page"
 	1    3300 7250
 	-1   0    0    1   
 $EndComp
@@ -163,6 +189,15 @@ F 0 "C1" H 4365 7096 50  0000 L CNN
 F 1 "0.1uF" H 4365 7005 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 4288 6900 50  0001 C CNN
 F 3 "~" H 4250 7050 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 1950 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 1950 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 1950 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 1950 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 1950 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 1950 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 1950 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 1950 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 1950 7000 50  0001 C CNN "MO_Detail_Page"
 	1    4250 7050
 	1    0    0    -1  
 $EndComp
@@ -293,6 +328,10 @@ F 0 "R3" V 4995 2950 50  0000 C CNN
 F 1 "22.6k 1%" V 5086 2950 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5240 2940 50  0001 C CNN
 F 3 "~" H 5200 2950 50  0001 C CNN
+F 4 "22.6KXBK-ND" V 5200 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-22K6/13286" V 5200 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-22K6" V 5200 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-22K6?qs=oAGoVhmvjhyqOVvYs9FeFg%3D%3D" V 5200 2050 50  0001 C CNN "MO_Detail_Page"
 	1    5200 2950
 	0    -1   1    0   
 $EndComp
@@ -307,6 +346,10 @@ F 0 "R4" V 6295 2950 50  0000 C CNN
 F 1 "68.1k 1%" V 6386 2950 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6540 2940 50  0001 C CNN
 F 3 "~" H 6500 2950 50  0001 C CNN
+F 4 "68.1KXBK-ND" V 6500 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-68K1/13440" V 6500 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-68K1" V 6500 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-68K1?qs=oAGoVhmvjhxWiKYWiCojiA%3D%3D" V 6500 2050 50  0001 C CNN "MO_Detail_Page"
 	1    6500 2950
 	0    -1   1    0   
 $EndComp
@@ -336,6 +379,10 @@ F 0 "R1" V 4995 2050 50  0000 C CNN
 F 1 "22.6k 1%" V 5086 2050 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5240 2040 50  0001 C CNN
 F 3 "~" H 5200 2050 50  0001 C CNN
+F 4 "22.6KXBK-ND" V 5200 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-22K6/13286" V 5200 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-22K6" V 5200 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-22K6?qs=oAGoVhmvjhyqOVvYs9FeFg%3D%3D" V 5200 2050 50  0001 C CNN "MO_Detail_Page"
 	1    5200 2050
 	0    -1   1    0   
 $EndComp
@@ -350,6 +397,10 @@ F 0 "R2" V 6295 2050 50  0000 C CNN
 F 1 "68.1k 1%" V 6386 2050 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6540 2040 50  0001 C CNN
 F 3 "~" H 6500 2050 50  0001 C CNN
+F 4 "68.1KXBK-ND" V 6500 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-68K1/13440" V 6500 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-68K1" V 6500 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-68K1?qs=oAGoVhmvjhxWiKYWiCojiA%3D%3D" V 6500 2050 50  0001 C CNN "MO_Detail_Page"
 	1    6500 2050
 	0    1    1    0   
 $EndComp
@@ -373,6 +424,10 @@ F 0 "R7" V 4995 4750 50  0000 C CNN
 F 1 "22.6k 1%" V 5086 4750 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5240 4740 50  0001 C CNN
 F 3 "~" H 5200 4750 50  0001 C CNN
+F 4 "22.6KXBK-ND" V 5200 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-22K6/13286" V 5200 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-22K6" V 5200 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-22K6?qs=oAGoVhmvjhyqOVvYs9FeFg%3D%3D" V 5200 2050 50  0001 C CNN "MO_Detail_Page"
 	1    5200 4750
 	0    -1   1    0   
 $EndComp
@@ -387,6 +442,10 @@ F 0 "R8" V 6295 4750 50  0000 C CNN
 F 1 "68.1k 1%" V 6386 4750 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6540 4740 50  0001 C CNN
 F 3 "~" H 6500 4750 50  0001 C CNN
+F 4 "68.1KXBK-ND" V 6500 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-68K1/13440" V 6500 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-68K1" V 6500 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-68K1?qs=oAGoVhmvjhxWiKYWiCojiA%3D%3D" V 6500 2050 50  0001 C CNN "MO_Detail_Page"
 	1    6500 4750
 	0    -1   1    0   
 $EndComp
@@ -416,6 +475,10 @@ F 0 "R5" V 4995 3850 50  0000 C CNN
 F 1 "22.6k 1%" V 5086 3850 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5240 3840 50  0001 C CNN
 F 3 "~" H 5200 3850 50  0001 C CNN
+F 4 "22.6KXBK-ND" V 5200 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-22K6/13286" V 5200 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-22K6" V 5200 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-22K6?qs=oAGoVhmvjhyqOVvYs9FeFg%3D%3D" V 5200 2050 50  0001 C CNN "MO_Detail_Page"
 	1    5200 3850
 	0    -1   1    0   
 $EndComp
@@ -430,6 +493,10 @@ F 0 "R6" V 6295 3850 50  0000 C CNN
 F 1 "68.1k 1%" V 6386 3850 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6540 3840 50  0001 C CNN
 F 3 "~" H 6500 3850 50  0001 C CNN
+F 4 "68.1KXBK-ND" V 6500 2050 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/yageo/MFR-25FBF52-68K1/13440" V 6500 2050 50  0001 C CNN "DK_Detail_Page"
+F 6 "603-MFR-25FBF52-68K1" V 6500 2050 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-68K1?qs=oAGoVhmvjhxWiKYWiCojiA%3D%3D" V 6500 2050 50  0001 C CNN "MO_Detail_Page"
 	1    6500 3850
 	0    -1   1    0   
 $EndComp
@@ -494,6 +561,15 @@ F 0 "D1" H 2050 6816 50  0000 C CNN
 F 1 "1N5819" H 2050 6725 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 2050 6425 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 2050 6600 50  0001 C CNN
+F 4 "COM-10926" H 2150 6650 50  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/10926" H 2150 6650 50  0001 C CNN "SP_Detail_Page"
+F 6 "1N5819-E3/54GITR-ND" H 2150 6650 50  0001 C CNN "Digi-Key_PN"
+F 7 "en/products/detail/vishay-general-semiconductor-diodes-division/1N5819-E3-54/1023527" H 2150 6650 50  0001 C CNN "DK_Detail_Page"
+F 8 "625-1N5819-E3" H 2150 6650 50  0001 C CNN "MO_PN"
+F 9 "https://www.mouser.com/ProductDetail/Vishay-General-Semiconductor/1N5819-E3-54?qs=7w0fSgRKp93guDuu%252B5hJ0Q%3D%3D" H 2150 6650 50  0001 C CNN "MO_Detail_Page"
+F 10 "78K2616" H 2150 6650 50  0001 C CNN "NW_PN"
+F 11 "https://www.newark.com/vishay/1n5819-e3-54/schottky-rectifier-1a-40v-do-204al/dp/78K2616?st=1n5819-e3/54" H 2150 6650 50  0001 C CNN "NW_Detail_Page"
+F 12 "Reverse Voltage Protection" H 2050 6600 50  0001 C CNN "Description"
 	1    2050 6600
 	-1   0    0    -1  
 $EndComp
@@ -530,6 +606,11 @@ F 0 "J3" H 1250 6400 50  0000 C CNN
 F 1 "Power" H 1250 6500 50  0000 C CNN
 F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 1350 6700 50  0001 C CNN
 F 3 "~" H 1350 6700 50  0001 C CNN
+F 4 "277-1106-ND" H 1450 6750 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/phoenix-contact/1757242/260474" H 1450 6750 50  0001 C CNN "DK_Detail_Page"
+F 6 "651-1757242" H 1450 6750 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Phoenix-Contact/1757242?qs=uD%2FdkN7XIa3Ejiz9qDxlzw%3D%3D" H 1450 6750 50  0001 C CNN "MO_Detail_Page"
+F 8 "Screw Terminal" H 1350 6700 50  0001 C CNN "Description"
 	1    1350 6700
 	-1   0    0    1   
 $EndComp
@@ -544,8 +625,10 @@ AR Path="/647E1209/647F5957" Ref="J?"  Part="1"
 F 0 "J4" H 1406 7584 45  0000 C CNN
 F 1 "Power" H 1406 7500 45  0000 C CNN
 F 2 "Connectors:POWER_JACK_PTH_BREAD" H 1450 7550 20  0001 C CNN
-F 3 "" H 1450 7300 50  0001 C CNN
-F 4 "CONN-08197" H 1406 7511 60  0001 C CNN "Field4"
+F 3 "https://www.sparkfun.com/products/10811" H 1550 7350 50  0001 C CNN
+F 4 "CONN-08197" H 1406 7511 60  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/10811" H 1550 7350 50  0001 C CNN "SP_Detail_Page"
+F 6 "DC Barrel Jack" H 1450 7300 50  0001 C CNN "Description"
 	1    1450 7300
 	1    0    0    -1  
 $EndComp
@@ -652,6 +735,17 @@ F 0 "C4" H 2515 7096 50  0000 L CNN
 F 1 "10uF" H 2515 7005 50  0000 L CNN
 F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" H 2400 7050 50  0001 C CNN
 F 3 "~" H 2400 7050 50  0001 C CNN
+F 4 "COM-00523" H 4650 7000 50  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/523" H 4650 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "2195" H 4650 7000 50  0001 C CNN "AF_PN"
+F 7 "https://www.adafruit.com/product/2195" H 4650 7000 50  0001 C CNN "AF_Detail_Page"
+F 8 "P10425CT-ND" H 4650 7000 50  0001 C CNN "Digi-Key_PN"
+F 9 "en/products/detail/panasonic-electronic-components/ECA-1HM100I/268510" H 4650 7000 50  0001 C CNN "DK_Detail_Page"
+F 10 "667-ECA-1HM100I" H 4650 7000 50  0001 C CNN "MO_PN"
+F 11 "https://www.mouser.com/ProductDetail/Panasonic/ECA-1HM100I" H 4650 7000 50  0001 C CNN "MO_Detail_Page"
+F 12 "ECA-1HM100I" H 4650 7000 50  0001 C CNN "NW_PN"
+F 13 "https://www.newark.com/panasonic/eca-1hm100i/aluminum-electrolytic-capacitor/dp/48W7714?" H 4650 7000 50  0001 C CNN "NW_Page_Detail"
+F 14 "Filter Capacitor" H 2400 7050 50  0001 C CNN "Description"
 	1    2400 7050
 	1    0    0    -1  
 $EndComp
@@ -719,6 +813,11 @@ F 0 "J1" H 3450 3000 50  0000 C CNN
 F 1 "Analog Extension" H 3700 2900 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical" H 3300 2950 50  0001 C CNN
 F 3 "~" H 3300 2950 50  0001 C CNN
+F 4 "PRT-09279" H 3950 2100 50  0001 C CNN "SP_PN"
+F 5 "https://www.sparkfun.com/products/9279" H 3950 2100 50  0001 C CNN "SP_Detail_Page"
+F 6 "992-8FX1L-254MM" H 3950 2100 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Gravitech/8Fx1L-254mm?qs=fkzBJ5HM%252BdAyuablm941Ag%3D%3D" H 3950 2100 50  0001 C CNN "MO_Detail_Page"
+F 8 "Arduino Stackable Header - 8 Pin" H 3950 2100 50  0001 C CNN "Description"
 	1    3300 2950
 	-1   0    0    -1  
 $EndComp
@@ -739,7 +838,12 @@ P 6000 1650
 F 0 "U1" H 6000 2017 50  0000 C CNN
 F 1 "TLV2772" H 6000 1926 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 6000 1650 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 6000 1650 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 6000 1650 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    6000 1650
 	1    0    0    -1  
 $EndComp
@@ -750,7 +854,12 @@ P 6000 3450
 F 0 "U2" H 6000 3817 50  0000 C CNN
 F 1 "TLV2772" H 6000 3726 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 6000 3450 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 6000 3450 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 6000 3450 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    6000 3450
 	1    0    0    -1  
 $EndComp
@@ -761,7 +870,12 @@ P 6000 2550
 F 0 "U1" H 6000 2917 50  0000 C CNN
 F 1 "TLV2772" H 6000 2826 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 6000 2550 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 6000 2550 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 6000 2550 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	2    6000 2550
 	1    0    0    -1  
 $EndComp
@@ -772,7 +886,12 @@ P 6000 4350
 F 0 "U2" H 6000 4717 50  0000 C CNN
 F 1 "TLV2772" H 6000 4626 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 6000 4350 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 6000 4350 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 6000 4350 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	2    6000 4350
 	1    0    0    -1  
 $EndComp
@@ -796,6 +915,15 @@ F 0 "C2" H 4815 7096 50  0000 L CNN
 F 1 "0.1uF" H 4815 7005 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 4738 6900 50  0001 C CNN
 F 3 "~" H 4700 7050 50  0001 C CNN
+F 4 "Decoupling Capacitor" H 1950 7000 50  0001 C CNN "Description"
+F 5 "https://www.sparkfun.com/products/8375" H 1950 7000 50  0001 C CNN "SP_Detail_Page"
+F 6 "COM-08375" H 1950 7000 50  0001 C CNN "SP_PN"
+F 7 "753" H 1950 7000 50  0001 C CNN "AF_PN"
+F 8 "https://www.adafruit.com/product/753" H 1950 7000 50  0001 C CNN "AF_Detail_Page"
+F 9 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 1950 7000 50  0001 C CNN "NW_Detail_Page"
+F 10 "13K6284" H 1950 7000 50  0001 C CNN "NW_PN"
+F 11 "80-C320C104K5R7301" H 1950 7000 50  0001 C CNN "MO_PN"
+F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 1950 7000 50  0001 C CNN "MO_Detail_Page"
 	1    4700 7050
 	1    0    0    -1  
 $EndComp
@@ -806,7 +934,7 @@ P 5200 7000
 F 0 "U1" H 5158 7046 50  0000 L CNN
 F 1 "TLV2772" H 5158 6955 50  0000 L CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 5200 7000 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 5200 7000 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 5200 7000 50  0001 C CNN
 	3    5200 7000
 	1    0    0    -1  
 $EndComp
@@ -817,7 +945,7 @@ P 5650 7000
 F 0 "U2" H 5608 7046 50  0000 L CNN
 F 1 "TLV2772" H 5608 6955 50  0000 L CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 5650 7000 50  0001 C CNN
-F 3 "https://www.ti.com/lit/gpn/tlv2771" H 5650 7000 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 5650 7000 50  0001 C CNN
 	3    5650 7000
 	1    0    0    -1  
 $EndComp
