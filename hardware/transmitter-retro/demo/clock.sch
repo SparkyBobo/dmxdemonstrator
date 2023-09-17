@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 3 4
 Title "DMX Demonstrator - Transmitter-Retro Demo (DMX-TX4)"
-Date "2023-05-28"
-Rev "1.0"
+Date "2023-08-22"
+Rev "1.1"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -613,7 +613,7 @@ P 3350 6300
 AR Path="/6435FAB4/645E3117" Ref="C?"  Part="1" 
 AR Path="/63268613/645E3117" Ref="C17"  Part="1" 
 F 0 "C17" H 3258 6346 50  0000 R CNN
-F 1 ".01uF" H 3258 6255 50  0000 R CNN
+F 1 "0.1uF" H 3258 6255 50  0000 R CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 3350 6300 50  0001 C CNN
 F 3 "~" H 3350 6300 50  0001 C CNN
 	1    3350 6300

@@ -1120,6 +1120,8 @@ Wire Wire Line
 Connection ~ 9000 5850
 Text Notes 2000 1850 0    50   ~ 0
 Dimmer\nCompare
+Text Notes 3850 800  0    50   ~ 0
+Analog Section
 Wire Bus Line
 	7050 2900 7050 3700
 Wire Bus Line
@@ -1128,6 +1130,4 @@ Wire Bus Line
 	10250 3050 10250 4100
 Wire Bus Line
 	7050 1150 7050 2700
-Text Notes 3850 800  0    50   ~ 0
-Analog Section
 $EndSCHEMATC

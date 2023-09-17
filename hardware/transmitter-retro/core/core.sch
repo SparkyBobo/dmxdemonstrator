@@ -388,26 +388,6 @@ Text Label 8800 4000 0    50   ~ 0
 DATA_RX
 Text Label 8800 4200 0    50   ~ 0
 CLK_RX
-NoConn ~ 10800 1300
-NoConn ~ 9050 3300
-NoConn ~ 9050 3200
-NoConn ~ 9050 3100
-NoConn ~ 9050 3000
-NoConn ~ 9050 2900
-NoConn ~ 9050 2500
-$Comp
-L Transistor_Array:ULN2003A U?
-U 1 1 6431D1B4
-P 8650 2900
-AR Path="/632F1F43/6431D1B4" Ref="U?"  Part="1" 
-AR Path="/6431D1B4" Ref="U13"  Part="1" 
-F 0 "U13" H 8650 3567 50  0000 C CNN
-F 1 "ULN2003A" H 8650 3476 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 8700 2350 50  0001 L CNN
-F 3 "http://www.ti.com/lit/ds/symlink/uln2003a.pdf" H 8750 2700 50  0001 C CNN
-	1    8650 2900
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7650 4000 7650 5000
 $Sheet
@@ -440,19 +420,15 @@ Wire Wire Line
 Wire Wire Line
 	7250 3300 6100 3300
 Connection ~ 7650 4000
-Wire Wire Line
-	7650 4000 7650 2800
 Connection ~ 7750 4200
 Wire Wire Line
 	2900 1600 1600 1600
 Wire Wire Line
-	3950 750  9550 750 
+	3950 750  9000 750 
 Wire Wire Line
 	3950 750  3950 1700
 Wire Wire Line
-	3850 650  9650 650 
-Wire Wire Line
-	9650 650  9650 2700
+	3850 650  9100 650 
 Wire Wire Line
 	3850 650  3850 1600
 Text Label 3450 1600 0    50   ~ 0
@@ -547,19 +523,6 @@ Wire Wire Line
 NoConn ~ 6100 4100
 $Comp
 L power:GND #PWR?
-U 1 1 648DFAC9
-P 8650 3500
-AR Path="/6841E790/648DFAC9" Ref="#PWR?"  Part="1" 
-AR Path="/648DFAC9" Ref="#PWR0104"  Part="1" 
-F 0 "#PWR0104" H 8650 3250 50  0001 C CNN
-F 1 "GND" H 8655 3327 50  0000 C CNN
-F 2 "" H 8650 3500 50  0001 C CNN
-F 3 "" H 8650 3500 50  0001 C CNN
-	1    8650 3500
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
 U 1 1 648DFADC
 P 10050 5900
 AR Path="/6841E790/648DFADC" Ref="#PWR?"  Part="1" 
@@ -571,59 +534,10 @@ F 3 "" H 10050 5900 50  0001 C CNN
 	1    10050 5900
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 648DFAEF
-P 8150 3500
-AR Path="/6841E790/648DFAEF" Ref="#PWR?"  Part="1" 
-AR Path="/648DFAEF" Ref="#PWR0110"  Part="1" 
-F 0 "#PWR0110" H 8150 3250 50  0001 C CNN
-F 1 "GND" H 8155 3327 50  0000 C CNN
-F 2 "" H 8150 3500 50  0001 C CNN
-F 3 "" H 8150 3500 50  0001 C CNN
-	1    8150 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8150 3500 8150 3300
-Wire Wire Line
-	8150 2900 8250 2900
-Wire Wire Line
-	8250 3000 8150 3000
-Connection ~ 8150 3000
-Wire Wire Line
-	8150 3000 8150 2900
-Wire Wire Line
-	8250 3100 8150 3100
-Connection ~ 8150 3100
-Wire Wire Line
-	8150 3100 8150 3000
-Wire Wire Line
-	8250 3200 8150 3200
-Connection ~ 8150 3200
-Wire Wire Line
-	8150 3200 8150 3100
-Wire Wire Line
-	8250 3300 8150 3300
-Connection ~ 8150 3300
-Wire Wire Line
-	8150 3300 8150 3200
 Entry Bus Bus
 	4300 2400 4400 2300
 Text Label 6650 2300 0    50   ~ 0
 D[0..7]
-Wire Wire Line
-	9550 2800 9050 2800
-Wire Wire Line
-	9550 750  9550 2800
-Wire Wire Line
-	7750 2700 8250 2700
-Wire Wire Line
-	7750 2700 7750 4200
-Wire Wire Line
-	8250 2800 7650 2800
-Wire Wire Line
-	9050 2700 9650 2700
 Wire Wire Line
 	5600 2900 2100 2900
 Wire Wire Line
@@ -743,6 +657,44 @@ Wire Bus Line
 Wire Bus Line
 	7500 2050 7500 2300
 Connection ~ 7500 2300
+Wire Wire Line
+	8050 1750 7650 1750
+Wire Wire Line
+	7650 1750 7650 4000
+Wire Wire Line
+	8650 1750 9000 1750
+Wire Wire Line
+	8050 2300 7750 2300
+Wire Wire Line
+	8650 2300 9100 2300
+$Comp
+L 74xx:74LS06 U13
+U 1 1 652D4C06
+P 8350 2300
+F 0 "U13" H 8350 2617 50  0000 C CNN
+F 1 "74LS06" H 8350 2526 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 8350 2300 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS06" H 8350 2300 50  0001 C CNN
+	1    8350 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS06 U13
+U 2 1 652D4C67
+P 8350 1750
+F 0 "U13" H 8350 2067 50  0000 C CNN
+F 1 "74LS06" H 8350 1976 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 8350 1750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS06" H 8350 1750 50  0001 C CNN
+	2    8350 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9000 750  9000 1750
+Wire Wire Line
+	7750 2300 7750 4200
+Wire Wire Line
+	9100 2300 9100 650 
 Wire Bus Line
 	7500 2300 7500 5900
 Wire Bus Line
