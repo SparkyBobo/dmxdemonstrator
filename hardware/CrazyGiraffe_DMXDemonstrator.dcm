@@ -1,5 +1,17 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 74LS06
+D Buffer, Inverting Open Collector Output
+K TTL Buffer
+F https://www.ti.com/lit/ds/symlink/sn74ls06.pdf
+$ENDCMP
+#
+$CMP 74LS07
+D Buffer, Non-Inverting Open Collector Output
+K TTL Buffer
+F https://www.ti.com/lit/ds/symlink/sn74ls07.pdf
+$ENDCMP
+#
 $CMP 74LS164
 D IC 8-BIT SHIFT REGISTER 14-DIP
 K 74164 74HC SHIFT REGISTER

@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Transmitter IO Module (DMX-TX2)"
-Date "2023-03-02"
-Rev "1.2"
+Date "2023-09-16"
+Rev "1.3"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -400,27 +400,27 @@ Text Label 7900 3550 0    50   ~ 0
 $Comp
 L Device:R_US R?
 U 1 1 5F6228C3
-P 8250 4250
+P 8400 4250
 AR Path="/5F613CCA/5F6228C3" Ref="R?"  Part="1" 
 AR Path="/5F6228C3" Ref="R4"  Part="1" 
-F 0 "R4" H 8100 4300 50  0000 L CNN
-F 1 "330" H 8050 4200 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8290 4240 50  0001 C CNN
-F 3 "~" H 8250 4250 50  0001 C CNN
-	1    8250 4250
-	-1   0    0    -1  
+F 0 "R4" H 8250 4300 50  0000 L CNN
+F 1 "330" H 8200 4200 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8440 4240 50  0001 C CNN
+F 3 "~" H 8400 4250 50  0001 C CNN
+	1    8400 4250
+	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5F6228CA
-P 8250 4600
+P 8400 4600
 AR Path="/5F613CCA/5F6228CA" Ref="#PWR?"  Part="1" 
 AR Path="/5F6228CA" Ref="#PWR0110"  Part="1" 
-F 0 "#PWR0110" H 8250 4350 50  0001 C CNN
-F 1 "GND" H 8255 4427 50  0000 C CNN
-F 2 "" H 8250 4600 50  0001 C CNN
-F 3 "" H 8250 4600 50  0001 C CNN
-	1    8250 4600
+F 0 "#PWR0110" H 8400 4350 50  0001 C CNN
+F 1 "GND" H 8405 4427 50  0000 C CNN
+F 2 "" H 8400 4600 50  0001 C CNN
+F 3 "" H 8400 4600 50  0001 C CNN
+	1    8400 4600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -430,7 +430,7 @@ Entry Wire Line
 Entry Wire Line
 	8450 3650 8550 3750
 Wire Wire Line
-	7850 3850 8250 3850
+	7850 3850 8400 3850
 Wire Wire Line
 	7850 3750 8450 3750
 Entry Wire Line
@@ -442,9 +442,9 @@ Wire Wire Line
 Wire Wire Line
 	7850 3950 8750 3950
 Wire Wire Line
-	8250 3850 8250 4100
+	8400 3850 8400 4100
 Wire Wire Line
-	8250 4400 8250 4600
+	8400 4400 8400 4600
 Wire Wire Line
 	9100 4250 8750 4250
 Wire Wire Line
@@ -456,8 +456,6 @@ Entry Wire Line
 Entry Wire Line
 	8450 3050 8550 3150
 NoConn ~ 7850 3150
-NoConn ~ 7850 3250
-NoConn ~ 7850 3350
 NoConn ~ 7850 3450
 Wire Wire Line
 	5450 4050 5900 4050
@@ -492,17 +490,6 @@ Wire Wire Line
 Wire Wire Line
 	5450 3850 5900 3850
 $Comp
-L 74xx:74LS365 U1
-U 1 1 63EBDEC4
-P 3700 3950
-F 0 "U1" H 3900 4600 50  0000 C CNN
-F 1 "74LS365" H 3950 4500 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm" H 3700 3950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS365" H 3700 3950 50  0001 C CNN
-	1    3700 3950
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+5V #PWR?
 U 1 1 63EC4A6A
 P 3700 3250
@@ -524,28 +511,6 @@ Wire Wire Line
 	2700 3750 3200 3750
 Wire Wire Line
 	2700 3650 3200 3650
-$Comp
-L power:GND #PWR?
-U 1 1 63ED20FA
-P 3150 4650
-AR Path="/5F613CCA/63ED20FA" Ref="#PWR?"  Part="1" 
-AR Path="/63ED20FA" Ref="#PWR0113"  Part="1" 
-F 0 "#PWR0113" H 3150 4400 50  0001 C CNN
-F 1 "GND" H 3155 4477 50  0000 C CNN
-F 2 "" H 3150 4650 50  0001 C CNN
-F 3 "" H 3150 4650 50  0001 C CNN
-	1    3150 4650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3150 4650 3150 4350
-Wire Wire Line
-	3150 4250 3200 4250
-Wire Wire Line
-	3200 4350 3150 4350
-Connection ~ 3150 4350
-Wire Wire Line
-	3150 4350 3150 4250
 Wire Wire Line
 	6100 3450 6100 4550
 Wire Wire Line
@@ -766,20 +731,66 @@ Wire Wire Line
 	4300 2500 4300 3750
 Wire Wire Line
 	4400 3850 4400 2150
+Wire Wire Line
+	4400 2150 4750 2150
+$Comp
+L Device:R_US R?
+U 1 1 6506CFB2
+P 8400 2450
+AR Path="/5F613CCA/6506CFB2" Ref="R?"  Part="1" 
+AR Path="/6506CFB2" Ref="R5"  Part="1" 
+F 0 "R5" H 8250 2500 50  0000 L CNN
+F 1 "330" H 8200 2400 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8440 2440 50  0001 C CNN
+F 3 "~" H 8400 2450 50  0001 C CNN
+	1    8400 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 2600 8400 3250
+Wire Wire Line
+	7850 3350 8400 3350
+Wire Wire Line
+	7850 3250 8400 3250
+Connection ~ 8400 3250
+Wire Wire Line
+	8400 3250 8400 3350
+$Comp
+L power:+5V #PWR0114
+U 1 1 65080226
+P 8400 2150
+F 0 "#PWR0114" H 8400 2000 50  0001 C CNN
+F 1 "+5V" H 8415 2323 50  0000 C CNN
+F 2 "" H 8400 2150 50  0001 C CNN
+F 3 "" H 8400 2150 50  0001 C CNN
+	1    8400 2150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 2150 8400 2300
 Wire Bus Line
-	2700 4900 8450 4900
-Wire Bus Line
-	6000 3200 6000 3750
-Wire Bus Line
-	6000 4050 6000 4800
-Wire Bus Line
-	8550 3050 8550 4800
-Wire Bus Line
-	4600 3850 4600 4650
+	2600 3650 2600 4800
 Wire Bus Line
 	6400 3200 6400 4650
 Wire Bus Line
-	2600 3650 2600 4800
-Wire Wire Line
-	4400 2150 4750 2150
+	4600 3850 4600 4650
+Wire Bus Line
+	8550 3050 8550 4800
+Wire Bus Line
+	6000 4050 6000 4800
+Wire Bus Line
+	6000 3200 6000 3750
+Wire Bus Line
+	2700 4900 8450 4900
+$Comp
+L CrazyGiraffe_DMXDemonstrator:74LS07 U1
+U 1 1 6508D26C
+P 3700 3950
+F 0 "U1" H 3900 4600 50  0000 C CNN
+F 1 "74LS07" H 3950 4500 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 3700 3950 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 3700 3950 50  0001 C CNN
+	1    3700 3950
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
