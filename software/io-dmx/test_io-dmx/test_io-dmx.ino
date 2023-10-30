@@ -1,5 +1,5 @@
 /**
- * DMX Demonstrator Transmitter Retro - Analog Out Test
+ * DMX Demonstrator Transmitter Retro - DMX IO Test
  * Copyright (C) 2020 Crazy Giraffe Software
  * https://github.com/crazy-giraffe-software/dmxdemonstrator/tree/master/software/transmitter
  *
@@ -23,18 +23,12 @@
 #include "AdjustableTimer1.h"
 
 // IO pins - direction is relative to the circuit under test
-const byte data_shift_in = 2;
-const byte clk_shift_in = 3;
-const byte shift_reset_in = 4;
-const byte latch_write_in = 5;
-const byte latch_a1_in = 6;
-const byte latch_a0_in = 7;
-const byte analog_0_out = A0;
-const byte analog_1_out = A1;
-const byte analog_2_out = A2;
-const byte analog_3_out = A3;
-const byte analog_gnd_out = A4;
-const byte analog_pwr_out = A5;
+const byte dmx_data_out = 8;
+const byte dmx_data_in = 9;
+const byte dmx_data_dir_in = 10;
+const byte dmx_verify_out = 11;
+const byte dmx_verify_in = 12;
+const byte dmx_verify_dir_in = 13;
 
 // Test data
 int runTest = 0;
@@ -70,76 +64,46 @@ typedef struct {
 
 const TestStep testSteps[] = {
   // Init
-  { 0, TEST_PIN_MODE, data_shift_in, OUTPUT },
-  { 0, TEST_PIN_MODE, clk_shift_in, OUTPUT },
-  { 0, TEST_PIN_MODE, shift_reset_in, OUTPUT },
-  { 0, TEST_PIN_MODE, latch_write_in, OUTPUT },
-  { 0, TEST_PIN_MODE, latch_a0_in, OUTPUT },
-  { 0, TEST_PIN_MODE, latch_a1_in, OUTPUT },
-  { 0, TEST_VERIFY_ANALOG, analog_0_out, -1 },
-  { 0, TEST_VERIFY_ANALOG, analog_1_out, -1 },
-  { 0, TEST_VERIFY_ANALOG, analog_2_out, -1 },
-  { 0, TEST_VERIFY_ANALOG, analog_3_out, -1 },
-  { 0, TEST_VERIFY_ANALOG, analog_gnd_out, -1 },
-  { 0, TEST_VERIFY_ANALOG, analog_pwr_out, -1 },
-  // Idle, no count output
-  { 1, TEST_ON, shift_reset_in },
-  { 1, TEST_OFF, data_shift_in },
-  { 1, TEST_ON, latch_write_in },
-  { 1, TEST_OFF, latch_a0_in },
-  { 1, TEST_OFF, latch_a1_in },
-  { 1, TEST_RISING, clk_shift_in },
-  // Load in 0
-  { 2, TEST_OFF, shift_reset_in },
-  { 2, TEST_RISING, clk_shift_in },
-  { 2, TEST_FALLING, latch_write_in },
-  // Send 15
-  { 3, TEST_ON, shift_reset_in },
-  { 3, TEST_SHIFT, data_shift_in, clk_shift_in, LSBFIRST, 15 },
-  // Latch 00
-  { 4, TEST_FALLING, latch_write_in },
-  { 4, TEST_VERIFY_ANALOG, analog_0_out, 31 },
-  // Send 31
-  { 5, TEST_SHIFT, data_shift_in, clk_shift_in, LSBFIRST, 31 },
-  // Latch 01
-  { 6, TEST_ON, latch_a0_in },
-  { 6, TEST_FALLING, latch_write_in },
-  { 6, TEST_VERIFY_ANALOG, analog_1_out, 63 },
-  // Send 31
-  { 7, TEST_SHIFT, data_shift_in, clk_shift_in, LSBFIRST, 63 },
-  // Latch 10
-  { 8, TEST_OFF, latch_a0_in },
-  { 8, TEST_ON, latch_a1_in },
-  { 8, TEST_FALLING, latch_write_in },
-  { 8, TEST_VERIFY_ANALOG, analog_2_out, 127 },
-  // Send 2 more digits
-  { 9, TEST_ON, shift_reset_in },
-  { 9, TEST_SHIFT, data_shift_in, clk_shift_in, LSBFIRST, 255 },
-  // Latch 11
-  { 10, TEST_ON, latch_a0_in },
-  { 10, TEST_FALLING, latch_write_in },
-  { 10, TEST_VERIFY_ANALOG, analog_3_out, 520 },
-  // Clear and save 0 to all
-  { 11, TEST_OFF, shift_reset_in },
-  { 11, TEST_RISING, clk_shift_in },
-  { 11, TEST_OFF, latch_a0_in },
-  { 11, TEST_OFF, latch_a1_in },
-  { 11, TEST_FALLING, latch_write_in },
-  { 11, TEST_VERIFY_ANALOG, analog_0_out, 0 },
-  { 12, TEST_ON, latch_a0_in },
-  { 12, TEST_FALLING, latch_write_in },
-  { 12, TEST_VERIFY_ANALOG, analog_1_out, 0 },
-  { 13, TEST_OFF, latch_a0_in },
-  { 13, TEST_ON, latch_a1_in },
-  { 13, TEST_FALLING, latch_write_in },
-  { 13, TEST_VERIFY_ANALOG, analog_2_out, 0 },
-  { 14, TEST_ON, latch_a0_in },
-  { 14, TEST_FALLING, latch_write_in },
-  { 14, TEST_VERIFY_ANALOG, analog_3_out, 0 },
-  { 15, TEST_VERIFY_ANALOG, analog_gnd_out, 0 },
-  { 15, TEST_VERIFY_ANALOG, analog_pwr_out, 1023 },
+  { 0, TEST_PIN_MODE, dmx_data_out, INPUT },
+  { 0, TEST_PIN_MODE, dmx_data_dir_in, OUTPUT },
+  { 0, TEST_PIN_MODE, dmx_data_in, OUTPUT },
+  { 0, TEST_PIN_MODE, dmx_verify_out, INPUT },
+  { 0, TEST_PIN_MODE, dmx_verify_dir_in, OUTPUT },
+  { 0, TEST_PIN_MODE, dmx_verify_in, OUTPUT },
+  // Idle, no output
+  { 1, TEST_OFF, dmx_data_in },
+  { 1, TEST_ON, dmx_data_dir_in },
+  { 1, TEST_OFF, dmx_verify_dir_in },
+  { 1, TEST_VERIFY_PIN, dmx_verify_out, 0 },
+  // Test TX Data
+  { 2, TEST_ON, dmx_data_in },
+  { 2, TEST_VERIFY_PIN, dmx_verify_out, 1 },
+  // Idle, no output
+  { 3, TEST_OFF, dmx_data_in },
+  { 3, TEST_VERIFY_PIN, dmx_verify_out, 0 },
+  // Test TX Data
+  { 4, TEST_OFF, dmx_data_dir_in },
+  { 4, TEST_ON, dmx_verify_dir_in },
+  { 4, TEST_ON, dmx_verify_in },
+  { 4, TEST_VERIFY_PIN, dmx_data_out, 1 },
+  // Idle, no output
+  { 5, TEST_OFF, dmx_verify_in },
+  { 5, TEST_VERIFY_PIN, dmx_data_out, 0 },
+  
+  /*
+  // Reset
+  { 3, TEST_OFF, data_in },
+  // Test Clock
+  { 4, TEST_ON, clk_in },
+  { 4, TEST_VERIFY_PIN, clk_out, 1 },
+  { 4, TEST_VERIFY_PIN, clk_led_out, 0 },
+  // Reset
+  { 5, TEST_OFF, clk_in },
+  // Verify led power
+  { 6, TEST_VERIFY_ANALOG, data_pwr_out, 1023 },
+  { 6, TEST_VERIFY_ANALOG, clk_pwr_out, 1023 },*/
   // Done
-  { 16, TEST_END },
+  { 6, TEST_END },
 };
 
 /**

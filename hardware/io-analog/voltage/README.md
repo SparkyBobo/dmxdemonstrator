@@ -34,6 +34,12 @@ Vi = Vo + 2v to 3v (for higher current, use 3v)
  While it is possible to generate a +5V signal without the voltage regular and its supporting parts, doing so would mean all of the current needed for the outputs is supplied by the DMS module to which this stack connects. So the +5V option is
 supported using a voltage regulator and external supply to isolate the outputs from the DMX power supply.
 
+### Rev 1.3
+
+- Switch to smaller screw terminal connectors
+- Add silkscreen values
+- Remove COAX power connector
+
 ### Rev 1.2
 
 - Converted to a family of modules so avoid multiple DACs for each analog option

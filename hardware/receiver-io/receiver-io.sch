@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Receiver IO Module (DMX-RX2)"
-Date "2023-02-20"
-Rev "1.1"
+Date "2023-10-28"
+Rev "1.2"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -152,9 +152,9 @@ Text Label 7550 3100 0    50   ~ 0
 SR-CLK
 Text Label 7550 3200 0    50   ~ 0
 ~SR_CLR
-Text Label 6850 4450 0    50   ~ 0
-A0
 Text Label 6850 4550 0    50   ~ 0
+A0
+Text Label 6850 4450 0    50   ~ 0
 A1
 Text Label 6850 4350 0    50   ~ 0
 ~WR
@@ -164,9 +164,9 @@ Text Label 7550 4450 0    50   ~ 0
 SR-CLK
 Text Label 7550 4350 0    50   ~ 0
 SR-OUT
-Text Label 6850 3100 0    50   ~ 0
-A0
 Text Label 6850 3200 0    50   ~ 0
+A0
+Text Label 6850 3100 0    50   ~ 0
 A1
 Text Label 6850 3000 0    50   ~ 0
 ~WR

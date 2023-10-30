@@ -234,8 +234,7 @@ void DetectConnectedBoard() {
 
   // On the DMX-RX1, pins D5 and D6 are pulled low via LEDs + 330 ohms.
   // On the DMX-TX1, pins D5 and D6 are pulled high via LEDs + 330 ohms.
-  // On the DMX-TX2, pins D5 and D6 are not connected.
-  // With no board connected, these usually read LOW.
+  // On the DMX-TX2, pins D5 and D6 are pulled high via 330 ohms.
   pinMode(5, INPUT);
   pinMode(6, INPUT);
   int d5State = digitalRead(5);
@@ -244,9 +243,9 @@ void DetectConnectedBoard() {
 
   // If it might be the RX1, probe other pins to confirm.
   int isRX1 = isRX1OrNoBoard;
-  int isTX1 = !isRX1OrNoBoard;
-  int isTX2 = !isRX1OrNoBoard;
-  int isControlPro = !isRX1OrNoBoard;
+  int isTX1 = !isRX1OrNoBoard && d5State == HIGH && d6State == HIGH;
+  int isTX2 = !isRX1OrNoBoard && d5State == LOW && d6State == LOW;
+  int isControlPro = false;
   if (isRX1OrNoBoard) {
 
     // On the DMX-RX1, pin D10 is pulled low via LED + 330 ohms.
@@ -284,18 +283,16 @@ void DetectConnectedBoard() {
     isTX2 &= d11State == LOW;
 
     // On the DMX-TX1, pin D2 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D2 is pulled high via LED + 330 ohms.
+    // On the DMX-TX2, pin D2 is connected to a gate input (HiZ).
     pinMode(2, INPUT);
     int d2State = digitalRead(2);
     isTX1 &= d2State == HIGH;
-    isTX2 &= d2State == HIGH;
 
     // On the DMX-TX1, pin D3 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D3 is pulled high via LED + 330 ohms.
+    // On the DMX-TX2, pin D3 is connected to a gate input (HiZ).
     pinMode(3, INPUT);
     int d3State = digitalRead(3);
     isTX1 &= d3State == HIGH;
-    isTX2 &= d2State == HIGH;
 
     // On the DMX-TX1, pin D4 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D4 is left floating.
@@ -310,18 +307,14 @@ void DetectConnectedBoard() {
     // On the DMX-TX1, pin D8 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D8 may be pulled low via the clock mode switch.
     pinMode(8, INPUT);
-    isTX1 &= digitalRead(4) == HIGH;
+    isTX1 &= digitalRead(8) == HIGH;
+    isControlPro |= digitalRead(8) == LOW;
 
     // On the DMX-TX1, pin D9 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D9 may be pulled low via the clock mode switch.
     pinMode(9, INPUT);
     isTX1 &= digitalRead(9) == HIGH;
-
-    // On the DMX-TX1, pin D10 is left floating.
-    // On the DMX-TX2, pin D10 is pulled high via LED + 330 ohms on
-    //   the ControlPro board, otherwise it is floating.
-    pinMode(10, INPUT);
-    isControlPro &= digitalRead(10) == HIGH;
+    isControlPro |= digitalRead(9) == LOW;
   }
 
   // Print discovery.

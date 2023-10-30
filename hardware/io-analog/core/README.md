@@ -14,6 +14,15 @@ DACs also tend to be picky about supply voltages, requiring more input voltage t
 
 Core Header - https://www.sparkfun.com/products/11896
 
+### Rev 1.3
+
+- Fix issue with A03 and A02 being reversed at Analog Extensions
+- Fix issue with A1 and A0 at IO Extension header
+- Label D0..D7 correctly
+- Swap U4 and U5 in schematic to match board layout
+- Change TO-92 footprint
+- Add silkscreen values
+
 ### Rev 1.2
 
 - Converted to a family of modules so avoid multiple DACs for each analog option

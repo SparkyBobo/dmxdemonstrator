@@ -68,6 +68,12 @@ R4 uses the same values in all configuration to reduce the number of parts requi
 Vo = 1.25v + (1 + (R5 / R4))
 Vi = Vo + 2v or 3v (for higher current, use 3v)
 
+### Rev 1.3
+
+- Switch to smaller screw terminal connectors
+- Add silkscreen values
+- Remove COAX power connector
+
 ### Rev 1.2
 
 - Converted to a family of modules so avoid multiple DACs for each analog option

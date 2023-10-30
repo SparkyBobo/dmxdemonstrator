@@ -22,6 +22,18 @@ You can order the PCB from [OHS Park](https://oshpark.com/):
 
 ## Version History
 
+### Rev 1.5
+
+- Switch to smaller screw terminal connectors
+- Add pull-down resistors
+- Add silkscreen values
+- Remove COAX power connector...again.
+
+### Rev 1.4
+
+- Refactor display-pro to work with io-analog-pwm
+- Add correct COAX power connector
+
 ### Rev 1.3
 
 - Standard board to match IO modules

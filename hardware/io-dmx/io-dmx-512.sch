@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - DMX-512 IO Module (DMX-IO1)"
-Date "2023-08-11"
-Rev "1.3"
+Date "2023-10-28"
+Rev "1.4"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -191,10 +191,10 @@ Wire Wire Line
 	6000 2000 6000 1950
 Connection ~ 6000 1950
 Wire Wire Line
-	5400 1950 5300 1950
+	5400 1950 5000 1950
 Wire Wire Line
-	5300 1950 5300 2300
-Connection ~ 5300 2300
+	5000 1950 5000 2300
+Connection ~ 5000 2300
 $Comp
 L dk_Optoisolators-Logic-Output:6N137 U4
 U 1 1 5F60D784
@@ -315,20 +315,12 @@ Connection ~ 8100 3400
 Wire Wire Line
 	7800 3800 7900 3800
 Wire Wire Line
-	8000 3900 8100 3900
-Wire Wire Line
 	8100 3900 8100 3800
 Connection ~ 8100 3900
 Wire Wire Line
 	9000 4100 9000 4200
 Wire Wire Line
 	8700 3900 8550 3900
-Wire Wire Line
-	8000 3500 8000 3900
-Wire Wire Line
-	7800 3500 8000 3500
-Wire Wire Line
-	7900 3800 7900 3400
 Wire Wire Line
 	7900 3400 8100 3400
 Wire Wire Line
@@ -613,11 +605,11 @@ Wire Wire Line
 Wire Wire Line
 	3100 6750 3700 6750
 Wire Wire Line
-	6900 2400 6900 3500
+	6900 2400 6900 2900
 Wire Wire Line
 	6400 2400 6550 2400
 Wire Wire Line
-	5300 2300 5600 2300
+	5000 2300 5600 2300
 Wire Wire Line
 	5450 3750 5600 3750
 Wire Wire Line
@@ -718,13 +710,13 @@ Wire Wire Line
 Wire Wire Line
 	3300 3750 3300 2300
 Wire Wire Line
-	3300 2300 5300 2300
+	3300 2300 5000 2300
 Wire Wire Line
-	3300 5100 5150 5100
+	3300 5100 5000 5100
 Wire Wire Line
 	3300 5100 3300 3850
 Wire Wire Line
-	4150 3750 5150 3750
+	4150 3750 5000 3750
 $Comp
 L Mechanical:MountingHole MH1
 U 1 1 63F9E49B
@@ -1007,4 +999,97 @@ F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2
 	1    6550 7000
 	1    0    0    -1  
 $EndComp
+$Comp
+L Jumper:SolderJumper_2_Open JP1
+U 1 1 651B256A
+P 5250 2900
+F 0 "JP1" H 5250 3105 50  0000 C CNN
+F 1 "Bypass Iso" H 5250 3014 50  0000 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5250 2900 50  0001 C CNN
+F 3 "~" H 5250 2900 50  0001 C CNN
+	1    5250 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 2900 6900 2900
+Connection ~ 6900 2900
+Wire Wire Line
+	6900 2900 6900 3500
+Wire Wire Line
+	5100 2900 5000 2900
+Wire Wire Line
+	5000 2900 5000 2300
+$Comp
+L Jumper:SolderJumper_2_Open JP2
+U 1 1 651B907A
+P 5300 4250
+F 0 "JP2" H 5300 4455 50  0000 C CNN
+F 1 "Bypass Iso" H 5300 4364 50  0000 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5300 4250 50  0001 C CNN
+F 3 "~" H 5300 4250 50  0001 C CNN
+	1    5300 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 4250 6700 4250
+Wire Wire Line
+	6700 4250 6700 3650
+Wire Wire Line
+	5000 3750 5000 4250
+Wire Wire Line
+	5000 4250 5150 4250
+Connection ~ 5000 3750
+Wire Wire Line
+	5000 3750 5150 3750
+$Comp
+L Jumper:SolderJumper_2_Open JP3
+U 1 1 651C0494
+P 5300 5600
+F 0 "JP3" H 5300 5805 50  0000 C CNN
+F 1 "Bypass Iso" H 5300 5714 50  0000 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5300 5600 50  0001 C CNN
+F 3 "~" H 5300 5600 50  0001 C CNN
+	1    5300 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 5600 6900 5600
+Wire Wire Line
+	6900 5600 6900 5000
+Connection ~ 6900 5000
+Wire Wire Line
+	5150 5600 5000 5600
+Wire Wire Line
+	5000 5600 5000 5100
+Connection ~ 5000 5100
+Wire Wire Line
+	5000 5100 5150 5100
+Text Notes 4000 7500 0    50   ~ 0
+Jump to\nBypass Iso
+Text Notes 4050 6400 0    50   ~ 0
+Jump to\nBypass Iso
+Wire Notes Line
+	4500 6300 4750 6300
+Wire Notes Line
+	4750 6300 4750 6750
+Wire Notes Line
+	4750 7150 4750 7400
+Wire Notes Line
+	4750 7400 4450 7400
+Wire Notes Line
+	3950 7400 3650 7400
+Wire Notes Line
+	3650 7400 3650 7150
+Wire Notes Line
+	3650 6750 3650 6300
+Wire Notes Line
+	3650 6300 4000 6300
+Wire Wire Line
+	7800 3500 7900 3500
+Wire Wire Line
+	7900 3500 7900 3400
+Wire Wire Line
+	7900 3800 7900 3900
+Wire Wire Line
+	7900 3900 8100 3900
 $EndSCHEMATC

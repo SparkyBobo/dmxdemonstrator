@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Analog IO Core (DMX-IO2)"
-Date "2023-07-01"
-Rev "1.2"
+Date "2023-09-17"
+Rev "1.3"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -16,9 +16,9 @@ Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 Licens
 $EndDescr
 Text Label 5250 2850 0    50   ~ 0
 ~WR
-Text Label 2850 4100 0    50   ~ 0
-A0
 Text Label 2850 4200 0    50   ~ 0
+A0
+Text Label 2850 4100 0    50   ~ 0
 A1
 $Comp
 L power:GND #PWR?
@@ -293,9 +293,9 @@ Entry Wire Line
 	2250 3200 2350 3100
 Entry Bus Bus
 	2250 4750 2350 4850
-Text Label 2450 3000 0    50   ~ 0
-A0
 Text Label 2450 3100 0    50   ~ 0
+A0
+Text Label 2450 3000 0    50   ~ 0
 A1
 Text Label 2450 2900 0    50   ~ 0
 ~WR
@@ -370,21 +370,21 @@ Text Label 3050 3000 0    50   ~ 0
 SR-CLK
 Text Label 3050 3100 0    50   ~ 0
 ~SR_CLR
-Text Label 4300 3300 0    50   ~ 0
-D7
 Text Label 4300 2600 0    50   ~ 0
+D7
+Text Label 4300 3300 0    50   ~ 0
 D0
-Text Label 4300 2700 0    50   ~ 0
-D1
-Text Label 4300 2800 0    50   ~ 0
-D2
-Text Label 4300 2900 0    50   ~ 0
-D3
-Text Label 4300 3000 0    50   ~ 0
-D4
-Text Label 4300 3100 0    50   ~ 0
-D5
 Text Label 4300 3200 0    50   ~ 0
+D1
+Text Label 4300 3100 0    50   ~ 0
+D2
+Text Label 4300 3000 0    50   ~ 0
+D3
+Text Label 4300 2900 0    50   ~ 0
+D4
+Text Label 4300 2800 0    50   ~ 0
+D5
+Text Label 4300 2700 0    50   ~ 0
 D6
 Entry Wire Line
 	4400 2600 4500 2500
@@ -442,7 +442,7 @@ AR Path="/647E1209/647F5A12" Ref="VR?"  Part="1"
 AR Path="/647F5A12" Ref="VR1"  Part="1" 
 F 0 "VR1" H 5100 7150 50  0000 R CNN
 F 1 "TL1431" H 5100 7050 50  0000 R CNN
-F 2 "TO-92-3_Formed_Leads" H 4500 6400 50  0001 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline_Wide" H 4500 6400 50  0001 L CNN
 F 3 "https://www.ti.com/lit/gpn/TL1431" H 4500 6500 60  0001 L CNN
 F 4 "products/detail/texas-instruments/TL1431CLP/380747" H 0   0   50  0001 C CNN "DK_Detail_Page"
 F 5 "296-10130-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
@@ -570,22 +570,6 @@ Wire Wire Line
 	5100 2850 5450 2850
 Wire Wire Line
 	5100 2950 5450 2950
-Text Label 5300 2000 0    50   ~ 0
-D0
-Text Label 5300 2100 0    50   ~ 0
-D1
-Text Label 5300 2200 0    50   ~ 0
-D2
-Text Label 5300 2300 0    50   ~ 0
-D3
-Text Label 5300 2400 0    50   ~ 0
-D4
-Text Label 5300 2500 0    50   ~ 0
-D5
-Text Label 5300 2600 0    50   ~ 0
-D6
-Text Label 5300 2700 0    50   ~ 0
-D7
 Entry Wire Line
 	5200 2600 5300 2700
 Entry Wire Line
@@ -664,10 +648,10 @@ F 3 "" H 5850 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLC7524CN U4
+L CrazyGiraffe_DMXDemonstrator:TLC7524CN U5
 U 1 1 6495FADC
 P 5850 4400
-F 0 "U4" H 6000 5050 50  0000 C CNN
+F 0 "U5" H 6000 5050 50  0000 C CNN
 F 1 "TLC7524CN" H 6100 4950 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 5850 4400 50  0001 C CNN
 F 3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" H 5850 4400 50  0001 C CNN
@@ -699,7 +683,7 @@ Wire Wire Line
 Wire Wire Line
 	6450 4600 6450 3800
 NoConn ~ 6250 4200
-Text Label 5250 4950 0    50   ~ 0
+Text Label 7250 2950 0    50   ~ 0
 ~CS1
 Entry Wire Line
 	5000 4850 5100 4950
@@ -707,22 +691,6 @@ Wire Wire Line
 	5100 4850 5450 4850
 Wire Wire Line
 	5100 4950 5450 4950
-Text Label 5300 4000 0    50   ~ 0
-D0
-Text Label 5300 4100 0    50   ~ 0
-D1
-Text Label 5300 4200 0    50   ~ 0
-D2
-Text Label 5300 4300 0    50   ~ 0
-D3
-Text Label 5300 4400 0    50   ~ 0
-D4
-Text Label 5300 4500 0    50   ~ 0
-D5
-Text Label 5300 4600 0    50   ~ 0
-D6
-Text Label 5300 4700 0    50   ~ 0
-D7
 Entry Wire Line
 	5200 4600 5300 4700
 Entry Wire Line
@@ -801,10 +769,10 @@ F 3 "" H 7850 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLC7524CN U5
+L CrazyGiraffe_DMXDemonstrator:TLC7524CN U4
 U 1 1 64968030
 P 7850 2400
-F 0 "U5" H 8000 3050 50  0000 C CNN
+F 0 "U4" H 8000 3050 50  0000 C CNN
 F 1 "TLC7524CN" H 8100 2950 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 7850 2400 50  0001 C CNN
 F 3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524" H 7850 2400 50  0001 C CNN
@@ -836,7 +804,7 @@ Wire Wire Line
 Wire Wire Line
 	8450 2600 8450 1800
 NoConn ~ 8250 2200
-Text Label 7250 2950 0    50   ~ 0
+Text Label 5250 4950 0    50   ~ 0
 ~CS2
 Entry Wire Line
 	7000 2850 7100 2950
@@ -844,22 +812,6 @@ Wire Wire Line
 	7100 2850 7450 2850
 Wire Wire Line
 	7100 2950 7450 2950
-Text Label 7300 2000 0    50   ~ 0
-D0
-Text Label 7300 2100 0    50   ~ 0
-D1
-Text Label 7300 2200 0    50   ~ 0
-D2
-Text Label 7300 2300 0    50   ~ 0
-D3
-Text Label 7300 2400 0    50   ~ 0
-D4
-Text Label 7300 2500 0    50   ~ 0
-D5
-Text Label 7300 2600 0    50   ~ 0
-D6
-Text Label 7300 2700 0    50   ~ 0
-D7
 Entry Wire Line
 	7200 2600 7300 2700
 Entry Wire Line
@@ -981,22 +933,6 @@ Wire Wire Line
 	7100 4850 7450 4850
 Wire Wire Line
 	7100 4950 7450 4950
-Text Label 7300 4000 0    50   ~ 0
-D0
-Text Label 7300 4100 0    50   ~ 0
-D1
-Text Label 7300 4200 0    50   ~ 0
-D2
-Text Label 7300 4300 0    50   ~ 0
-D3
-Text Label 7300 4400 0    50   ~ 0
-D4
-Text Label 7300 4500 0    50   ~ 0
-D5
-Text Label 7300 4600 0    50   ~ 0
-D6
-Text Label 7300 4700 0    50   ~ 0
-D7
 Entry Wire Line
 	7200 4600 7300 4700
 Entry Wire Line
@@ -1323,8 +1259,6 @@ Wire Wire Line
 Wire Wire Line
 	8250 4300 8650 4300
 Wire Wire Line
-	10200 3550 9950 3550
-Wire Wire Line
 	4200 6500 4200 6550
 Text Label 10050 3250 0    50   ~ 0
 AO3
@@ -1337,17 +1271,17 @@ AO0
 $Comp
 L CrazyGiraffe_DMXDemonstrator:TLV2772CP U7
 U 1 1 6511AB4A
-P 9350 3800
-F 0 "U7" H 9350 4167 50  0000 C CNN
-F 1 "TLV2772" H 9350 4076 50  0000 C CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 3800 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 3800 50  0001 C CNN
-F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
-F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
-F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
-F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
-F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
-	1    9350 3800
+P 9350 2400
+F 0 "U7" H 9350 2767 50  0000 C CNN
+F 1 "TLV2772" H 9350 2676 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 2400 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 2400 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   -1400 50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   -1400 50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   -1400 50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   -1400 50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   -1400 50  0001 C CNN "Description"
+	1    9350 2400
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1380,17 +1314,17 @@ $EndComp
 $Comp
 L CrazyGiraffe_DMXDemonstrator:TLV2772CP U8
 U 1 1 6511AD0D
-P 9350 2400
-F 0 "U8" H 9350 2767 50  0000 C CNN
-F 1 "TLV2772" H 9350 2676 50  0000 C CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 2400 50  0001 C CNN
-F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 2400 50  0001 C CNN
-F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   0   50  0001 C CNN "DK_Detail_Page"
-F 5 "296-7592-5-ND" H 0   0   50  0001 C CNN "Digi-Key_PN"
-F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   0   50  0001 C CNN "MO_Detail_Page"
-F 7 "TLV2772CP" H 0   0   50  0001 C CNN "MO_PN"
-F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
-	1    9350 2400
+P 9350 3800
+F 0 "U8" H 9350 4167 50  0000 C CNN
+F 1 "TLV2772" H 9350 4076 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 9350 3800 50  0001 C CNN
+F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 9350 3800 50  0001 C CNN
+F 4 "en/products/detail/texas-instruments/TLV2772CP/374329" H 0   1400 50  0001 C CNN "DK_Detail_Page"
+F 5 "296-7592-5-ND" H 0   1400 50  0001 C CNN "Digi-Key_PN"
+F 6 "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D" H 0   1400 50  0001 C CNN "MO_Detail_Page"
+F 7 "TLV2772CP" H 0   1400 50  0001 C CNN "MO_PN"
+F 8 "Rail-to-Rail Operational Amplifier" H 0   1400 50  0001 C CNN "Description"
+	1    9350 3800
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1437,27 +1371,7 @@ F 8 "Header - 8 Pin" H 10400 3350 50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9950 3250 9950 2400
-Wire Wire Line
-	9950 2400 9700 2400
-Wire Wire Line
-	9950 3250 10200 3250
-Wire Wire Line
-	9850 3350 9850 3100
-Wire Wire Line
-	9850 3100 9700 3100
-Wire Wire Line
-	9850 3350 10200 3350
-Wire Wire Line
 	9650 4500 9700 4500
-Wire Wire Line
-	9950 4500 9950 3550
-Wire Wire Line
-	9850 3450 9850 3800
-Wire Wire Line
-	9850 3800 9700 3800
-Wire Wire Line
-	9850 3450 10200 3450
 Wire Wire Line
 	9050 3900 8950 3900
 Wire Wire Line
@@ -1466,7 +1380,6 @@ Wire Wire Line
 	8950 4050 9700 4050
 Wire Wire Line
 	9700 4050 9700 3800
-Connection ~ 9700 3800
 Wire Wire Line
 	9700 3800 9650 3800
 Wire Wire Line
@@ -1477,9 +1390,6 @@ Wire Wire Line
 	8950 4750 9700 4750
 Wire Wire Line
 	9700 4750 9700 4500
-Connection ~ 9700 4500
-Wire Wire Line
-	9700 4500 9950 4500
 Wire Wire Line
 	9050 3200 8950 3200
 Wire Wire Line
@@ -1488,7 +1398,6 @@ Wire Wire Line
 	8950 3350 9700 3350
 Wire Wire Line
 	9700 3350 9700 3100
-Connection ~ 9700 3100
 Wire Wire Line
 	9700 3100 9650 3100
 Wire Wire Line
@@ -1499,7 +1408,6 @@ Wire Wire Line
 	8950 2650 9700 2650
 Wire Wire Line
 	9700 2650 9700 2400
-Connection ~ 9700 2400
 Wire Wire Line
 	9700 2400 9650 2400
 Wire Wire Line
@@ -1702,6 +1610,97 @@ F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2
 	1    5600 7250
 	-1   0    0    -1  
 $EndComp
+Text Label 7300 2000 0    50   ~ 0
+D7
+Text Label 7300 2700 0    50   ~ 0
+D0
+Text Label 7300 2600 0    50   ~ 0
+D1
+Text Label 7300 2500 0    50   ~ 0
+D2
+Text Label 7300 2400 0    50   ~ 0
+D3
+Text Label 7300 2300 0    50   ~ 0
+D4
+Text Label 7300 2200 0    50   ~ 0
+D5
+Text Label 7300 2100 0    50   ~ 0
+D6
+Text Label 5300 2000 0    50   ~ 0
+D7
+Text Label 5300 2700 0    50   ~ 0
+D0
+Text Label 5300 2600 0    50   ~ 0
+D1
+Text Label 5300 2500 0    50   ~ 0
+D2
+Text Label 5300 2400 0    50   ~ 0
+D3
+Text Label 5300 2300 0    50   ~ 0
+D4
+Text Label 5300 2200 0    50   ~ 0
+D5
+Text Label 5300 2100 0    50   ~ 0
+D6
+Text Label 5300 4000 0    50   ~ 0
+D7
+Text Label 5300 4700 0    50   ~ 0
+D0
+Text Label 5300 4600 0    50   ~ 0
+D1
+Text Label 5300 4500 0    50   ~ 0
+D2
+Text Label 5300 4400 0    50   ~ 0
+D3
+Text Label 5300 4300 0    50   ~ 0
+D4
+Text Label 5300 4200 0    50   ~ 0
+D5
+Text Label 5300 4100 0    50   ~ 0
+D6
+Text Label 7300 4000 0    50   ~ 0
+D7
+Text Label 7300 4700 0    50   ~ 0
+D0
+Text Label 7300 4600 0    50   ~ 0
+D1
+Text Label 7300 4500 0    50   ~ 0
+D2
+Text Label 7300 4400 0    50   ~ 0
+D3
+Text Label 7300 4300 0    50   ~ 0
+D4
+Text Label 7300 4200 0    50   ~ 0
+D5
+Text Label 7300 4100 0    50   ~ 0
+D6
+Wire Wire Line
+	10200 3550 9950 3550
+Wire Wire Line
+	9950 3550 9950 4500
+Wire Wire Line
+	9950 4500 9700 4500
+Connection ~ 9700 4500
+Wire Wire Line
+	10200 3450 9950 3450
+Wire Wire Line
+	9950 3450 9950 2400
+Wire Wire Line
+	9950 2400 9700 2400
+Connection ~ 9700 2400
+Wire Wire Line
+	10200 3350 9850 3350
+Wire Wire Line
+	9850 3350 9850 3800
+Wire Wire Line
+	9850 3800 9700 3800
+Connection ~ 9700 3800
+Wire Wire Line
+	10200 3250 9850 3250
+Wire Wire Line
+	9850 3250 9850 3100
+Wire Wire Line
+	9850 3100 9700 3100
 Wire Bus Line
 	2750 4200 2750 4750
 Wire Bus Line
@@ -1724,4 +1723,5 @@ Wire Bus Line
 	5200 1300 5200 4600
 Wire Bus Line
 	7200 1300 7200 4600
+Connection ~ 9700 3100
 $EndSCHEMATC

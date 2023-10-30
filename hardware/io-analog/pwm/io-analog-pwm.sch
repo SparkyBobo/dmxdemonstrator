@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Analog IO PWM (DMX-IO4)"
-Date "2023-07-01"
-Rev "1.2"
+Date "2023-09-17"
+Rev "1.3"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -33,7 +33,7 @@ U 1 1 5F42826E
 P 9100 3150
 F 0 "J2" H 9100 2700 50  0000 L CNN
 F 1 "Output" H 8950 2800 50  0000 L CNN
-F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_5-G-5,08_1x05_P5.08mm_Horizontal" H 9100 3150 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal" H 9100 3150 50  0001 C CNN
 F 3 "~" H 9100 3150 50  0001 C CNN
 F 4 "277-1109-ND" H 9100 3150 50  0001 C CNN "Digi-Key_PN"
 F 5 "en/products/detail/phoenix-contact/1757271/260477" H 9100 3150 50  0001 C CNN "DK_Detail_Page"
@@ -830,7 +830,7 @@ AR Path="/647E1209/6546F2FD" Ref="J?"  Part="1"
 AR Path="/65468F85/6546F2FD" Ref="J?"  Part="1" 
 F 0 "J4" H 1350 6450 50  0000 C CNN
 F 1 "Power" H 1350 6550 50  0000 C CNN
-F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 1450 6750 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 1450 6750 50  0001 C CNN
 F 3 "~" H 1450 6750 50  0001 C CNN
 F 4 "277-1106-ND" H 1450 6750 50  0001 C CNN "Digi-Key_PN"
 F 5 "en/products/detail/phoenix-contact/1757242/260474" H 1450 6750 50  0001 C CNN "DK_Detail_Page"
@@ -840,44 +840,10 @@ F 8 "Screw Terminal" H 1450 6750 50  0001 C CNN "Description"
 	1    1450 6750
 	-1   0    0    1   
 $EndComp
-$Comp
-L CrazyGiraffe_DMXDemonstrator:POWER_JACKPTH_BREAD J?
-U 1 1 6546F305
-P 1550 7350
-AR Path="/647946E8/6546F305" Ref="J?"  Part="1" 
-AR Path="/6546F305" Ref="J5"  Part="1" 
-AR Path="/64798DC1/6546F305" Ref="J?"  Part="1" 
-AR Path="/647E1209/6546F305" Ref="J?"  Part="1" 
-AR Path="/65468F85/6546F305" Ref="J?"  Part="1" 
-F 0 "J5" H 1506 7634 45  0000 C CNN
-F 1 "Power" H 1506 7550 45  0000 C CNN
-F 2 "Connectors:POWER_JACK_PTH_BREAD" H 1550 7600 20  0001 C CNN
-F 3 "https://www.sparkfun.com/products/10811" H 1550 7350 50  0001 C CNN
-F 4 "CONN-08197" H 1506 7561 60  0001 C CNN "SP_PN"
-F 5 "https://www.sparkfun.com/products/10811" H 1550 7350 50  0001 C CNN "SP_Detail_Page"
-F 6 "DC Barrel Jack" H 1550 7350 50  0001 C CNN "Description"
-	1    1550 7350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1750 7250 1850 7250
-Wire Wire Line
-	1750 7350 1950 7350
 Wire Wire Line
 	1950 7350 1950 6750
 Wire Wire Line
 	1650 6750 1950 6750
-Wire Wire Line
-	1650 6650 1850 6650
-Wire Wire Line
-	1850 6650 1850 7250
-Connection ~ 1850 6650
-Wire Wire Line
-	1850 6650 2000 6650
-Wire Wire Line
-	1750 7450 1950 7450
-Wire Wire Line
-	1950 7450 1950 7350
 Connection ~ 1950 7350
 $Comp
 L power:GND #PWR?
@@ -902,9 +868,6 @@ Wire Wire Line
 Connection ~ 3900 6650
 Text Notes 1350 7050 2    50   ~ 0
 VIn Input\n(12v-15v)
-Wire Wire Line
-	1950 7450 1950 7500
-Connection ~ 1950 7450
 $Comp
 L Device:CP1 C?
 U 1 1 6546F324
@@ -1075,6 +1038,10 @@ Wire Wire Line
 Connection ~ 8400 2950
 Text Notes 9850 4550 0    50   ~ 0
 PWM Output\n0%-100% duty cycle\n0v-Vo\nFor use with DMX-DSP
+Wire Wire Line
+	1650 6650 2000 6650
+Wire Wire Line
+	1950 7350 1950 7500
 Wire Bus Line
 	6500 1800 6500 4300
 $EndSCHEMATC

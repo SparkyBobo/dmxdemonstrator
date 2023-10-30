@@ -8,6 +8,12 @@ The Transmitter IO Interface is an [Arduino](https://www.arduino.cc/) Shield whi
 
 ## Version History
 
+### Rev 1.3
+
+- Switch to 74LS07 for Led driver
+- Add pulldown resistor for discovery
+- Add silkscreen values
+
 ### Rev 1.2
 
 - Added buffer to drive LEDs

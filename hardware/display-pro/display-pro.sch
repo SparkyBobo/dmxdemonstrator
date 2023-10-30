@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Display-Pro (DMX-DSP)"
-Date "2023-07-02"
-Rev "1.4"
+Date "2023-09-17"
+Rev "1.5"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -20,7 +20,7 @@ U 1 1 5F594F09
 P 7950 2000
 F 0 "J5" H 8050 1900 50  0000 L CNN
 F 1 "C Out" H 8050 2000 50  0000 L CNN
-F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 7950 2000 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 7950 2000 50  0001 C CNN
 F 3 "~" H 7950 2000 50  0001 C CNN
 	1    7950 2000
 	1    0    0    1   
@@ -39,12 +39,12 @@ $EndComp
 $Comp
 L power:GND #PWR0101
 U 1 1 5F306EF9
-P 5150 5150
-F 0 "#PWR0101" H 5150 4900 50  0001 C CNN
-F 1 "GND" H 5155 4977 50  0000 C CNN
-F 2 "" H 5150 5150 50  0001 C CNN
-F 3 "" H 5150 5150 50  0001 C CNN
-	1    5150 5150
+P 5150 5450
+F 0 "#PWR0101" H 5150 5200 50  0001 C CNN
+F 1 "GND" H 5155 5277 50  0000 C CNN
+F 2 "" H 5150 5450 50  0001 C CNN
+F 3 "" H 5150 5450 50  0001 C CNN
+	1    5150 5450
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -68,7 +68,7 @@ U 1 1 5F4DF77C
 P 2900 6700
 F 0 "J3" H 2800 6400 50  0000 C CNN
 F 1 "Power" H 2800 6500 50  0000 C CNN
-F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 2900 6700 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 2900 6700 50  0001 C CNN
 F 3 "~" H 2900 6700 50  0001 C CNN
 	1    2900 6700
 	-1   0    0    1   
@@ -172,7 +172,7 @@ Wire Wire Line
 Wire Wire Line
 	4400 6600 4800 6600
 Wire Wire Line
-	5150 5150 5150 4850
+	5150 5450 5150 4850
 $Comp
 L Connector_Generic:Conn_01x03 J2
 U 1 1 5F615187
@@ -193,16 +193,16 @@ Wire Wire Line
 Wire Wire Line
 	4850 4950 6000 4950
 Wire Wire Line
-	6750 4850 6750 5150
+	6750 4850 6750 5450
 $Comp
 L power:GND #PWR0107
 U 1 1 5F61744A
-P 6750 5150
-F 0 "#PWR0107" H 6750 4900 50  0001 C CNN
-F 1 "GND" H 6755 4977 50  0000 C CNN
-F 2 "" H 6750 5150 50  0001 C CNN
-F 3 "" H 6750 5150 50  0001 C CNN
-	1    6750 5150
+P 6750 5450
+F 0 "#PWR0107" H 6750 5200 50  0001 C CNN
+F 1 "GND" H 6755 5277 50  0000 C CNN
+F 2 "" H 6750 5450 50  0001 C CNN
+F 3 "" H 6750 5450 50  0001 C CNN
+	1    6750 5450
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
@@ -216,7 +216,7 @@ U 1 1 5F61B235
 P 7950 3350
 F 0 "J6" H 8050 3250 50  0000 L CNN
 F 1 "D Out" H 8050 3350 50  0000 L CNN
-F 2 "Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal" H 7950 3350 50  0001 C CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 7950 3350 50  0001 C CNN
 F 3 "~" H 7950 3350 50  0001 C CNN
 	1    7950 3350
 	1    0    0    1   
@@ -364,21 +364,8 @@ F 3 "" H 7650 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3100 6600 3550 6600
-Wire Wire Line
 	3450 6700 3450 7300
-Wire Wire Line
-	3150 7300 3450 7300
 Connection ~ 3450 7300
-Wire Wire Line
-	3450 7300 3450 7400
-Wire Wire Line
-	3150 7200 3550 7200
-Wire Wire Line
-	3550 7200 3550 6600
-Connection ~ 3550 6600
-Wire Wire Line
-	3550 6600 3750 6600
 Wire Wire Line
 	6850 2500 6850 2600
 Wire Wire Line
@@ -391,21 +378,56 @@ Wire Wire Line
 	6850 3350 7750 3350
 Wire Wire Line
 	6850 2000 7750 2000
+Wire Wire Line
+	3450 7300 3450 7450
+Wire Wire Line
+	3100 6600 3750 6600
 $Comp
-L CrazyGiraffe_DMXDemonstrator:POWER_JACKPTH_BREAD J4
-U 1 1 64A270C6
-P 2950 7300
-F 0 "J4" H 2906 7584 45  0000 C CNN
-F 1 "Power" H 2906 7500 45  0000 C CNN
-F 2 "POWER_JACK_PTH_BREAD" H 2950 7550 20  0001 C CNN
-F 3 "" H 2950 7300 50  0001 C CNN
-F 4 "PRT-10811" H 2906 7511 60  0001 C CNN "Field4"
-	1    2950 7300
+L Device:R_US R3
+U 1 1 65438E92
+P 5800 5200
+F 0 "R3" H 5732 5154 50  0000 R CNN
+F 1 "10k" H 5732 5245 50  0000 R CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5840 5190 50  0001 C CNN
+F 3 "~" H 5800 5200 50  0001 C CNN
+	1    5800 5200
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_US R4
+U 1 1 65438ED8
+P 6000 5200
+F 0 "R4" H 6068 5246 50  0000 L CNN
+F 1 "10k" H 6068 5155 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6040 5190 50  0001 C CNN
+F 3 "~" H 6000 5200 50  0001 C CNN
+	1    6000 5200
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:GND #PWR0102
+U 1 1 6543AC2F
+P 5900 5450
+F 0 "#PWR0102" H 5900 5200 50  0001 C CNN
+F 1 "GND" H 5905 5277 50  0000 C CNN
+F 2 "" H 5900 5450 50  0001 C CNN
+F 3 "" H 5900 5450 50  0001 C CNN
+	1    5900 5450
+	-1   0    0    -1  
+$EndComp
 Wire Wire Line
-	3150 7400 3450 7400
-Connection ~ 3450 7400
+	5800 5350 5800 5400
 Wire Wire Line
-	3450 7400 3450 7450
+	5800 5400 5900 5400
+Wire Wire Line
+	6000 5400 6000 5350
+Wire Wire Line
+	5900 5450 5900 5400
+Connection ~ 5900 5400
+Wire Wire Line
+	5900 5400 6000 5400
+Wire Wire Line
+	6000 5050 6000 4950
+Wire Wire Line
+	5800 5050 5800 4750
 $EndSCHEMATC
