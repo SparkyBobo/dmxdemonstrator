@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - DMX-512 IO Module (DMX-IO1)"
-Date "2023-10-28"
-Rev "1.4"
+Date "2023-12-19"
+Rev "1.5"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"

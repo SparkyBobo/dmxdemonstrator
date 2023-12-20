@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Analog IO PWM (DMX-IO4)"
-Date "2023-09-17"
-Rev "1.3"
+Date "2023-12-19"
+Rev "1.4"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -538,12 +538,12 @@ U 1 1 649CE4C9
 P 5250 4600
 F 0 "RV1" V 5045 4600 50  0000 C CNN
 F 1 "10k" V 5136 4600 50  0000 C CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_3299W_Vertical" H 5250 4600 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3299P_Horizontal" H 5250 4600 50  0001 C CNN
 F 3 "https://www.bourns.com/docs/Product-Datasheets/3299.pdf" H 5250 4600 50  0001 C CNN
-F 4 "3299W-103LF-ND" V 5250 4600 50  0001 C CNN "Digi-Key_PN"
-F 5 "en/products/detail/bourns-inc/3299W-1-103LF/1088137" V 5250 4600 50  0001 C CNN "DK_Detail_Page"
-F 6 "3299W-1-103LF" V 5250 4600 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Bourns/3299W-1-103LF?qs=Ic5%252BeoIHScV3GzYsoC1Uog%3D%3D" V 5250 4600 50  0001 C CNN "MO_Detail_Page"
+F 4 "3299P-103LF-ND" V 5250 4600 50  0001 C CNN "Digi-Key_PN"
+F 5 "en/products/detail/bourns-inc/3299P-1-103LF/1088121" V 5250 4600 50  0001 C CNN "DK_Detail_Page"
+F 6 "652-3299P-1-103LF" V 5250 4600 50  0001 C CNN "MO_PN"
+F 7 "https://www.mouser.com/ProductDetail/Bourns/3299P-1-103LF?qs=WQTe6SLNdBmzK4IlGV4toA%3D%3D" V 5250 4600 50  0001 C CNN "MO_Detail_Page"
 	1    5250 4600
 	0    -1   1    0   
 $EndComp

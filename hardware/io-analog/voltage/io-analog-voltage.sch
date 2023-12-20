@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Analog IO Voltage (DMX-IO3)"
-Date "2023-09-17"
-Rev "1.3"
+Date "2023-12-19"
+Rev "1.4"
 Comp "Crazy Giraffe Software"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -917,10 +917,10 @@ Wire Wire Line
 	4700 7200 4700 7400
 Wire Wire Line
 	4700 6600 4700 6900
-Wire Bus Line
-	4300 1650 4300 4150
 Wire Wire Line
 	1550 6600 1900 6600
 Wire Wire Line
 	1850 7300 1850 7450
+Wire Bus Line
+	4300 1650 4300 4150
 $EndSCHEMATC

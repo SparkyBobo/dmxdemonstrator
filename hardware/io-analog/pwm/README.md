@@ -68,6 +68,13 @@ R4 uses the same values in all configuration to reduce the number of parts requi
 Vo = 1.25v + (1 + (R5 / R4))
 Vi = Vo + 2v or 3v (for higher current, use 3v)
 
+## Version History
+
+### Rev 1.4
+
+- Added thermal relief for TO-220
+- Switch RV1 from 3299W (tall) to 3299P (short)
+
 ### Rev 1.3
 
 - Switch to smaller screw terminal connectors

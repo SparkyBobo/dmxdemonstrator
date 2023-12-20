@@ -14,6 +14,8 @@ DACs also tend to be picky about supply voltages, requiring more input voltage t
 
 Core Header - https://www.sparkfun.com/products/11896
 
+## Version History
+
 ### Rev 1.3
 
 - Fix issue with A03 and A02 being reversed at Analog Extensions

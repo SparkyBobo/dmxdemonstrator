@@ -100,19 +100,32 @@ You can use the DMX-IO1 without isolation by leaving out these parts (saving abo
 - Under U1, connect pins 1 and 6 to bypass +5v
 - Under U1, connect pins 2 and 4 to bypass GND
 - Omit U2
-- Under U2, connect pins 3 and 6 to bypass RX
+- Under U2, solder JP1 closed to bypass RX
 - Omit U3
-- Under U3, connect pins 3 and 6 to bypass DIR
+- Under U3, solder JP2 closed to bypass DIR
 - Omit U4
-- Under U4, connect pins 3 and 6 to bypass TX
+- Under U4, solder JP3 closed to bypass TX
 - Omit R3
-- Under R3, connect pins to bypass RX
 - Omit R4
-- Under R4, connect pins to bypass DIR
 - Omit R6
-- Under R6, connect pins to bypass TX
+- Omit C2
+- Omit C3
+- Omit C4
 
 ## Version History
+
+### Rev 1.5
+
+- Move R5 to make room for R2 silkscreen
+- Move R1 to make room for DMX connector
+
+### Rev 1.4
+
+- Fix issue with DMX A and B being reversed
+- Group bypass-only resistors together
+- Add ISO bypass solder bridges
+- Add silkscreen values
+- Remove RDM bias resistors
 
 ### Rev 1.3
 
