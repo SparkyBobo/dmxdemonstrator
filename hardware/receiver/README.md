@@ -1,8 +1,12 @@
 # DMX Demonstrator Receiver (DMX-RX1)
 
+![status](https://img.shields.io/badge/status-verified-brightgreen)
+
+## Status : Testing
+
 ## Overview
 
-The receiver is an [Arduino](https://www.arduino.cc/) Shield board designed to accept the 3-wire data/clock signal from the transmitter and decode the data stream to control the brightness of 4 LEDs. It also has additional output for use with external LED drivers.
+The Receiver is an [Arduino](https://www.arduino.cc/) Shield which accepts the 3-wire data/clock signal from the Transmitter (DMX-TX1) and decodes the data stream to control the brightness of 4 LEDs.
 
 ## Online parts list
 
@@ -14,9 +18,23 @@ Additionally, you'll need some parts from the common parts lists as well. You ca
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-RX1, Rev 1.2](https://oshpark.com/shared_projects/VdwUWld0).
+- [DMX-RX1, Rev 1.3](https://oshpark.com/shared_projects/b6uh6OMa).
+
+- ## Compatibility
+
+ The DMX-RX1 is compatible with the following Arduino platforms:
+
+![compat](https://img.shields.io/badge/compat-verified-brightgreen)
+
+- Arduino Uno R3: Hardware Revision 1.1+, Software Version 1.1+
+- Arduino Leonardo: Hardware Revision 1.1+, Software Version  1.1+
+- Arduino Mega or Mega 2560: Hardware Revision 1.1+, Software Version 1.2+
 
 ## Version History
+
+### Rev 1.3
+
+- Remove PWM connector
 
 ### Rev 1.2
 

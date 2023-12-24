@@ -29,7 +29,13 @@ class PinChangeInterrupt {
   public:
     void Initialize() __attribute__((always_inline)) {
         // Enable pin change interrupt PCINT5, which is the clock input pin.
-        PCMSK0 |= (1 << PCINT5);
+#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+        PCMSK0 |= (1 << PCINT7); // Pin D13 is PCINT7, D9 has no PCINT assignment.
+#elif defined(__AVR_ATmega32U4__)
+        PCMSK0 |= (1 << PCINT5); // Pin D9 is PCINT5, D13 has no PCINT assignment.
+#else
+        PCMSK0 |= (1 << PCINT5); // Pin D13 is PCINT5, D9 is PCINT1 (either will work).
+#endif
     }
 
     void Start() __attribute__((always_inline)) {
