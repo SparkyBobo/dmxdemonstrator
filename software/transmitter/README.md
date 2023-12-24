@@ -16,6 +16,10 @@ The transmitter software is an Arduino sketch design for use with the both the D
 
 ## Version History
 
+### Rev 1.2
+
+- Fixed clock mode detection when using control-pro.
+
 ### Rev 1.1
 
 - Refactored to capture analog values asynchronously.

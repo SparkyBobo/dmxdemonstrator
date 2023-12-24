@@ -18,6 +18,11 @@ The discovery software also tests the basic functionality of the connected board
 
 ## Version History
 
+### Rev 1.1
+
+- Fixed detection of DMX-TX2/control-pro.
+- Fixed test mode of DMX-TX2/control-pro.
+
 ### Rev 1.0
 
 - Initial draft

@@ -23,7 +23,7 @@
  * This software supports the Arduio-based DMX Demonstrator Transmitter
  * running any of the supported hardware options.
  */
-#define _VERSION_ "1.1"
+#define _VERSION_ "1.2"
 
 /**
  * Local copy of JC_Button: https://github.com/JChristensen/JC_Button
@@ -78,7 +78,7 @@ int clockOutPin = 13;                    // The clock output to the receiver.
 Button currentSelectedDimmerButton = Button(currentSelectedDimmerButtonPin);
 Button clockStepButton = Button(clockStepButtonPin);
 Button clockModeButton = Button(clockModeButtonPin);
-Button clockSlowButton = Button(clockFastIOPin);
+Button clockSlowButton = Button(clockSlowIOPin);
 Button clockFastButton = Button(clockFastIOPin);
 
 /**
@@ -366,25 +366,35 @@ void setup() {
     clockFastButton.begin();
   }
 
-  // Use the default analog reference.
-  analogReferenceAsync(DEFAULT);
-
-  // Initialize clock mode and dimmer selection. It's safe to use analogRead() here
-  // since it is not interleaved with analogStartAsync()/ analogReadAsync()
-  clockValue = analogRead(clockSpeedInputPin);
-  SelectClockMode(clockModeSlow);
-  SelectDimmer(0);
-
-  // Start the first capture: clock speed.
-  analogCaptureChannel = 0;
-  StartAnalogCapture(analogCaptureChannel);
-
   // Configure timers.
   Timer1.Initialize();
   Timer1.AttachInterrupt(OnClockPulse);
 
   Timer2.Initialize();
   Timer2.AttachInterrupt(OnAnalogSample);
+
+  // Use the default analog reference.
+  analogReferenceAsync(DEFAULT);
+
+  // Initialize clock mode and dimmer selection. It's safe to use analogRead() here
+  // since it is not interleaved with analogStartAsync()/analogReadAsync()
+  clockValue = analogRead(clockSpeedInputPin);
+  if (!usingControlPro) {
+    SelectClockMode(clockModeSlow);
+    SelectDimmer(0);
+  } else if (clockFastButton.isPressed()) {
+    SelectClockMode(clockModeFast);
+  } else if (clockSlowButton.isPressed()) {
+    SelectClockMode(clockModeSlow);
+  } else {
+    SelectClockMode(clockModeOff);
+  }
+
+  // Start the first capture: clock speed.
+  analogCaptureChannel = 0;
+  StartAnalogCapture(analogCaptureChannel);
+
+  // Start the timers
   Timer2.Start();
 
   // Complete startup message.
@@ -425,18 +435,21 @@ void loop() {
   }
 
   // Look for clock fast and slow presses on DMX-TX2/DMX-CPB.
-  if (usingControlPro) {
+  else if (usingControlPro) {
 
     // If the clock slow mode was pressed, switch to slow mode.
     clockSlowButton.read();
+    clockFastButton.read();
     if (clockSlowButton.wasPressed()) {
       SelectClockMode(clockModeSlow);
     }
-
     // If the clock fast mode was pressed, switch to fast mode.
-    clockFastButton.read();
-    if (clockFastButton.wasPressed()) {
+    else if (clockFastButton.wasPressed()) {
       SelectClockMode(clockModeFast);
+    }
+    // If the clock slow or fast mode was released, switch to step mode.
+    else if (clockSlowButton.wasReleased() || clockFastButton.wasReleased()) {
+      SelectClockMode(clockModeOff);
     }
   }
 
