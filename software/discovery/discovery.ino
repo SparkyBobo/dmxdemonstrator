@@ -25,7 +25,7 @@
  * desktop program to determine what configuration is left to perform
  * before flashing the final software.
  */
-#define _VERSION_ "1.0"
+#define _VERSION_ "1.1"
 
 // Local copy of JC_Button: https://github.com/JChristensen/JC_Button
 #include "JC_Button.h"
@@ -283,45 +283,17 @@ void DetectConnectedBoard() {
     isTX1 &= d11State == HIGH;
     isTX2 &= d11State == LOW;
 
-    // On the DMX-TX1, pin D2 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D2 is pulled high via LED + 330 ohms.
-    pinMode(2, INPUT);
-    int d2State = digitalRead(2);
-    isTX1 &= d2State == HIGH;
-    isTX2 &= d2State == HIGH;
-
-    // On the DMX-TX1, pin D3 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D3 is pulled high via LED + 330 ohms.
-    pinMode(3, INPUT);
-    int d3State = digitalRead(3);
-    isTX1 &= d3State == HIGH;
-    isTX2 &= d2State == HIGH;
-
-    // On the DMX-TX1, pin D4 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D4 is left floating.
-    pinMode(4, INPUT);
-    isTX1 &= digitalRead(4) == HIGH;
-
-    // On the DMX-TX1, pin D7 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D7 is left floating.
-    pinMode(7, INPUT);
-    isTX1 &= digitalRead(7) == HIGH;
-
     // On the DMX-TX1, pin D8 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D8 may be pulled low via the clock mode switch.
-    pinMode(8, INPUT);
-    isTX1 &= digitalRead(4) == HIGH;
+    pinMode(8, INPUT_PULLUP);
+    isTX1 &= digitalRead(8) == HIGH;
+    isControlPro |= digitalRead(8) == LOW;
 
     // On the DMX-TX1, pin D9 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D9 may be pulled low via the clock mode switch.
-    pinMode(9, INPUT);
+    pinMode(9, INPUT_PULLUP);
     isTX1 &= digitalRead(9) == HIGH;
-
-    // On the DMX-TX1, pin D10 is left floating.
-    // On the DMX-TX2, pin D10 is pulled high via LED + 330 ohms on
-    //   the ControlPro board, otherwise it is floating.
-    pinMode(10, INPUT);
-    isControlPro &= digitalRead(10) == HIGH;
+    isControlPro |= digitalRead(9) == LOW;
   }
 
   // Print discovery.
@@ -663,14 +635,20 @@ void TestTransmitterTX2Board() {
 
   switch (testCounter++) {
     case 0:
-      SendProgmemMessage(clockLEDMessage);
-      digitalWrite(clockLedTXPin, LOW);
+      if (isTX2) {
+        SendProgmemMessage(clockLEDMessage);
+        digitalWrite(clockLedTXPin, LOW);
+      }
       break;
 
     case 1:
-      SendProgmemMessage(dataLEDMessage);
-      digitalWrite(dataLedTXPin, LOW);
-      break;
+      if (isTX2) {
+        SendProgmemMessage(dataLEDMessage);
+        digitalWrite(dataLedTXPin, LOW);
+        testCounter = 0;
+        break;
+      }
+      // Fallthrough
 
     default:
       testCounter = -1;
@@ -723,7 +701,7 @@ void TestTransmitterTX2Board() {
     dimmerValue = analogRead(dimmerLevel3InputPin);
     dimmerValueChange = abs(previousDimmer3Value - dimmerValue);
     if (dimmerValueChange >= analogValueThreshold) {
-      SendProgmemIntFormat(dimmer4ValueInFormat, dimmerValue);
+      SendProgmemIntFormat(dimmer3ValueInFormat, dimmerValue);
       previousDimmer3Value = dimmerValue;
     }
 
