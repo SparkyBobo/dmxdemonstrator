@@ -1,8 +1,10 @@
 # DMX Demonstrator Control-Pro  (DMX-CP*)
 
+![status](https://img.shields.io/badge/status-design-red)
+
 ## Overview
 
-The control-pro is built to work with either transmitter or transmitter-pro. When used with an Arduino, an additional board, the DMX-TX2, is required to connect the control-pro to the Arduino. The transmitter software detects whether DMX-TX1, the standard transmitter, or DMX-=TX2, the control-pro adapter, is connected.
+The control-pro is built to work with either transmitter or transmitter-retro. When used with an Arduino, an additional board, the DMX-TX2, is required to connect the control-pro to the Arduino. The transmitter software automatically detects whether DMX-TX1, the standard transmitter, or DMX-TX2, the control-pro adapter, is connected.
 
 The control pro is designed so that a series of components are sandwiched between 2 circuit boards. As a result, the heights of the components are fairly sensitive in order to make things line up nicely. Here are the parts for which I designed. The DMX-CPB board contains all the parts and is the bottom of the sandwich, the DMX-CPF is the faceplate, i.e. the top of the sandwich. Turns out a PCB is cheaper than a custom aluminum plate.
 

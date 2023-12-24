@@ -1,5 +1,7 @@
 # DMX Demonstrator Display-Pro (DMX-DSP)
 
+![status](https://img.shields.io/badge/status-prototype-orange)
+
 ## Overview
 
 The display-pro is breakout board designed to intercept the 3-wire data/clock signal from the transmitter to amplify the data and clock signals and drive a larger display intended for a large audience.
