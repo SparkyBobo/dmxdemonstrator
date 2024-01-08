@@ -25,7 +25,7 @@
  * desktop program to determine what configuration is left to perform
  * before flashing the final software.
  */
-#define _VERSION_ "1.1"
+#define _VERSION_ "1.2"
 
 // Local copy of JC_Button: https://github.com/JChristensen/JC_Button
 #include "JC_Button.h"
@@ -37,25 +37,38 @@ int dimmerLevelInputPin = A0;     // The single dimmer level control for the 'li
 int dimmerLevel1InputPin = A0;    // The dimmer 1 level control for the 'pro' transmitter control.
 int dimmerLevel2InputPin = A1;    // The dimmer 2 level control for the 'pro' transmitter control.
 int dimmerSelectButtonPin = A1;   // The dimmer select button for the 'lite' transmitter control.
+int clearAllButtonPin = A1;       // The clear all button for the frame scrambler.
 int dimmerLevel3InputPin = A2;    // The dimmer 3 level control for the 'pro' transmitter control.
 int clockModeButtonPin = A2;      // The clock mode button for the 'lite' transmitter control.
 int errorLedPin = A2;             // The error led output for the receiver.
+int scrambleButtonPin = A2;       // The scramble button for the frame scrambler.
 int dimmerLevel4InputPin = A3;    // The dimmer 4 level control for the 'pro' transmitter control.
 int startCodeLedPin = A3;         // The start code led output for the receiver.
+int enabledOutPin = A3;           // The enabled output for the frame scrambler.
 int clockSpeedInputPin = A4;      // The clock speed control for both the 'lite' and 'pro' transmitter control.
 int dataLedRXPin = A4;            // The data led output for the receiver.
+int scambledOutPin = A4;           // The scramble output for the frame scrambler.
 int clockStepButtonPin = A5;      // The clock step button for the 'lite' transmitter control.
 int clockLedRXPin = A5;           // The clock led output for the receiver.
+int enabledButtonPin = A5;        // The enabled button for the frame scrambler.
 int dataLedTXPin = 2;             // The data led output for both the 'lite' and 'pro' transmitter control.
+int dataOutLedFSPin = 2;          // The data output led output for the frame scrambler.
 int clockLedTXPin = 3;            // The clock led output for both the 'lite' and 'pro' transmitter control.
+int clockOutLedFSPin = 3;         // The clock output led output for the frame scrambler.
 int dimmerSelect4LedPin = 4;      // The dimmer select 4 led output for the 'lite' transmitter control.
+int dataInLedFSPin = 4;           // The data intput led output for the frame scrambler.
 int dimmerSelect3LedPin = 5;      // The dimmer select 3 led output for the 'lite' transmitter control.
 int dimmerLevelOut4LedPin = 5;    // The dimmer output 4 led for the receiver.
+int clockInLedFSPin = 5;          // The clock input led output for the frame scrambler.
 int dimmerSelect2LedPin = 6;      // The dimmer select 2 led output for the 'lite' transmitter control.
 int dimmerLevelOut3LedPin = 6;    // The dimmer output 3 led for the receiver.
+int scambledLedPin = 6;           // The scramble led output for the frame scrambler.
 int dimmerSelect1LedPin = 7;      // The dimmer select 1 led output for the 'lite' transmitter control.
+int enabledLedPin = 7;            // The enabled led output for the frame scrambler.
 int clockFastPin = 8;             // The clock speed fast out for the 'lite' control, in for the "pro" transmitter control.
+int dataInFSPin = 8;              // The data input from the transmitter for the frame scrambler.
 int clockSlowPin = 9;             // The clock speed slow out for the 'lite' control, in for the "pro" transmitter control.
+int clockInFSPin = 9;             // The clock input from the transmitter for the frame scrambler.
 int dimmerLevelOut2LedPin = 10;   // The dimmer output 2 led for the receiver.
 int hardwareDetectOutputPin = 10; // Output to indicate which transmitter board is connected, LOW for DMX-TX2.
 int dimmerLevelOut1LedPin = 11;   // The dimmer output 1 led for the receiver.
@@ -73,22 +86,27 @@ Button clockStepButton = Button(clockStepButtonPin);
 Button clockModeButton = Button(clockModeButtonPin);
 Button clockSlowButton = Button(clockSlowPin);
 Button clockFastButton = Button(clockFastPin);
+Button clearAllButton = Button(clearAllButtonPin);
+Button scrambleButton = Button(scrambleButtonPin);
+Button enabledButton = Button(enabledButtonPin);
 
 /**
  *  Discovery data.
  */
 int detectedBoard = 0; // Determine which board is running.
-const int NoBoardDetected = 0;
+const int TX1Default = 0;
 const int RX1Detected = 1;
 const int TX1Detected = 2;
 const int TX2Detected = 3;
 const int TX2AndControlProDetected = 4;
+const int FS1Detected = 5;
 
-const char NoBoardMessage[] PROGMEM = "No DMX Demonstrator boards detected.\r\n";
+const char defaultBoardMessage[] PROGMEM = "Defaulting to DMX-TX1 board.\r\n";
 const char rx1Message[] PROGMEM = "DMX-RX1 is detected.\r\n";
 const char tx1Message[] PROGMEM = "DMX-TX1 is detected.\r\n";
 const char tx2Message[] PROGMEM = "DMX-TX2 is detected.\r\n";
 const char controlProMessage[] PROGMEM = "DMX-CP1 is detected.\r\n";
+const char fs1Message[] PROGMEM = "DMX-FS1 is detected.\r\n";
 
 /**
  *  Message for test loop.
@@ -107,12 +125,20 @@ const char testCounterFormat[] PROGMEM = "Dimmer %d LED selected.\r\n";
 const char dimmerLEDFormat[] PROGMEM = "Dimmer %d LED selected.\r\n";
 const char clockLEDMessage[] PROGMEM = "Clock LED selected.\r\n";
 const char dataLEDMessage[] PROGMEM = "Data LED selected.\r\n";
+const char clockInLEDMessage[] PROGMEM = "Clock in LED selected.\r\n";
+const char dataInLEDMessage[] PROGMEM = "Data in LED selected.\r\n";
+const char clockOutLEDMessage[] PROGMEM = "Clock out LED selected.\r\n";
+const char dataOutLEDMessage[] PROGMEM = "Data out LED selected.\r\n";
 const char fastLEDMessage[] PROGMEM = "Fast LED selected.\r\n";
 const char slowLEDMessage[] PROGMEM = "Slow LED selected.\r\n";
 const char errorLEDMessage[] PROGMEM = "Error LED selected.\r\n";
 const char startCodeLEDMessage[] PROGMEM = "Start Code LED selected.\r\n";
+const char scrambledLEDMessage[] PROGMEM = "Scrambled LED selected.\r\n";
+const char enabledLEDMessage[] PROGMEM = "Enabled LED selected.\r\n";
 const char clockInMessage[] PROGMEM = "Clock input detected.\r\n";
 const char dataInMessage[] PROGMEM = "Data input detected.\r\n";
+const char clockOutMessage[] PROGMEM = "Clock output detected.\r\n";
+const char dataOutMessage[] PROGMEM = "Data output detected.\r\n";
 const char dimmerSelectMessage[] PROGMEM = "Dimmer select input detected.\r\n";
 const char clockStepMessage[] PROGMEM = "Clock step input detected.\r\n";
 const char clockModeMessage[] PROGMEM = "Clock mode input detected.\r\n";
@@ -124,6 +150,9 @@ const char dimmer1ValueInFormat[] PROGMEM = "Dimmer 1 level input detected, %d.\
 const char dimmer2ValueInFormat[] PROGMEM = "Dimmer 2 level input detected, %d.\r\n";
 const char dimmer3ValueInFormat[] PROGMEM = "Dimmer 3 level input detected, %d.\r\n";
 const char dimmer4ValueInFormat[] PROGMEM = "Dimmer 4 level input detected, %d.\r\n";
+const char clearAllMessage[] PROGMEM = "Clear all input detected.\r\n";
+const char scrambleMessage[] PROGMEM = "Scramble input detected.\r\n";
+const char enableMessage[] PROGMEM = "Enable input detected.\r\n";
 
 /**
  * Serial data data.
@@ -170,10 +199,6 @@ void setup() {
   SendProgmemMessage(startUpMessage);
   SendProgmemStringFormat(versionFormat, _VERSION_);
 
-  // Configure IO.
-  pinMode(10, INPUT);
-  pinMode(11, INPUT);
-
   // Complete startup message.
   SendProgmemMessage(readyMessage);
 
@@ -206,6 +231,7 @@ ISR(TIMER1_COMPA_vect) {
   TestReceiverBoard();
   TestTransmitterTX1Board();
   TestTransmitterTX2Board();
+  TestTransmitterFS1Board();
 }
 
 /**
@@ -234,75 +260,86 @@ void DetectConnectedBoard() {
 
   // On the DMX-RX1, pins D5 and D6 are pulled low via LEDs + 330 ohms.
   // On the DMX-TX1, pins D5 and D6 are pulled high via LEDs + 330 ohms.
-  // On the DMX-TX2, pins D5 and D6 are not connected.
-  // With no board connected, these usually read LOW.
+  // On the DMX-TX2, pins D5 and D6 are pulled high via 330 ohms.
+  // On the DMX-FS1, pins D5 and D6 are pulled high via LEDs + 330 ohms.
   pinMode(5, INPUT);
   pinMode(6, INPUT);
   int d5State = digitalRead(5);
   int d6State = digitalRead(6);
-  int isRX1OrNoBoard = d5State == LOW && d6State == LOW;
+  int isRX1 = (d5State == LOW && d6State == LOW);
+  int isTXFSOrNoBoard = (d5State == HIGH && d6State == HIGH);
+  int isTX1 = isTXFSOrNoBoard;
+  int isTX2 = isTXFSOrNoBoard;
+  int isFS1 = isTXFSOrNoBoard;
+  int isControlPro = false;
+  int d10State = LOW;
+  int d11State = LOW;
 
   // If it might be the RX1, probe other pins to confirm.
-  int isRX1 = isRX1OrNoBoard;
-  int isTX1 = !isRX1OrNoBoard;
-  int isTX2 = !isRX1OrNoBoard;
-  int isControlPro = !isRX1OrNoBoard;
-  if (isRX1OrNoBoard) {
+  if (!isTXFSOrNoBoard) {
 
     // On the DMX-RX1, pin D10 is pulled low via LED + 330 ohms.
     pinMode(10, INPUT);
-    isRX1 &= digitalRead(10) == LOW;
+    d10State = digitalRead(10);
+    isRX1 &= d10State == LOW;
 
     // On the DMX-RX1, pin D11 is pulled low via LED + 330 ohms.
     pinMode(11, INPUT);
-    isRX1 &= digitalRead(11) == LOW;
+    d11State = digitalRead(11);
+    isRX1 &= d11State == LOW;
 
-    // On the DMX-RX1, pin A2 is pulled high via LED + 330 ohms.
-    pinMode(A2, INPUT);
-    isRX1 &= digitalRead(A2) == HIGH;
-
-    // On the DMX-RX1, pin A3 is pulled high via LED + 330 ohms.
-    pinMode(A3, INPUT);
-    isRX1 &= digitalRead(A3) == HIGH;
-
-    // On the DMX-RX1, pin A5 is pulled high via LED + 330 ohms.
-    pinMode(A4, INPUT);
-    isRX1 &= digitalRead(A4) == HIGH;
-
-    // On the DMX-RX1, pin A5 is pulled high via LED + 330 ohms.
-    pinMode(A5, INPUT);
-    isRX1 &= digitalRead(A5) == HIGH;
-
-  // It might be either TX1 or TX2, probe other pins to confirm.
+  // It might be either TX1, TX2, or FS1, probe other pins to confirm.
   } else {
+
+    // On the DMX-TX1, pin D10 is left floating.
+    // On the DMX-TX2, pin D10 is connected to a 74LS07, high presents a hi-z load, i.e., similar to floating.
+    // On the DMX-FS1, pin D10 is pulled low via 330 ohms.
+    pinMode(10, INPUT_PULLUP);
+    d10State = digitalRead(10);
+    isTX2 &= d10State == HIGH;
+    isFS1 &= d10State == LOW;
 
     // On the DMX-TX1, pin D11 is left floating.
     // On the DMX-TX2, pin D11 is pulled low via 330 ohms.
+    // On the DMX-FS1, pin D11 is pulled low via 330 ohms.
     pinMode(11, INPUT_PULLUP);
-    int d11State = digitalRead(11);
-    isTX1 &= d11State == HIGH;
+    d11State = digitalRead(11);
     isTX2 &= d11State == LOW;
+    isFS1 &= d11State == LOW;
 
     // On the DMX-TX1, pin D8 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D8 may be pulled low via the clock mode switch.
+    // On the DMX-TX2, pin D8 may be pulled low via the clock mode switch on the control pro.
+    // On the DMX-FS1, pin D8 receives the TX data input, which may be floating, high or low.
     pinMode(8, INPUT_PULLUP);
-    isTX1 &= digitalRead(8) == HIGH;
     isControlPro |= digitalRead(8) == LOW;
 
     // On the DMX-TX1, pin D9 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D9 may be pulled low via the clock mode switch.
+    // On the DMX-TX2, pin D9 may be pulled low via the clock mode switch on the control pro.
+    // On the DMX-FS1, pin D9 receives the TX clock input, which may be floating, high or low.
     pinMode(9, INPUT_PULLUP);
-    isTX1 &= digitalRead(9) == HIGH;
     isControlPro |= digitalRead(9) == LOW;
+
+    // While not definitive, the analog inputs can provide a clue as to whether the TX1 is connected if either dimmer or clock potentiometers are near 0.
+    // On the DMX-TX1, A* pins will read high unless a button is pressed  (A1, A2, A5) except A0 and A4, which could read high or low.
+    // On the DMX-TX2, A* pins are connect to potentiometers and could read high or low.
+    // On the DMX-FS1, A* pins will read high unless a button is pressed (A1, A2, A5)including A0 and A4 which are used as outputs and likely not connected.
+    pinMode(A0, INPUT_PULLUP);
+    pinMode(A4, INPUT_PULLUP);
+    isTX1 &= (digitalRead(A0) == LOW || digitalRead(A4) == LOW);
+    isControlPro |= (digitalRead(A0) == LOW || digitalRead(A4) == LOW);
   }
+
+  // Debug
+  sprintf(serialPortMessage, "5=%d, 6=%d, 10=%d, 11=%d, rx=%d, fs=%d, tx2=%d, tx1=%d, nob=%d\r\n", d5State, d6State, d10State, d11State, isRX1, isFS1, isTX2, isTX1, isTXFSOrNoBoard);
+  Serial.print(serialPortMessage);  
 
   // Print discovery.
   if (isRX1) {
     SendProgmemMessage(rx1Message);
     detectedBoard = RX1Detected;
-  } else if (isTX1) {
-    SendProgmemMessage(tx1Message);
-    detectedBoard = TX1Detected;
+  } else if (isFS1) {
+    SendProgmemMessage(fs1Message);
+    detectedBoard = FS1Detected;
   } else if (isTX2) {
     SendProgmemMessage(tx2Message);
     if (isControlPro) {
@@ -311,9 +348,12 @@ void DetectConnectedBoard() {
     } else {
         detectedBoard = TX2Detected;
     }
+  } else if (isTX1) {
+    SendProgmemMessage(tx1Message);
+    detectedBoard = TX1Detected;
   } else {
-    SendProgmemMessage(NoBoardMessage);
-    detectedBoard = NoBoardDetected;
+    SendProgmemMessage(defaultBoardMessage);
+    detectedBoard = TX1Default;
   }
 }
 
@@ -420,7 +460,7 @@ void TestReceiverBoard() {
 void TestTransmitterTX1Board() {
 
   // Skip is not DMX-TX1 or not running a test loop.
-  if (testCounter < 0 || detectedBoard != TX1Detected) {
+  if (testCounter < 0 || (detectedBoard != TX1Detected && detectedBoard != TX1Default)) {
     return;
   }
 
@@ -573,15 +613,15 @@ void TestTransmitterTX1Board() {
     previousClockValue = clockValue;
   }
 
-  // Make clock LED track clock input.
-  if (!digitalRead(clockInPin)) {
-    SendProgmemMessage(clockInMessage);
+  // Make clock LED track clock output.
+  if (!digitalRead(clockOutPin)) {
+    SendProgmemMessage(clockOutMessage);
     digitalWrite(clockLedTXPin, LOW);
   }
 
-  // Make data LED track clock input.
-  if (!digitalRead(dataInPin)) {
-    SendProgmemMessage(dataInMessage);
+  // Make data LED track clock output.
+  if (!digitalRead(dataOutPin)) {
+    SendProgmemMessage(dataOutMessage);
     digitalWrite(dataLedTXPin, LOW);
   }
 }
@@ -724,16 +764,147 @@ void TestTransmitterTX2Board() {
     previousClockValue = clockValue;
   }
 
-  // Make clock LED track clock input.
-  if (!digitalRead(clockInPin)) {
-    SendProgmemMessage(clockInMessage);
+  // Make clock LED track clock output.
+  if (!digitalRead(clockOutPin)) {
+    SendProgmemMessage(clockOutMessage);
     digitalWrite(clockLedTXPin, LOW);
   }
 
-  // Make data LED track clock input.
-  if (!digitalRead(dataInPin)) {
-    SendProgmemMessage(dataInMessage);
+  // Make data LED track clock output.
+  if (!digitalRead(dataOutPin)) {
+    SendProgmemMessage(dataOutMessage);
     digitalWrite(dataLedTXPin, LOW);
+  }
+}
+
+/**
+ * Run the test sequence for the DMX-FS1.
+ */
+void TestTransmitterFS1Board() {
+
+  // Skip is not DMX-FS1 or not running a test loop.
+  if (testCounter < 0 || detectedBoard != FS1Detected) {
+    return;
+  }
+
+  // Configure IO.
+  if (testCounter == 0) {
+    pinMode(clearAllButtonPin, INPUT_PULLUP);
+    pinMode(scrambleButtonPin, INPUT_PULLUP);
+    pinMode(enabledButtonPin, INPUT_PULLUP);
+
+    pinMode(dataOutLedFSPin, OUTPUT);
+    pinMode(clockOutLedFSPin, OUTPUT);
+    pinMode(dataInLedFSPin, OUTPUT);
+    pinMode(clockInLedFSPin, OUTPUT);
+    pinMode(scambledLedPin, OUTPUT);
+    pinMode(enabledLedPin, OUTPUT);
+
+    pinMode(enabledOutPin, OUTPUT);
+    pinMode(scambledOutPin, OUTPUT);
+
+    pinMode(dataInFSPin, INPUT_PULLUP);
+    pinMode(clockInFSPin, INPUT_PULLUP);
+    pinMode(dataOutPin, INPUT_PULLUP);
+    pinMode(clockOutPin, INPUT_PULLUP);
+
+    // Enable buttons.
+    clearAllButton.begin();
+    scrambleButton.begin();
+    enabledButton.begin();
+  }
+
+  // Turn on LEDs in a loop.
+  digitalWrite(dataOutLedFSPin, HIGH);
+  digitalWrite(clockOutLedFSPin, HIGH);
+  digitalWrite(dataInLedFSPin, HIGH);
+  digitalWrite(clockInLedFSPin, HIGH);
+  digitalWrite(scambledLedPin, HIGH);
+  digitalWrite(enabledLedPin, HIGH);
+
+  digitalWrite(enabledOutPin, HIGH);
+  digitalWrite(scambledOutPin, HIGH);
+
+  switch (testCounter++) {
+    case 0:
+      SendProgmemMessage(clockInLEDMessage);
+      digitalWrite(clockInLedFSPin, LOW);
+      break;
+
+    case 1:
+      SendProgmemMessage(clockOutLEDMessage);
+      digitalWrite(clockOutLedFSPin, LOW);
+      break;
+
+    case 2:
+      SendProgmemMessage(dataOutLEDMessage);
+      digitalWrite(dataOutLedFSPin, LOW);
+      break;
+
+    case 3:
+      SendProgmemMessage(dataInLEDMessage);
+      digitalWrite(dataInLedFSPin, LOW);
+      break;
+
+    case 4:
+      SendProgmemMessage(scrambledLEDMessage);
+      digitalWrite(scambledLedPin, LOW);
+      digitalWrite(scambledOutPin, HIGH);
+      break;
+
+    case 5:
+      SendProgmemMessage(enabledLEDMessage);
+      digitalWrite(enabledLedPin, LOW);
+      digitalWrite(enabledOutPin, HIGH);
+      testCounter = 0;
+      break;
+
+    default:
+      testCounter = -1;
+      return;
+      break;
+  }
+
+  // If the clear all button is pressed, print message.
+  clearAllButton.read();
+  if (clearAllButton.isPressed()) {
+    SendProgmemMessage(clearAllMessage);
+  }
+
+  // If the scrabmle button is pressed, print message.
+  scrambleButton.read();
+  if (scrambleButton.isPressed()) {
+    SendProgmemMessage(scrambleMessage);
+  }
+
+  // If the enable button is pressed, print message.
+  enabledButton.read();
+  if (enabledButton.isPressed()) {
+    SendProgmemMessage(enableMessage);
+  }
+
+  // Make clock in LED track clock input.
+  if (!digitalRead(clockInFSPin)) {
+    SendProgmemMessage(clockInMessage);
+    digitalWrite(clockInLedFSPin, LOW);
+  }
+
+  // Make data in LED track clock input.
+  if (!digitalRead(dataInFSPin)) {
+    SendProgmemMessage(dataInMessage);
+    digitalWrite(dataInLedFSPin, LOW);
+  }
+  
+  // Make clock out LED track clock output.
+  if (!digitalRead(clockOutPin)) {
+    SendProgmemMessage(clockOutMessage);
+    digitalWrite(clockOutLedFSPin, LOW);
+  }
+
+  // Make data out LED track data output.
+  if (!digitalRead(dataOutPin)) {
+    SendProgmemMessage(dataOutMessage);
+    digitalWrite(dataOutLedFSPin, LOW);
   }
 }
 
@@ -751,11 +922,8 @@ int HandleReceivedChar(char receivedChar) {
     case 't':
       SendProgmemMessage(testStartMessage);
       DetectConnectedBoard();
-      if (detectedBoard > NoBoardDetected) {
-        testCounter = 0;
-        break;
-      }
-      // Fallthrough.
+      testCounter = 0;
+      break;
 
     case 's':
       SendProgmemMessage(testStopMessage);

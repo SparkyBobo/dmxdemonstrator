@@ -2,7 +2,7 @@
 
 ## Overview
 
-The disrupter is an [Arduino](https://www.arduino.cc/) Shield board designed to accept the 3-wire data/clock signal from the transmitter, decode the data stream, and re-transmit the stream to the receiver. It can impact the data bit being sent to the receiver by changing a 0 to a 1 or a 1 to a 0.
+The frame scrambler is an [Arduino](https://www.arduino.cc/) Shield board designed to accept the 3-wire data/clock signal from the transmitter, decode the data stream, and re-transmit the stream to the receiver. It can impact the data bit being sent to the receiver by changing a 0 to a 1 or a 1 to a 0.
 
 When using the scrambler, you might consider adding two more display-pros if you already plan to use a display-pro. Normally, 1 display-pro is used to display the clock and data sent between the transmitter and receiver. Since the scrambler changes the data
 pin so it is different between the transmitter and receiver, an additional display-pro highlights the difference between the incoming and outgoing data. You can replicate all of the LEDs on the scrambler with an additional display-pro, highlighting the
@@ -10,7 +10,7 @@ incoming data and clock, the outgoing data and clock, the enabled LED of the scr
 
 ## Online parts list
 
-Sparkfun offers all of the components required for the receiver. You can find a parts lists [here](https://www.sparkfun.com/wish_lists/173714).
+Sparkfun offers all of the components required for the frame scrambler. You can find a parts lists [here](https://www.sparkfun.com/wish_lists/173714).
 
 Additionally, you'll need some parts from the common parts lists as well. You can find the common parts list [here](https://www.sparkfun.com/wish_lists/160406).
 
@@ -20,7 +20,21 @@ You can order the PCB from [OHS Park](https://oshpark.com/):
 
 - [DMX-FS1, Rev 1.0](https://oshpark.com/shared_projects/??????)
 
-## Version History
+## Compatibility
+
+ The DMX-FS1 is compatible with the following Arduino platforms:
+
+![compat](https://img.shields.io/badge/compat-verified-brightgreen)
+
+- Arduino Uno R3: Hardware Revision 1.0+, Software Version 1.0+
+- Arduino Leonardo: Hardware Revision 1.0+, Software Version 1.0+
+- Arduino Mega or Mega 2560: Hardware Revision 1.0+, Software Version 1.0+
+
+## Revision History
+
+### Rev 1.1
+
+- Add resistor for discover
 
 ### Rev 1.0
 
