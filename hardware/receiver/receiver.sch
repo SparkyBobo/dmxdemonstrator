@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:receiver-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -261,12 +260,12 @@ Wire Wire Line
 $Comp
 L power:GND #PWR0113
 U 1 1 5F443F49
-P 8050 4350
-F 0 "#PWR0113" H 8050 4100 50  0001 C CNN
-F 1 "GND" H 8055 4177 50  0000 C CNN
-F 2 "" H 8050 4350 50  0001 C CNN
-F 3 "" H 8050 4350 50  0001 C CNN
-	1    8050 4350
+P 8050 5250
+F 0 "#PWR0113" H 8050 5000 50  0001 C CNN
+F 1 "GND" H 8055 5077 50  0000 C CNN
+F 2 "" H 8050 5250 50  0001 C CNN
+F 3 "" H 8050 5250 50  0001 C CNN
+	1    8050 5250
 	1    0    0    -1  
 $EndComp
 Text Label 6200 4050 0    50   ~ 0
@@ -357,8 +356,6 @@ Wire Wire Line
 	6150 7350 6550 7350
 Wire Wire Line
 	6550 7350 6550 7450
-Wire Wire Line
-	8050 4350 8050 4250
 Connection ~ 8050 4250
 Wire Wire Line
 	4150 5150 6650 5150
@@ -461,9 +458,9 @@ Wire Wire Line
 	8050 3450 8050 3850
 Connection ~ 8050 3850
 Wire Wire Line
-	6200 3850 7150 3850
+	6200 3850 6850 3850
 Wire Wire Line
-	6200 3450 7150 3450
+	6200 3450 6850 3450
 Wire Wire Line
 	6950 3950 6950 4250
 Wire Wire Line
@@ -472,4 +469,62 @@ Wire Wire Line
 	6950 3050 7150 3050
 Text Label 6200 3750 0    50   ~ 0
 RXCLK
+$Comp
+L Connector_Generic:Conn_01x03 J2
+U 1 1 65A47C21
+P 8550 2650
+F 0 "J2" H 8700 2600 50  0000 C CNN
+F 1 "PWM-34" H 8800 2700 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 8550 2650 50  0001 C CNN
+F 3 "~" H 8550 2650 50  0001 C CNN
+	1    8550 2650
+	1    0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J3
+U 1 1 65A481BA
+P 8550 5050
+F 0 "J3" H 8700 5000 50  0000 C CNN
+F 1 "PWM_12" H 8800 5100 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 8550 5050 50  0001 C CNN
+F 3 "~" H 8550 5050 50  0001 C CNN
+	1    8550 5050
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	8350 2650 8050 2650
+Wire Wire Line
+	8050 2650 8050 3050
+Connection ~ 8050 3050
+Wire Wire Line
+	8350 2750 6950 2750
+Wire Wire Line
+	6950 2750 6950 3050
+Connection ~ 6950 3050
+Wire Wire Line
+	8350 2550 6850 2550
+Wire Wire Line
+	6850 2550 6850 3450
+Connection ~ 6850 3450
+Wire Wire Line
+	6850 3450 7150 3450
+Wire Wire Line
+	6950 4250 6950 4950
+Wire Wire Line
+	6950 4950 8350 4950
+Connection ~ 6950 4250
+Wire Wire Line
+	8350 5150 6850 5150
+Wire Wire Line
+	6850 5150 6850 3850
+Connection ~ 6850 3850
+Wire Wire Line
+	6850 3850 7150 3850
+Wire Wire Line
+	8050 5250 8050 5050
+Wire Wire Line
+	8050 5050 8350 5050
+Wire Wire Line
+	8050 4250 8050 5050
+Connection ~ 8050 5050
 $EndSCHEMATC

@@ -18,6 +18,11 @@ K 74164 74HC SHIFT REGISTER
 F http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164
 $ENDCMP
 #
+$CMP AL8861
+D DC-DC step-down 
+F https://www.diodes.com/assets/Datasheets/AL8861.pdf
+$ENDCMP
+#
 $CMP POWER_JACKPTH_BREAD
 D Power Jack Connector This is the standard 5.5mm barrel jack for power.<br>The PTH is the most common, proven, reliable, footprint.<br>The Slot footprint only works if the mill layer is transmitted to the PCB fab house so be warned.<br> <b>Here are the connectors we sell at SparkFun:</b><ul><li><a href="https://www.sparkfun.com/products/119">DC Barrel Power Jack/Connector</a> (PRT-00119)</li><li><a href="https://www.sparkfun.com/products/12748">DC Barrel Power Jack/Connector (SMD)</a> (PRT-12748)</li><li><a href="https://www.sparkfun.com/products/10811">DC Barrel Jack Adapter - Breadboard Compatible</a> (PRT-10811)</li></ul> <b>It is used on this SparkFun product (and many, many others):</b><ul><li><a href="https://www.sparkfun.com/products/12757">SparkFun RedBoard - Programmed with Arduino</a> (DEV-12757)</li></ul> <b>Also, if you need a mating power supply or connector, please check these out:</b><ul><li><a href="https://www.sparkfun.com/products/298">Wall Adapter Power Supply - 9VDC 650mA</a> (TOL-00298)</li><li><a href="https://www.sparkfun.com/products/10287">DC Barrel Jack Adapter - Male</a> (PRT-10287)</li></ul>
 K PROD_ID:PRT-10811
