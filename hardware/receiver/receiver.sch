@@ -5,9 +5,9 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Receiver (DMX-RX1)"
-Date "2024-02-02"
+Date "2024-02-09"
 Rev "1.4"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"

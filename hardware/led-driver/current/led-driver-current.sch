@@ -5,9 +5,9 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Constant Current Driver (DMX-DCC)"
-Date "2024-02-02"
+Date "2024-02-09"
 Rev "1.0"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -43,7 +43,7 @@ U 1 1 659C307A
 P 7450 2050
 F 0 "L1" V 7640 2050 50  0000 C CNN
 F 1 "33uH" V 7549 2050 50  0000 C CNN
-F 2 "Inductor_SMD:L_6.3x6.3_H3" H 7450 2050 50  0001 C CNN
+F 2 "footprints:L_BOURNS_SRN6045TA" H 7450 2050 50  0001 C CNN
 F 3 "~" H 7450 2050 50  0001 C CNN
 	1    7450 2050
 	0    -1   -1   0   
@@ -135,7 +135,7 @@ U 1 1 659EAC10
 P 7450 4000
 F 0 "L2" V 7640 4000 50  0000 C CNN
 F 1 "33uH" V 7549 4000 50  0000 C CNN
-F 2 "Inductor_SMD:L_6.3x6.3_H3" H 7450 4000 50  0001 C CNN
+F 2 "footprints:L_BOURNS_SRN6045TA" H 7450 4000 50  0001 C CNN
 F 3 "~" H 7450 4000 50  0001 C CNN
 	1    7450 4000
 	0    -1   -1   0   
