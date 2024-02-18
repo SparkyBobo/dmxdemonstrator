@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name CrazyGiraffe_DMXDemonstrator)(type Legacy)(uri E:/OpenSource/dmxdemonstrator/hardware/CrazyGiraffe_DMXDemonstrator.lib)(options "")(descr ""))
+  (lib (name mover-driver-rescue)(type Legacy)(uri ${KIPRJMOD}/mover-driver-rescue.lib)(options "")(descr ""))
+)
