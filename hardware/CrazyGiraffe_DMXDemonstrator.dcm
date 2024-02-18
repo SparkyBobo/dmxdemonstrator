@@ -12,4 +12,50 @@ K TTL Buffer
 F https://www.ti.com/lit/ds/symlink/sn74ls07.pdf
 $ENDCMP
 #
+$CMP 74LS164
+D IC 8-BIT SHIFT REGISTER 14-DIP
+K 74164 74HC SHIFT REGISTER
+F http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164
+$ENDCMP
+#
+$CMP Conn_03x08
+D Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)
+K connector
+F ~
+$ENDCMP
+#
+$CMP POWER_JACKPTH_BREAD
+D Power Jack Connector This is the standard 5.5mm barrel jack for power.<br>The PTH is the most common, proven, reliable, footprint.<br>The Slot footprint only works if the mill layer is transmitted to the PCB fab house so be warned.<br> <b>Here are the connectors we sell at SparkFun:</b><ul><li><a href="https://www.sparkfun.com/products/119">DC Barrel Power Jack/Connector</a> (PRT-00119)</li><li><a href="https://www.sparkfun.com/products/12748">DC Barrel Power Jack/Connector (SMD)</a> (PRT-12748)</li><li><a href="https://www.sparkfun.com/products/10811">DC Barrel Jack Adapter - Breadboard Compatible</a> (PRT-10811)</li></ul> <b>It is used on this SparkFun product (and many, many others):</b><ul><li><a href="https://www.sparkfun.com/products/12757">SparkFun RedBoard - Programmed with Arduino</a> (DEV-12757)</li></ul> <b>Also, if you need a mating power supply or connector, please check these out:</b><ul><li><a href="https://www.sparkfun.com/products/298">Wall Adapter Power Supply - 9VDC 650mA</a> (TOL-00298)</li><li><a href="https://www.sparkfun.com/products/10287">DC Barrel Jack Adapter - Male</a> (PRT-10287)</li></ul>
+K PROD_ID:PRT-10811
+$ENDCMP
+#
+$CMP TB6612FNG
+D Driver IC for Dual DC motor, SSOP-24
+K H-bridge motor driver
+F https://toshiba.semicon-storage.com/us/product/linear/motordriver/detail.TB6612FNG.html
+$ENDCMP
+#
+$CMP TL1431
+D IC VREF SHUNT ADJ TO92-3
+F https://www.ti.com/lit/gpn/TL1431
+$ENDCMP
+#
+$CMP TLC59711PWPR
+D IC LED DRIVER LIN 60MA 20HTSSOP
+K 296-36745-1-ND
+F http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc59711
+$ENDCMP
+#
+$CMP TLV2772CP
+D Dual Rail-to-Rail Operational Amplifiers, DIP-8/SOIC-8/TSSOP-8/VSSOP-8
+K dual opamp
+F https://www.ti.com/lit/gpn/tlv2771
+$ENDCMP
+#
+$CMP TLV2774CN
+D Quad Rail-to-Rail Operational Amplifiers, DIP-8/SOIC-8/TSSOP-8/VSSOP-8
+K quad opamp
+F https://www.ti.com/lit/gpn/tlv2771
+$ENDCMP
+#
 #End Doc Library
