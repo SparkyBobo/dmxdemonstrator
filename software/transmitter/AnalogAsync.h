@@ -1,6 +1,6 @@
 /*
   analog-async.c - DMX Demonstrator Async Analog Read
-  Copyright (C) 2020 Crazy Giraffe Software [https://github.com/xxxxx]
+  Copyright (C) 2020 Sparky Bobo Designs [https://github.com/xxxxx]
 
   Adapted from:
   Arduino.h - Main include file for the Arduino SDK
