@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:io-analog-core-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,7 +7,7 @@ Sheet 1 1
 Title "DMX Demonstrator - Analog IO Core (DMX-IO2)"
 Date "2023-09-17"
 Rev "1.3"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -112,7 +111,7 @@ $EndComp
 Wire Wire Line
 	4200 6850 4200 6550
 $Comp
-L CrazyGiraffe_DMXDemonstrator:74LS164 U?
+L DMXDemonstrator:74LS164 U?
 U 1 1 647F5755
 P 3900 3000
 AR Path="/647E1209/647F5755" Ref="U?"  Part="1" 
@@ -435,7 +434,7 @@ Wire Wire Line
 Wire Wire Line
 	5600 7050 5400 7050
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TL1431 VR?
+L DMXDemonstrator:TL1431 VR?
 U 1 1 647F5A12
 P 5200 7050
 AR Path="/647E1209/647F5A12" Ref="VR?"  Part="1" 
@@ -527,7 +526,7 @@ Wire Wire Line
 Wire Wire Line
 	4200 7450 4650 7450
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLC7524CN U3
+L DMXDemonstrator:TLC7524CN U3
 U 1 1 648A85B8
 P 5850 2400
 F 0 "U3" H 5950 3050 50  0000 L CNN
@@ -648,7 +647,7 @@ F 3 "" H 5850 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLC7524CN U5
+L DMXDemonstrator:TLC7524CN U5
 U 1 1 6495FADC
 P 5850 4400
 F 0 "U5" H 6000 5050 50  0000 C CNN
@@ -769,7 +768,7 @@ F 3 "" H 7850 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLC7524CN U4
+L DMXDemonstrator:TLC7524CN U4
 U 1 1 64968030
 P 7850 2400
 F 0 "U4" H 8000 3050 50  0000 C CNN
@@ -890,7 +889,7 @@ F 3 "" H 7850 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLC7524CN U6
+L DMXDemonstrator:TLC7524CN U6
 U 1 1 64968095
 P 7850 4400
 F 0 "U6" H 8000 5050 50  0000 C CNN
@@ -1269,7 +1268,7 @@ AO1
 Text Label 10050 3550 0    50   ~ 0
 AO0
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U7
+L DMXDemonstrator:TLV2772CP U7
 U 1 1 6511AB4A
 P 9350 2400
 F 0 "U7" H 9350 2767 50  0000 C CNN
@@ -1285,7 +1284,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   -1400 50  0001 C CNN "Description
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U7
+L DMXDemonstrator:TLV2772CP U7
 U 2 1 6511ABB9
 P 9350 4500
 F 0 "U7" H 9350 4867 50  0000 C CNN
@@ -1301,7 +1300,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U8
+L DMXDemonstrator:TLV2772CP U8
 U 3 1 6511AC32
 P 1400 7000
 F 0 "U8" H 1500 7050 50  0000 R CNN
@@ -1312,7 +1311,7 @@ F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 1400 7000 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U8
+L DMXDemonstrator:TLV2772CP U8
 U 1 1 6511AD0D
 P 9350 3800
 F 0 "U8" H 9350 4167 50  0000 C CNN
@@ -1328,7 +1327,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   1400 50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U8
+L DMXDemonstrator:TLV2772CP U8
 U 2 1 6511AD82
 P 9350 3100
 F 0 "U8" H 9350 3467 50  0000 C CNN
@@ -1344,7 +1343,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U7
+L DMXDemonstrator:TLV2772CP U7
 U 3 1 6511ADEF
 P 1150 7000
 F 0 "U7" H 850 7050 50  0000 L CNN
@@ -1701,6 +1700,7 @@ Wire Wire Line
 	9850 3250 9850 3100
 Wire Wire Line
 	9850 3100 9700 3100
+Connection ~ 9700 3100
 Wire Bus Line
 	2750 4200 2750 4750
 Wire Bus Line
@@ -1723,5 +1723,4 @@ Wire Bus Line
 	5200 1300 5200 4600
 Wire Bus Line
 	7200 1300 7200 4600
-Connection ~ 9700 3100
 $EndSCHEMATC

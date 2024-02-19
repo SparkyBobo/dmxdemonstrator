@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:io-analog-voltage-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,7 +7,7 @@ Sheet 1 1
 Title "DMX Demonstrator - Analog IO Voltage (DMX-IO3)"
 Date "2023-12-19"
 Rev "1.4"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -89,7 +88,7 @@ F 14 "Filter Capacitor" H 3800 7050 50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_PMIC-Voltage-Regulators-Linear:LM317T U?
+L Regulator_Linear:LM317_TO-220 U?
 U 1 1 647F570A
 P 2850 6600
 AR Path="/647E1209/647F570A" Ref="U?"  Part="1" 
@@ -796,7 +795,7 @@ Wire Wire Line
 Connection ~ 4700 6600
 Connection ~ 4700 7400
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U1
+L DMXDemonstrator:TLV2772CP U1
 U 1 1 65330243
 P 6000 1650
 F 0 "U1" H 6000 2017 50  0000 C CNN
@@ -812,7 +811,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U2
+L DMXDemonstrator:TLV2772CP U2
 U 1 1 653302B5
 P 6000 3450
 F 0 "U2" H 6000 3817 50  0000 C CNN
@@ -828,7 +827,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U1
+L DMXDemonstrator:TLV2772CP U1
 U 2 1 6533033E
 P 6000 2550
 F 0 "U1" H 6000 2917 50  0000 C CNN
@@ -844,7 +843,7 @@ F 8 "Rail-to-Rail Operational Amplifier" H 0   0   50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U2
+L DMXDemonstrator:TLV2772CP U2
 U 2 1 653303A0
 P 6000 4350
 F 0 "U2" H 6000 4717 50  0000 C CNN
@@ -892,7 +891,7 @@ F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U1
+L DMXDemonstrator:TLV2772CP U1
 U 3 1 65344877
 P 5200 7000
 F 0 "U1" H 5158 7046 50  0000 L CNN
@@ -903,7 +902,7 @@ F 3 "https://www.ti.com/lit/ds/slos209g/slos209g.pdf" H 5200 7000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:TLV2772CP U2
+L DMXDemonstrator:TLV2772CP U2
 U 3 1 653448D9
 P 5650 7000
 F 0 "U2" H 5608 7046 50  0000 L CNN

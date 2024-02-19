@@ -35,7 +35,6 @@ I offer this opinion freely and do not receive any compensation from OHSPark.
 
 The Control Pro is designed so that a series of components are sandwiched between 2 circuit boards. As a result, the heights of the components are fairly sensitive in order to make things line up nicely. Here are the parts for which I designed. The DMX-CPDB and DMX-CPCB boards contains all the parts and are the bottom of the sandwich, the DMX-CPDF and DMX-CPCB are the faceplate, i.e. the tops of the sandwich. If you are wondering why there are 4 total boards, see _PCB->Quality vs Price_.
 
->>>>>>> main
 ### Slider Potentiometers
 
 Getting a potentiometer and knob combo that would work with the rest of the components was probably the hardest part of part selection.
