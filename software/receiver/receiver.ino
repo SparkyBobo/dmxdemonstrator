@@ -1,7 +1,7 @@
 /**
  * DMX Demonstrator Receiver
- * Copyright (C) 2020 Crazy Giraffe Software
- * https://github.com/crazy-giraffe-software/dmxdemonstrator/tree/master/software/receiver
+ * Copyright (C) 2020 Sparky Bobo Designs
+ * https://github.com/SparkyBobo/dmxdemonstrator/tree/master/software/receiver
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@
   * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/25kv-isolated-dmx-512-shield-for-arduino-r2/?pt=full_prod_search
   * Matthias Hertel design: https://www.mathertel.de/Arduino/DMXShield.aspx
   */
-#define _VERSION_ "1.1"
+#define _VERSION_ "1.2"
 
 /**
  * Include pin change interrupt abstractions
