@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:receiver-io-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,7 +7,7 @@ Sheet 1 1
 Title "DMX Demonstrator - Receiver IO Module (DMX-RX2)"
 Date "2023-10-28"
 Rev "1.2"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -44,7 +43,7 @@ NoConn ~ 4300 3350
 NoConn ~ 4300 3550
 NoConn ~ 4900 2750
 $Comp
-L MCU_Module:Arduino_UNO_R3 A1
+L DMXDemonstrator:Arduino_UNO_R3-MCU_Module A1
 U 1 1 5F3035A0
 P 4800 3750
 F 0 "A1" H 4600 4800 50  0000 C CNN
