@@ -1,3 +1,3 @@
 (sym_lib_table
-  (lib (name parts.library)(type Legacy)(uri E:/OpenSource/dmxdemonstrator/hardware/parts.library.lib)(options "")(descr ""))
+  (lib (name DMXDemonstrator)(type Legacy)(uri E:/OpenSource/dmxdemonstrator/hardware/DMXDemonstrator.lib)(options "")(descr ""))
 )

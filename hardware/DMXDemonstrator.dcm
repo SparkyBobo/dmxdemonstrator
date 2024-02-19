@@ -12,4 +12,10 @@ K TTL Buffer
 F https://www.ti.com/lit/ds/symlink/sn74ls07.pdf
 $ENDCMP
 #
+$CMP XLR-3-5
+D XLR Connector, Male or Female, 5 Pins
+K xlr connector
+F  ~
+$ENDCMP
+#
 #End Doc Library

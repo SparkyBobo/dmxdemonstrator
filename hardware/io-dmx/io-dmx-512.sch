@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:io-dmx-512-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,7 +7,7 @@ Sheet 1 1
 Title "DMX Demonstrator - DMX-512 IO Module (DMX-IO1)"
 Date "2023-12-19"
 Rev "1.5"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -196,7 +195,7 @@ Wire Wire Line
 	5000 1950 5000 2300
 Connection ~ 5000 2300
 $Comp
-L dk_Optoisolators-Logic-Output:6N137 U4
+L DMXDemonstrator:6N137-dk_Optoisolators-Logic-Output U4
 U 1 1 5F60D784
 P 6000 5000
 F 0 "U4" H 6200 4800 60  0000 C CNN
@@ -524,7 +523,7 @@ Wire Wire Line
 Wire Wire Line
 	8100 3900 8550 3900
 $Comp
-L parts.library:XLR-3-5 J3
+L DMXDemonstrator:XLR-3-5 J3
 U 1 1 5FA9D811
 P 9000 3800
 F 0 "J3" H 9000 4150 50  0000 C CNN
@@ -540,7 +539,7 @@ F 8 "DMX Connector" H 9000 3800 50  0001 C CNN "Description"
 	1    0    0    -1  
 $EndComp
 $Comp
-L parts.library:XLR-3-5 J2
+L DMXDemonstrator:XLR-3-5 J2
 U 1 1 5FA9D8B9
 P 9000 3000
 F 0 "J2" H 9000 3350 50  0000 C CNN
@@ -807,7 +806,7 @@ F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_Optoisolators-Logic-Output:6N137 U3
+L DMXDemonstrator:6N137-dk_Optoisolators-Logic-Output U3
 U 1 1 64D4B0B9
 P 6000 3650
 F 0 "U3" H 6200 3450 60  0000 C CNN
@@ -831,7 +830,7 @@ F 16 "https://www.mouser.com/ProductDetail/Vishay-Semiconductors/6N137/?qs=xCMk%
 	1    0    0    -1  
 $EndComp
 $Comp
-L dk_Optoisolators-Logic-Output:6N137 U2
+L DMXDemonstrator:6N137-dk_Optoisolators-Logic-Output U2
 U 1 1 64D4B117
 P 6000 2300
 F 0 "U2" H 6200 2100 60  0000 C CNN
