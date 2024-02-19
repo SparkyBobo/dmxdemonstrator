@@ -1,7 +1,7 @@
 /**
  * DMX Demonstrator Transmitter adjustable timer library
- * Copyright (C) 2020 Crazy Giraffe Software
- * https://github.com/crazy-giraffe-software/dmxdemonstrator/tree/master/software/transmitter
+ * Copyright (C) 2020 Sparky Bobo Designs
+ * https://github.com/SparkyBobo/dmxdemonstrator/tree/master/software/transmitter
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

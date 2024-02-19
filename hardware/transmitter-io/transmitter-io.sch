@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:transmitter-io-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,14 +7,14 @@ Sheet 1 1
 Title "DMX Demonstrator - Transmitter IO Module (DMX-TX2)"
 Date "2023-09-16"
 Rev "1.3"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/ "
 Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 License"
 $EndDescr
 $Comp
-L MCU_Module:Arduino_UNO_R3 A1
+L DMXDemonstrator:Arduino_UNO_R3-MCU_Module A1
 U 1 1 5F3035A0
 P 7350 3350
 F 0 "A1" H 7150 4400 50  0000 C CNN
@@ -768,22 +767,8 @@ F 3 "" H 8400 2150 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8400 2150 8400 2300
-Wire Bus Line
-	2600 3650 2600 4800
-Wire Bus Line
-	6400 3200 6400 4650
-Wire Bus Line
-	4600 3850 4600 4650
-Wire Bus Line
-	8550 3050 8550 4800
-Wire Bus Line
-	6000 4050 6000 4800
-Wire Bus Line
-	6000 3200 6000 3750
-Wire Bus Line
-	2700 4900 8450 4900
 $Comp
-L CrazyGiraffe_DMXDemonstrator:74LS07 U1
+L DMXDemonstrator:74LS07 U1
 U 1 1 6508D26C
 P 3700 3950
 F 0 "U1" H 3900 4600 50  0000 C CNN
@@ -793,4 +778,18 @@ F 3 "https://www.ti.com/lit/ds/symlink/sn74ls07.pdf" H 3700 3950 50  0001 C CNN
 	1    3700 3950
 	1    0    0    -1  
 $EndComp
+Wire Bus Line
+	6000 4050 6000 4800
+Wire Bus Line
+	6000 3200 6000 3750
+Wire Bus Line
+	2700 4900 8450 4900
+Wire Bus Line
+	4600 3850 4600 4650
+Wire Bus Line
+	8550 3050 8550 4800
+Wire Bus Line
+	6400 3200 6400 4650
+Wire Bus Line
+	2600 3650 2600 4800
 $EndSCHEMATC
