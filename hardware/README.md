@@ -23,3 +23,27 @@ The _prototype_ badge indicates that the component has completed the design phas
 - ![status](https://img.shields.io/badge/status-design-red)
 
 The _design_ badge indicates that the component is still being design. has completed the design phase.
+
+## Compatibility
+
+For the components which connect to an Arduino, the readme provides a list of known compatible Arduino platforms. The DMX Demonstrator family will likely work with most Arduino boards, real or clones, but if you are having an
+[issue](https://github.com/SparkyBobo/dmxdemonstrator/issues) with a particular board, open an issue to ask for verification. Please provide as much detail on the board and where is was obtained as possible.
+Most compatibility issues are resolved by updating the software and do not require hardware revisions.
+
+The following is a definition of some compatibilities:
+
+- ![compat](https://img.shields.io/badge/compat-verified-brightgreen)
+
+The _verified_ badge indicates that the component has been built and tested for the specific Arduino board.
+
+- ![compat](https://img.shields.io/badge/compat-testing-yellow)
+
+The _testing_ badge indicates that the component is being tested to determine if it is compatible with the specific Arduino board.
+
+- ![compat](https://img.shields.io/badge/compat-research-orange)
+
+The _research_ badge indicates that the component is being researched to determine if it is compatible with the specific Arduino board.
+
+- ![compat](https://img.shields.io/badge/compat-incompatible-red)
+
+The _incompatible_ badge indicates that the component is not compatible for the specific Arduino board.

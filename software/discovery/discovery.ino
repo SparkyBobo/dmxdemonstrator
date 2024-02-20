@@ -1,7 +1,7 @@
 /**
  * DMX Demonstrator Discovery
- * Copyright (C) 2020 Crazy Giraffe Software
- * https://github.com/crazy-giraffe-software/dmxdemonstrator/tree/master/software/discovery
+ * Copyright (C) 2020 Sparky Bobo Designs
+ * https://github.com/SparkyBobo/dmxdemonstrator/tree/master/software/discovery
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
  * desktop program to determine what configuration is left to perform
  * before flashing the final software.
  */
-#define _VERSION_ "1.0"
+#define _VERSION_ "1.1"
 
 // Local copy of JC_Button: https://github.com/JChristensen/JC_Button
 #include "JC_Button.h"
@@ -234,7 +234,8 @@ void DetectConnectedBoard() {
 
   // On the DMX-RX1, pins D5 and D6 are pulled low via LEDs + 330 ohms.
   // On the DMX-TX1, pins D5 and D6 are pulled high via LEDs + 330 ohms.
-  // On the DMX-TX2, pins D5 and D6 are pulled high via 330 ohms.
+  // On the DMX-TX2, pins D5 and D6 are not connected.
+  // With no board connected, these usually read LOW.
   pinMode(5, INPUT);
   pinMode(6, INPUT);
   int d5State = digitalRead(5);
@@ -243,9 +244,9 @@ void DetectConnectedBoard() {
 
   // If it might be the RX1, probe other pins to confirm.
   int isRX1 = isRX1OrNoBoard;
-  int isTX1 = !isRX1OrNoBoard && d5State == HIGH && d6State == HIGH;
-  int isTX2 = !isRX1OrNoBoard && d5State == LOW && d6State == LOW;
-  int isControlPro = false;
+  int isTX1 = !isRX1OrNoBoard;
+  int isTX2 = !isRX1OrNoBoard;
+  int isControlPro = !isRX1OrNoBoard;
   if (isRX1OrNoBoard) {
 
     // On the DMX-RX1, pin D10 is pulled low via LED + 330 ohms.
@@ -282,37 +283,15 @@ void DetectConnectedBoard() {
     isTX1 &= d11State == HIGH;
     isTX2 &= d11State == LOW;
 
-    // On the DMX-TX1, pin D2 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D2 is connected to a gate input (HiZ).
-    pinMode(2, INPUT);
-    int d2State = digitalRead(2);
-    isTX1 &= d2State == HIGH;
-
-    // On the DMX-TX1, pin D3 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D3 is connected to a gate input (HiZ).
-    pinMode(3, INPUT);
-    int d3State = digitalRead(3);
-    isTX1 &= d3State == HIGH;
-
-    // On the DMX-TX1, pin D4 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D4 is left floating.
-    pinMode(4, INPUT);
-    isTX1 &= digitalRead(4) == HIGH;
-
-    // On the DMX-TX1, pin D7 is pulled high via LED + 330 ohms.
-    // On the DMX-TX2, pin D7 is left floating.
-    pinMode(7, INPUT);
-    isTX1 &= digitalRead(7) == HIGH;
-
     // On the DMX-TX1, pin D8 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D8 may be pulled low via the clock mode switch.
-    pinMode(8, INPUT);
+    pinMode(8, INPUT_PULLUP);
     isTX1 &= digitalRead(8) == HIGH;
     isControlPro |= digitalRead(8) == LOW;
 
     // On the DMX-TX1, pin D9 is pulled high via LED + 330 ohms.
     // On the DMX-TX2, pin D9 may be pulled low via the clock mode switch.
-    pinMode(9, INPUT);
+    pinMode(9, INPUT_PULLUP);
     isTX1 &= digitalRead(9) == HIGH;
     isControlPro |= digitalRead(9) == LOW;
   }
@@ -656,14 +635,20 @@ void TestTransmitterTX2Board() {
 
   switch (testCounter++) {
     case 0:
-      SendProgmemMessage(clockLEDMessage);
-      digitalWrite(clockLedTXPin, LOW);
+      if (isTX2) {
+        SendProgmemMessage(clockLEDMessage);
+        digitalWrite(clockLedTXPin, LOW);
+      }
       break;
 
     case 1:
-      SendProgmemMessage(dataLEDMessage);
-      digitalWrite(dataLedTXPin, LOW);
-      break;
+      if (isTX2) {
+        SendProgmemMessage(dataLEDMessage);
+        digitalWrite(dataLedTXPin, LOW);
+        testCounter = 0;
+        break;
+      }
+      // Fallthrough
 
     default:
       testCounter = -1;
@@ -716,7 +701,7 @@ void TestTransmitterTX2Board() {
     dimmerValue = analogRead(dimmerLevel3InputPin);
     dimmerValueChange = abs(previousDimmer3Value - dimmerValue);
     if (dimmerValueChange >= analogValueThreshold) {
-      SendProgmemIntFormat(dimmer4ValueInFormat, dimmerValue);
+      SendProgmemIntFormat(dimmer3ValueInFormat, dimmerValue);
       previousDimmer3Value = dimmerValue;
     }
 
