@@ -87,11 +87,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# CrazyGiraffe_DMXDemonstrator_AL8861
+# DMXDemonstrator_AL8861-CrazyGiraffe_DMXDemonstrator
 #
-DEF CrazyGiraffe_DMXDemonstrator_AL8861 U 0 40 Y Y 1 F N
+DEF DMXDemonstrator_AL8861-CrazyGiraffe_DMXDemonstrator U 0 40 Y Y 1 F N
 F0 "U" 100 400 45 H V L BNN
-F1 "CrazyGiraffe_DMXDemonstrator_AL8861" 100 300 45 H V L BNN
+F1 "DMXDemonstrator_AL8861-CrazyGiraffe_DMXDemonstrator" 100 300 45 H V L BNN
 F2 "Package_DIP:TSOT25" 0 500 20 H I C CNN
 F3 "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fna556" 100 600 60 H I C CNN
 $FPLIST
@@ -142,8 +142,8 @@ $FPLIST
 $ENDFPLIST
 DRAW
 P 2 0 1 0 50 0 -50 0 N
-P 3 0 1 8 -50 -50 -50 50 -30 50 N
-P 4 0 1 8 50 -50 50 50 -50 0 50 -50 N
+P 3 0 1 10 -50 -50 -50 50 -30 50 N
+P 4 0 1 10 50 -50 50 50 -50 0 50 -50 N
 X K 1 -150 0 100 R 50 50 1 1 P
 X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
@@ -206,8 +206,8 @@ $FPLIST
 $ENDFPLIST
 DRAW
 P 2 0 1 0 50 0 -50 0 N
-P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
-P 6 0 1 8 -75 25 -75 50 -50 50 -50 -50 -25 -50 -25 -25 N
+P 4 0 1 10 50 50 50 -50 -50 0 50 50 N
+P 6 0 1 10 -75 25 -75 50 -50 50 -50 -50 -25 -50 -25 -25 N
 X K 1 -150 0 100 R 50 50 1 1 P
 X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
@@ -227,8 +227,8 @@ ENDDEF
 #
 # Mechanical_MountingHole
 #
-DEF Mechanical_MountingHole MH 0 40 Y Y 1 F N
-F0 "MH" 0 200 50 H V C CNN
+DEF Mechanical_MountingHole H 0 40 Y Y 1 F N
+F0 "H" 0 200 50 H V C CNN
 F1 "Mechanical_MountingHole" 0 125 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN

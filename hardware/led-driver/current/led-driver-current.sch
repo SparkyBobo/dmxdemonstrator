@@ -60,7 +60,7 @@ F 3 "~" H 6600 1350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CrazyGiraffe_DMXDemonstrator:AL8861 U1
+L DMXDemonstrator:AL8861-CrazyGiraffe_DMXDemonstrator U1
 U 1 1 659C45BE
 P 6450 1900
 F 0 "U1" H 6450 2304 45  0000 C CNN
@@ -666,7 +666,7 @@ Wire Wire Line
 Wire Wire Line
 	4550 3800 5800 3800
 $Comp
-L CrazyGiraffe_DMXDemonstrator:AL8861 U2
+L DMXDemonstrator:AL8861-CrazyGiraffe_DMXDemonstrator U2
 U 1 1 659EAC1C
 P 6450 3850
 F 0 "U2" H 6450 4254 45  0000 C CNN

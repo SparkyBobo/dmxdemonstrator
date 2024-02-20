@@ -284,7 +284,7 @@ F 3 "~" H 10900 6850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SparkFun-DiscreteSemi:MOSFET-NCH-FQP30N06L Q2
+L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q2
 U 1 1 5F63E22E
 P 6750 3650
 F 0 "Q2" H 6915 3692 45  0000 L CNN
@@ -296,7 +296,7 @@ F 4 "TRANS-10060" H 6915 3566 60  0001 L CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L SparkFun-DiscreteSemi:MOSFET-NCH-FQP30N06L Q1
+L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q1
 U 1 1 5F640FDC
 P 6750 2300
 F 0 "Q1" H 6915 2342 45  0000 L CNN

@@ -1,6 +1,6 @@
 # DMX Demonstrator Receiver (DMX-RX1)
 
-![status](https://img.shields.io/badge/status-verified-brightgreen)
+![status](https://img.shields.io/badge/status-testing-yellow)
 
 ## Status : Testing
 
