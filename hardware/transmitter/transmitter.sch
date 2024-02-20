@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:transmitter-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,14 +7,14 @@ Sheet 1 1
 Title "DMX Demonstrator - Transmitter (DMX-TX1)"
 Date "2023-12-04"
 Rev "1.3"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/ "
 Comment4 "Released under the Creative Commons Attribution Share-Alike 4.0 License"
 $EndDescr
 $Comp
-L MCU_Module:Arduino_UNO_R3 A1
+L DMXDemonstrator:Arduino_UNO_R3-MCU_Module A1
 U 1 1 5F3035A0
 P 6200 3350
 F 0 "A1" H 6000 4400 50  0000 C CNN
@@ -530,7 +529,7 @@ Wire Wire Line
 	4250 3950 4250 3850
 Connection ~ 4250 3850
 $Comp
-L SparkFun-Resistors:POTENTIOMETER-PTH-9MM-1_20W-20% VR2
+L DMXDemonstrator:POTENTIOMETER-PTH-9MM-1_20W-20%-SparkFun-Resistors VR2
 U 1 1 5F517499
 P 4850 4900
 F 0 "VR2" H 4782 4942 45  0000 R CNN
@@ -542,7 +541,7 @@ F 4 "RES-09177" H 4782 4816 60  0001 R CNN "Field4"
 	1    0    0    1   
 $EndComp
 $Comp
-L SparkFun-Resistors:POTENTIOMETER_SLIDE-20MM-1_10W-20% VR1
+L DMXDemonstrator:POTENTIOMETER_SLIDE-20MM-1_10W-20%-SparkFun-Resistors VR1
 U 1 1 5F51752E
 P 4900 2300
 F 0 "VR1" H 4832 2342 45  0000 R CNN
@@ -554,7 +553,7 @@ F 4 "RES-11924" H 4832 2216 60  0001 R CNN "Field4"
 	1    0    0    1   
 $EndComp
 $Comp
-L SparkFun-Switches:MOMENTARY-SWITCH-SPST-PTH-12MM S1
+L DMXDemonstrator:MOMENTARY-SWITCH-SPST-PTH-12MM-SparkFun-Switches S1
 U 1 1 5F53A7F8
 P 4550 3050
 F 0 "S1" H 4550 3254 45  0000 C CNN
@@ -566,7 +565,7 @@ F 4 "SWCH-09185" H 4550 3181 60  0001 C CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L SparkFun-Switches:MOMENTARY-SWITCH-SPST-PTH-12MM S2
+L DMXDemonstrator:MOMENTARY-SWITCH-SPST-PTH-12MM-SparkFun-Switches S2
 U 1 1 5F53A858
 P 4550 3550
 F 0 "S2" H 4550 3754 45  0000 C CNN
@@ -578,7 +577,7 @@ F 4 "SWCH-09185" H 4550 3681 60  0001 C CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L SparkFun-Switches:MOMENTARY-SWITCH-SPST-PTH-12MM S3
+L DMXDemonstrator:MOMENTARY-SWITCH-SPST-PTH-12MM-SparkFun-Switches S3
 U 1 1 5F53A8A0
 P 4550 3850
 F 0 "S3" H 4550 4054 45  0000 C CNN

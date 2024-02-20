@@ -2,7 +2,7 @@
 
 ## Overview
 
-The discovery software is an Arduino sketch design for use with the DMX-RX1, the standard receiver, the DMX-TX1, the standard transmitter, the DMX-TX2, the control-pro adapter, and the DMX-FS1, the frame scrambler. The discovery software automatically detects whether DMX-RX1, DMX-TX1, DMX-TX2, or FS-1 is connected.
+The discovery software is an Arduino sketch design for use with the both the DMX-RX1, the standard receiver, the DMX-TX1, the standard transmitter, or DMX-TX2, the control-pro adapter. The discovery software automatically detects whether DMX-RX1, DMX-TX1, or DMX-TX2  is connected.
 
 The discovery software also tests the basic functionality of the connected board.
 
@@ -17,10 +17,6 @@ The discovery software also tests the basic functionality of the connected board
 - Arduino Mega or Mega 2560, Version 1.0+
 
 ## Version History
-
-### Rev 1.2
-
-- Added detection of DMX-FS1.
 
 ### Rev 1.1
 

@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:display-pro-cache
-EELAYER 26 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -8,7 +7,7 @@ Sheet 1 1
 Title "DMX Demonstrator - Display-Pro (DMX-DSP)"
 Date "2020-11-08"
 Rev "1.2"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -404,7 +403,7 @@ F 3 "~" H 10900 6850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L SparkFun-DiscreteSemi:MOSFET-NCH-FQP30N06L Q2
+L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q2
 U 1 1 5F63E22E
 P 6600 3650
 F 0 "Q2" H 6765 3692 45  0000 L CNN
@@ -416,7 +415,7 @@ F 4 "TRANS-10060" H 6765 3566 60  0001 L CNN "Field4"
 	1    0    0    -1  
 $EndComp
 $Comp
-L SparkFun-DiscreteSemi:MOSFET-NCH-FQP30N06L Q1
+L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q1
 U 1 1 5F640FDC
 P 6600 2300
 F 0 "Q1" H 6765 2342 45  0000 L CNN

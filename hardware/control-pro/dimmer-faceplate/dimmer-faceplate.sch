@@ -8,7 +8,7 @@ Sheet 1 1
 Title "DMX Demonstrator - Control-Pro Faceplate (DMX-CPF)"
 Date "2023-12-04"
 Rev "1.3"
-Comp "Crazy Giraffe Software"
+Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
 Comment3 "https://creativecommons.org/licenses/by-sa/4.0/ "
