@@ -16,6 +16,10 @@ The receiver software is an Arduino sketch design for use with the both the DMX-
 
 ## Version History
 
+### Rev 1.3
+
+- Added compact status for companion software
+
 ### Rev 1.2
 
 - Added support for Arduino Mega or Mega 2560.

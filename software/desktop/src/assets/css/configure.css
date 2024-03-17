@@ -1,0 +1,114 @@
+/**
+ * @file Configuration styles.
+ * @copyright Copyright (c) Sparky Bobo Designs. All rights reserved.
+ * @license Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+ .configure-board-badge.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+ .configure-error.is-hidden {
+    display: none
+}
+
+.configure-get-started.is-hidden {
+    display: none
+}
+
+.configure-no-boards.is-hidden {
+    display: none
+}
+
+.configure-boards.is-hidden {
+    display: none
+}
+
+.configure-board-img {
+    width: 200px;
+    height: 150px;
+}
+
+.configure-board-id-container {
+    height: 38px;
+}
+
+.configure-board-id {
+    margin-top: 9px;
+}
+
+.configure-board-shield-img-container {
+    height:143px;
+    width:200px;
+}
+
+.configure-board-shield-img {
+    width: 200px;
+    height: 150px;
+}
+
+.configure-board-shield-img.is-hidden {
+    display: none
+}
+
+.configure-board-shield-load {
+    word-wrap: break-word;
+}
+
+.configure-board-shield-load.is-hidden {
+    display: none
+}
+
+.configure-board-shield-status-container {
+    height: 38px;
+}
+
+.configure-board-shield-progress {
+    margin-top: 9px;
+}
+
+.configure-board-shield-progress.is-hidden {
+    display: none
+}
+
+.configure-board-shield-status {
+    margin-top: 9px;
+}
+.configure-board-shield-status.is-hidden {
+    display: none
+}
+
+.configure-board-shield-discover.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-info-container {
+    height:143px;
+    width:200px;
+}
+
+.configure-board-sketch-status-container {
+    height: 38px;
+}
+
+.configure-board-sketch-progress.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-status.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-update.is-hidden {
+    display: none
+}
+
+.configure-board-sketch-load.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.configure-boards-refresh.is-hidden {
+    display: none
+}
