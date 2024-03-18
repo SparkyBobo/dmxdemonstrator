@@ -1,7 +1,7 @@
 /**
  * DMX Demonstrator Transmitter pin change library
- * Copyright (C) 2020 Crazy Giraffe Software
- * https://github.com/crazy-giraffe-software/dmxdemonstrator/tree/master/software/transmitter
+ * Copyright (C) 2020 Sparky Bobo Designs
+ * https://github.com/SparkyBobo/dmxdemonstrator/tree/master/software/transmitter
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ class PinChangeInterrupt {
 #elif defined(__AVR_ATmega32U4__)
         PCMSK0 |= (1 << PCINT5); // Pin D9 is PCINT5, D13 has no PCINT assignment.
 #else
-        PCMSK0 |= (1 << PCINT5); // Pin D13 is PCINT5, D9 is PCINT1 (either will work).
+        PCMSK0 |= (1 << PCINT1); // Pin D13 is PCINT5, D9 is PCINT1 (either will work).
 #endif
     }
 

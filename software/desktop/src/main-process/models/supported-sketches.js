@@ -28,7 +28,7 @@
     {
         name: 'Frame Scrambler',
         file: 'Scrambler.ino',
-        sketchId: 'Scrambler',
+        sketchId: 'Frame-Scrambler',
         boardType: 3,
     }
  ];

@@ -18,6 +18,10 @@ The transmitter software is an Arduino sketch design for use with the both the D
 
 ### Rev 1.3
 
+- Fix discovery of DMX-TX2
+
+### Rev 1.3
+
 - Added compact status for companion software
 
 ### Rev 1.2

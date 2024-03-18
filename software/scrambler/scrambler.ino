@@ -25,7 +25,7 @@
   * running any of the supported hardware options. All output options
   * can be used at the same time.
   */
-#define _VERSION_ "1.0"
+#define _VERSION_ "1.1"
 
 /**
  * Local copy of JC_Button: https://github.com/JChristensen/JC_Button
@@ -142,9 +142,9 @@ const char compactDataFormat[] PROGMEM = "m,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,
  * The serial respones and help menu.
  */
 const char newlineMessage[] PROGMEM = "\r\n";
-const char startUpMessage[] PROGMEM = "DMX Demonstrator Frame Scrabmler starting up...";
-const char readyMessage[] PROGMEM = "DMX Demonstrator Frame Scrabmler ready!";
-const char versionFormat[] PROGMEM = "DMX Demonstrator Frame Scrabmler Version %s\r\n";
+const char startUpMessage[] PROGMEM = "DMX Demonstrator Frame-Scrambler starting up...\r\n";
+const char readyMessage[] PROGMEM = "DMX Demonstrator Frame-Scrambler ready!\r\n";
+const char versionFormat[] PROGMEM = "DMX Demonstrator Frame-Scrambler Version %s\r\n";
 const char hardwareDetect[] PROGMEM = "Hardware Detection: found DMX-FS1\r\n";
 
 const char compactStatusFormat[] PROGMEM = "Compact Status: %s\r\n";

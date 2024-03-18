@@ -23,7 +23,7 @@
  * This software supports the Arduio-based DMX Demonstrator Transmitter
  * running any of the supported hardware options.
  */
-#define _VERSION_ "1.3"
+#define _VERSION_ "1.4"
 
 /**
  * Local copy of JC_Button: https://github.com/JChristensen/JC_Button
@@ -88,7 +88,7 @@ int usingControlPro = 0;
 
 const char hardwareDetectFormat[] PROGMEM = "Hardware Detection: found %s\r\n";
 const char hardwareDetectTX1[] PROGMEM = "DMX-TX1";
-const char hardwareDetectTX2[] PROGMEM = "DMX-TX2/DMX-CPB";
+const char hardwareDetectTX2[] PROGMEM = "DMX-TX2";
 const char* const hardwareDetectMessages[] PROGMEM = { hardwareDetectTX1, hardwareDetectTX2, };
 
 /**
@@ -640,6 +640,12 @@ int ReadAnalogCapture(int channel) {
   if (channel == 0) {
     clockValue = analogLevel;
   } else {
+    
+    // Allow value to go to zero
+    // 50 of 1024 is not too much.
+    if (analogLevel < 50) {
+      analogLevel = 0;
+    }
     
     // The DMX-TX2/DMX-CPB has 4 different dimmer levels so read/store using the capture channel.
     // The DMX-TX1 only has a single dimmer level so read/store using the selected channel.

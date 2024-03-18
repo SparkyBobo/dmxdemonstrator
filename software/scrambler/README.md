@@ -16,6 +16,11 @@ The frame scrambler software is an Arduino sketch design for use with the DMX-FS
 
 ## Version History
 
+### Rev 1.1
+
+- Add cr/lf to startup messages so companion software can discover it.
+- Fix issue where scrambler didn't detect tx clock on Uno
+
 ### Rev 1.0
 
 - Initial draft
