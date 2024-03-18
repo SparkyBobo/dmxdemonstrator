@@ -1,7 +1,7 @@
 /**
- * DMX Demonstrator Receiver
+ * DMX Demonstrator Frame Scrambler
  * Copyright (C) 2020 Sparky Bobo Designs
- * https://github.com/SparkyBobo/dmxdemonstrator/tree/master/software/receiver
+ * https://github.com/SparkyBobo/dmxdemonstrator/tree/master/software/scrambler
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,28 +18,20 @@
  *
  */
 
- /**
-  * About DMX Demonstrator Receiver
+/**
+  * About DMX Demonstrator Frame Scrambler
   *
-  * This software supports the Arduio-based DMX Demonstrator Receiver
+  * This software supports the Arduio-based DMX Demonstrator Frame Scrambler
   * running any of the supported hardware options. All output options
   * can be used at the same time.
-  *
-  * When using the DMX output option, there may be a conflict with pins
-  * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
-  * There are two options:
-  * 1.) Use an Arduino with 2 UARTS, such as the Leonardo. This is the recommended option.
-  * 2.) Use a DMX board which does not use the hardware UART, i.e. pins D0 and D1.
-  *
-  * DMX can be supported via any of these options:
-  * General DMX Shield info: https://playground.arduino.cc/DMX/DMXShield/
-  * DFRobot product: https://www.dfrobot.com/product-984.html
-  * SK Pang product: http://skpang.co.uk/catalog/arduino-dmx-shield-p-663.html
-  * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/dmx-shield-for-arduino-rdm-capable/
-  * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/25kv-isolated-dmx-512-shield-for-arduino-r2/?pt=full_prod_search
-  * Matthias Hertel design: https://www.mathertel.de/Arduino/DMXShield.aspx
   */
-#define _VERSION_ "1.3"
+#define _VERSION_ "1.0"
+
+/**
+ * Local copy of JC_Button: https://github.com/JChristensen/JC_Button
+ * This avoids having to add it as an explicit library.
+ */
+#include "JC_Button.h"
 
 /**
  * Include pin change interrupt abstractions
@@ -49,28 +41,30 @@
 /**
  * Pin definitions.
  */
-int errorLedPin = A2;             // The error led output.
-int startCodeLedPin = A3;         // The start code led output.
-int dataLedPin = A4;              // The data led output.
-int clockLedPin = A5;             // The clock led output.
-int dimmerLevelOut4LedPin = 5;    // The dimmer output 4 led.
-int dimmerLevelOut3LedPin = 6;    // The dimmer output 3 led.
-int dimmerLevelOut2LedPin = 10;   // The dimmer output 2 led.
-int dimmerLevelOut1LedPin = 11;   // The dimmer output 1 led.
+int clearAllButtonPin = A1;  // The clear all button.
+int scrambleButtonPin = A2;  // The scramble button.
+int enabledOutPin = A3;      // The enabled output.
+int scambledOutPin = A4;     // The scramble output.
+int enableButtonPin = A5;    // The enable button.
 
-int dataInPin = 12;               // The data input from the transmitter.
-int clockInPin = 13;              // The clock input from the transmitter.
+int dataOutLedPin = 2;   // The data output led output.
+int clockOutLedPin = 3;  // The clock output led output.
+int dataInLedPin = 4;    // The data intput led output.
+int clockInLedPin = 5;   // The clock input led output.
+int scambledLedPin = 6;  // The scramble led output.
+int enabledLedPin = 7;   // The enabled led output.
 
-int shiftRegisterClearPin = 7;    // Clear for the IO shift register.
-int shiftRegisterClockPin = 4;    // Clock for the IO shift register.
-int shiftRegisterDataPin = 3;     // Data for the IO shift register.
-int dacAddr0Pin = A0;             // Address 0 for the DAC channel select.
-int dacAddr1Pin = A1;             // Address 1 for the DAC channel select.
-int dacWrite = 8;                 // Write for the DAC channel.
+int dataInPin = 8;     // The data input from the transmitter.
+int clockInPin = 9;    // The clock input from the transmitter.
+int dataOutPin = 12;   // The data output to the receiver.
+int clockOutPin = 13;  // The clock output to the receiver.
 
-int dmxRxPin = 0;                 // DMX receiver pin (UART0).
-int dmxTxPin = 1;                 // DMX transmit pin (UART0).
-int dmxDirectionPin = 2;          // DMX direction ping.
+/**
+ * Switches.
+ */
+Button clearAllButton = Button(clearAllButtonPin);
+Button scrambleButton = Button(scrambleButtonPin);
+Button enableButton = Button(enableButtonPin);
 
 /**
  * Protocol state.
@@ -88,7 +82,8 @@ volatile int nextFrameState = 255;
 volatile int frameState = 255;
 volatile int clockInBit = 0;
 volatile int dataInBit = 0;
-volatile int startCodeMatch = 0;
+volatile int clockOutBit = 0;
+volatile int dataOutBit = 0;
 volatile int currentFrameStep = 1000;
 volatile int previousFrameStep = -1;
 volatile int frameBreakCounter = -1;
@@ -98,13 +93,15 @@ volatile int dimmerCounter = 0;
 volatile int receivedData = 0;
 
 /**
- * Start code and dimmer data.
+ * Scramble data.
  */
-int expectedStartCode = 0;        // The expected start code.
-int receivedStartCode = -1;       // The received start code.
-
 const int maxDimmerCount = 4;
-int dimmerLevels[4] = { 0 };      // The dimmer levels.
+const int maxScrambleCount = 88;
+int scrambleDataBits[88] = { 0 };  // The data bits to scramble.
+volatile int scrambledEnabled = LOW;
+volatile int scrambedBit = LOW;
+volatile int scambledClearAll = false;
+volatile int scambledBitSet = -1;
 
 /**
  *  Message for frame steps.
@@ -122,7 +119,9 @@ const char errorStateMessage[] PROGMEM = "ignoring data due to error, waiting fo
 
 const char frameStepUnknownMessage[] PROGMEM = "Step: ??\t";
 const char frameStepFormat[] PROGMEM = "Step: %2d\t";
-const char dataInBitFormat[] PROGMEM = "Data: %d\t\t";
+const char dataInBitFormat[] PROGMEM = "Data: %d";
+const char dataScrambledBitFormat[] PROGMEM = "->%d\t";
+const char dataInBitEndMessage[] PROGMEM = "\t\t";
 const char dimmerStartBitFormat[] PROGMEM = "Start Bit detected, prepared to receive dimmer %d data.\r\n";
 const char startCodeFormat[] PROGMEM = "Received Start Code: %3dd, %02Xh, %d%d%d%d%d%d%d%db\r\n";
 const char unexpectedStartCodeFormat[] PROGMEM = "Unexpected Start Code: %3dd, %02Xh, %d%d%d%d%d%d%d%db\r\n";
@@ -133,16 +132,20 @@ const char dataByteFormat[] PROGMEM = "%3dd, %02Xh, %d%d%d%d%d%d%d%db\r\n";
 const char invalidFrameStateFormat[] PROGMEM = "Invalid frame state: %d\r\n";
 const char potentialFrameBreakFormat[] PROGMEM = "Potential frame break step: %d, ";
 
+const char scambleBitSetFormat[] PROGMEM = "Scramble bit set at frame step: %d\r\n";
+const char scambleBitAllClear[] PROGMEM = "Scramble bits cleared for all frame steps\r\n";
+const char scambleEnabledFormat[] PROGMEM = "Scrambled enabled: %d\r\n";
+
 const char compactDataFormat[] PROGMEM = "m,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n";
 
 /**
  * The serial respones and help menu.
  */
 const char newlineMessage[] PROGMEM = "\r\n";
-const char startUpMessage[] PROGMEM = "DMX Demonstrator Receiver starting up...\r\n";
-const char readyMessage[] PROGMEM = "DMX Demonstrator Receiver ready!\r\n";
-const char versionFormat[] PROGMEM = "DMX Demonstrator Receiver Version %s\r\n";
-const char hardwareDetect[] PROGMEM = "Hardware Detection: found DMX-RX1\r\n";
+const char startUpMessage[] PROGMEM = "DMX Demonstrator Frame Scrabmler starting up...";
+const char readyMessage[] PROGMEM = "DMX Demonstrator Frame Scrabmler ready!";
+const char versionFormat[] PROGMEM = "DMX Demonstrator Frame Scrabmler Version %s\r\n";
+const char hardwareDetect[] PROGMEM = "Hardware Detection: found DMX-FS1\r\n";
 
 const char compactStatusFormat[] PROGMEM = "Compact Status: %s\r\n";
 const char verboseStatusFormat[] PROGMEM = "Verbose Status: %s\r\n";
@@ -190,18 +193,28 @@ void setup() {
   SendProgmemMessage(hardwareDetect);
 
   // Configure IO.
-  pinMode(errorLedPin, OUTPUT);
-  pinMode(startCodeLedPin, OUTPUT);
-  pinMode(dataLedPin, OUTPUT);
-  pinMode(clockLedPin, OUTPUT);
+  pinMode(enabledOutPin, OUTPUT);
+  pinMode(scambledOutPin, OUTPUT);
+  pinMode(dataOutLedPin, OUTPUT);
+  pinMode(clockOutLedPin, OUTPUT);
+  pinMode(dataInLedPin, OUTPUT);
+  pinMode(clockInLedPin, OUTPUT);
+  pinMode(scambledLedPin, OUTPUT);
+  pinMode(enabledLedPin, OUTPUT);
+  pinMode(clockOutPin, OUTPUT);
+  pinMode(dataOutPin, OUTPUT);
 
-  pinMode(dimmerLevelOut1LedPin, OUTPUT);
-  pinMode(dimmerLevelOut2LedPin, OUTPUT);
-  pinMode(dimmerLevelOut3LedPin, OUTPUT);
-  pinMode(dimmerLevelOut4LedPin, OUTPUT);
+  pinMode(clearAllButtonPin, INPUT_PULLUP);
+  pinMode(scrambleButtonPin, INPUT_PULLUP);
+  pinMode(enableButtonPin, INPUT_PULLUP);
 
   pinMode(dataInPin, INPUT_PULLUP);
   pinMode(clockInPin, INPUT_PULLUP);
+
+  // Initialize the buttons.
+  clearAllButton.begin();
+  scrambleButton.begin();
+  enableButton.begin();
 
   // Enable pin change interrupt.
   PinChange.Initialize();
@@ -213,6 +226,9 @@ void setup() {
 
   // Enable all interrupts.
   interrupts();
+
+  // Mark all bits as cleared.
+  scambledClearAll = true;
 }
 
 /**
@@ -221,25 +237,51 @@ void setup() {
  */
 void loop() {
 
+  // Clear all scramble states.
+  clearAllButton.read();
+  if (clearAllButton.wasPressed()) {
+    // Clear all bits in scrambleDataBits.
+    memset(scrambleDataBits, 0, maxScrambleCount);
+    scambledClearAll = true;
+  }
+
+  // Toggle enabled state.
+  enableButton.read();
+  if (enableButton.wasPressed()) {
+    scrambledEnabled = !scrambledEnabled;
+    scrambedBit = scrambledEnabled && currentFrameStep >= 0 && currentFrameStep < maxScrambleCount && scrambleDataBits[currentFrameStep];
+    // Don't set the dataOutPin here, just show the led as scrambled.
+    // It will get scrambled next time.
+  }
+
+  // Toggle the scramble bit state.
+  scrambleButton.read();
+  if (scrambleButton.wasPressed()) {
+    if (currentFrameStep >= 0 && currentFrameStep < maxScrambleCount) {
+      scambledBitSet = currentFrameStep;
+      scrambleDataBits[scambledBitSet] = !scrambleDataBits[scambledBitSet];
+      scrambedBit = scrambledEnabled && scrambleDataBits[scambledBitSet];
+    // Don't set the dataOutPin here, just show the led as scrambled.
+    // It will get scrambled next time.
+    }
+  }
+
   // Set status LEDs. LEDs require 0 to light up so all
   // conditions are inverted, i.e. != to that a "1" sends
   // "0" to turn the LED on.
-  digitalWrite(dataLedPin, !dataInBit);
-  digitalWrite(clockLedPin, !clockInBit);
-  digitalWrite(startCodeLedPin, !startCodeMatch);
-  digitalWrite(errorLedPin, frameState != frameStateError);
-
-  // Send the diummer levels to LEDs and IO ports.
-  SendDimmersValues();
-  analogWrite(dimmerLevelOut1LedPin, dimmerLevels[0]);
-  analogWrite(dimmerLevelOut2LedPin, dimmerLevels[1]);
-  analogWrite(dimmerLevelOut3LedPin, dimmerLevels[2]);
-  analogWrite(dimmerLevelOut4LedPin, dimmerLevels[3]);
+  digitalWrite(dataInLedPin, !dataInBit);
+  digitalWrite(clockInLedPin, !clockInBit);
+  digitalWrite(dataOutLedPin, !dataOutBit);
+  digitalWrite(clockOutLedPin, !clockOutBit);
+  digitalWrite(scambledLedPin, !scrambedBit);
+  digitalWrite(scambledOutPin, scrambedBit);
+  digitalWrite(enabledLedPin, !scrambledEnabled);
+  digitalWrite(enabledOutPin, scrambledEnabled);
 
   // Send status to serial port.
   SendStatus();
 
-    // Check serial port.
+  // Check serial port.
   if (Serial.available() > 0) {
     char incomingByte = Serial.read();
     HandleReceivedChar(incomingByte);
@@ -254,6 +296,9 @@ void OnClockPulse() {
 
   // Read clock and respond to the rising edge.
   clockInBit = digitalRead(clockInPin);
+  clockOutBit = clockInBit;
+  digitalWrite(clockOutPin, clockOutBit);
+
   if (clockInBit) {
 
     // Read the data pin when the clock is high.
@@ -261,6 +306,15 @@ void OnClockPulse() {
 
     // Increment the frame step.
     currentFrameStep++;
+
+    // Scramble
+    scrambedBit = scrambledEnabled && currentFrameStep >= 0 && currentFrameStep < maxScrambleCount && scrambleDataBits[currentFrameStep];
+    if (scrambedBit) {
+      dataOutBit = !dataInBit;
+    } else {
+      dataOutBit = dataInBit;
+    }
+    digitalWrite(dataOutPin, dataOutBit);
 
     // Look for frame break, i.e. 22 consecutive "0"s
     // using a 0-based index (0-21)
@@ -286,7 +340,6 @@ void OnClockPulse() {
     // Look for mark after break, i.e. a "1" after the frame break.
     // Similar to the Break Detector.
     if (frameState == frameStateBreak) {
-      startCodeMatch = false;
       if (dataInBit) {
         nextFrameState = frameStateMarkAfterBreak;
       }
@@ -334,8 +387,7 @@ void OnClockPulse() {
           if (frameBreakCounter && dimmerCounter >= maxDimmerCount) {
             nextFrameState = frameStatePotentialBreak;
             currentFrameStep = unknownFrameStep;
-          }
-          else {
+          } else {
             nextFrameState = frameStateError;
             currentFrameStep = unknownFrameStep;
           }
@@ -353,28 +405,12 @@ void OnClockPulse() {
         // Ensure the capture data matches the expected start code.
         if (frameState == frameStateStartCode) {
 
-            // If the start code is not as expected, move to an unexpected
-            // start code state and wait for a frame break;
-            if (expectedStartCode != receivedData) {
-              nextFrameState = frameStateUnexpectedStartCode;
-              currentFrameStep = unknownFrameStep;
-            }
-
-            // If the start code is expected, wait for the mark after data.
-            else {
-                startCodeMatch = true;
-                receivedStartCode = receivedData;
-                nextFrameState = frameStateMarkAfterData;
-            }
+          // If the start code is expected, wait for the mark after data.
+          nextFrameState = frameStateMarkAfterData;
         }
 
         // Capture the dimmer data.
         else if (frameState == frameStateDimmerData) {
-
-          // Store the dimmer data if the counter is less than the max dimmer.
-          if (dimmerCounter >= 0 && dimmerCounter < maxDimmerCount) {
-            dimmerLevels[dimmerCounter] = receivedData;
-          }
 
           // Wait for the mark after data.
           nextFrameState = frameStateMarkAfterData;
@@ -397,7 +433,7 @@ void OnClockPulse() {
     }
 
     // Look for an unexpected bit in what is potentially a break, i.e. a "1" during the break.
-    else if(frameState == frameStatePotentialBreak) {
+    else if (frameState == frameStatePotentialBreak) {
       if (dataInBit) {
         nextFrameState = frameStateError;
       }
@@ -413,100 +449,7 @@ void OnClockPulse() {
 }
 
 /**
- * Send the dimmer values to the IO ports.
- */
-void SendDimmersValues() {
-
-  // The previoud dimmer levels.
-  static int prevDimmerLevels[4] = { -1 };
-
-  // Note that the value is copied from the array and we do not reference
-  // dimmerLevels directly more than once per dimmer. This is to ensure 
-  // that even if this code is interrupted at the same time that the
-  // dimmerLevels array is updated, we won't send some bits from the
-  // old value and some from the new value or update prevDimmerLevels
-  // with a new value we didn't send and fail to send the new value.
-  int dimmerValue = dimmerLevels[0];
-  if (prevDimmerLevels[0] != dimmerValue) {
-    SendDimmerValue(0, dimmerValue);
-    prevDimmerLevels[0] = dimmerValue;
-  }
-
-  dimmerValue = dimmerLevels[1];
-  if (prevDimmerLevels[1] != dimmerValue) {
-    SendDimmerValue(1, dimmerValue);
-    prevDimmerLevels[1] = dimmerValue;
-  }
-  
-  dimmerValue = dimmerLevels[2];
-  if (prevDimmerLevels[2] != dimmerValue) {
-    SendDimmerValue(2, dimmerValue);
-    prevDimmerLevels[2] = dimmerValue;
-  }
-
-  dimmerValue = dimmerLevels[3];
-  if (prevDimmerLevels[3] != dimmerValue) {
-    SendDimmerValue(3, dimmerValue);
-    prevDimmerLevels[3] = dimmerValue;
-  }
-}
-
-/**
- * Send the dimmer value to the IO port.
- */
-void SendDimmerValue(int channel, int value) {
-
-  // Note that the value is passed and we do not reference
-  // dimmerLevels directly. This is to ensure that even if this
-  // code is interrupted at the same time that the dimmerLevels
-  // array is updated, we won't send some bits from the old value
-  // and some from the new value.
-
-  // Dimmer level LEDs. Use analogWrite() to generate a dimmable
-  // signal to display the dimmer level.
-  switch (channel) {
-    case 0:
-      analogWrite(dimmerLevelOut1LedPin, value);
-      break;
-    case 1:
-      analogWrite(dimmerLevelOut2LedPin, value);
-      break;
-    case 2:
-      analogWrite(dimmerLevelOut3LedPin, value);
-      break;
-    case 3:
-      analogWrite(dimmerLevelOut4LedPin, value);  
-  }
-
-  // Clear the shift register. Width of the clear pulse
-  // in the 74LS164 datasheet is 20ns, which is about
-  // 1/10 of a clock pulse so no need for a delay.
-  digitalWrite(shiftRegisterClearPin, 0);
-  digitalWrite(shiftRegisterClearPin, 1);
-  
-  // Set the DAC's channel and prepare to write.
-  digitalWrite(dacAddr0Pin, (channel & 0x01));
-  digitalWrite(dacAddr1Pin, (channel & 0x02));
-  digitalWrite(dacWrite, 1);
-  
-  // Send the dimmer data.
-  shiftOut(shiftRegisterDataPin, shiftRegisterClockPin, LSBFIRST, value);
-  sprintf(serialPortMessage, "shifted %d to %d\n", value, channel);
-  Serial.print(serialPortMessage);
-  
-  // Write dimmer data to the DAC. Width of the write pulse
-  // in the TLC7524 datasheet is 40ns, which is about
-  // 1/5 of a clock pulse so no need for a delay. The data
-  // and address should remain stable during this time and for
-  // 10ns, which is about 1/20 of a clock pulse.
-  digitalWrite(dacWrite, 0);
-  digitalWrite(dacWrite, 1);
-
-  // Send to DMX here if using.
-}
-
-/**
- * Send the status of the receiver to the serial port.
+ * Send the status of the frame scrambler to the serial port.
  */
 void SendStatus() {
 
@@ -532,9 +475,10 @@ void SendStatus() {
 }
 
 /**
- * Send the compact status of the receiver to the serial port.
+ * Send the compact status of the frame scrambler to the serial port.
  */
 void SendCompactStatus() {
+
 
   // Only send on changes.
   static int previousFrameStep = -1;
@@ -543,30 +487,48 @@ void SendCompactStatus() {
 
     strcpy_P(serialPortFormat, compactDataFormat);
     sprintf(serialPortMessage, serialPortFormat,
-      "rx",
+      "fs",
       verboseStatus,
       currentFrameStep,
       clockInBit,
       dataInBit,
-      dimmerLevels[0],
-      dimmerLevels[1],
-      dimmerLevels[2],
-      dimmerLevels[3],
+      clockOutBit,
+      dataOutBit,
+      0, // unused
+      0, // unused
       frameState,
       nextFrameState,
-      startCodeMatch,
-      receivedStartCode,
-      expectedStartCode,
+      scrambledEnabled,
+      scrambedBit,
+      0, // unused
       frameBreakCounter);
     Serial.print(serialPortMessage);
- 
-  }
+  }  
 }
 
 /**
- * Send the verbose status of the receiver to the serial port.
+ * Send the verbose status of the frame scrambler to the serial port.
  */
 void SendVerboseStatus() {
+
+  // Detect scrambled enabled.
+  static int previousScrambledEnabled = -1;
+  if (previousScrambledEnabled != scrambledEnabled) {
+    SendProgmemIntFormat(scambleEnabledFormat, scrambledEnabled);
+    previousScrambledEnabled = scrambledEnabled;
+  }
+
+  // Detect scrambled cleared.
+  if (scambledClearAll) {
+    SendProgmemMessage(scambleBitAllClear);
+    scambledClearAll = false;
+  }
+
+  // Detect scrambled set.
+  if (scambledBitSet >= 0) {
+    SendProgmemIntFormat(scambleBitSetFormat, scambledBitSet);
+    scambledBitSet = -1;
+  }
 
   // Only send on changes. Note that this runs after the data has been processed
   // so report on the state as it was before the data was processed.
@@ -575,9 +537,9 @@ void SendVerboseStatus() {
     // Detect case when speed is too fast for verbose mode.
     if (previousFrameStep > 0 && currentFrameStep > previousFrameStep && (currentFrameStep - previousFrameStep) > 1) {
       if (verboseStatus) {
-        SendProgmemMessage(disableVerboseModeClockTooFast);
+        //SendProgmemMessage(disableVerboseModeClockTooFast);
       }
-      verboseStatus = LOW;
+      //verboseStatus = LOW;
       previousFrameStep = currentFrameStep;
       return;
     }
@@ -589,8 +551,14 @@ void SendVerboseStatus() {
       SendProgmemIntFormat(frameStepFormat, currentFrameStep);
     }
 
-    // Display the serial data.
+    // Display the serial data. 
+    // Detect scrambled bit.
     SendProgmemIntFormat(dataInBitFormat, dataInBit);
+    if (dataOutBit != dataInBit) {
+      SendProgmemIntFormat(dataScrambledBitFormat, dataOutBit);
+    } else {
+      SendProgmemMessage(dataInBitEndMessage);
+    }
 
     // If the state is transitioning from frameStateBreak to frameStateMarkAfterBreak,
     // the end of the break was detected. Otherwise, the break continues.
@@ -607,7 +575,7 @@ void SendVerboseStatus() {
     else if (frameState == frameStateMarkAfterBreak) {
       if (nextFrameState == frameStateStartCode) {
         SendProgmemMessage(startCodeStartBitMessage);
-      } else{
+      } else {
         SendProgmemMessage(markAfterBreakMessage);
       }
     }
@@ -619,7 +587,7 @@ void SendVerboseStatus() {
       // If the state is transitioning to frameStateError, an invalid
       // data count was encountered.
       if (dataCounter < 0 || dataCounter > 9) {
-          SendProgmemIntFormat(invalidDataCounterFormat, dataCounter);
+        SendProgmemIntFormat(invalidDataCounterFormat, dataCounter);
       }
 
       // 0-7 are data: the dataInBit was written into receivedData.
@@ -651,13 +619,13 @@ void SendVerboseStatus() {
         // If the state is frameStateStartCode, print the start code status.
         if (frameState == frameStateStartCode) {
 
-            // If the state is transitioning to  frameStateUnexpectedStartCode,
-            // an unexpected start code was received.
-            if (nextFrameState == frameStateUnexpectedStartCode) {
-              SendProgmemDataByteFormat(unexpectedStartCodeFormat, receivedData);
-            } else {
-              SendProgmemDataByteFormat(startCodeFormat, receivedData);
-            }
+          // If the state is transitioning to  frameStateUnexpectedStartCode,
+          // an unexpected start code was received.
+          if (nextFrameState == frameStateUnexpectedStartCode) {
+            SendProgmemDataByteFormat(unexpectedStartCodeFormat, receivedData);
+          } else {
+            SendProgmemDataByteFormat(startCodeFormat, receivedData);
+          }
         }
 
         // If the state is frameStateDimmerData, print the dimmer data status.
@@ -667,9 +635,9 @@ void SendVerboseStatus() {
           // Otherwise, the dimmer data is unused.
           // Note: the dimmerCounter is not incremented until the mark after data is found.
           if (dimmerCounter >= 0 && dimmerCounter < maxDimmerCount) {
-            SendProgmemIntFormat(dimmerValueCaptureFormat, dimmerCounter+1);
+            SendProgmemIntFormat(dimmerValueCaptureFormat, dimmerCounter + 1);
           } else {
-            SendProgmemIntFormat(unusedDimmerDataFormat, dimmerCounter+1);
+            SendProgmemIntFormat(unusedDimmerDataFormat, dimmerCounter + 1);
           }
 
           SendProgmemDataByteFormat(dataByteFormat, receivedData);
@@ -681,7 +649,7 @@ void SendVerboseStatus() {
     // the dimmer data start bit was detected. Otherwise, the mark after data continues.
     else if (frameState == frameStateMarkAfterData) {
       if (nextFrameState == frameStateDimmerData) {
-        SendProgmemIntFormat(dimmerStartBitFormat, dimmerCounter+1);
+        SendProgmemIntFormat(dimmerStartBitFormat, dimmerCounter + 1);
       } else {
         SendProgmemMessage(markAfterDataMessage);
       }
@@ -696,7 +664,7 @@ void SendVerboseStatus() {
         SendProgmemIntFormat(potentialFrameBreakFormat, frameBreakCounter);
         SendProgmemMessage(potentialBreakMessage);
       }
-    }    
+    }
 
     // Error condition.
     else {
