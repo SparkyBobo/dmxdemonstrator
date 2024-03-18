@@ -39,7 +39,7 @@
   * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/25kv-isolated-dmx-512-shield-for-arduino-r2/?pt=full_prod_search
   * Matthias Hertel design: https://www.mathertel.de/Arduino/DMXShield.aspx
   */
-#define _VERSION_ "1.3"
+#define _VERSION_ "1.4"
 
 /**
  * Include pin change interrupt abstractions
@@ -66,7 +66,7 @@ int shiftRegisterClockPin = 4;    // Clock for the IO shift register.
 int shiftRegisterDataPin = 3;     // Data for the IO shift register.
 int dacAddr0Pin = A0;             // Address 0 for the DAC channel select.
 int dacAddr1Pin = A1;             // Address 1 for the DAC channel select.
-int dacWrite = 8;                 // Write for the DAC channel.
+int dacWritePin = 8;              // Write for the DAC channel.
 
 int dmxRxPin = 0;                 // DMX receiver pin (UART0).
 int dmxTxPin = 1;                 // DMX transmit pin (UART0).
@@ -199,6 +199,13 @@ void setup() {
   pinMode(dimmerLevelOut2LedPin, OUTPUT);
   pinMode(dimmerLevelOut3LedPin, OUTPUT);
   pinMode(dimmerLevelOut4LedPin, OUTPUT);
+
+  pinMode(shiftRegisterClearPin, OUTPUT);
+  pinMode(shiftRegisterClockPin, OUTPUT);
+  pinMode(shiftRegisterDataPin, OUTPUT);
+  pinMode(dacAddr0Pin, OUTPUT);
+  pinMode(dacAddr1Pin, OUTPUT);
+  pinMode(dacWritePin, OUTPUT);
 
   pinMode(dataInPin, INPUT_PULLUP);
   pinMode(clockInPin, INPUT_PULLUP);
@@ -481,13 +488,13 @@ void SendDimmerValue(int channel, int value) {
   // Clear the shift register. Width of the clear pulse
   // in the 74LS164 datasheet is 20ns, which is about
   // 1/10 of a clock pulse so no need for a delay.
-  digitalWrite(shiftRegisterClearPin, 0);
-  digitalWrite(shiftRegisterClearPin, 1);
+  digitalWrite(shiftRegisterClearPin, LOW);
+  digitalWrite(shiftRegisterClearPin, HIGH);
   
   // Set the DAC's channel and prepare to write.
   digitalWrite(dacAddr0Pin, (channel & 0x01));
   digitalWrite(dacAddr1Pin, (channel & 0x02));
-  digitalWrite(dacWrite, 1);
+  digitalWrite(dacWritePin, HIGH);
   
   // Send the dimmer data.
   shiftOut(shiftRegisterDataPin, shiftRegisterClockPin, LSBFIRST, value);
@@ -499,10 +506,8 @@ void SendDimmerValue(int channel, int value) {
   // 1/5 of a clock pulse so no need for a delay. The data
   // and address should remain stable during this time and for
   // 10ns, which is about 1/20 of a clock pulse.
-  digitalWrite(dacWrite, 0);
-  digitalWrite(dacWrite, 1);
-
-  // Send to DMX here if using.
+  digitalWrite(dacWritePin, LOW);
+  digitalWrite(dacWritePin, HIGH);
 }
 
 /**
