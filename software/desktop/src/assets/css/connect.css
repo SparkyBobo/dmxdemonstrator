@@ -1,0 +1,21 @@
+/**
+ * @file Connect styles.
+ * @copyright Copyright (c) Sparky Bobo Designs. All rights reserved.
+ * @license Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+ .connect-overview-list-boards.is-hidden {
+    display: none;
+ }
+
+ .connect-overview-list-noboards.is-hidden {
+    display: none;
+ }
+
+ .connect-diagram-img-2 {
+    width: 640px;
+}
+
+.connect-diagram-img-3 {
+    width: 640px;
+}

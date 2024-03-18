@@ -1,0 +1,740 @@
+<!--
+ * DMX Demonstrator Main Page
+ * Copyright (c) Sparky Bobo Designs. All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://svg.wavedrom.com">
+    <title>DMX Demonstrator</title>
+
+
+    <!--<link rel="stylesheet" href="./assets/css/nativize.css">
+    <link rel="stylesheet" href="./assets/css/global.css">-->
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/configure.css">
+    <link rel="stylesheet" href="./assets/css/connect.css">
+    <link rel="stylesheet" href="./assets/css/demo.css">
+    <link rel="stylesheet" href="./assets/uikit/dist/css/uikit.min.css">
+</head>
+
+<body>
+    <script src="./renderer-process/navigation.js"></script>
+    <script src="./renderer-process/configure.js"></script>
+    <script src="./renderer-process/connect.js"></script>
+    <script src="./renderer-process/demo.js"></script>
+    <script src="./assets/uikit/dist/js/uikit.min.js"></script>
+    <script src="./assets/uikit/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Menu -->
+    <ul class="uk-margin-top" uk-tab>
+        <li><a href="" id="id-tab-getting-started" data-section="getting-started">Get Started</a></li>
+        <li><a href="" id="id-tab-configure" data-section="configure">Configure</a></li>
+        <li><a href="" id="id-tab-connect" data-section="connect">Connect</a></li>
+        <li><a href="" id="id-tab-demo" data-section="demo">Demonstration</a></li>
+    </ul>
+
+    <!-- Main Content -->
+    <main class="content js-content">
+
+        <!-- Getting Started -->
+        <section id="getting-started-section" class="section js-section">
+            <div class="uk-section uk-section-default uk-section-xsmall uk-padding-remove-top">
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-column">
+                        <div class="getting-started-overview">
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title">Overview</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div class="uk-text-emphasis">
+                                        The DMX Demonstrator is a set of Arduino-based boards to create a DMX512-like
+                                        link between and transmitter and receiver. The transmitter simulates a console
+                                        with control of 4 channels, while the receiver simulates a fixture with 4
+                                        controllable parameters.
+                                        The purpose of the DMX Demonstrator is to explain how the DMX512 protocol works
+                                        by displaying the frame and data bits in real time.
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-xsmall">
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title">What's the difference?</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div class="uk-text-emphasis">
+                                        The DMX Demonstrator will let you step through a frame of a DMX-ish serial
+                                        protocol. The primary differences between DMX512 and the DMX-Demonstrator are:
+                                    </div>
+                                    <table class="uk-table uk-table-divider uk-table-hover uk-table-small">
+                                        <thead>
+                                            <tr>
+                                                <th class="uk-width-1-2">DMX512</th>
+                                                <th class="uk-width-1-2">DMX Demonstrator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Operates at 250k bits per second (bps)</td>
+                                                <td>Operates from 1-200 and 3200 bits per second (bps). It can also be
+                                                    triggered to send the next bit manually, i.e., step mode</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Operates asynchronously, meaning both sender and receiver agree on
+                                                    the data rate</td>
+                                                <td>Operates synchronously to allow data rate to vary</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sends 512 data values per frame</td>
+                                                <td>Sends 4 data values per frame</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Signals are balanced, designed for multiple receivers, and perform
+                                                    well in noisy environments</td>
+                                                <td>Signals are unbalanced, not designed for long distances or multiple
+                                                    devices</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="uk-margin-medium"></div>
+                                    <div class="uk-text-emphasis">
+                                        However, DMX512 and the DMX-Demonstrator share much in common:
+                                    </div>
+                                    <table class="uk-table uk-table-divider uk-table-hover uk-table-small">
+                                        <thead>
+                                            <tr>
+                                                <th class="uk-width-1-2">DMX512</th>
+                                                <th class="uk-width-1-2">DMX Demonstrator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Operates within a specific set of timing parameters, such as the
+                                                    length of a break, and the minimum time needed to signal the start
+                                                    and end of data.</td>
+                                                <td>Operates within the specific set of timing parameters relative to
+                                                    the data rate</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Consists of multiple frame components: break, mark after break,
+                                                    start code start bit, start code, start code mark, value 1 start
+                                                    bit, etc...</td>
+                                                <td>Consists of the same set of components as a DMX512 frame</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Specified to work with a start code value of 0</td>
+                                                <td>Works with a start code value of 0, but this value can be changed by
+                                                    the sender or receiver</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Designed to operate error-free</td>
+                                                <td>Designed such that errors can be introduced on purpose to observe
+                                                    the effect</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-xsmall">
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title">System Components</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div class="uk-text-emphasis">
+                                        The required components for a DMX Demonstrator demo system are:
+                                    </div>
+                                    <ul class="uk-list uk-list-hyphen uk-margin-medium">
+                                        <li>A transmitter: a DMX-TX1, a self contained transmitter</li>
+                                        <li>A receiver: a DMX-RX1, a self contained receiver with 4 dimmable LEDs</li>
+                                        <li>2 compatible Arduino boards, such as Arduino Uno or Arduino Leonardo, or a
+                                            clone of one of these boards</li>
+                                    </ul>
+                                    <div class="uk-margin-medium"></div>
+                                    <div class="uk-text-emphasis">
+                                        The optional components for a demo system include:
+                                    </div>
+                                    <ul class="uk-list uk-list-hyphen uk-margin-medium">
+                                        <li>An alternate transmitter: a DMX-TX2 which uses a set of external dimmer and
+                                            clock controls for more advanced operation.</li>
+                                        <li>A frame scrambler: the DMX-FS1, a transceiver with sets between the
+                                            transmitter and receiver and can alter zero or more data bits. The frame
+                                            scramble requires an additional Arduino board</li>
+                                        <li>An analog output module: a board that connects to the DMX-RX1 and provides
+                                            analog voltage or pulse width modulated (PWM) signals</li>
+                                        <li>A digital output module: a board that connects to the DMX-RX1 and provides a
+                                            DMX512 stream containing the 4 dimmer values received by the DMX-RX1. This
+                                            module can also be connected to a DMX-TX1/2 to transmit the 4 dimmer values
+                                            via DMX512</li>
+                                        <li>A constant voltage LED driver: a board that connects to the DMX-RX1 and
+                                            provides a constant voltage pulse width modulated (PWM) signal for driving
+                                            LEDs such as LED tape. This module can also be used to display the clock and
+                                            data signals.</li>
+                                        <li>A constant current LED driver: a board that connects to the DMX-RX1 and
+                                            provides a constant current pulse width modulated (PWM) signal for driving
+                                            LEDs such as LED chips/modules. This module can also be used to display the
+                                            clock and data signals.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-xsmall">
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title">Get Started</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div class="uk-text-emphasis">
+                                        So let's get started! Grab a DMX-TX1, DMX-RX1, and 2 compatible Arduino
+                                        boards.
+                                    </div>
+                                    <ul>
+                                        <li>Attach the DMX-TX1 to one of the Arduino boards</li>
+                                        <li>Attach the DMX-TX2 to the other Arduino board</li>
+                                        <li>Plug both Arduino boards into this computer</li>
+                                        <li>Jump to the next section: Configure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="uk-margin-large"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configure -->
+        <section id="configure-section" class="section js-section">
+            <div class="uk-section uk-section-default uk-section-xsmall uk-padding-remove-top">
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-column">
+                        <div class="configure-no-boards">
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title">No boards</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <button
+                                        class="configure-board-refresh-btn uk-button uk-button-primary">Refresh</button>
+                                    <div class="configure-get-started">
+                                        <div class="uk-padding-small">To get started, plug in an Arduino and click
+                                            refresh.
+                                        </div>
+                                    </div>
+                                    <div class="configure-error is-hidden uk-alert-danger" uk-alert>
+                                        <div id="id-configure-error-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-xsmall">
+                        </div>
+                        <div class="configure-boards is-hidden"></div>
+                        <div class="configure-boards-refresh is-hidden">
+                            <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 class="uk-card-title">Refresh</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <button
+                                        class="configure-board-refresh-btn uk-button uk-button-primary">Refresh</button>
+                                    <div class="">
+                                        <div class="uk-padding-small">Not seeing your device? Click refresh.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <template class="configure-template">
+                            <div id="id-configure-board-x"
+                                class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                <h3 id="id-configure-board-title-x" class="uk-card-title">Unconfigured</h3>
+                                <div id="id-configure-board-badge-x"
+                                    class="configure-board-badge uk-card-badge uk-label uk-label-warning">Discovery
+                                    needed
+                                </div>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div class="uk-flex uk-flex-middle uk-text-center">
+                                        <div
+                                            class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                            <h3 class="uk-card-title">Main Board</h3>
+                                            <div class="uk-card-body uk-padding-small">
+                                                <div id="id-configure-board-name-x">Arduino</div>
+                                                <img id="id-configure-board-img-x" class="configure-board-img"
+                                                    src=".\assets\svg\board-base.svg" />
+                                            </div>
+                                            <div class="uk-card-footer uk-padding-small">
+                                                <div class="configure-board-id-container uk-container">
+                                                    <span id="id-configure-board-id-x"
+                                                        class="configure-board-id uk-label uk-label-success"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="uk-text-middle uk-text-lead uk-margin-small-left uk-margin-small-right">
+                                            +</div>
+                                        <div
+                                            class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                            <h3 class="uk-card-title">Shield</h3>
+                                            <div class="uk-card-body uk-padding-small">
+                                                <div id="id-configure-board-shield-name-x">Unknown
+                                                </div>
+                                                <div class="configure-board-shield-img-container uk-container">
+                                                    <img id="id-configure-board-shield-img-x"
+                                                        class="configure-board-shield-img" src="" />
+                                                    <p id="id-configure-board-shield-load-x"
+                                                        class="configure-board-shield-load uk-padding-small">Press
+                                                        Discover to load a sketch which will discover the shield.</p>
+                                                </div>
+                                            </div>
+                                            <div class="uk-card-footer uk-padding-small">
+                                                <div class="configure-board-shield-status-container uk-container">
+                                                    <progress id="id-configure-board-shield-progress-x"
+                                                        class="configure-board-shield-progress uk-progress" value="30"
+                                                        max="100"></progress>
+                                                    <span id="id-configure-board-shield-status-x"
+                                                        class="configure-board-shield-status uk-label uk-label-success">Detected</span>
+                                                    <button id="id-configure-board-shield-discover-x"
+                                                        class="configure-board-shield-discover uk-button uk-button-primary">Discover</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="uk-text-middle uk-text-lead uk-margin-small-left uk-margin-small-right">
+                                            +</div>
+                                        <div
+                                            class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                            <h3 class="uk-card-title">Sketch</h3>
+                                            <div class="uk-card-body uk-padding-small">
+                                                <div id="id-configure-board-sketch-name-x"
+                                                    class="configure-board-sketch-name">
+                                                    Unknown</div>
+                                                <div class="configure-board-sketch-info-container uk-padding-remove">
+                                                    <ul class="uk-list uk-padding-small uk-text-middle">
+                                                        <li>&nbsp;</li>
+                                                        <li id="id-configure-board-sketch-file-x"></li>
+                                                        <li id="id-configure-board-sketch-ver-x"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="uk-card-footer uk-padding-small">
+                                                <div class="configure-board-sketch-status-container uk-container">
+                                                    <progress id="id-configure-board-sketch-progress-x"
+                                                        class="configure-board-sketch-progress uk-progress" value="30"
+                                                        max="100"></progress>
+                                                    <span id="id-configure-board-sketch-status-x"
+                                                        class="configure-board-sketch-status uk-label uk-label-success">Up
+                                                        to
+                                                        date</span>
+                                                    <button id="id-configure-board-sketch-update-x"
+                                                        class="configure-board-sketch-update uk-button uk-button-default">Update</button>
+                                                    <button id="id-configure-board-sketch-load-x"
+                                                        class="configure-board-sketch-load uk-button uk-button-primary">Load</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="uk-margin-xsmall">
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect -->
+        <section id="connect-section" class="section js-section">
+            <div class="uk-section uk-section-default uk-section-xsmall uk-padding-remove-top">
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-column">
+                        <div id="id-connect-overview" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Overview</h3>
+                            <div id="id-connect-overview-list-boards" class="uk-card-body uk-padding-small connect-overview-list-boards">
+                                <div class="uk-text-emphasis">
+                                    Great! Looks like you have the following boards for your demo:
+                                </div>
+                                <ul id="id-connect-overview-list">
+                                </ul>
+                            </div>
+                            <div id="id-connect-overview-list-noboards" class="uk-card-body uk-padding-small connect-overview-list-noboards">
+                                <div class="uk-text-emphasis">
+                                    Uh-oh! Looks like you don't have any mores connected yet. Navigate to the Configure tab.
+                                </div>
+                                <ul id="id-connect-overview-list">
+                                </ul>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-xsmall">
+                        <div id="id-connect-diagram" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Connections</h3>
+                            <div class="uk-card-body uk-padding-small">
+                                <div class="uk-text-emphasis">
+                                    Here is how you connect them:
+                                </div>
+                                <div class="uk-margin-medium"></div>
+                                <div>
+                                    <img id="id-connect-diagram-img" class="connect-diagram-img-2"
+                                        src=".\assets\svg\connect-tx1-rx1.svg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-margin-large"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo -->
+        <section id="demo-section" class="section js-section">
+            <div class="uk-section uk-section-default uk-section-xsmall uk-padding-remove-top">
+                <div class="uk-container">
+                    <div class="uk-flex uk-flex-column">
+                        <div id="id-demo-tx" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Transmitter</h3>
+                            <div class="uk-card-badge uk-label">Step: <div id="id-demo-tx-step"
+                                    class="uk-display-inline">1</div>
+                            </div>
+                            <div class="uk-card-body uk-padding-small">
+                                <div class="uk-flex uk-flex-row uk-text-center">
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 id="id-demo-tx-board-name" class="uk-card-title">DMX-???</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="uk-inline">
+                                                <img id="id-demo-tx-board-img" class="demo-board-img"
+                                                    src=".\assets\svg\board-base.svg" />
+                                                <img id="id-demo-tx-board-dim1-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-blue-on.svg" />
+                                                <img id="id-demo-tx-board-dim2-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-green-top-on.svg" />
+                                                <img id="id-demo-tx-board-dim3-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-yellow-on.svg" />
+                                                <img id="id-demo-tx-board-dim4-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-orange-on.svg" />
+                                                <img id="id-demo-tx-board-clock-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-red-right-on.svg" />
+                                                <img id="id-demo-tx-board-data-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-green-right-on.svg" />
+                                                <img id="id-demo-tx-board-fast-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-red-middle-on.svg" />
+                                                <img id="id-demo-tx-board-slow-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-green-middle-on.svg" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title uk-margin-remove-bottom">Dimmers</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-tx-dim1" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-tx-dim2" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-tx-dim3" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-tx-dim4" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title uk-margin-remove-bottom">Controls</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="uk-flex uk-flex-column uk-flex-left uk-text-center">
+                                                <button id="id-demo-tx-clk-slow"
+                                                    class="uk-button uk-button-primary uk-margin-small">Clock
+                                                    Slow</button>
+                                                <button id="id-demo-tx-clk-step"
+                                                    class="uk-button uk-button-primary uk-margin-small">Clock
+                                                    Step</button>
+                                                <button id="id-demo-tx-out-toggle"
+                                                    class="uk-button uk-button-primary uk-margin-small"
+                                                    uk-toggle="target: #id-demo-tx-output">Show Output</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="id-demo-tx-output" class="uk-card-footer uk-padding-small" hidden>
+                                <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Output</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <textarea id="id-demo-tx-out-text"
+                                            class="demo-output-text uk-textarea uk-width-1-1" rows="2"
+                                            spellcheck="false" data-ms-editor="true" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-xsmall">
+                        <div id="id-demo-frame" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Frame</h3>
+                            <div class="uk-card-body uk-padding-small">
+                                <div class="uk-flex uk-flex-row uk-text-center">
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+
+                                        <div class="demo-frame-tabs">
+                                            <ul id="id-demo-frame-tabs" class="uk-child-width-expand" swiping="false"
+                                                uk-tab="animation: uk-animation-slide-right-medium, uk-animation-slide-left-medium;connect: #id-demo-frame-list">
+                                                <li class="uk-active"><a href="#">Break</a></li>
+                                                <li><a href="#">Start Code</a></li>
+                                                <li><a href="#">Dimmer 1</a></li>
+                                                <li><a href="#">Dimmer 2</a></li>
+                                                <li><a href="#">Dimmer 3</a></li>
+                                                <li><a href="#">Dimmer 4</a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="./assets/svg/timing-frame.svg" class="demo-timing-frame-img"/>
+                                        <hr class="uk-margin-xsmall">
+                                        <ul id="id-demo-frame-list" class="uk-switcher">
+                                            <li>
+                                                <div id="id-demo-frame-break"
+                                                    class="demo-frame-break uk-align-center uk-animation-slide-right">
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-middle uk-margin-right demo-tx-rx-label">Tx:</span>
+                                                        <progress id="id-demo-tx-frame-break"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="26"></progress>
+                                                    </div>
+                                                    <img src="./assets/svg/timing-break.svg" />
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-middle uk-margin-right demo-tx-rx-label">Rx:</span>
+                                                        <progress id="id-demo-rx-frame-break"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="26"></progress>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="id-demo-frame-start"
+                                                    class="demo-frame-start uk-align-center uk-animation-slide-right">
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-middle uk-margin-right demo-tx-rx-label">Tx:</span>
+                                                        <progress id="id-demo-tx-frame-start"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                    <img src="./assets/svg/timing-start.svg" />
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Rx:</span>
+                                                        <progress id="id-demo-rx-frame-start"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="id-demo-frame-dimmer-1"
+                                                    class="demo-frame-dimmer uk-align-center uk-animation-slide-right">
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Tx:</span>
+                                                        <progress id="id-demo-tx-frame-dim1"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                    <img src="./assets/svg/timing-dimmer-1.svg" />
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Rx:</span>
+                                                        <progress id="id-demo-rx-frame-dim1"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="id-demo-frame-dimmer-2"
+                                                    class="demo-frame-dimmer uk-align-center uk-animation-slide-right">
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Tx:</span>
+                                                        <progress id="id-demo-tx-frame-dim2"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                    <img src="./assets/svg/timing-dimmer-2.svg" />
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Rx:</span>
+                                                        <progress id="id-demo-rx-frame-dim2"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="id-demo-frame-dimmer-3"
+                                                    class="demo-frame-dimmer uk-align-center uk-animation-slide-right">
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Tx:</span>
+                                                        <progress id="id-demo-tx-frame-dim3"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                    <img src="./assets/svg/timing-dimmer-3.svg" />
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Rx:</span>
+                                                        <progress id="id-demo-rx-frame-dim3"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="12"></progress>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div id="id-demo-frame-dimmer-4"
+                                                    class="demo-frame-dimmer uk-align-center uk-animation-slide-right">
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Tx:</span>
+                                                        <progress id="id-demo-tx-frame-dim4"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="14"></progress>
+                                                    </div>
+                                                    <img src="./assets/svg/timing-dimmer-4.svg" />
+                                                    <div class="demo-frame-progress uk-flex">
+                                                        <span
+                                                            class="uk-text-default uk-text-middle uk-margin-right demo-tx-rx-label">Rx:</span>
+                                                        <progress id="id-demo-rx-frame-dim4"
+                                                            class="uk-progress uk-margin-small" value="0"
+                                                            max="14"></progress>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-xsmall">
+                        <div id="id-demo-rx" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                            <h3 class="uk-card-title uk-margin-remove-bottom">Receiver</h3>
+                            <div class="uk-card-badge uk-label">Step: <div id="id-demo-rx-step"
+                                    class="uk-display-inline">1</div>
+                            </div>
+                            <div class="uk-card-body uk-padding-small">
+                                <div class="uk-flex uk-flex-row uk-text-center">
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 id="id-demo-rx-board-name" class="uk-card-title">DMX-???</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="uk-inline">
+                                                <img id="id-demo-rx-board-img" class="demo-board-img"
+                                                    src=".\assets\svg\board-base.svg" />
+                                                <img id="id-demo-rx-board-dim1-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-blue-on.svg" />
+                                                <img id="id-demo-rx-board-dim2-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-green-top-on.svg" />
+                                                <img id="id-demo-rx-board-dim3-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-yellow-on.svg" />
+                                                <img id="id-demo-rx-board-dim4-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-orange-on.svg" />
+                                                <img id="id-demo-rx-board-clock-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-red-right-on.svg" />
+                                                <img id="id-demo-rx-board-data-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-green-right-on.svg" />
+                                                <img id="id-demo-rx-board-error-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-red-middle-on.svg" />
+                                                <img id="id-demo-rx-board-match-led" class="demo-board-led"
+                                                    src=".\assets\svg\led-green-middle-on.svg" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--<div
+                                    class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                    <h3 id="id-demo-rx-board-name" class="uk-card-title">DMX-FS1</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <div class="uk-inline">
+                                            <img id="id-demo-rx-board-img" class="id-demo-board-img" src=".\assets\svg\board-fs1.svg" />
+                                                <img id="id-demo-fs-board-en-led" class="id-demo-board-led" src=".\assets\svg\led-green-fs1-enabled" />
+                                                <img id="id-demo-fs-board-scram-led" class="id-demo-board-led" src=".\assets\svg\led-red-rs1-scrambled.svg" />
+                                                <img id="id-demo-fs-board-clock-in-led" class="id-demo-board-led" src=".\assets\svg\led-red-fs1-in.svg" />
+                                                <img id="id-demo-fs-board-data-in-led" class="id-demo-board-led" src=".\assets\svg\led-green-fs1-in.svg" />
+                                                <img id="id-demo-fs-board-clock-led" class="id-demo-board-led" src=".\assets\svg\led-red-right-on.svg" />
+                                                <img id="id-demo-fs-board-data-led" class="id-demo-board-led" src=".\assets\svg\led-green-right-on.svg" />
+                                        </div>
+                                    </div>
+                                </div>-->
+
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title uk-margin-remove-bottom">Dimmers</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-rx-dim1" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-rx-dim2" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-rx-dim3" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                            <div class="demo-slider-wrapper">
+                                                <input id="id-demo-rx-dim4" type="range" min="0" max="255" value="7"
+                                                    step="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title uk-margin-remove-bottom">Status</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="uk-flex uk-flex-column uk-text-center">
+                                                <button id="id-demo-rx-start-code"
+                                                    class="uk-button uk-button-primary uk-margin-small">Start Code
+                                                    Match</button>
+                                                <button id="id-demo-rx-error"
+                                                    class="uk-button uk-button-primary uk-margin-small">Error</button>
+                                                <button id="id-demo-rx-out-toggle"
+                                                    class="uk-button uk-button-primary uk-margin-small"
+                                                    uk-toggle="target: #id-demo-rx-output">Show Output</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="id-demo-rx-output" class="uk-card-footer uk-padding-small uk-margin-medium-bottom"
+                                hidden>
+                                <div class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom">Output</h3>
+                                    <div class="uk-card-body uk-padding-small">
+                                        <textarea id="id-demo-rx-out-text"
+                                            class="demo-output-text uk-textarea uk-width-1-1" rows="2"
+                                            spellcheck="false" data-ms-editor="true" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="uk-margin-xsmall">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

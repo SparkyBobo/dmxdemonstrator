@@ -39,7 +39,7 @@
   * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/25kv-isolated-dmx-512-shield-for-arduino-r2/?pt=full_prod_search
   * Matthias Hertel design: https://www.mathertel.de/Arduino/DMXShield.aspx
   */
-#define _VERSION_ "1.2"
+#define _VERSION_ "1.3"
 
 /**
  * Include pin change interrupt abstractions
@@ -83,7 +83,8 @@ volatile int clockInBit = 0;
 volatile int dataInBit = 0;
 volatile int startCodeMatch = 0;
 volatile int currentFrameStep = 1000;
-volatile int frameBreakCounter = 0;
+volatile int previousFrameStep = -1;
+volatile int frameBreakCounter = -1;
 volatile int markCounter = 0;
 volatile int dataCounter = 0;
 volatile int dimmerCounter = 0;
@@ -93,6 +94,7 @@ volatile int receivedData = 0;
  * Start code and dimmer data.
  */
 int expectedStartCode = 0;        // The expected start code.
+int receivedStartCode = -1;       // The received start code.
 
 const int maxDimmerCount = 4;
 int dimmerLevels[4] = { 0 };      // The dimmer levels.
@@ -124,13 +126,16 @@ const char dataByteFormat[] PROGMEM = "%3dd, %02Xh, %d%d%d%d%d%d%d%db\r\n";
 const char invalidFrameStateFormat[] PROGMEM = "Invalid frame state: %d\r\n";
 const char potentialFrameBreakFormat[] PROGMEM = "Potential frame break step: %d, ";
 
+const char compactDataFormat[] PROGMEM = "m,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n";
+
 /**
  * The serial respones and help menu.
  */
 const char newlineMessage[] PROGMEM = "\r\n";
-const char startUpMessage[] PROGMEM = "DMX Demonstrator Receiver starting up...";
-const char readyMessage[] PROGMEM = "DMX Demonstrator Receiver ready!";
+const char startUpMessage[] PROGMEM = "DMX Demonstrator Receiver starting up...\r\n";
+const char readyMessage[] PROGMEM = "DMX Demonstrator Receiver ready!\r\n";
 const char versionFormat[] PROGMEM = "DMX Demonstrator Receiver Version %s\r\n";
+const char hardwareDetect[] PROGMEM = "Hardware Detection: found DMX-RX1\r\n";
 
 const char compactStatusFormat[] PROGMEM = "Compact Status: %s\r\n";
 const char verboseStatusFormat[] PROGMEM = "Verbose Status: %s\r\n";
@@ -143,12 +148,13 @@ const char helpTitle[] PROGMEM = "Help:\r\n";
 const char helpInfoTitle[] PROGMEM = "Info:\r\n";
 const char helpCompact[] PROGMEM = "  m: Toggle sending compact status\r\n";
 const char helpVerbose[] PROGMEM = "  v: Toggle sending verbose status\r\n";
+const char helpQuiet[] PROGMEM = "  q: Disable sending verbose and compact status\r\n";
 const char helpInfo[] PROGMEM = "  i: Display program info\r\n";
 
 /**
  * Serial data definitions.
  */
-const long baudRate = 250000;
+const long baudRate = 115200;
 char serialPortFormat[100];
 char serialPortArgument[10];
 char serialPortMessage[255];
@@ -174,6 +180,7 @@ void setup() {
   // Display startup message.
   SendProgmemMessage(startUpMessage);
   SendProgmemStringFormat(versionFormat, _VERSION_);
+  SendProgmemMessage(hardwareDetect);
 
   // Configure IO.
   pinMode(errorLedPin, OUTPUT);
@@ -248,19 +255,21 @@ void OnClockPulse() {
     // Increment the frame step.
     currentFrameStep++;
 
-    // Look for frame break, i.e. 22 consecutive "0"s.
+    // Look for frame break, i.e. 22 consecutive "0"s
+    // using a 0-based index (0-21)
     // Similar to the Break Detector.
     if (!dataInBit) {
       frameBreakCounter++;
-      if (frameBreakCounter >= 22) {
+      if (frameBreakCounter >= 21) {
 
         // Move to the break received state and set the step
-        // to 22, since we've received 22 frame breaks.
+        // to 21, since we've received 22 frame breaks and
+        // frame is 0-based.
         nextFrameState = frameStateBreak;
         currentFrameStep = frameBreakCounter;
       }
     } else {
-      frameBreakCounter = 0;
+      frameBreakCounter = -1;
     }
 
     // Transition to the next frame state.
@@ -347,6 +356,7 @@ void OnClockPulse() {
             // If the start code is expected, wait for the mark after data.
             else {
                 startCodeMatch = true;
+                receivedStartCode = receivedData;
                 nextFrameState = frameStateMarkAfterData;
             }
         }
@@ -425,6 +435,32 @@ void SendStatus() {
  * Send the compact status of the receiver to the serial port.
  */
 void SendCompactStatus() {
+
+  // Only send on changes.
+  static int previousFrameStep = -1;
+  if (previousFrameStep != currentFrameStep) {
+    previousFrameStep = currentFrameStep;
+
+    strcpy_P(serialPortFormat, compactDataFormat);
+    sprintf(serialPortMessage, serialPortFormat,
+      "rx",
+      verboseStatus,
+      currentFrameStep,
+      clockInBit,
+      dataInBit,
+      dimmerLevels[0],
+      dimmerLevels[1],
+      dimmerLevels[2],
+      dimmerLevels[3],
+      frameState,
+      nextFrameState,
+      startCodeMatch,
+      receivedStartCode,
+      expectedStartCode,
+      frameBreakCounter);
+    Serial.print(serialPortMessage);
+ 
+  }
 }
 
 /**
@@ -434,7 +470,6 @@ void SendVerboseStatus() {
 
   // Only send on changes. Note that this runs after the data has been processed
   // so report on the state as it was before the data was processed.
-  static int previousFrameStep = -1;
   if (previousFrameStep != currentFrameStep) {
 
     // Detect case when speed is too fast for verbose mode.
@@ -604,10 +639,20 @@ int HandleReceivedChar(char receivedChar) {
 
     case 'v':
       verboseStatus = !verboseStatus;
+
+      // Set previous frame step since verbose has not been called recently
+      // and we don't want it to disable verbose due to missed steps.
+      previousFrameStep = currentFrameStep;
+      break;
+
+    case 'q':
+      compactStatus = LOW;
+      verboseStatus = LOW;
       break;
 
     case 'i':
       SendProgmemStringFormat(versionFormat, _VERSION_);
+      SendProgmemMessage(hardwareDetect);
       SendProgmemStringArrayFormat(compactStatusFormat, statusMessages, compactStatus);
       SendProgmemStringArrayFormat(verboseStatusFormat, statusMessages, verboseStatus);
       break;
@@ -619,6 +664,7 @@ int HandleReceivedChar(char receivedChar) {
       SendProgmemMessage(helpCompact);
       SendProgmemMessage(helpVerbose);
       SendProgmemMessage(helpInfo);
+      SendProgmemMessage(helpQuiet);
       SendProgmemMessage(newlineMessage);
       break;
 
