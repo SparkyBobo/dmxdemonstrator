@@ -39,7 +39,7 @@
   * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/25kv-isolated-dmx-512-shield-for-arduino-r2/?pt=full_prod_search
   * Matthias Hertel design: https://www.mathertel.de/Arduino/DMXShield.aspx
   */
-#define _VERSION_ "1.3"
+#define _VERSION_ "1.4"
 
 /**
  * Include pin change interrupt abstractions
@@ -49,10 +49,6 @@
 /**
  * Pin definitions.
  */
-int dmxReserved2Pin = 2;          // Reserved for shields that use pin D2 for DMX enable, i.e. mathertel.de, Conceptinetics, and DFRobot.
-int dmxReserved3Pin = 3;          // Reserved for shields that use pin D3 for DMX output, i.e. SK Pang, or DMX input, i.e. Conceptinetics and DFRobot.
-int dmxReserved4Pin = 4;          // Reserved for shields that use pin D4 for DMX enable, i.e. mathertel.de, or DMX output, i.e. Conceptinetics and DFRobot.
-
 int errorLedPin = A2;             // The error led output.
 int startCodeLedPin = A3;         // The start code led output.
 int dataLedPin = A4;              // The data led output.
@@ -64,6 +60,17 @@ int dimmerLevelOut1LedPin = 11;   // The dimmer output 1 led.
 
 int dataInPin = 12;               // The data input from the transmitter.
 int clockInPin = 13;              // The clock input from the transmitter.
+
+int shiftRegisterClearPin = 7;    // Clear for the IO shift register.
+int shiftRegisterClockPin = 4;    // Clock for the IO shift register.
+int shiftRegisterDataPin = 3;     // Data for the IO shift register.
+int dacAddr0Pin = A0;             // Address 0 for the DAC channel select.
+int dacAddr1Pin = A1;             // Address 1 for the DAC channel select.
+int dacWritePin = 8;              // Write for the DAC channel.
+
+int dmxRxPin = 0;                 // DMX receiver pin (UART0).
+int dmxTxPin = 1;                 // DMX transmit pin (UART0).
+int dmxDirectionPin = 2;          // DMX direction ping.
 
 /**
  * Protocol state.
@@ -193,6 +200,13 @@ void setup() {
   pinMode(dimmerLevelOut3LedPin, OUTPUT);
   pinMode(dimmerLevelOut4LedPin, OUTPUT);
 
+  pinMode(shiftRegisterClearPin, OUTPUT);
+  pinMode(shiftRegisterClockPin, OUTPUT);
+  pinMode(shiftRegisterDataPin, OUTPUT);
+  pinMode(dacAddr0Pin, OUTPUT);
+  pinMode(dacAddr1Pin, OUTPUT);
+  pinMode(dacWritePin, OUTPUT);
+
   pinMode(dataInPin, INPUT_PULLUP);
   pinMode(clockInPin, INPUT_PULLUP);
 
@@ -222,8 +236,8 @@ void loop() {
   digitalWrite(startCodeLedPin, !startCodeMatch);
   digitalWrite(errorLedPin, frameState != frameStateError);
 
-  // Dimmer level LEDs. Use analogWrite() to generate a dimmable
-  // signal to display the dimmer level.
+  // Send the diummer levels to LEDs and IO ports.
+  SendDimmersValues();
   analogWrite(dimmerLevelOut1LedPin, dimmerLevels[0]);
   analogWrite(dimmerLevelOut2LedPin, dimmerLevels[1]);
   analogWrite(dimmerLevelOut3LedPin, dimmerLevels[2]);
@@ -403,6 +417,97 @@ void OnClockPulse() {
       frameState == frameStateError;
     }
   }
+}
+
+/**
+ * Send the dimmer values to the IO ports.
+ */
+void SendDimmersValues() {
+
+  // The previoud dimmer levels.
+  static int prevDimmerLevels[4] = { -1 };
+
+  // Note that the value is copied from the array and we do not reference
+  // dimmerLevels directly more than once per dimmer. This is to ensure 
+  // that even if this code is interrupted at the same time that the
+  // dimmerLevels array is updated, we won't send some bits from the
+  // old value and some from the new value or update prevDimmerLevels
+  // with a new value we didn't send and fail to send the new value.
+  int dimmerValue = dimmerLevels[0];
+  if (prevDimmerLevels[0] != dimmerValue) {
+    SendDimmerValue(0, dimmerValue);
+    prevDimmerLevels[0] = dimmerValue;
+  }
+
+  dimmerValue = dimmerLevels[1];
+  if (prevDimmerLevels[1] != dimmerValue) {
+    SendDimmerValue(1, dimmerValue);
+    prevDimmerLevels[1] = dimmerValue;
+  }
+  
+  dimmerValue = dimmerLevels[2];
+  if (prevDimmerLevels[2] != dimmerValue) {
+    SendDimmerValue(2, dimmerValue);
+    prevDimmerLevels[2] = dimmerValue;
+  }
+
+  dimmerValue = dimmerLevels[3];
+  if (prevDimmerLevels[3] != dimmerValue) {
+    SendDimmerValue(3, dimmerValue);
+    prevDimmerLevels[3] = dimmerValue;
+  }
+}
+
+/**
+ * Send the dimmer value to the IO port.
+ */
+void SendDimmerValue(int channel, int value) {
+
+  // Note that the value is passed and we do not reference
+  // dimmerLevels directly. This is to ensure that even if this
+  // code is interrupted at the same time that the dimmerLevels
+  // array is updated, we won't send some bits from the old value
+  // and some from the new value.
+
+  // Dimmer level LEDs. Use analogWrite() to generate a dimmable
+  // signal to display the dimmer level.
+  switch (channel) {
+    case 0:
+      analogWrite(dimmerLevelOut1LedPin, value);
+      break;
+    case 1:
+      analogWrite(dimmerLevelOut2LedPin, value);
+      break;
+    case 2:
+      analogWrite(dimmerLevelOut3LedPin, value);
+      break;
+    case 3:
+      analogWrite(dimmerLevelOut4LedPin, value);  
+  }
+
+  // Clear the shift register. Width of the clear pulse
+  // in the 74LS164 datasheet is 20ns, which is about
+  // 1/10 of a clock pulse so no need for a delay.
+  digitalWrite(shiftRegisterClearPin, LOW);
+  digitalWrite(shiftRegisterClearPin, HIGH);
+  
+  // Set the DAC's channel and prepare to write.
+  digitalWrite(dacAddr0Pin, (channel & 0x01));
+  digitalWrite(dacAddr1Pin, (channel & 0x02));
+  digitalWrite(dacWritePin, HIGH);
+  
+  // Send the dimmer data.
+  shiftOut(shiftRegisterDataPin, shiftRegisterClockPin, LSBFIRST, value);
+  sprintf(serialPortMessage, "shifted %d to %d\n", value, channel);
+  Serial.print(serialPortMessage);
+  
+  // Write dimmer data to the DAC. Width of the write pulse
+  // in the TLC7524 datasheet is 40ns, which is about
+  // 1/5 of a clock pulse so no need for a delay. The data
+  // and address should remain stable during this time and for
+  // 10ns, which is about 1/20 of a clock pulse.
+  digitalWrite(dacWritePin, LOW);
+  digitalWrite(dacWritePin, HIGH);
 }
 
 /**

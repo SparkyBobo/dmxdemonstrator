@@ -16,6 +16,10 @@ The receiver software is an Arduino sketch design for use with the both the DMX-
 
 ## Version History
 
+### Rev 1.4
+
+- Added io-analog module support
+
 ### Rev 1.3
 
 - Added compact status for companion software
