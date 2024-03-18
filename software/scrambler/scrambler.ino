@@ -229,9 +229,6 @@ void setup() {
 
   // Mark all bits as cleared.
   scambledClearAll = true;
-
-  // Scramble start code
-  scrambleDataBits[33] = 1;
 }
 
 /**
