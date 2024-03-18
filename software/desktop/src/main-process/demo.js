@@ -35,8 +35,6 @@ app.on('before-quit', () => {
 // Look for tx and rx boards.
 boardEvents.on('board', (board) => {
 
-    console.log('boardEvents callback ', board.path);
-
     // Tx board
     if (board?.boardType == 1 && !currentTxBoard) {
         currentTxBoard = board;

@@ -29,6 +29,15 @@ document.addEventListener('readystatechange', (event) => {
     };
 });
 
+// Clear the boards.
+window.configureApi.onAllBoardsError((error) => {
+    clearBoards();
+});
+
+window.configureApi.onAllBoardsList((boards) => {
+    clearBoards();
+});
+
 // Display the boards.
 window.demoApi.onBoardTx((board) => {
     transmitterBoard = board;
@@ -47,6 +56,20 @@ window.demoApi.onBoardFs((board) => {
     refreshConnectFsBoard = !board;
     displayConnection();
 });
+
+/**
+ * Display the connections
+ *
+ */
+function clearBoards() {
+    transmitterBoard = undefined;
+    refreshConnectTxBoard = true;
+    receiverBoard = undefined;
+    refreshConnectRxBoard = true;
+    scramblerBoard = undefined;
+    refreshConnectFsBoard = true;
+    displayConnection();
+}
 
 /**
  * Display the connections

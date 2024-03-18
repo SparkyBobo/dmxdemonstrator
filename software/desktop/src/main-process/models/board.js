@@ -58,8 +58,14 @@ var Board = function(path, manufacturer, productId, vendorId, serialNumber) {
 
     this.serialport.pipe(this.parser);
 
-    // Setup parser
+    // Handle disonnect
     var _this = this;
+    this.serialport.on('close', () => {
+        console.log("Detected close: ", _this.path);
+        _this.serialport = null;
+    });
+
+    // Setup parser
     this.parser.on('data', (line) => {
 
         // Some boards (Uno) reset when you connect to them
@@ -177,22 +183,28 @@ Board.prototype.closePort = function() {
     _this.parser.removeAllListeners('data');
 
     return new Promise((resolve, reject) => {
-        _this.serialport.write('q', (error) => {
-            if (error) {
-                reject(error);
-            }
-
-            console.log("Close port: ", _this.path);
-            _this.serialport.close((error) => {
+        if (_this.serialport) {
+            console.log("Sending 'q': ", _this.path);
+            _this.serialport.write('q', (error) => {
                 if (error) {
-                    reject(error);
+                    console.log("Error sending 'q': ", _this.path);
                 }
 
-                console.log("Closed: ", _this.path);
-                _this.serialport = null;
-                resolve();
+                console.log("Close port: ", _this.path);
+                _this.serialport.close((error) => {
+                    if (error) {
+                        console.log("Error closing port: ", _this.path);
+                    }
+
+                    console.log("Closed: ", _this.path);
+                    _this.serialport = null;
+                    resolve();
+                });
             });
-        });
+        } else {
+            console.log("Closing already-closed port: ", _this.path)
+            resolve();
+        }
     });
 }
 
