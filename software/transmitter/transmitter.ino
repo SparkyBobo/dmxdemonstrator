@@ -31,7 +31,7 @@
  * to learn more about the serial port boards and options, see the README
  * at https://github.com/mathertel/DMXSerial/blob/master/README.md
  */
-#define _VERSION_ "1.3"
+#define _VERSION_ "1.5"
 
 /**
  * Local copy of JC_Button: https://github.com/JChristensen/JC_Button
@@ -109,7 +109,7 @@ int usingControlPro = 0;
 
 const char hardwareDetectFormat[] PROGMEM = "Hardware Detection: found %s\r\n";
 const char hardwareDetectTX1[] PROGMEM = "DMX-TX1";
-const char hardwareDetectTX2[] PROGMEM = "DMX-TX2/DMX-CPB";
+const char hardwareDetectTX2[] PROGMEM = "DMX-TX2";
 const char* const hardwareDetectMessages[] PROGMEM = { hardwareDetectTX1, hardwareDetectTX2, };
 
 /**
@@ -174,10 +174,13 @@ const char dataOutBitFormat[] PROGMEM = "Data: %d\t\t";
 const char dimmerDataFormat[] PROGMEM = ", level: %3dd, %02Xh, %d%d%d%d%d%d%d%db";
 const char dimmerCaptureFormat[] PROGMEM = ", Dimmer %d capture";
 
+const char compactDataFormat[] PROGMEM = "m,%s,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\r\n";
+
 /**
  * Variables for sending a frame of data.
  */
 int currentFrameStep = -1;
+int previousFrameStep = -1;
 int frameStepCount = 88;
 volatile int dataOutBit = 0;
 volatile int clockOutBit = LOW;
@@ -331,6 +334,7 @@ const char helpDimmer4[] PROGMEM = "  4: Set dimmer select: 4\r\n";
 const char helpInfoTitle[] PROGMEM = "Info:\r\n";
 const char helpCompact[] PROGMEM = "  m: Toggle sending compact status\r\n";
 const char helpVerbose[] PROGMEM = "  v: Toggle sending verbose status\r\n";
+const char helpQuiet[] PROGMEM = "  q: Disable sending verbose and compact status\r\n";
 const char helpInfo[] PROGMEM = "  i: Display program info\r\n";
 
 /**
@@ -668,7 +672,13 @@ int ReadAnalogCapture(int channel) {
   if (channel == 0) {
     clockValue = analogLevel;
   } else {
-
+    
+    // Allow value to go to zero
+    // 50 of 1024 is not too much.
+    if (analogLevel < 50) {
+      analogLevel = 0;
+    }
+    
     // The DMX-TX2/DMX-CPB has 4 different dimmer levels so read/store using the capture channel.
     // The DMX-TX1 only has a single dimmer level so read/store using the selected channel.
     int dimmerChannel = usingControlPro
@@ -765,6 +775,35 @@ void SendStatus() {
  * Send the compact status of the transmitter to the serial port.
  */
 void SendCompactStatus() {
+
+  // Only send on changes.
+  static int previousClockMode = -1;
+  static int previousSelectedDimmer = -1;
+  static int previousFrameStep = -1;
+  if ((previousClockMode != currentClockMode) ||
+      (previousSelectedDimmer != currentSelectedDimmer) ||
+      (previousFrameStep != currentFrameStep)) {
+    previousClockMode = currentClockMode;
+    previousSelectedDimmer = currentSelectedDimmer;
+    previousFrameStep = currentFrameStep;
+
+    strcpy_P(serialPortFormat, compactDataFormat);
+    sprintf(serialPortMessage, serialPortFormat,
+      "tx",
+      verboseStatus,
+      currentFrameStep,
+      clockOutBit,
+      dataOutBit,
+      currentDimmerLevels[0],
+      currentDimmerLevels[1],
+      currentDimmerLevels[2],
+      currentDimmerLevels[3],
+      currentClockMode,
+      clockValue,
+      currentSelectedDimmer,
+      currentDimmerLevel);
+    Serial.print(serialPortMessage);
+  }
 }
 
 /**
@@ -787,7 +826,6 @@ void SendVerboseStatus() {
   }
 
   // Only send on changes.
-  static int previousFrameStep = -1;
   if (previousFrameStep != currentFrameStep) {
 
     // Detect case when speed is too fast for verbose mode.
@@ -900,7 +938,16 @@ int HandleReceivedChar(char receivedChar) {
 
     case 'v':
       verboseStatus = !verboseStatus;
+
+      // Set previous frame step since verbose has not been called recently
+      // and we don't want it to disable verbose due to missed steps.
+      previousFrameStep = currentFrameStep;
       break;
+
+    case 'q':
+      compactStatus = LOW;
+      verboseStatus = LOW;
+      break;      
 
     case 'i':
       SendProgmemStringFormat(versionFormat, _VERSION_);
@@ -932,6 +979,7 @@ int HandleReceivedChar(char receivedChar) {
       SendProgmemMessage(helpCompact);
       SendProgmemMessage(helpVerbose);
       SendProgmemMessage(helpInfo);
+      SendProgmemMessage(helpQuiet);
       SendProgmemMessage(newlineMessage);
       break;
 

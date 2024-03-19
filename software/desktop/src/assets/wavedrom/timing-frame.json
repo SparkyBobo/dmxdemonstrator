@@ -1,0 +1,12 @@
+{
+    "config": {
+        "skin": "narrow"
+    },  
+    "signal": [
+            {
+                "name": "",
+                "wave": "93...........6...........8...........8...........8...........8...........9",
+                "data": ["", "break", "start code", "dimmer1", "dimmer2", "dimmer3", "dimmer4"]
+            }
+    ]
+}
