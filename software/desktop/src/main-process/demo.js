@@ -44,6 +44,7 @@ boardEvents.on('board', (board) => {
     if (currentTxBoard?.path == board?.path) {
         ipcHandler.demoApi.sendBoardTx(currentTxBoard?.getDisplayInfo());
         setTxStatus(sendRxCompactStatus, sendRxVerboseStatus);
+        console.log("send brd");
     }
 
     // Rx board
