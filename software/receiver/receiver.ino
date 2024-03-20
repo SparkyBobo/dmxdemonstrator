@@ -18,7 +18,7 @@
  *
  */
 
- /**
+/**
   * About DMX Demonstrator Receiver
   *
   * This software supports the Arduio-based DMX Demonstrator Receiver
@@ -27,24 +27,35 @@
   *
   * When using the DMX output option, there may be a conflict with pins
   * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
-  * There are two options:
-  * 1.) Use an Arduino with 2 UARTS, such as the Leonardo. This is the recommended option.
-  * 2.) Use a DMX board which does not use the hardware UART, i.e. pins D0 and D1.
+  * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
   *
-  * DMX can be supported via any of these options:
-  * General DMX Shield info: https://playground.arduino.cc/DMX/DMXShield/
-  * DFRobot product: https://www.dfrobot.com/product-984.html
-  * SK Pang product: http://skpang.co.uk/catalog/arduino-dmx-shield-p-663.html
-  * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/dmx-shield-for-arduino-rdm-capable/
-  * Conceptinetics product: https://www.tindie.com/products/Conceptinetics/25kv-isolated-dmx-512-shield-for-arduino-r2/?pt=full_prod_search
-  * Matthias Hertel design: https://www.mathertel.de/Arduino/DMXShield.aspx
+  * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
+  * to learn more about the serial port boards and options, see the README
+  * at https://github.com/mathertel/DMXSerial/blob/master/README.md
   */
-#define _VERSION_ "1.4"
+#define _VERSION_ "1.5"
 
 /**
  * Include pin change interrupt abstractions
  */
 #include "PinChange.h"
+
+/**
+ * Include DMX Serial library.
+ * To make DMX work, you need an Arduino with two serial ports
+ * such as the Leonardo. To include DMX support, uncomment
+ * line: #include <DMXSerial.h>
+ * To have the DMX-RX1 re-send the data it receives to DMX512,
+ * uncomment line: DMXMode dmxMode = DMXController;
+ * To have the DMX-RX1 receieve data via DMX512, uncomment
+ * line: DMXMode dmxMode = DMXReceiver;
+ * To set the starting address to read/write to DMX512, set
+ * dmxStartChannel to the starting address (1-based).
+ */
+#include <DMXSerial.h>
+DMXMode dmxMode = DMXController;
+//DMXMode dmxMode = DMXReceiver;
+int dmxStartChannel = 1;
 
 /**
  * Pin definitions.
@@ -58,8 +69,8 @@ int dimmerLevelOut3LedPin = 6;    // The dimmer output 3 led.
 int dimmerLevelOut2LedPin = 10;   // The dimmer output 2 led.
 int dimmerLevelOut1LedPin = 11;   // The dimmer output 1 led.
 
-int dataInPin = 12;               // The data input from the transmitter.
-int clockInPin = 13;              // The clock input from the transmitter.
+int dataInPin = 12;   // The data input from the transmitter.
+int clockInPin = 13;  // The clock input from the transmitter.
 
 int shiftRegisterClearPin = 7;    // Clear for the IO shift register.
 int shiftRegisterClockPin = 4;    // Clock for the IO shift register.
@@ -104,7 +115,7 @@ int expectedStartCode = 0;        // The expected start code.
 int receivedStartCode = -1;       // The received start code.
 
 const int maxDimmerCount = 4;
-int dimmerLevels[4] = { 0 };      // The dimmer levels.
+int dimmerLevels[4] = { 0 };  // The dimmer levels.
 
 /**
  *  Message for frame steps.
@@ -215,6 +226,11 @@ void setup() {
   PinChange.AttachInterrupt(OnClockPulse);
   PinChange.Start();
 
+  // Enable DMX as a transmitter for forwarding
+#ifdef DmxSerial_h
+  DMXSerial.init(dmxMode);
+#endif  // DmxSerial_h
+
   // Complete startup message.
   SendProgmemMessage(readyMessage);
 
@@ -246,11 +262,33 @@ void loop() {
   // Send status to serial port.
   SendStatus();
 
-    // Check serial port.
+  // Check serial port.
   if (Serial.available() > 0) {
     char incomingByte = Serial.read();
     HandleReceivedChar(incomingByte);
   }
+
+  // Support reading DMX512
+#ifdef DmxSerial_h
+  if (dmxMode == DMXReceiver) {
+    // Calculate how long no data was received
+    unsigned long lastPacket = DMXSerial.noDataSince();
+    if (lastPacket < 5000) {
+      // read recent DMX values
+      dimmerLevels[0] = DMXSerial.read(dmxStartChannel);
+      dimmerLevels[1] = DMXSerial.read(dmxStartChannel + 1);
+      dimmerLevels[2] = DMXSerial.read(dmxStartChannel + 2);
+      dimmerLevels[3] = DMXSerial.read(dmxStartChannel + 3);
+
+    } else {
+      // Zero out the levels if we lose DMX512 signal
+      dimmerLevels[0] = 0;
+      dimmerLevels[1] = 0;
+      dimmerLevels[2] = 0;
+      dimmerLevels[3] = 0;
+    }
+  }
+#endif  // DmxSerial_h
 }
 
 /**
@@ -341,8 +379,7 @@ void OnClockPulse() {
           if (frameBreakCounter && dimmerCounter >= maxDimmerCount) {
             nextFrameState = frameStatePotentialBreak;
             currentFrameStep = unknownFrameStep;
-          }
-          else {
+          } else {
             nextFrameState = frameStateError;
             currentFrameStep = unknownFrameStep;
           }
@@ -360,19 +397,19 @@ void OnClockPulse() {
         // Ensure the capture data matches the expected start code.
         if (frameState == frameStateStartCode) {
 
-            // If the start code is not as expected, move to an unexpected
-            // start code state and wait for a frame break;
-            if (expectedStartCode != receivedData) {
-              nextFrameState = frameStateUnexpectedStartCode;
-              currentFrameStep = unknownFrameStep;
-            }
-
-            // If the start code is expected, wait for the mark after data.
-            else {
-                startCodeMatch = true;
-                receivedStartCode = receivedData;
-                nextFrameState = frameStateMarkAfterData;
-            }
+          // If the start code is not as expected, move to an unexpected
+          // start code state and wait for a frame break;
+          if (expectedStartCode != receivedData) {
+            nextFrameState = frameStateUnexpectedStartCode;
+            currentFrameStep = unknownFrameStep;
+          }
+          
+          // If the start code is expected, wait for the mark after data.
+          else {
+            startCodeMatch = true;
+            receivedStartCode = receivedData;
+            nextFrameState = frameStateMarkAfterData;
+          }
         }
 
         // Capture the dimmer data.
@@ -381,6 +418,13 @@ void OnClockPulse() {
           // Store the dimmer data if the counter is less than the max dimmer.
           if (dimmerCounter >= 0 && dimmerCounter < maxDimmerCount) {
             dimmerLevels[dimmerCounter] = receivedData;
+#ifdef DmxSerial_h
+            if (dmxMode == DMXController) {
+              DMXSerial.write(dmxStartChannel + dimmerCounter, receivedData);
+              sprintf(serialPortMessage, "%d=%d\r\n", dmxStartChannel + dimmerCounter, receivedData);
+              Serial.print(serialPortMessage);
+            }
+#endif  // DmxSerial_h
           }
 
           // Wait for the mark after data.
@@ -404,7 +448,7 @@ void OnClockPulse() {
     }
 
     // Look for an unexpected bit in what is potentially a break, i.e. a "1" during the break.
-    else if(frameState == frameStatePotentialBreak) {
+    else if (frameState == frameStatePotentialBreak) {
       if (dataInBit) {
         nextFrameState = frameStateError;
       }
@@ -612,7 +656,7 @@ void SendVerboseStatus() {
     else if (frameState == frameStateMarkAfterBreak) {
       if (nextFrameState == frameStateStartCode) {
         SendProgmemMessage(startCodeStartBitMessage);
-      } else{
+      } else {
         SendProgmemMessage(markAfterBreakMessage);
       }
     }
@@ -624,7 +668,7 @@ void SendVerboseStatus() {
       // If the state is transitioning to frameStateError, an invalid
       // data count was encountered.
       if (dataCounter < 0 || dataCounter > 9) {
-          SendProgmemIntFormat(invalidDataCounterFormat, dataCounter);
+        SendProgmemIntFormat(invalidDataCounterFormat, dataCounter);
       }
 
       // 0-7 are data: the dataInBit was written into receivedData.
@@ -656,13 +700,13 @@ void SendVerboseStatus() {
         // If the state is frameStateStartCode, print the start code status.
         if (frameState == frameStateStartCode) {
 
-            // If the state is transitioning to  frameStateUnexpectedStartCode,
-            // an unexpected start code was received.
-            if (nextFrameState == frameStateUnexpectedStartCode) {
-              SendProgmemDataByteFormat(unexpectedStartCodeFormat, receivedData);
-            } else {
-              SendProgmemDataByteFormat(startCodeFormat, receivedData);
-            }
+          // If the state is transitioning to  frameStateUnexpectedStartCode,
+          // an unexpected start code was received.
+          if (nextFrameState == frameStateUnexpectedStartCode) {
+            SendProgmemDataByteFormat(unexpectedStartCodeFormat, receivedData);
+          } else {
+            SendProgmemDataByteFormat(startCodeFormat, receivedData);
+          }
         }
 
         // If the state is frameStateDimmerData, print the dimmer data status.
@@ -672,9 +716,9 @@ void SendVerboseStatus() {
           // Otherwise, the dimmer data is unused.
           // Note: the dimmerCounter is not incremented until the mark after data is found.
           if (dimmerCounter >= 0 && dimmerCounter < maxDimmerCount) {
-            SendProgmemIntFormat(dimmerValueCaptureFormat, dimmerCounter+1);
+            SendProgmemIntFormat(dimmerValueCaptureFormat, dimmerCounter + 1);
           } else {
-            SendProgmemIntFormat(unusedDimmerDataFormat, dimmerCounter+1);
+            SendProgmemIntFormat(unusedDimmerDataFormat, dimmerCounter + 1);
           }
 
           SendProgmemDataByteFormat(dataByteFormat, receivedData);
@@ -686,7 +730,7 @@ void SendVerboseStatus() {
     // the dimmer data start bit was detected. Otherwise, the mark after data continues.
     else if (frameState == frameStateMarkAfterData) {
       if (nextFrameState == frameStateDimmerData) {
-        SendProgmemIntFormat(dimmerStartBitFormat, dimmerCounter+1);
+        SendProgmemIntFormat(dimmerStartBitFormat, dimmerCounter + 1);
       } else {
         SendProgmemMessage(markAfterDataMessage);
       }
@@ -701,7 +745,7 @@ void SendVerboseStatus() {
         SendProgmemIntFormat(potentialFrameBreakFormat, frameBreakCounter);
         SendProgmemMessage(potentialBreakMessage);
       }
-    }    
+    }
 
     // Error condition.
     else {
