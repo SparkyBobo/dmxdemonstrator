@@ -15,7 +15,7 @@ In the hardware folder, you'll find a series of designs:
 - transmitter - An arduino-based transmitter.
 - receiver - An arduino-based receiver.
 - control-pro - A controller built to work with either transmitter or transmitter-pro.
-- display-pro - An external large-format display for data and clock signals.
+- constant voltage display driver - An external large-format display for data and clock signals.
 
 ## Firmware/Software
 

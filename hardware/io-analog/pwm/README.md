@@ -9,14 +9,19 @@ listed in the schematic generate 0 to +10V since this is a common lighting contr
 
 ## Parts
 
+TBD
 Tall Header - https://www.sparkfun.com/products/16279
+
+## PCB
+
+TBD
 
 ## Voltage Options
 
 The DMX-IO4 converts the output of the DMX-IO2 into two different voltage outputs: a +5V output and adjustable positive voltage. Both outputs can be used at the same time. However, you can populate only the sections needed to produce the required voltage. The reason 2 outputs are provided is:
 
 - I wanted to provide both a +5v options and a +10V option for use with Mean Well LED drivers.
-- The additional parts ot generate the +5V signal are inexpensive.
+- The additional parts to generate the +5V signal are inexpensive.
 - I could not figure out what to name them if two boards produces PWM signals at different voltages.
 
 ### +5v

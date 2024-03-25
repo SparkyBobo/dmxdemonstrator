@@ -1,10 +1,18 @@
 # DMX Demonstrator Receiver IO Interface (DMX-RX2)
 
-![status](https://img.shields.io/badge/status-prototype-orange)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
 The Receiver IO Interface is an [Arduino](https://www.arduino.cc/) Shield which allows the Receiver (DMX-RX1) connect to various IO modules, such as the DMX-512 IO Module (DMX-IO1).
+
+## Parts
+
+TBD
+
+## PCB
+
+TBD
 
 ## Version History
 

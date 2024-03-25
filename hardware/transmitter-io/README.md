@@ -8,7 +8,7 @@ The Transmitter IO Interface is an [Arduino](https://www.arduino.cc/) Shield whi
 
 ## Online parts list
 
-Sparkfun offers some, but not all, of the components required for the Control Pro. For the parts they can supply, you can find a parts lists [here](https://www.sparkfun.com/wish_lists/160543).
+Sparkfun offers some, but not all, of the components required for the Transmitter IO Interface. For the parts they can supply, you can find a parts lists, which is a combine list shared with the Control-Pro, [here](https://www.sparkfun.com/wish_lists/160543).
 
 Additionally, you'll need some parts from the common parts lists as well. You can find the common parts list [here](https://www.sparkfun.com/wish_lists/160406).
 
