@@ -18,7 +18,7 @@ Additionally, you'll need some parts from the common parts lists as well. You ca
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-RX1, Rev 1.3](https://oshpark.com/shared_projects/b6uh6OMa).
+- [DMX-RX1, Rev 1.4](https://oshpark.com/shared_projects/KHwUs20e).
 
 ### Quality vs Price
 
@@ -37,6 +37,10 @@ I offer this opinion freely and do not receive any compensation from OHSPark.
 - Arduino Mega or Mega 2560: Hardware Revision 1.1+, Software Version 1.2+
 
 ## Version History
+
+### Rev 1.4
+
+- Add PWM headers for use with led drivers
 
 ### Rev 1.3
 
