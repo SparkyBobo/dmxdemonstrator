@@ -1,0 +1,818 @@
+{
+    "parts" : [
+        {
+            "id": "PCB_TX1_1_3",
+            "description" : "Transmitter PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-TX1, Rev Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-TX1, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/BYd66lVx",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_TX2_1_3",
+            "description" : "Transmitter IO PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-TX2, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-TX2, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/mKdzHGgN",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_RX1_1_4",
+            "description" : "Receiver PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-RX1, Rev 1.4",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-RX1, Rev 1.4",
+                    "link" : "https://oshpark.com/shared_projects/KHwUs20e",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_RX2_1_2",
+            "description" : "Receiver IO PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-RX2, Rev 1.2",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-RX2, Rev 1.2",
+                    "link" : "https://oshpark.com/shared_projects/PPpqqPVH",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_FS1_1_1",
+            "description" : "Frame Scrambler PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-FS1, Rev 1.1",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-FS1, Rev 1.1",
+                    "link" : "https://oshpark.com/shared_projects/A815QTi9",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_CPCB_1_3",
+            "description" : "Control-Pro Clock Control PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-CPCB, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-CPCB, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/llBuRZd8",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_CPCF_1_3",
+            "description" : "Control-Pro Clock Faceplate PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-CPCF, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-CPCF, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/S9LARHyr",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_CPDB_1_3",
+            "description" : "Control-Pro Dimmer Control PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-CPDB, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-CPDB, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/O76YiRT8",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_CPDF_1_3",
+            "description" : "Control-Pro Dimmer Faceplate PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-CPDF, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-CPDF, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/bZqKigQF",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "A_ARDUINO",
+            "description" : "Arduino UNO/Leonardo",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-11021",
+                    "link" : "https://www.sparkfun.com/products/11021",
+                    "quantity" : 1,
+                    "note" : "Arduino Uno"
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "2488",
+                    "link" : "https://www.adafruit.com/product/2488",
+                    "quantity" : 1,
+                    "note" : "Arduino Uno Compatible"
+                },
+                {
+                    "vendor" : "Arduino",
+                    "vendorNumber" : "Leonardo",
+                    "link" : "https://store-usa.arduino.cc/collections/boards-modules/products/arduino-leonardo-with-headers?_pos=9&_fid=1219962b9&_ss=c",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "H_ARDUINO",
+            "description" : "Arduino R3 Headers",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-11417",
+                    "link" : "https://www.sparkfun.com/products/11417",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "85",
+                    "link" : "https://www.adafruit.com/product/85",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "H_1x3_RA",
+            "description" : "3-pin right-angle header",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-00553",
+                    "link" : "https://www.sparkfun.com/products/553",
+                    "quantity" : 13
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "1540",
+                    "link" : "https://www.adafruit.com/product/1540",
+                    "quantity" : 120
+                }
+            ]
+        },
+        {
+            "id": "JP_1x3",
+            "description" : "3-pin jumper",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-10373",
+                    "link" : "https://www.sparkfun.com/products/10373",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "793",
+                    "link" : "https://www.adafruit.com/product/793",
+                    "quantity" : 39
+                }
+            ]
+        },
+        {
+            "id": "H_CPRO",
+            "description" : "2x8 shrouded header",
+            "mfg": "Wurth Elektronik",
+            "mfgNumber" : "61201621621",
+            "datasheet" : "https://www.we-online.com/catalog/datasheet/61201621621.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : " 732-2095-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61201621621/2060591",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "710-61201621621",
+                    "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201621621?qs=ZtY9WdtwX55qFf4n3EFuaA%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "19P1271",
+                    "link" : "https://www.newark.com/wurth-elektronik/61201621621/connector-header-16pos-2row-2/dp/19P1271?ost=61201621621",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "H_CPRO_RA",
+            "description" : "2x8 shrouded right-angle header",
+            "mfg": "Wurth Elektronik",
+            "mfgNumber" : "61201621721",
+            "datasheet" : "https://www.we-online.com/components/products/datasheet/61201621721.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : " 732-2099-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61201621721/2060595",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "710-61201621721",
+                    "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201621721?qs=ZtY9WdtwX56ShT0tAQh3qw%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "19P1272",
+                    "link" : "https://www.newark.com/wurth-elektronik/61201621721/wire-to-board-connector-right/dp/19P1272?ost=61201621721",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "JP_CPRO",
+            "description" : "2x8 ribbon cable",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link" : "https://www.amazon.com/s?k=16-Pin+IDC+Connector+Flat+Ribbon+Cable&i=electronics&crid=3L1450QFA09WG&sprefix=16-pin+idc+connector+flat+ribbon+cable%2Celectronics%2C151&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "H_IO_RA",
+            "description" : "2x7 shrouded right-angle header",
+            "mfg": "Wurth Elektronik",
+            "mfgNumber" : "61201421721",
+            "datasheet" : "https://www.we-online.com/catalog/datasheet/61201421721.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : " 732-5407-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61201421721/4846921",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "710-61201421721",
+                    "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201421721?qs=PhR8RmCirEbQk5OcjPFu0A%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "20X0890",
+                    "link" : "https://www.newark.com/wurth-elektronik/61201421721/wire-to-board-connector-right/dp/20X0890?ost=61201421721",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "JP_IO",
+            "description" : "2x7 ribbon cable",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link" : "https://www.amazon.com/s?k=14-Pin+IDC+Connector+Flat+Ribbon+Cable&i=electronics&crid=2FIML0V1LB13U&sprefix=14-pin+idc+connector+flat+ribbon+cable%2Celectronics%2C271&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "C_DECOUPLE",
+            "description" : "0.1uF",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-08375",
+                    "link" : "https://www.sparkfun.com/products/8375",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "753",
+                    "link" : "https://www.adafruit.com/product/753",
+                    "quantity" : 10
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : " 399-9870-1-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/kemet/C320C104K5R5TA7301/3726156?s=N4IgTCBcDaIMIGYwAY4EZkBYDSBWASrgCoCCA7AsmiALoC%2BQA",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "80-C320C104K5R7301",
+                    "link" : "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "13K6284",
+                    "link" : "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "C_FILTER",
+            "description" : "10uF",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-00523",
+                    "link" : "https://www.sparkfun.com/products/523",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "2195",
+                    "link" : "https://www.adafruit.com/product/2195",
+                    "quantity" : 10
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "P10425CT-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/panasonic-electronic-components/ECA-1HM100I/268510",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "667-ECA-1HM100I",
+                    "link" : "https://www.mouser.com/ProductDetail/Panasonic/ECA-1HM100I?qs=iJXPy%2FkScuGKyyHdlAUvZA%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "48W7714",
+                    "link" : "https://www.newark.com/panasonic/eca-1hm100i/aluminum-electrolytic-capacitor/dp/48W7714?ost=eca-1hm100i",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_LED",
+            "description" : "330 ohm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-14490",
+                    "link" : "https://www.sparkfun.com/products/14490",
+                    "quantity" : 20
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "2781",
+                    "link" : "https://www.adafruit.com/product/2781",
+                    "quantity" : 25,
+                    "notes" : "use 470 ohm instead, "
+                }
+            ]
+        },
+        {
+            "id": "LED_RED",
+            "description" : "Red LED, 5mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-09590",
+                    "link" : "https://www.sparkfun.com/products/9590",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "299",
+                    "link" : "https://www.adafruit.com/product/299",
+                    "quantity" : 25
+                }
+            ]
+        },
+        {
+            "id": "LED_GRN",
+            "description" : "Green LED, 5mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-09592",
+                    "link" : "https://www.sparkfun.com/products/9592",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "298",
+                    "link" : "https://www.adafruit.com/product/298",
+                    "quantity" : 25
+                }
+            ]
+        },
+        {
+            "id": "LED_COLORLEDKIT",
+            "description" : "Multicolor LED Kit, 5mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-12903",
+                    "link" : "https://www.sparkfun.com/products/12903",
+                    "quantity" : 12
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "4203",
+                    "link" : "https://www.adafruit.com/product/4203",
+                    "quantity" : 25
+                }
+            ]
+        },
+        {
+            "id": "LED_SPACER",
+            "description" : "LED Spacer, 17mm",
+            "mfg": "Wurth",
+            "mfgNumber" : "705820170",
+            "datasheet" : "https://www.we-online.de/katalog/datasheet/705820xxx_overview.pdf",
+            "kit" : "LED_MULTICOLOR",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "732-11617-ND",
+                    "link" : "https://www.digikey.com/product-detail/en/w%C3%BCrth-elektronik/705820170/732-11617-ND/7681962",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "710-705820170",
+                    "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/705820170?qs=wr8lucFkNMUaK6Cwpwjx5Q%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_74LS07",
+            "description" : "74LS07",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "SN74LS07N",
+            "datasheet" : "https://www.ti.com/lit/gpn/sn74ls07",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-14878-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/SN74LS07N/563054?0=%2Fbuffers-drivers-receivers-transceivers&s=N4IgjCBcoGwJxVAYygMwIYBsDOBTANCAPZQDaIALGGABxwDsIAuoQA4AuUIAyuwE4BLAHYBzEAF9CAWgjQQKSBhwFiZEACY4MZuMka19CgBluABkZNxQA",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-SN74LS07N",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS07N?qs=8k%2FZSzWMuCNUfZENSbcq8Q%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "RV_DIM_SM",
+            "description" : "10k slide potentiometer",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-11620",
+                    "link" : "https://www.sparkfun.com/products/11620",
+                    "quantity" : 1,
+                    "notes" : "slide knob needed"
+                }
+            ]
+        },
+        {
+            "id": "RV_DIM_SM_KNOB",
+            "description" : "slide potentiometer knob",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-14889",
+                    "link" : "https://www.sparkfun.com/products/14889",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "RV_DIM_LRG",
+            "description" : "10k slide potentiometer",
+            "mfg": "Bournes",
+            "mfgNumber" : "PTA4543-2015DPB103",
+            "datasheet" : "https://www.mouser.com/datasheet/2/54/pta-778345.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "PTA4543-2015DPB103-ND",
+                    "link" : "https://www.digikey.com/products/en?keywords=PTA4543-2015DPB103-ND",
+                    "quantity" : 1,
+                    "notes" : "slide knob needed"
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-PTA45432015DPB10",
+                    "link" : "https://www.mouser.com/ProductDetail/Bourns/PTA4543-2015DPB103?qs=U%2FacTlguYxbmwS%2FtylIWJw%3D%3D",
+                    "quantity" : 1,
+                    "notes" : "slide knob needed"
+                }
+            ]
+        },
+        {
+            "id": "RV_DIM_LRG_KNOB",
+            "description" : "slide potentiometer knob",
+            "mfg": "Eagle",
+            "mfgNumber" : "450-3051",
+            "datasheet" : "https://www.mouser.com/datasheet/2/209/EPD-200140-1171100.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-09120",
+                    "link" : "https://www.sparkfun.com/products/9120",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "450-3051",
+                    "link" : "https://www.mouser.com/ProductDetail/Eagle-Plastic-Devices/450-3051?qs=hTs5c5NaUrTeABpuQnP9ug%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "RV_CLK",
+            "description" : "10k potentiometer, linear",
+            "mfg": "Bourns",
+            "mfgNumber" : "PTV09A-4020F-B103",
+            "datasheet" : "https://www.bourns.com/docs/Product-Datasheets/PTV09.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-9288",
+                    "link" : "https://www.sparkfun.com/products/9288",
+                    "quantity" : 1,
+                    "notes" : "knob needed"
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "4133",
+                    "link" : "https://www.adafruit.com/product/4133",
+                    "quantity" : 1,
+                    "notes" : "knob included"
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "PTV09A-4020F-B103-ND",
+                    "link" : "https://www.digikey.com/products/en?keywords=PTV09A-4020F-B103",
+                    "quantity" : 1,
+                    "notes" : "knob needed"
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-PTV09A-4020FB103",
+                    "link" : "https://www.mouser.com/ProductDetail/Bourns/PTV09A-4020F-B103?qs=Qzws7J6gxqx9VaKCiVoniw%3D%3D",
+                    "quantity" : 1,
+                    "notes" : "knob needed"
+                }
+            ]
+        },
+        {
+            "id": "RV_CLK_PRO",
+            "description" : "100k potentiometer, audio",
+            "mfg": "Bourns",
+            "mfgNumber" : "PTV09A-4030F-A104",
+            "datasheet" : "https://www.bourns.com/docs/Product-Datasheets/PTV09.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "PTV09A-4030F-A104-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/bourns-inc/PTV09A-4030F-A104/4699533",
+                    "quantity" : 1,
+                    "notes" : "knob needed"
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-PTV09A4030FA104",
+                    "link" : "https://www.mouser.com/ProductDetail/Bourns/PTV09A-4030F-A104?qs=Zq5ylnUbLm73%2F6VuM9oVtw%3D%3D",
+                    "quantity" : 1,
+                    "notes" : "knob needed"
+                }
+            ]
+        },
+        {
+            "id": "RV_CLK_PRO_KNOB",
+            "description" : "potentiometer knob",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-11951",
+                    "link" : "https://www.sparkfun.com/products/11951",
+                    "quantity" : 1,
+                    "notes" : "goes to 11"
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "5527",
+                    "link" : "https://www.adafruit.com/product/5527",
+                    "quantity" : 1,
+                    "notes" : "black, silver, red, blue, gold"
+                }
+            ]
+        },
+        {
+            "id": "S_MOM",
+            "description" : "Momentary switch, 12mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-10302",
+                    "link" : "https://www.sparkfun.com/products/10302",
+                    "quantity" : 12
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "1009",
+                    "link" : "https://www.adafruit.com/product/1009",
+                    "quantity" : 15
+                }
+            ]
+        },
+        {
+            "id": "SW_CLOCK_SPEED_TOGGLE",
+            "description" : "DPDT Toggle, On-Off-On",
+            "mfg": "E-Switch",
+            "mfgNumber" : "100DP3T1B1M1QEH",
+            "datasheet" : "https://sten-eswitch-13110800-production.s3.amazonaws.com/system/asset/product_line/data_sheet/129/100.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "EG2413-ND",
+                    "link" : "https://www.digikey.com/products/en?keywords=100DP3T1B1M1QEH",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "612-100-H1111",
+                    "link" : "https://www.mouser.com/ProductDetail/E-Switch/100DP3T1B1M1QEH?qs=g8hxKYs5b3yy1L1GZVrx5w%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "SW_CLOCK_STEP_TOGGLE",
+            "description" : "SPDT Toggle, On-On momentary",
+            "mfg": "E-Switch",
+            "mfgNumber" : "100SP2T1B1M1QEH",
+            "datasheet" : "https://sten-eswitch-13110800-production.s3.amazonaws.com/system/asset/product_line/data_sheet/129/100.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "EG2373-ND",
+                    "link" : "https://www.digikey.com/product-detail/en/e-switch/100SP2T1B1M1QEH/EG2373-ND/378842",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "612-100-B1111",
+                    "link" : "https://www.mouser.com/ProductDetail/E-Switch/100SP2T1B1M1QEH?qs=HKd%2Fp3M7KlWCZ%252BGqDexPKQ%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "SO-M3-18",
+            "description" : "Standoff, M3 x 18mm",
+            "mfg": "Keystone",
+            "mfgNumber" : "24446",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "36-24446-ND",
+                    "link" : "https://www.digikey.com/product-detail/en/keystone-electronics/24446/36-24446-ND/1532945",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "534-24436",
+                    "link" : "https://www.mouser.com/ProductDetail/Keystone-Electronics/24436?qs=UWqYQ%2F2cZWv7%252B7DoeljlhQ%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link": "https://www.amazon.com/s?k=m3+18mm+standoff",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Ebay",
+                    "vendorNumber" : "",
+                    "link" : "https://www.ebay.com/itm/M3-Aluminum-Alloy-Female-Hex-Hexagon-Threaded-Bush-Sleeve-Standoff-Pillar-Spacer/174350100853?ssPageName=STRK%3AMEBIDX%3AIT&var=473550930125&_trksid=p2060353.m1438.l2649",
+                    "quantity" : 10,
+                    "note": "Aluminum Alloy Red, Blue, Purple, Black, Gold, Silver"
+                }
+            ]
+        },
+        {
+            "id": "HW-M3-8",
+            "description" : "Screw, M3 x 8mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link" : "https://www.amazon.com/s?k=m3+8mm+screw",
+                    "quantity" : 1
+                }
+            ]
+        }
+   ]
+}
