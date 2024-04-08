@@ -28,7 +28,7 @@ You can read more about ordering pcbs [here](..\pcb.md).
 
 ## Version History
 
-### Rev 1.1
+### Rev 1.2
 
 - Swap A0 and A1 pins on IO connector
 
