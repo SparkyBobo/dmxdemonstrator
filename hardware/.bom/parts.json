@@ -196,6 +196,21 @@
             ]
         },
         {
+            "id": "PCB_IO4_1_5",
+            "description" : "Analog IO PWM PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO4, Rev 1.5",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO4, Rev 1.5",
+                    "link" : "https://oshpark.com/shared_projects/pHUTiBM3",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "A_ARDUINO",
             "description" : "Arduino UNO/Leonardo",
             "mfg": "",
@@ -669,7 +684,7 @@
         },
         {
             "id": "R_10k",
-            "description" : "10k  ohm",
+            "description" : "10k ohm",
             "mfg": "",
             "mfgNumber" : "",
             "datasheet" : "",

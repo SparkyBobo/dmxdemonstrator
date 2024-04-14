@@ -5,11 +5,11 @@
 
 **Filename:** E:\OpenSource\dmxdemonstrator\hardware\io-analog\pwm\io-analog-pwm.sch
 
-**Date Modified:** 4/11/2024 8:56:17 PM
+**Date Modified:** 4/13/2024 8:04:18 PM
 
 **Kicad Version:** Eeschema (5.1.12)-1
 
-**Component Count:** 25
+**Component Count:** 28
 
 ## Parts
 
@@ -18,7 +18,7 @@
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
-PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.4|1|[Order](https://oshpark.com/shared_projects/xqcuVAnE)|pack of 3, 2 not used
+PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.5|1|[Order](https://oshpark.com/shared_projects/pHUTiBM3)|pack of 3, 2 not used
 <!--PARTROW-->
 
 ### Sparkfun
@@ -30,7 +30,7 @@ C6, C7|10uF|Sparkfun|COM-00523|2|[Order](https://www.sparkfun.com/products/523)|
 D1|Schottky Diode, 40V 1A|Sparkfun|COM-10926|1|[Order](https://www.sparkfun.com/products/10926)|
 J1|0.1 Female header, stacking|Sparkfun|PRT-09279|1|[Order](https://www.sparkfun.com/products/9279)|
 R1|330 ohm|Sparkfun|PRT-14490|1|[Order](https://www.sparkfun.com/products/14490)|pack of 20, 19 not used
-R2, R3|10k ohm|Sparkfun|PRT-14491|1|[Order](https://www.sparkfun.com/products/14491)|pack of 20, 18 not used
+R2, R3, R6, R7, R8, R9|10k ohm|Sparkfun|PRT-14491|1|[Order](https://www.sparkfun.com/products/14491)|pack of 20, 14 not used
 U1|555 Precision Timer|Sparkfun|COM-16473|1|[Order](https://www.sparkfun.com/products/16473)|
 U3|Linear Regulator, Adjustable, 1.5A TO220AB|Sparkfun|COM-00527|1|[Order](https://www.sparkfun.com/products/527)|
 <!--PARTROW-->
@@ -44,7 +44,7 @@ C6, C7|10uF|Adafruit|2195|1|[Order](https://www.adafruit.com/product/2195)|pack 
 D1|Schottky Diode, 40V 1A|Adafruit|755|1|[Order](https://www.adafruit.com/product/755)|pack of 10, 9 not used
 J1|0.1 Female header, stacking|Adafruit|3366|1|[Order](https://www.adafruit.com/product/3366)|pack of 15, 14 not used
 R1|330 ohm|Adafruit|2781|1|[Order](https://www.adafruit.com/product/2781)|use 470 ohm instead, pack of 25, 24 not used
-R2, R3|10k ohm|Adafruit|2784|1|[Order](https://www.adafruit.com/product/2784)|pack of 25, 23 not used
+R2, R3, R6, R7, R8, R9|10k ohm|Adafruit|2784|1|[Order](https://www.adafruit.com/product/2784)|pack of 25, 19 not used
 U1|555 Precision Timer|Adafruit|5222|1|[Order](https://www.adafruit.com/product/5222)|
 <!--PARTROW-->
 

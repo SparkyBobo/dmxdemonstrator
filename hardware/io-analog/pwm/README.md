@@ -23,7 +23,7 @@ You can also buy some of the parts for the analog modules online from a Wishlist
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-IO4, Rev 1.4](https://oshpark.com/shared_projects/xqcuVAnE).
+- [DMX-IO4, Rev 1.5](https://oshpark.com/shared_projects/pHUTiBM3).
 
 ## Voltage Options
 
@@ -44,6 +44,11 @@ Vo = 1.25v + (1 + (R5 / R4))
 Vi = Vo + 2v or 3v (for higher current, use 3v)
 
 ## Version History
+
+### Rev 1.5
+
+- Added pullup resistors.
+- Removed J3.
 
 ### Rev 1.4
 
