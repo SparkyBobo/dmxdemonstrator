@@ -10,21 +10,25 @@ The Receiver is an [Arduino](https://www.arduino.cc/) Shield which accepts the 3
 
 ## Online parts list
 
-Sparkfun offers all of the components required for the receiver. You can find a parts lists [here](https://www.sparkfun.com/wish_lists/160542).
+For a complete list of parts, see:
 
-Additionally, you'll need some parts from the common parts lists as well. You can find the common parts list [here](https://www.sparkfun.com/wish_lists/160406). The rainbow LED pack include 2 sets of LED so if you are building more than 2 transmitters or receivers, make sure to buy 1 pack for every 2 transmitters and receivers.
+- [Bill of materials](receiver.bom.md)
+- [Part lists](receiver.parts.md)
+
+You can also buy the parts for the Receiver online from a Wishlist:
+
+- Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-RX1](https://www.sparkfun.com/wish_lists/160542)
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [RMX-RX1](https://www.adafruit.com/wishlists/589834). Note that VR1 is not included.
+
+The Receiver needs parts from the common parts list but there are enough parts left over to build a Transmitter (DMX-TX1), Transmitter IO (DMX-TX2), and Frame Scrambler (DMX-FS1).
 
 ## PCB
 
 You can order the PCB from [OHS Park](https://oshpark.com/):
 
-- [DMX-RX1, Rev 1.3](https://oshpark.com/shared_projects/b6uh6OMa).
+- [DMX-RX1, Rev 1.4](https://oshpark.com/shared_projects/KHwUs20e).
 
-### Quality vs Price
-
-OHSPark offers really great quality at great prices, they are easy to work with, manufacture 100% in the US, and their support is excellent. I use OHSPark for almost everything I build, expect when the cost is super high. Lower cost boards can be had but if you spec the same quality board OHSPark offers at those places, you will find OHSPark to be competitive. Yes, the links above are for the more expensive OHSPark board for the reason I listed above plus ease of use: You can upload the file directly from Kicad and they can produce a board. Better yet, they will save that board for others to order. They make it so easy to order for a project like this it's silly not to use them.
-
-I offer this opinion freely and do not receive any compensation from OHSPark.
+You can read more about ordering pcbs [here](..\pcb.md).
 
 - ## Compatibility
 
@@ -37,6 +41,10 @@ I offer this opinion freely and do not receive any compensation from OHSPark.
 - Arduino Mega or Mega 2560: Hardware Revision 1.1+, Software Version 1.2+
 
 ## Version History
+
+### Rev 1.4
+
+- Add PWM headers for use with led drivers
 
 ### Rev 1.3
 

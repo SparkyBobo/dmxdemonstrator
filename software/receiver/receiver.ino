@@ -327,6 +327,9 @@ void OnClockPulse() {
     // Transition to the next frame state.
     frameState = nextFrameState;
     nextFrameState = frameState;
+    if (frameState == frameStateError) {
+      currentFrameStep = unknownFrameStep;
+    }
 
     // Look for mark after break, i.e. a "1" after the frame break.
     // Similar to the Break Detector.
@@ -362,7 +365,6 @@ void OnClockPulse() {
       dataCounter++;
       if (dataCounter < 0 || dataCounter > 9) {
         nextFrameState = frameStateError;
-        currentFrameStep = unknownFrameStep;
       }
 
       // 0-7 are data: write dataInBit to the bit indicated by dataCounter into receivedData.
@@ -378,10 +380,8 @@ void OnClockPulse() {
           // this is likely the break so don't treat it as an error.
           if (frameBreakCounter && dimmerCounter >= maxDimmerCount) {
             nextFrameState = frameStatePotentialBreak;
-            currentFrameStep = unknownFrameStep;
           } else {
             nextFrameState = frameStateError;
-            currentFrameStep = unknownFrameStep;
           }
         }
       }
@@ -391,7 +391,6 @@ void OnClockPulse() {
       else if (dataCounter == 9) {
         if (!dataInBit) {
           nextFrameState = frameStateError;
-          currentFrameStep = unknownFrameStep;
         }
 
         // Ensure the capture data matches the expected start code.
@@ -401,9 +400,8 @@ void OnClockPulse() {
           // start code state and wait for a frame break;
           if (expectedStartCode != receivedData) {
             nextFrameState = frameStateUnexpectedStartCode;
-            currentFrameStep = unknownFrameStep;
           }
-          
+
           // If the start code is expected, wait for the mark after data.
           else {
             startCodeMatch = true;
@@ -586,9 +584,10 @@ void SendStatus() {
 void SendCompactStatus() {
 
   // Only send on changes.
-  static int previousFrameStep = -1;
-  if (previousFrameStep != currentFrameStep) {
-    previousFrameStep = currentFrameStep;
+  // Use clock bit in order to send clock == 0.
+  static int previousClockOutBit = -1;
+  if (previousClockOutBit != clockInBit) {
+    previousClockOutBit = clockInBit;
 
     strcpy_P(serialPortFormat, compactDataFormat);
     sprintf(serialPortMessage, serialPortFormat,

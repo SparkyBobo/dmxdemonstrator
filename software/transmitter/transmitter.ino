@@ -121,7 +121,7 @@ volatile int analogCaptureChannel = -1;  // O = Clock, 1-4 = dimmers
  * Clock mode & speed data.
  */
 const long clockFastFrequency = 3000;
-const long clockSlowMaxFrequency = 200;
+const long clockSlowMaxFrequency = 30;
 const long clockSlowMinFrequency = 1;
 const long clockOffFrequency = 2;
 
@@ -777,15 +777,16 @@ void SendStatus() {
 void SendCompactStatus() {
 
   // Only send on changes.
+  // Use clock bit in order to send clock == 0.
   static int previousClockMode = -1;
   static int previousSelectedDimmer = -1;
-  static int previousFrameStep = -1;
+  static int previousClockOutBit = -1;
   if ((previousClockMode != currentClockMode) ||
       (previousSelectedDimmer != currentSelectedDimmer) ||
-      (previousFrameStep != currentFrameStep)) {
+      (previousClockOutBit != clockOutBit)) {
     previousClockMode = currentClockMode;
     previousSelectedDimmer = currentSelectedDimmer;
-    previousFrameStep = currentFrameStep;
+    previousClockOutBit = clockOutBit;
 
     strcpy_P(serialPortFormat, compactDataFormat);
     sprintf(serialPortMessage, serialPortFormat,
@@ -812,6 +813,7 @@ void SendCompactStatus() {
 void SendVerboseStatus() {
 
   // Only send on changes.
+  // Use frame state in order to send status on state change.
   static int previousClockMode = -1;
   if (previousClockMode != currentClockMode) {
     SendProgmemStringArrayFormat(setClockResponseFormat, clockModeMessages, currentClockMode);

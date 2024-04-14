@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Graphic:Logo_Open_Hardware_Small
+# Graphic_Logo_Open_Hardware_Small
 #
-DEF ~Graphic:Logo_Open_Hardware_Small #LOGO 0 40 Y Y 1 F N
+DEF Graphic_Logo_Open_Hardware_Small #LOGO 0 40 Y Y 1 F N
 F0 "#LOGO" 0 275 50 H I C CNN
-F1 "Graphic:Logo_Open_Hardware_Small" 0 -225 50 H I C CNN
+F1 "Graphic_Logo_Open_Hardware_Small" 0 -225 50 H I C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -13,11 +13,11 @@ P 277 0 1 0 132 -171 130 -170 125 -167 118 -162 109 -156 100 -150 93 -146 88 -14
 ENDDRAW
 ENDDEF
 #
-# Mechanical:MountingHole
+# Mechanical_MountingHole
 #
-DEF Mechanical:MountingHole MH 0 40 Y Y 1 F N
-F0 "MH" 0 200 50 H V C CNN
-F1 "Mechanical:MountingHole" 0 125 50 H V C CNN
+DEF Mechanical_MountingHole H 0 40 Y Y 1 F N
+F0 "H" 0 200 50 H V C CNN
+F1 "Mechanical_MountingHole" 0 125 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST

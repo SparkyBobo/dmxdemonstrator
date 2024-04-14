@@ -396,37 +396,53 @@
                     <div class="uk-flex uk-flex-column">
                         <div id="id-demo-tx" class="uk-card uk-card-default uk-card-hover uk-padding-small">
                             <h3 class="uk-card-title uk-margin-remove-bottom">Transmitter</h3>
+                            <!--
                             <div class="uk-card-badge uk-label">Step: <div id="id-demo-tx-step"
                                     class="uk-display-inline">1</div>
-                            </div>
+                            </div>-->
                             <div class="uk-card-body uk-padding-small">
                                 <div class="uk-flex uk-flex-row uk-text-center">
                                     <div
                                         class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
                                         <h3 id="id-demo-tx-board-name" class="uk-card-title">DMX-???</h3>
                                         <div class="uk-card-body uk-padding-small">
-                                            <div class="uk-inline">
-                                                <img id="id-demo-tx-board-img" class="demo-board-img"
+                                            <div class="uk-inline demo-board-img-parent">
+                                                <img id="id-demo-tx-board-img" class="demo-board-img  uk-position-top uk-position-left"
                                                     src=".\assets\svg\board-base.svg" />
-                                                <img id="id-demo-tx-board-dim1-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-dim1-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-blue-on.svg" />
-                                                <img id="id-demo-tx-board-dim2-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-dim2-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-green-top-on.svg" />
-                                                <img id="id-demo-tx-board-dim3-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-dim3-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-yellow-on.svg" />
-                                                <img id="id-demo-tx-board-dim4-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-dim4-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-orange-on.svg" />
-                                                <img id="id-demo-tx-board-clock-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-clock-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-red-right-on.svg" />
-                                                <img id="id-demo-tx-board-data-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-data-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-green-right-on.svg" />
-                                                <img id="id-demo-tx-board-fast-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-fast-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-red-middle-on.svg" />
-                                                <img id="id-demo-tx-board-slow-led" class="demo-board-led"
+                                                <img id="id-demo-tx-board-slow-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-green-middle-on.svg" />
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div
+                                        class="demo-data-parent uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        <h3 class="uk-card-title uk-margin-remove-bottom">Data</h3>
+                                        <div class="uk-card-body uk-padding-small">
+                                            <div class="uk-flex uk-flex-column uk-flex-left uk-text-center">
+                                                <button id="id-demo-tx-step"
+                                                    class="uk-button uk-button-primary uk-margin-small">Step: x</button>
+                                                <button id="id-demo-tx-data"
+                                                    class="uk-button uk-button-primary uk-margin-small">0/1</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div
                                         class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
                                         <h3 class="uk-card-title uk-margin-remove-bottom">Dimmers</h3>
@@ -450,7 +466,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        class="demo-control-parent uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
                                         <h3 class="uk-card-title uk-margin-remove-bottom">Controls</h3>
                                         <div class="uk-card-body uk-padding-small">
                                             <div class="uk-flex uk-flex-column uk-flex-left uk-text-center">
@@ -480,7 +496,7 @@
                             </div>
                         </div>
                         <hr class="uk-margin-xsmall">
-                        <div id="id-demo-frame" class="uk-card uk-card-default uk-card-hover uk-padding-small">
+                        <div id="id-demo-frame" class="demo-frame uk-card uk-card-default uk-card-hover uk-padding-small">
                             <h3 class="uk-card-title uk-margin-remove-bottom">Frame</h3>
                             <div class="uk-card-body uk-padding-small">
                                 <div class="uk-flex uk-flex-row uk-text-center">
@@ -629,9 +645,10 @@
                         <hr class="uk-margin-xsmall">
                         <div id="id-demo-rx" class="uk-card uk-card-default uk-card-hover uk-padding-small">
                             <h3 class="uk-card-title uk-margin-remove-bottom">Receiver</h3>
+                            <!--
                             <div class="uk-card-badge uk-label">Step: <div id="id-demo-rx-step"
                                     class="uk-display-inline">1</div>
-                            </div>
+                            </div>-->
                             <div class="uk-card-body uk-padding-small">
                                 <div class="uk-flex uk-flex-row uk-text-center">
                                     <div
@@ -641,21 +658,21 @@
                                             <div class="uk-inline">
                                                 <img id="id-demo-rx-board-img" class="demo-board-img"
                                                     src=".\assets\svg\board-base.svg" />
-                                                <img id="id-demo-rx-board-dim1-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-dim1-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-blue-on.svg" />
-                                                <img id="id-demo-rx-board-dim2-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-dim2-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-green-top-on.svg" />
-                                                <img id="id-demo-rx-board-dim3-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-dim3-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-yellow-on.svg" />
-                                                <img id="id-demo-rx-board-dim4-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-dim4-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-orange-on.svg" />
-                                                <img id="id-demo-rx-board-clock-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-clock-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-red-right-on.svg" />
-                                                <img id="id-demo-rx-board-data-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-data-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-green-right-on.svg" />
-                                                <img id="id-demo-rx-board-error-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-error-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-red-middle-on.svg" />
-                                                <img id="id-demo-rx-board-match-led" class="demo-board-led"
+                                                <img id="id-demo-rx-board-match-led" class="demo-board-led uk-position-top uk-position-left"
                                                     src=".\assets\svg\led-green-middle-on.svg" />
                                             </div>
                                         </div>
@@ -677,7 +694,19 @@
                                     </div>
                                 </div>-->
 
-                                    <div
+                                <div
+                                class="demo-data-parent uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">Data</h3>
+                                <div class="uk-card-body uk-padding-small">
+                                    <div class="uk-flex uk-flex-column uk-flex-left uk-text-center">
+                                        <button id="id-demo-rx-step"
+                                            class="uk-button uk-button-primary uk-margin-small">Step: x</button>
+                                        <button id="id-demo-rx-data"
+                                            class="uk-button uk-button-primary uk-margin-small">0/1</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
                                         class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
                                         <h3 class="uk-card-title uk-margin-remove-bottom">Dimmers</h3>
                                         <div class="uk-card-body uk-padding-small">
@@ -700,7 +729,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
+                                        class="demo-control-parent uk-card uk-card-default uk-card-hover uk-margin-small-left uk-margin-small-right">
                                         <h3 class="uk-card-title uk-margin-remove-bottom">Status</h3>
                                         <div class="uk-card-body uk-padding-small">
                                             <div class="uk-flex uk-flex-column uk-text-center">

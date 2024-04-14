@@ -14,6 +14,8 @@ let rxStatusVisible = null;
 let lastTxLine = '';
 let lastRxLine = '';
 let nextFrameTabTimeout;
+let showTxLeds = true;
+let showFrame = true;
 
 const frameStatePotentialBreak = 253;
 const frameStateUnexpectedStartCode = 254;
@@ -85,6 +87,7 @@ document.addEventListener('readystatechange', (event) => {
 
 // Display the boards.
 window.demoApi.onBoardTx((board) => {
+    showTxLeds = !board.shieldName || !board.shieldName.includes("TX2");
     displayDemoBoard('tx', board);
     refreshTxBoard = !board;
 });
@@ -107,9 +110,10 @@ window.demoApi.onTxStatus((data) => {
     } else {
         var clockSlow = data.currentClockMode == 1;
         var clockFast = data.currentClockMode == 2;
+        showFrame = !clockFast;
         displayStep('tx', data.currentFrameStep, -1);
         displayDimmers('tx', data.dimmerLevels);
-        displayTxStatus(clockSlow, clockFast);
+        displayTxStatus(data.dataBit, clockSlow, clockFast);
         displayTxStatusLeds(data.clockBit, data.dataBit, clockSlow, clockFast, data.currentSelectedDimmer);
         // Unused
         // data.boardTypeId
@@ -127,7 +131,7 @@ window.demoApi.onRxStatus((data) => {
 
         displayStep('rx', data.currentFrameStep, data.breakCounter);
         displayDimmers('rx', data.dimmerLevels);
-        displayRxStatus(data.startCodeMatch, rxError);
+        displayRxStatus(data.dataBit, data.startCodeMatch, rxError);
         displayRxStatusLeds(data.clockBit, data.dataBit, data.startCodeMatch, rxError, data.dimmerLevels);
         // Unused
         // data.boardTypeId
@@ -217,9 +221,9 @@ function displayStep(section, step, breakStep) {
     // Step
     let stepLabel = document.getElementById(`id-demo-${section}-step`);
     if (breakStep >= 10 && breakStep < 21) {
-        stepLabel.innerHTML = `${breakStep}?`;
+        stepLabel.innerHTML = `Step: ${breakStep}?`;
     } else {
-        var stepValue = step >= 1000 ? '??' : `${step}`;
+        var stepValue = step >= 1000 ? 'Step: ??' : `Step: ${step}`;
         stepLabel.innerHTML = stepValue;
     }
 
@@ -265,6 +269,14 @@ function displayStep(section, step, breakStep) {
         frameTab = 5;
     }
 
+    // Show?
+    let demoFrame = document.getElementById('id-demo-frame')
+    if (showFrame) {
+        demoFrame.classList.remove("is-hidden");
+    } else {
+        demoFrame.classList.add("is-hidden");
+    }
+
     // If tx, update the tab to pick the right frame
     if (section == 'tx' && frameTab >= 0) {
         UIkit.tab('#id-demo-frame-tabs').show(frameTab);
@@ -295,7 +307,6 @@ function displayStep(section, step, breakStep) {
     if (section == 'tx' && maxLevel) {
         clearTimeout(nextFrameTabTimeout);
         nextFrameTabTimeout = setTimeout(() => {
-            console.log("Next");
             UIkit.tab('#id-demo-frame-tabs').show((frameTab+1)%6);
         }, 300);
     }
@@ -307,8 +318,11 @@ function displayStep(section, step, breakStep) {
  * @param {int} slow - The slow clock speed status.
  * @param {int} fast - The fast clock speed status.
  */
-function displayTxStatus(clockSlow, clockFast) {
+function displayTxStatus(dataBit, clockSlow, clockFast) {
     // Where are these displayed?
+
+    let dataBitButton = document.getElementById(`id-demo-tx-data`);
+    dataBitButton.innerHTML = `Data: ${dataBit}`;
 }
 
 /**
@@ -320,59 +334,60 @@ function displayTxStatus(clockSlow, clockFast) {
  * @param {int} fast - The fast led status.
  * @param {int} selected - The selected dimmer status.
  */
-function displayTxStatusLeds(clock, data, levels, slow, fast, selected) {
+function displayTxStatusLeds(clock, data, slow, fast, selected) {
 
+    // If clock is fast, turn on data and clock
     let clockLed = document.getElementById(`id-demo-tx-board-clock-led`);
-    if (clock) {
+    if (clock || fast) {
         clockLed.classList.remove('is-hidden');
     } else {
         clockLed.classList.add('is-hidden');
     }
 
     let dataLed = document.getElementById(`id-demo-tx-board-data-led`);
-    if (data) {
+    if (data || fast) {
         dataLed.classList.remove('is-hidden');
     } else {
         dataLed.classList.add('is-hidden');
     }
 
     let slowLed = document.getElementById(`id-demo-tx-board-slow-led`);
-    if (slow) {
+    if (slow && showTxLeds) {
         slowLed.classList.remove('is-hidden');
     } else {
         slowLed.classList.add('is-hidden');
     }
 
     let fastLed = document.getElementById(`id-demo-tx-board-fast-led`);
-    if (fast) {
+    if (fast && showTxLeds) {
         fastLed.classList.remove('is-hidden');
     } else {
         fastLed.classList.add('is-hidden');
     }
 
     let dimmer1Led = document.getElementById(`id-demo-tx-board-dim1-led`);
-    if (selected == 1) {
+    if (selected == 0 && showTxLeds) {
         dimmer1Led.classList.remove('is-hidden');
     } else {
         dimmer1Led.classList.add('is-hidden');
     }
 
     let dimmer2Led = document.getElementById(`id-demo-tx-board-dim2-led`);
-    if (selected == 2) {
+    if (selected == 1 && showTxLeds) {
         dimmer2Led.classList.remove('is-hidden');
     } else {
         dimmer2Led.classList.add('is-hidden');
     }
 
     let dimmer3Led = document.getElementById(`id-demo-tx-board-dim3-led`);
-    if (selected == 3) {
+    if (selected == 2 && showTxLeds) {
         dimmer3Led.classList.remove('is-hidden');
     } else {
         dimmer3Led.classList.add('is-hidden');
     }
 
     let dimmer4Led = document.getElementById(`id-demo-tx-board-dim4-led`);
-    if (selected == 4) {
+    if (selected == 3 && showTxLeds) {
         dimmer4Led.classList.remove('is-hidden');
     } else {
         dimmer4Led.classList.add('is-hidden');
@@ -385,7 +400,7 @@ function displayTxStatusLeds(clock, data, levels, slow, fast, selected) {
  * @param {int} match - The start code match led status.
  * @param {int} error - The error  led status.
  */
-function displayRxStatus(match, error) {
+function displayRxStatus(dataBit, match, error) {
     let startCodeStatus = document.getElementById(`id-demo-rx-start-code`);
     if (match) {
         startCodeStatus.classList.remove('uk-button-default');
@@ -403,6 +418,9 @@ function displayRxStatus(match, error) {
         errorStatus.classList.remove('uk-button-primary');
         errorStatus.classList.add('uk-button-default');
     }
+
+    let dataBitButton = document.getElementById(`id-demo-rx-data`);
+    dataBitButton.innerHTML = `Data: ${dataBit}`;
 }
 
 /**
@@ -443,31 +461,33 @@ function displayRxStatusLeds(clock, data, match, error, levels) {
         errorLed.classList.add('is-hidden');
     }
 
-    // let dimmer1Led = document.getElementById(`id-demo-rx-board-dim1-led`);
-    // if (selected == 1) {
-    //     dimmer1Led.classList.remove('is-hidden');
-    // } else {
-    //     dimmer1Led.classList.add('is-hidden');
-    // }
+    // To avoid blending the leds back and front, just light up the channel
+    // if the level is over 25/10%.
+    let dimmer1Led = document.getElementById(`id-demo-rx-board-dim1-led`);
+    if (levels[0] > 25) {
+        dimmer1Led.classList.remove('is-hidden');
+    } else {
+        dimmer1Led.classList.add('is-hidden');
+    }
 
-    // let dimmer2Led = document.getElementById(`id-demo-tx-board-dim2-led`);
-    // if (selected == 2) {
-    //     dimmer2Led.classList.remove('is-hidden');
-    // } else {
-    //     dimmer2Led.classList.add('is-hidden');
-    // }
+    let dimmer2Led = document.getElementById(`id-demo-rx-board-dim2-led`);
+    if (levels[1] > 10) {
+        dimmer2Led.classList.remove('is-hidden');
+    } else {
+        dimmer2Led.classList.add('is-hidden');
+    }
 
-    // let dimmer3Led = document.getElementById(`id-demo-rx-board-dim3-led`);
-    // if (selected == 3) {
-    //     dimmer3Led.classList.remove('is-hidden');
-    // } else {
-    //     dimmer3Led.classList.add('is-hidden');
-    // }
+    let dimmer3Led = document.getElementById(`id-demo-rx-board-dim3-led`);
+    if (levels[2] > 10) {
+        dimmer3Led.classList.remove('is-hidden');
+    } else {
+        dimmer3Led.classList.add('is-hidden');
+    }
 
-    // let dimmer4Led = document.getElementById(`id-demo-rx-board-dim4-led`);
-    // if (selected == 4) {
-    //     dimmer4Led.classList.remove('is-hidden');
-    // } else {
-    //     dimmer4Led.classList.add('is-hidden');
-    // }
+    let dimmer4Led = document.getElementById(`id-demo-rx-board-dim4-led`);
+    if (levels[3] > 10) {
+        dimmer4Led.classList.remove('is-hidden');
+    } else {
+        dimmer4Led.classList.add('is-hidden');
+    }
 }

@@ -9,7 +9,12 @@ listed in the schematic generate 0 to +10V since this is a common lighting contr
 
 ## Parts
 
+TBD
 Tall Header - https://www.sparkfun.com/products/16279
+
+## PCB
+
+TBD
 
 ## Voltage Options
 

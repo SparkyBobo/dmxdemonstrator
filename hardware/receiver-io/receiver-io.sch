@@ -50,6 +50,7 @@ F 0 "A1" H 4600 4800 50  0000 C CNN
 F 1 "Arduino_UNO_R3" H 4350 4700 50  0000 C CNN
 F 2 "footprints:ARDUINO_R3_NO_HOLES" H 4950 2700 50  0001 L CNN
 F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 4600 4800 50  0001 C CNN
+F 4 "H_ARDUINO" H 4800 3750 50  0001 C CNN "PartId"
 	1    4800 3750
 	-1   0    0    -1  
 $EndComp
@@ -100,6 +101,7 @@ F 0 "J1" H 7250 3717 50  0000 C CNN
 F 1 "IO EXTENSION" H 7250 3626 50  0000 C CNN
 F 2 "Connector_IDC:IDC-Header_2x07_P2.54mm_Horizontal" H 7200 3200 50  0001 C CNN
 F 3 "~" H 7200 3200 50  0001 C CNN
+F 4 "H_IO_RA" H 7200 3200 50  0001 C CNN "PartId"
 	1    7200 3200
 	1    0    0    -1  
 $EndComp
@@ -111,6 +113,7 @@ F 0 "J2" H 7250 5067 50  0000 C CNN
 F 1 "IO EXTENSION" H 7250 4976 50  0000 C CNN
 F 2 "Connector_IDC:IDC-Header_2x07_P2.54mm_Horizontal" H 7200 4550 50  0001 C CNN
 F 3 "~" H 7200 4550 50  0001 C CNN
+F 4 "H_IO_RA" H 7200 4550 50  0001 C CNN "PartId"
 	1    7200 4550
 	1    0    0    -1  
 $EndComp
