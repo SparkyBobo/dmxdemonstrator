@@ -1,6 +1,6 @@
 # DMX Demonstrator Analog PWM Module (DMX-IO4)
 
-![status](https://img.shields.io/badge/status-verified-brightgreen)
+- ![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 
