@@ -23,16 +23,15 @@ Item#|Quantity|Reference|Description|Manufacturer|Part Number|Datasheet|Notes
 6|1|J1|0.1 Female header, stacking||||
 7|1|J2|Screw Terminal, 5 pin, 3.81 pitch|Phoenix Contact|1803303||
 8|1|J2|Screw Terminal Plug, 5 pin, 3.81 pitch|Phoenix Contact|1840395||
-9|1|J3|2x3-pin right-angle header||||
-10|1|J4|Screw Terminal, 2 pin, 3.81 pitch|Phoenix Contact|1803277||
-11|1|J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Phoenix Contact|1803578||
-12|1|R1|330 ohm||||
-13|2|R2, R3|10k  ohm||||
-14|1|R4|392 ohm 1% resistor||||
-15|1|R5|2.74k 1% resistor||||
-16|1|RV1|10k trimmer pot|Bourns|3299P-1-103LF|[Data Sheet](https://www.bourns.com/docs/Product-Datasheets/3299.pdf)|
-17|1|U1|555 Precision Timer|Texas Instruments|NE555|[Data Sheet](https://www.ti.com/lit/ds/symlink/ne555.pdf)|
-18|1|U2|Quad Differential Comparator|Texas Instruments|LM339|[Data Sheet](http://www.ti.com/lit/ds/symlink/lm339.pdf)|
-19|1|U3|Linear Regulator, Adjustable, 1.5A TO220AB|STMicroelectronics|LM317T|[Data Sheet](http://www.st.com/content/ccc/resource/technical/document/datasheet/group1/a0/db/e6/9b/6f/9c/45/7b/CD00000455/files/CD00000455.pdf/jcr:content/translations/en.CD00000455.pdf)|
+9|1|J4|Screw Terminal, 2 pin, 3.81 pitch|Phoenix Contact|1803277||
+10|1|J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Phoenix Contact|1803578||
+11|1|R1|330 ohm||||
+12|2|R2, R3|10k ohm||||
+13|1|R4|392 ohm 1% resistor||||
+14|1|R5|2.74k 1% resistor||||
+15|1|RV1|10k trimmer pot|Bourns|3299P-1-103LF|[Data Sheet](https://www.bourns.com/docs/Product-Datasheets/3299.pdf)|
+16|1|U1|555 Precision Timer|Texas Instruments|NE555|[Data Sheet](https://www.ti.com/lit/ds/symlink/ne555.pdf)|
+17|1|U2|Quad Differential Comparator|Texas Instruments|LM339|[Data Sheet](http://www.ti.com/lit/ds/symlink/lm339.pdf)|
+18|1|U3|Linear Regulator, Adjustable, 1.5A TO220AB|STMicroelectronics|LM317T|[Data Sheet](http://www.st.com/content/ccc/resource/technical/document/datasheet/group1/a0/db/e6/9b/6f/9c/45/7b/CD00000455/files/CD00000455.pdf/jcr:content/translations/en.CD00000455.pdf)|
 <!--BOMROW-->
 
