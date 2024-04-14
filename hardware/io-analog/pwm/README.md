@@ -27,46 +27,7 @@ You can order the PCB from [OHS Park](https://oshpark.com/):
 
 ## Voltage Options
 
-The DMX-IO4 converts the output of the DMX-IO2 into two different voltage outputs: a +5V output and adjustable positive voltage. Both outputs can be used at the same time. However, you can populate only the sections needed to produce the required voltage. The reason 2 outputs are provided is:
-
-- I wanted to provide both a +5v options and a +10V option for use with Mean Well LED drivers.
-- The additional parts to generate the +5V signal are inexpensive.
-- I could not figure out what to name them if two boards produces PWM signals at different voltages.
-
-### +5v
-
-The +5V PWM signal can be used in conjunction with external LED drivers whose input only requires +5V for control. The Display-Pro (DMX-DSP) is one such driver
-but you can find many more options are online electronics outlets such as SparkFun and Adafruit.
-
-The +5V PWM signal is generated using the following parts:
-
-- C3
-- J3
-- U3
-
-If the +5V signal is not required, you can omit these parts from the board.
-
-### Adjustable positive voltage
-
-The adjustable positive voltage PWM signal can be used in conjunction with external LED drivers whose input only requires more than +5V for control. The default values
-listed in the schematic generate 0 to +10V since this is a common lighting control signal.
-
-The adjustable positive voltage PWM signal is generated using the following parts:
-
-- C2
-- C7
-- C8
-- D1
-- J2
-- J4/J5
-- R4
-- R5
-- U2
-- U4
-
-If the adjustable positive voltage signal is not required, you can omit these parts from the board.
-
-Two resistors are adjusted to modify the voltage range: the voltage regulator resistors R4-R5.
+The DMX-IO4 amplifies the output from the DMX-IO2 into the desired voltage range. Two resistors are adjusted to modify the voltage range: the voltage regulator resistors R4-R5.
 The following table provides the values for common voltages:
 
 Output Voltage|R4|R5|Input Voltage

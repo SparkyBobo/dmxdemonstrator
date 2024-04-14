@@ -45,7 +45,7 @@ Vo = 2.5v * (1 + (R2 / R1)), R1=R3=R5=R7, R2=R4=R6=R8
 Vo = 1.25v + (1 + (R10 / R9))
 Vi = Vo + 2v to 3v (for higher current, use 3v)
 
- While it is possible to generate a +5V signal without the voltage regular and its supporting parts, doing so would mean all of the current needed for the outputs is supplied by the DMS module to which this stack connects. So the +5V option is
+ While it is possible to generate a +5V signal without the voltage regular and its supporting parts, doing so would mean all of the current needed for the outputs is supplied by the DMX module to which this stack connects. So the +5V option is
 supported using a voltage regulator and external supply to isolate the outputs from the DMX power supply.
 
 ## Version History
