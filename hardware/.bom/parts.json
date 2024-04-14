@@ -136,6 +136,66 @@
             ]
         },
         {
+            "id": "PCB_DCV_1_6",
+            "description" : "Constant Voltage LED Driver PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-DCV, Rev 1.6",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-DCV, Rev 1.6",
+                    "link" : "https://oshpark.com/shared_projects/vsJuLlDO",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_IO2_1_3",
+            "description" : "Analog IO Core PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO2, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO2, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/t0nTgzDz",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_IO3_1_4",
+            "description" : "Analog IO Voltage PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO3, Rev 1.4",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO4, Rev 1.4",
+                    "link" : "https://oshpark.com/shared_projects/Vaqpv5tp",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_IO4_1_4",
+            "description" : "Analog IO PWM PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO4, Rev 1.4",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO4, Rev 1.4",
+                    "link" : "https://oshpark.com/shared_projects/xqcuVAnE",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "A_ARDUINO",
             "description" : "Arduino UNO/Leonardo",
             "mfg": "",
@@ -207,6 +267,39 @@
             ]
         },
         {
+            "id": "H_2x3_RA",
+            "description" : "2x3-pin right-angle header",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-12792",
+                    "link" : "https://www.sparkfun.com/products/12792",
+                    "quantity" : 13
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "1541",
+                    "link" : "https://www.adafruit.com/product/1541",
+                    "quantity" : 60
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "10129382-906002BLF-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/amphenol-cs-fci/10129382-906002BLF/7916128",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "649-1012938290602BLF",
+                    "link" : "https://www.mouser.com/ProductDetail/Amphenol-FCI/10129382-906002BLF?qs=0lQeLiL1qyakKLNNkrKqfA%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "JP_1x3",
             "description" : "3-pin jumper",
             "mfg": "",
@@ -245,12 +338,6 @@
                     "vendorNumber" : "710-61201621621",
                     "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201621621?qs=ZtY9WdtwX55qFf4n3EFuaA%3D%3D",
                     "quantity" : 1
-                },
-                {
-                    "vendor" : "Newark",
-                    "vendorNumber" : "19P1271",
-                    "link" : "https://www.newark.com/wurth-elektronik/61201621621/connector-header-16pos-2row-2/dp/19P1271?ost=61201621621",
-                    "quantity" : 1
                 }
             ]
         },
@@ -271,12 +358,6 @@
                     "vendor" : "Mouser",
                     "vendorNumber" : "710-61201621721",
                     "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201621721?qs=ZtY9WdtwX56ShT0tAQh3qw%3D%3D",
-                    "quantity" : 1
-                },
-                {
-                    "vendor" : "Newark",
-                    "vendorNumber" : "19P1272",
-                    "link" : "https://www.newark.com/wurth-elektronik/61201621721/wire-to-board-connector-right/dp/19P1272?ost=61201621721",
                     "quantity" : 1
                 }
             ]
@@ -314,12 +395,6 @@
                     "vendorNumber" : "710-61201421721",
                     "link" : "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201421721?qs=PhR8RmCirEbQk5OcjPFu0A%3D%3D",
                     "quantity" : 1
-                },
-                {
-                    "vendor" : "Newark",
-                    "vendorNumber" : "20X0890",
-                    "link" : "https://www.newark.com/wurth-elektronik/61201421721/wire-to-board-connector-right/dp/20X0890?ost=61201421721",
-                    "quantity" : 1
                 }
             ]
         },
@@ -334,6 +409,87 @@
                     "vendor" : "Amazon",
                     "vendorNumber" : "",
                     "link" : "https://www.amazon.com/s?k=14-Pin+IDC+Connector+Flat+Ribbon+Cable&i=electronics&crid=2FIML0V1LB13U&sprefix=14-pin+idc+connector+flat+ribbon+cable%2Celectronics%2C271&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "H_ANALOG_SHORT",
+            "description" : "0.1 Female header, short",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-11895",
+                    "link" : "https://www.sparkfun.com/products/11895",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "598",
+                    "link" : "https://www.adafruit.com/product/598",
+                    "quantity" : 15
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "992-8FX1-254MM",
+                    "link" : "https://www.mouser.com/ProductDetail/Gravitech/8Fx1-254mm?qs=Vxac6xGyzPk0zR%2F1vGr2Gg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "H_ANALOG_LONG",
+            "description" : "0.1 Female header, stacking",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-09279",
+                    "link" : "https://www.sparkfun.com/products/9279",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "3366",
+                    "link" : "https://www.adafruit.com/product/3366",
+                    "quantity" : 15
+                }
+            ]
+        },
+        {
+            "id": "D_RV_PRO",
+            "description" : "Schottky Diode, 40V 1A",
+            "mfg": "Vishay General Semiconductor",
+            "mfgNumber" : "1N5819",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-10926",
+                    "link" : "https://www.sparkfun.com/products/10926",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "755",
+                    "link" : "https://www.adafruit.com/product/755",
+                    "quantity" : 10
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "1N5819-E3/54GITR-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/vishay-general-semiconductor-diodes-division/1N5819-E3-54/1023527",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "625-1N5819-E3",
+                    "link" : "https://www.mouser.com/ProductDetail/Vishay-General-Semiconductor/1N5819-E3-54?qs=7w0fSgRKp93guDuu%252B5hJ0Q%3D%3D",
                     "quantity" : 1
                 }
             ]
@@ -368,12 +524,6 @@
                     "vendorNumber" : "80-C320C104K5R7301",
                     "link" : "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D",
                     "quantity" : 1
-                },
-                {
-                    "vendor" : "Newark",
-                    "vendorNumber" : "13K6284",
-                    "link" : "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432",
-                    "quantity" : 1
                 }
             ]
         },
@@ -407,15 +557,31 @@
                     "vendorNumber" : "667-ECA-1HM100I",
                     "link" : "https://www.mouser.com/ProductDetail/Panasonic/ECA-1HM100I?qs=iJXPy%2FkScuGKyyHdlAUvZA%3D%3D",
                     "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "C_0u68",
+            "description" : "0.68uF",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "399-9749-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/kemet/C315C684K5R5TA/3726079",
+                    "quantity" : 1
                 },
                 {
-                    "vendor" : "Newark",
-                    "vendorNumber" : "48W7714",
-                    "link" : "https://www.newark.com/panasonic/eca-1hm100i/aluminum-electrolytic-capacitor/dp/48W7714?ost=eca-1hm100i",
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "80-C315C684K5R",
+                    "link" : "https://www.mouser.com/ProductDetail/KEMET/C315C684K5R5TA?qs=Tap6ps20mlPkpr5CwDda6Q%3D%3D",
                     "quantity" : 1
                 }
             ]
         },
+
         {
             "id": "R_LED",
             "description" : "330 ohm",
@@ -435,6 +601,132 @@
                     "link" : "https://www.adafruit.com/product/2781",
                     "quantity" : 25,
                     "notes" : "use 470 ohm instead, "
+                }
+            ]
+        },
+        {
+            "id": "R_392",
+            "description" : "392 ohm 1% resistor",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "392XBK-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/yageo/MFR-25FBF52-392R/12919",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-MFR-25FBF52-392R",
+                    "link" : "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-392R?qs=oAGoVhmvjhy6pvrooMNCwg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_1k6",
+            "description" : "1.6k resistor",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "1.6KQBK-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/yageo/CFR-25JB-52-1K6/141",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-CFR-25JB-52-1K6",
+                    "link" : "https://www.mouser.com/ProductDetail/YAGEO/CFR-25JB-52-1K6?qs=oypCK0zG324gUY%252BXSosJrA%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_2k74",
+            "description" : "2.74k 1% resistor",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "13-MFR-25FRF52-2K74TR-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-2K74/14933",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-MFR-25FRF52-2K74",
+                    "link" : "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-2K74?qs=oAGoVhmvjhwhcYVvwkvvFg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_10k",
+            "description" : "10k  ohm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-14491",
+                    "link" : "https://www.sparkfun.com/products/14491",
+                    "quantity" : 20
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "2784",
+                    "link" : "https://www.adafruit.com/product/2784",
+                    "quantity" : 25
+                }
+            ]
+        },
+        {
+            "id": "R_22k6",
+            "description" : "22.6k 1% resistor",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "22.6KXBK-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/yageo/MFR-25FBF52-22K6/13286",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-MFR-25FBF52-22K6",
+                    "link" : "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-22K6?qs=oAGoVhmvjhyqOVvYs9FeFg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_68k1",
+            "description" : "68.1k 1% resistor",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "68.1KXBK-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/yageo/MFR-25FBF52-68K1/13440",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-MFR-25FBF52-68K1",
+                    "link" : "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-68K1?qs=oAGoVhmvjhxWiKYWiCojiA%3D%3D",
+                    "quantity" : 1
                 }
             ]
         },
@@ -524,6 +816,33 @@
             ]
         },
         {
+            "id": "Q_NMOSFET",
+            "description" : "N-Channel Mosfet, 60v",
+            "mfg": "",
+            "mfgNumber" : "FQP30N06L",
+            "datasheet" : "https://www.ti.com/lit/gpn/sn74ls07",
+            "vendors": [
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "355",
+                    "link" : "https://www.adafruit.com/product/355",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "FQP30N06L-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/onsemi/FQP30N06L/1055122?s=N4IgTCBcDaIGIEUAKBmADAOTQNgDIgF0BfIA",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "512-FQP30N06L",
+                    "link" : "https://www.mouser.com/ProductDetail/onsemi-Fairchild/FQP30N06L?qs=%252Beu4QTTVkDqugBwFplJ%252Bug%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "U_74LS07",
             "description" : "74LS07",
             "mfg": "Texas Instruments",
@@ -540,6 +859,192 @@
                     "vendor" : "Mouser",
                     "vendorNumber" : "595-SN74LS07N",
                     "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS07N?qs=8k%2FZSzWMuCNUfZENSbcq8Q%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_74LS164",
+            "description" : "8-Bit Parallel-Out Serial Shift Register",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "SN74LS164",
+            "datasheet" : "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Fsn74hc164",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-1647-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/SN74LS164N/277293",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-SN74LS164N",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS164N?qs=spW5eSrOWB4KbXBVmPSWoA%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_74LS139",
+            "description" : "Dual 2-line to 4-line decoders",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "SN74LS139",
+            "datasheet" : "https://www.ti.com/lit/gpn/sn74ls139a",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-1640-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/SN74LS139AN/277286",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-SN74LS139AN",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS139AN?qs=3pnr37ZAbK%2FhW2T3DHZDAw%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_TLC7524CN",
+            "description" : "8-bit Multiplying Digital to Analog Converter",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "TLC7524CN",
+            "datasheet" : "https://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=https%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftlc7524",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-1868-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/TLC7524CN/277513",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-TLC7524CN",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/TLC7524CN?qs=YEaxc5757jOODnhHTXWKGQ%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_TLV2772",
+            "description" : "Rail-to-Rail Operational Amplifier",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "TLV2772",
+            "datasheet" : "https://www.ti.com/lit/ds/slos209g/slos209g.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-7592-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/TLV2772CP/374329",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "TLV2772CP",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/TLV2772CP?qs=xJkDX%2FqrskNfjj3oeOxKDg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_TL1431",
+            "description" : "Precision Voltage Reference",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "TL1431",
+            "datasheet" : "https://www.ti.com/lit/gpn/TL1431",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-10130-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/TL1431CLP/380747",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-TL1431CLPR",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/TL1431CLPR?qs=UGVLDq%2F29ugvMf6UgtTXcg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_555",
+            "description" : "555 Precision Timer",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "NE555",
+            "datasheet" : "https://www.ti.com/lit/ds/symlink/ne555.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-16473",
+                    "link" : "https://www.sparkfun.com/products/16473",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "5222",
+                    "link" : "https://www.adafruit.com/product/5222",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-NE555P-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/NE555P/277057",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-NE555P",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_339",
+            "description" : "Quad Differential Comparator",
+            "mfg": "Texas Instruments",
+            "mfgNumber" : "LM339",
+            "datasheet" : "http://www.ti.com/lit/ds/symlink/lm339.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "296-1393-5-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/texas-instruments/LM339N/277628",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "595-LM339N",
+                    "link" : "https://www.mouser.com/ProductDetail/Texas-Instruments/LM339N?qs=rshUhwi3fbY%252BaR%252BOl3edNw%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_317",
+            "description" : "Linear Regulator, Adjustable, 1.5A TO220AB",
+            "mfg": "STMicroelectronics",
+            "mfgNumber" : "LM317T",
+            "datasheet" : "http://www.st.com/content/ccc/resource/technical/document/datasheet/group1/a0/db/e6/9b/6f/9c/45/7b/CD00000455/files/CD00000455.pdf/jcr:content/translations/en.CD00000455.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-00527",
+                    "link" : "https://www.sparkfun.com/products/527",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "497-1575-5-ND",
+                    "link" : "https://www.digikey.com//product-detail/en/stmicroelectronics/LM317T/497-1575-5-ND/591677",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "511-LM317T",
+                    "link" : "https://www.mouser.com/ProductDetail/STMicroelectronics/LM317T?qs=swDD%252BF%252Bps7c8uLyY%252B3mJJw%3D%3D",
                     "quantity" : 1
                 }
             ]
@@ -703,6 +1208,27 @@
             ]
         },
         {
+            "id": "RV_PWM",
+            "description" : "10k trimmer pot",
+            "mfg": "Bourns",
+            "mfgNumber" : "3299P-1-103LF",
+            "datasheet" : "https://www.bourns.com/docs/Product-Datasheets/3299.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "3299P-103LF-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/bourns-inc/3299P-1-103LF/1088121",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-3299P-1-103LF",
+                    "link" : "https://www.mouser.com/ProductDetail/Bourns/3299P-1-103LF?qs=WQTe6SLNdBmzK4IlGV4toA%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "S_MOM",
             "description" : "Momentary switch, 12mm",
             "mfg": "",
@@ -766,6 +1292,114 @@
             ]
         },
         {
+            "id": "J-381x2",
+            "description" : "Screw Terminal, 2 pin, 3.81 pitch",
+            "mfg": "Phoenix Contact",
+            "mfgNumber" : "1803277",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "277-1206-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/phoenix-contact/1803277/260574",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "651-1803277",
+                    "link" : "https://www.mouser.com/ProductDetail/Phoenix-Contact/1803277?qs=8BCRtFWWXOQYeqQFCAtgBw%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link": "https://www.amazon.com/s?k=Phoenix+Contact+3.81+mm+2+pin+socket+right+angle&crid=1XISPHWJA8SB4&sprefix=phoenix+contact+3.81+mm+2+pin+socket+right+angl%2Caps%2C146&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "J-381x5",
+            "description" : "Screw Terminal, 5 pin, 3.81 pitch",
+            "mfg": "Phoenix Contact",
+            "mfgNumber" : "1803303",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "277-1209-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/phoenix-contact/1803303/260577",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "651-1803303",
+                    "link" : "https://www.mouser.com/ProductDetail/Phoenix-Contact/1803303?qs=%2FbRkJSLTVS9WBPBJW9%252BTpg%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link": "https://www.amazon.com/s?k=Phoenix+Contact+3.81+mm+5+pin+socket+right+angle&crid=1XISPHWJA8SB4&sprefix=phoenix+contact+3.81+mm+5+pin+socket+right+angl%2Caps%2C146&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "P-381x2",
+            "description" : "Screw Terminal Plug, 2 pin, 3.81 pitch",
+            "mfg": "Phoenix Contact",
+            "mfgNumber" : "1803578",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "277-1161-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/phoenix-contact/1803578/260529",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "651-1803578",
+                    "link" : "https://www.mouser.com/ProductDetail/Phoenix-Contact/1803578?qs=qgZcrvoyHAesJBL6Ph4eYw%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link": "https://www.amazon.com/s?k=Phoenix+Contact+3.81+mm+2+pin+plug&crid=2KEUSC18B1BWF&sprefix=phoenix+contact+3.81+mm+2+pin+plug%2Caps%2C152&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "P-381x5",
+            "description" : "Screw Terminal Plug, 5 pin, 3.81 pitch",
+            "mfg": "Phoenix Contact",
+            "mfgNumber" : "1840395",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "277-5721-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/phoenix-contact/1840395/349180",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "651-1840395",
+                    "link" : "https://www.mouser.com/ProductDetail/Phoenix-Contact/1840395?qs=aYsvlkyO7qNkqSrlH0CBYg%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link": "https://www.amazon.com/s?k=Phoenix+Contact+3.81+mm+5+pin+socket+right+angle&crid=1XISPHWJA8SB4&sprefix=phoenix+contact+3.81+mm+5+pin+socket+right+angl%2Caps%2C146&ref=nb_sb_noss",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "SO-M3-18",
             "description" : "Standoff, M3 x 18mm",
             "mfg": "Keystone",
@@ -813,6 +1447,36 @@
                     "quantity" : 1
                 }
             ]
+        },
+        {
+            "id": "HW-M3-6",
+            "description" : "Screw, M3 x 6mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link" : "https://www.amazon.com/s?k=m3+6mm+screw",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "HW-M3-NUT",
+            "description" : "Screw, M3 x 6mm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Amazon",
+                    "vendorNumber" : "",
+                    "link" : "https://www.amazon.com/s?k=m3+nut",
+                    "quantity" : 1
+                }
+            ]
         }
-   ]
+    ]
 }

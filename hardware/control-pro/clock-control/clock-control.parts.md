@@ -65,13 +65,6 @@ SW1|DPDT Toggle, On-Off-On|Mouser|612-100-H1111|1|[Order](https://www.mouser.com
 SW2|SPDT Toggle, On-On momentary|Mouser|612-100-B1111|1|[Order](https://www.mouser.com/ProductDetail/E-Switch/100SP2T1B1M1QEH?qs=HKd%2Fp3M7KlWCZ%252BGqDexPKQ%3D%3D)|
 <!--PARTROW-->
 
-### Newark
-
-Reference|Description|Supplier|Part Number|Quantity|Link|Notes
----------|-----------|--------|-----------|--------|----|-----
-J1, J2|2x8 shrouded right-angle header|Newark|19P1272|2|[Order](https://www.newark.com/wurth-elektronik/61201621721/wire-to-board-connector-right/dp/19P1272?ost=61201621721)|
-<!--PARTROW-->
-
 ### Amazon
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes

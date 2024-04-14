@@ -73,14 +73,5 @@ J2|2x8 shrouded header|Mouser|710-61201621621|1|[Order](https://www.mouser.com/P
 J3|2x7 shrouded right-angle header|Mouser|710-61201421721|1|[Order](https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201421721?qs=PhR8RmCirEbQk5OcjPFu0A%3D%3D)|
 U1|74LS07|Mouser|595-SN74LS07N|1|[Order](https://www.mouser.com/ProductDetail/Texas-Instruments/SN74LS07N?qs=8k%2FZSzWMuCNUfZENSbcq8Q%3D%3D)|
 <!--PARTROW-->
-
-### Newark
-
-Reference|Description|Supplier|Part Number|Quantity|Link|Notes
----------|-----------|--------|-----------|--------|----|-----
-C1|0.1uF|Newark|13K6284|1|[Order](https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432)|
-J2|2x8 shrouded header|Newark|19P1271|1|[Order](https://www.newark.com/wurth-elektronik/61201621621/connector-header-16pos-2row-2/dp/19P1271?ost=61201621621)|
-J3|2x7 shrouded right-angle header|Newark|20X0890|1|[Order](https://www.newark.com/wurth-elektronik/61201421721/wire-to-board-connector-right/dp/20X0890?ost=61201421721)|
-<!--PARTROW-->
 <!--VENDORLIST-->
 

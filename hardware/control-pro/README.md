@@ -12,10 +12,10 @@ The Control Pro is designed so that a series of components are sandwiched betwee
 
 For a complete list of parts, see:
 
-- [Clock Control Bill of materials](clock-control\clock-control.bom.md), [Clock Control Parts](clock-control\clock-control.parts.md)
-- [Dimmer Control Bill of materials](dimmer-control\dimmer-control.bom.md), [Dimmer Control Parts](dimmer-control\dimmer-control.parts.md)
-- [Clock Faceplate Bill of materials](clock-faceplate\clock-faceplate.bom.md), [Clock Faceplate Parts](clock-faceplate\clock-faceplate.parts.md)
-- [Dimmer Faceplate Bill of materials](dimmer-faceplate\dimmer-faceplate.bom.md), [Dimmer Faceplate Parts](dimmer-faceplate\dimmer-faceplate.parts.md)
+- [Clock Control Bill of materials](clock-control/clock-control.bom.md), [Clock Control Parts](clock-control/clock-control.parts.md)
+- [Dimmer Control Bill of materials](dimmer-control/dimmer-control.bom.md), [Dimmer Control Parts](dimmer-control/dimmer-control.parts.md)
+- [Clock Faceplate Bill of materials](clock-faceplate/clock-faceplate.bom.md), [Clock Faceplate Parts](clock-faceplate/clock-faceplate.parts.md)
+- [Dimmer Faceplate Bill of materials](dimmer-faceplate/dimmer-faceplate.bom.md), [Dimmer Faceplate Parts](dimmer-faceplate/dimmer-faceplate.parts.md)
 
 You can also buy some of the parts for the Control Pro online from a Wishlist:
 
@@ -34,11 +34,11 @@ You can order the PCBs from [OHS Park](https://oshpark.com/):
 - [Dimmer Faceplate: DMX-CPDF, Rev 1.3](https://oshpark.com/shared_projects/bZqKigQF)
 
 
-You can read more about ordering pcbs [here](..\pcb.md).
+You can read more about ordering pcbs [here](../pcb.md).
 
 ## Assembly Notes
 
-The Control Pro is designed so that a series of components are sandwiched between 2 circuit boards. As a result, the heights of the components are fairly sensitive in order to make things line up nicely. Here are the parts for which I designed. The DMX-CPDB and DMX-CPCB boards contains all the parts and are the bottom of the sandwich, the DMX-CPDF and DMX-CPCB are the faceplate, i.e. the tops of the sandwich. If you are wondering why there are 4 total boards, [read this](..\pcb.md).
+The Control Pro is designed so that a series of components are sandwiched between 2 circuit boards. As a result, the heights of the components are fairly sensitive in order to make things line up nicely. Here are the parts for which I designed. The DMX-CPDB and DMX-CPCB boards contains all the parts and are the bottom of the sandwich, the DMX-CPDF and DMX-CPCB are the faceplate, i.e. the tops of the sandwich. If you are wondering why there are 4 total boards, [read this](../pcb.md).
 
 ### Slider Potentiometers
 

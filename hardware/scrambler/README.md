@@ -28,7 +28,7 @@ You can order the PCB from [OHS Park](https://oshpark.com/):
 
 - [DMX-FS1, Rev 1.1](https://oshpark.com/shared_projects/A815QTi9)
 
-You can read more about ordering pcbs [here](..\pcb.md).
+You can read more about ordering pcbs [here](../pcb.md).
 
 ## Compatibility
 

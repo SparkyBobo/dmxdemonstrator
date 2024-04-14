@@ -1,20 +1,29 @@
 # DMX Demonstrator Analog PWM Module (DMX-IO4)
 
-![status](https://img.shields.io/badge/status-prototype-orange)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
 The PWM IO module can generate a 0 to adjustable positive voltage PWM signal where the duty cycle tracks the level of a channel. It is configurable to generate multiple output voltages to adapt it to any voltage range required. The default values
 listed in the schematic generate 0 to +10V since this is a common lighting control signal. The PWM IO module can also generate a 0 to +5V PWM signal where the duty cycle tracks the level of a channel. Both outputs can be used at the same time.
 
-## Parts
+## Online parts list
 
-TBD
-Tall Header - https://www.sparkfun.com/products/16279
+For a complete list of parts, see:
+
+- [Bill of materials](io-analog-core.bom.md)
+- [Part lists](io-analog-core.parts.md)
+
+You can also buy some of the parts for the analog modules online from a Wishlist:
+
+- Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-IO2, DMX-IO3, DMX-IO4, DMX-IO5](https://www.sparkfun.com/wish_lists/175321)
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [DMX-IO2, DMX-IO3, DMX-IO4, DMX-IO5](http://www.adafruit.com/wishlists/590544)
 
 ## PCB
 
-TBD
+You can order the PCB from [OHS Park](https://oshpark.com/):
+
+- [DMX-IO4, Rev 1.4](https://oshpark.com/shared_projects/xqcuVAnE).
 
 ## Voltage Options
 

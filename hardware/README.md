@@ -47,3 +47,7 @@ The _research_ badge indicates that the component is being researched to determi
 - ![compat](https://img.shields.io/badge/compat-incompatible-red)
 
 The _incompatible_ badge indicates that the component is not compatible for the specific Arduino board.
+
+## PCBs and Parts
+
+I specify specific parts and pcbs in many places where other options will work just fine. You can find some notes as to why in [pcb.md](pcb.md) and [parts.md](parts.md).
