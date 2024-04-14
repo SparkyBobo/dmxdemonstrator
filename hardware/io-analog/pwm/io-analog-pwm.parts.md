@@ -18,7 +18,7 @@
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
-PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.5|1|[Order]()|pack of 3, 2 not used
+PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.4|1|[Order](https://oshpark.com/shared_projects/xqcuVAnE)|pack of 3, 2 not used
 <!--PARTROW-->
 
 ### Sparkfun
@@ -62,7 +62,6 @@ J4|Screw Terminal, 2 pin, 3.81 pitch|Digikey|277-1206-ND|1|[Order](https://www.d
 J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Digikey|277-1161-ND|1|[Order](https://www.digikey.com/en/products/detail/phoenix-contact/1803578/260529)|
 R4|392 ohm 1% resistor|Digikey|392XBK-ND|1|[Order](https://www.digikey.com/en/products/detail/yageo/MFR-25FBF52-392R/12919)|
 R5|2.74k 1% resistor|Digikey|13-MFR-25FRF52-2K74TR-ND|1|[Order](https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-2K74/14933)|
-RN1|10k ohm network|Digikey|4605X-101-103LF-ND|1|[Order](https://www.digikey.com/en/products/detail/bourns-inc/4605X-101-103LF/3593670)|
 RV1|10k trimmer pot|Digikey|3299P-103LF-ND|1|[Order](https://www.digikey.com/en/products/detail/bourns-inc/3299P-1-103LF/1088121)|
 U1|555 Precision Timer|Digikey|296-NE555P-ND|1|[Order](https://www.digikey.com/en/products/detail/texas-instruments/NE555P/277057)|
 U2|Quad Differential Comparator|Digikey|296-1393-5-ND|1|[Order](https://www.digikey.com/en/products/detail/texas-instruments/LM339N/277628)|
@@ -83,7 +82,6 @@ J4|Screw Terminal, 2 pin, 3.81 pitch|Mouser|651-1803277|1|[Order](https://www.mo
 J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Mouser|651-1803578|1|[Order](https://www.mouser.com/ProductDetail/Phoenix-Contact/1803578?qs=qgZcrvoyHAesJBL6Ph4eYw%3D%3D)|
 R4|392 ohm 1% resistor|Mouser|603-MFR-25FBF52-392R|1|[Order](https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-392R?qs=oAGoVhmvjhy6pvrooMNCwg%3D%3D)|
 R5|2.74k 1% resistor|Mouser|603-MFR-25FRF52-2K74|1|[Order](https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-2K74?qs=oAGoVhmvjhwhcYVvwkvvFg%3D%3D)|
-RN1|10k ohm network|Mouser|652-4605X-1LF-10K|1|[Order](https://www.mouser.com/ProductDetail/Bourns/4605X-101-103LF?qs=fY9U8%252BfrILOSaQNeIwg%252BVw%3D%3D)|
 RV1|10k trimmer pot|Mouser|652-3299P-1-103LF|1|[Order](https://www.mouser.com/ProductDetail/Bourns/3299P-1-103LF?qs=WQTe6SLNdBmzK4IlGV4toA%3D%3D)|
 U1|555 Precision Timer|Mouser|595-NE555P|1|[Order](https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D)|
 U2|Quad Differential Comparator|Mouser|595-LM339N|1|[Order](https://www.mouser.com/ProductDetail/Texas-Instruments/LM339N?qs=rshUhwi3fbY%252BaR%252BOl3edNw%3D%3D)|
