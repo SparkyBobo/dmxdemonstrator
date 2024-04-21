@@ -8,16 +8,27 @@ The Analog Core Module is a analog module which produces a voltage output from t
 
 The reason for building a family of boards is that digital to analog converters (DACs) are a fairly expensive parts. By incorporating them into a common board, they only need to be purchased once. The op-amp on the Core board is used as a driver to generate a signal strong enough to drive multiple output modules.
 
-DACs also tend to be picky about supply voltages, requiring more input voltage than the output voltage. The Texas Instruments TLC7524CN is an excellent choice in that it can convert a parallel signal, which can be extract directly from the DMX stream, and only requires an input voltage that is +2V higher than the output voltage, allowing for a 0 to +2.5V output to be generated from +5v. This allows the Core module to be powered from the DMX module to which is connects and any other voltages required are dependant on the application for that module only.
+DACs also tend to be picky about supply voltages, requiring more input voltage than the output voltage. The Texas Instruments TLC7524CN is an excellent choice in that it can convert a parallel signal, which can be extract directly from the DMX stream, and only requires an input voltage that is +2V higher than the output voltage, allowing for a 0 to +2.5V output to be generated from +5v. This allows the Core module to be powered from the DMX module to which it connects and any other voltages required are dependant on the application for that module only.
 
 ## Parts
 
-TBD
-Core Header - https://www.sparkfun.com/products/11896
+## Online parts list
+
+For a complete list of parts, see:
+
+- [Bill of materials](io-analog-core.bom.md)
+- [Part lists](io-analog-core.parts.md)
+
+You can also buy some of the parts for the analog modules online from a Wishlist:
+
+- Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-IO2, DMX-IO3, DMX-IO4, DMX-IO5](https://www.sparkfun.com/wish_lists/175321)
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [DMX-IO2, DMX-IO3, DMX-IO4, DMX-IO5](http://www.adafruit.com/wishlists/590544)
 
 ## PCB
 
-TBD
+You can order the PCB from [OHS Park](https://oshpark.com/):
+
+- [DMX-IO2, Rev 1.3](https://oshpark.com/shared_projects/t0nTgzDz).
 
 ## Version History
 

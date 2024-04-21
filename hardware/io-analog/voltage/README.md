@@ -1,20 +1,29 @@
 # DMX Demonstrator Analog Voltage Module (DMX-IO3)
 
-![status](https://img.shields.io/badge/status-prototype-orange)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
-The Amplify IO module can generate a 0 to adjustable positive voltage which tracks the level of a channel. It is configurable to generate multiple output voltages to adapt it to any voltage range required. The default values
+The Voltage IO module can generate a 0 to adjustable positive voltage which tracks the level of a channel. It is configurable to generate multiple output voltages to adapt it to any voltage range required. The default values
 listed in the schematic generate 0 to +10V since this is a common lighting control signal.
 
-## Parts
+## Online parts list
 
-TBD
-Tall Header - https://www.sparkfun.com/products/16279
+For a complete list of parts, see:
+
+- [Bill of materials](io-analog-voltage.bom.md)
+- [Part lists](io-analog-voltage.parts.md)
+
+You can also buy some of the parts for the analog modules online from a Wishlist:
+
+- Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-IO2, DMX-IO3, DMX-IO4, DMX-IO5](https://www.sparkfun.com/wish_lists/175321)
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [DMX-IO2, DMX-IO3, DMX-IO4, DMX-IO5](http://www.adafruit.com/wishlists/590544)
 
 ## PCB
 
-TBD
+You can order the PCB from [OHS Park](https://oshpark.com/):
+
+- [DMX-IO3, Rev 1.4](https://oshpark.com/shared_projects/Vaqpv5tp).
 
 ## Voltage Options
 
@@ -36,7 +45,7 @@ Vo = 2.5v * (1 + (R2 / R1)), R1=R3=R5=R7, R2=R4=R6=R8
 Vo = 1.25v + (1 + (R10 / R9))
 Vi = Vo + 2v to 3v (for higher current, use 3v)
 
- While it is possible to generate a +5V signal without the voltage regular and its supporting parts, doing so would mean all of the current needed for the outputs is supplied by the DMS module to which this stack connects. So the +5V option is
+ While it is possible to generate a +5V signal without the voltage regular and its supporting parts, doing so would mean all of the current needed for the outputs is supplied by the DMX module to which this stack connects. So the +5V option is
 supported using a voltage regulator and external supply to isolate the outputs from the DMX power supply.
 
 ## Version History

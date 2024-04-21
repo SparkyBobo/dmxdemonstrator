@@ -21,6 +21,7 @@ F 0 "J5" H 8050 1900 50  0000 L CNN
 F 1 "C Out" H 8050 2000 50  0000 L CNN
 F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 7950 2000 50  0001 C CNN
 F 3 "~" H 7950 2000 50  0001 C CNN
+F 4 "J-381x2,P-381x2" H 7950 2000 50  0001 C CNN "PartId"
 	1    7950 2000
 	1    0    0    1   
 $EndComp
@@ -32,6 +33,7 @@ F 0 "J1" H 4730 4892 50  0000 L CNN
 F 1 "Input" H 4730 4801 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 4650 4850 50  0001 C CNN
 F 3 "~" H 4650 4850 50  0001 C CNN
+F 4 "H_1x3_RA,JP_1x3" H 4650 4850 50  0001 C CNN "PartId"
 	1    4650 4850
 	-1   0    0    -1  
 $EndComp
@@ -69,6 +71,7 @@ F 0 "J3" H 4550 6400 50  0000 C CNN
 F 1 "Power" H 4550 6500 50  0000 C CNN
 F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 4650 6700 50  0001 C CNN
 F 3 "~" H 4650 6700 50  0001 C CNN
+F 4 "J-381x2,P-381x2" H 4650 6700 50  0001 C CNN "PartId"
 	1    4650 6700
 	-1   0    0    1   
 $EndComp
@@ -107,6 +110,7 @@ F 0 "R1" V 6350 2400 50  0000 C CNN
 F 1 "10k" V 6450 2400 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6290 2390 50  0001 C CNN
 F 3 "~" H 6250 2400 50  0001 C CNN
+F 4 "R_10k" V 6250 2400 50  0001 C CNN "PartId"
 	1    6250 2400
 	0    1    1    0   
 $EndComp
@@ -131,6 +135,7 @@ F 0 "R2" V 6400 3750 50  0000 C CNN
 F 1 "10k" V 6500 3750 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6340 3740 50  0001 C CNN
 F 3 "~" H 6300 3750 50  0001 C CNN
+F 4 "R_10k" V 6300 3750 50  0001 C CNN "PartId"
 	1    6300 3750
 	0    1    1    0   
 $EndComp
@@ -169,6 +174,7 @@ F 0 "J2" H 7330 4892 50  0000 L CNN
 F 1 "Output" H 7330 4801 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 7250 4850 50  0001 C CNN
 F 3 "~" H 7250 4850 50  0001 C CNN
+F 4 "H_1x3_RA" H 7250 4850 50  0001 C CNN "PartId"
 	1    7250 4850
 	1    0    0    -1  
 $EndComp
@@ -206,6 +212,7 @@ F 0 "J6" H 8050 3250 50  0000 L CNN
 F 1 "D Out" H 8050 3350 50  0000 L CNN
 F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" H 7950 3350 50  0001 C CNN
 F 3 "~" H 7950 3350 50  0001 C CNN
+F 4 "J-381x2,P-381x2" H 7950 3350 50  0001 C CNN "PartId"
 	1    7950 3350
 	1    0    0    1   
 $EndComp
@@ -284,18 +291,6 @@ F 3 "~" H 10900 6850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q2
-U 1 1 5F63E22E
-P 6750 3650
-F 0 "Q2" H 6915 3692 45  0000 L CNN
-F 1 "FQP30N06L" H 6915 3608 45  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 6750 3900 20  0001 C CNN
-F 3 "" H 6750 3650 50  0001 C CNN
-F 4 "TRANS-10060" H 6915 3566 60  0001 L CNN "Field4"
-	1    6750 3650
-	1    0    0    -1  
-$EndComp
-$Comp
 L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q1
 U 1 1 5F640FDC
 P 6750 2300
@@ -303,7 +298,7 @@ F 0 "Q1" H 6915 2342 45  0000 L CNN
 F 1 "FQP30N06L" H 6915 2258 45  0000 L CNN
 F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 6750 2550 20  0001 C CNN
 F 3 "" H 6750 2300 50  0001 C CNN
-F 4 "TRANS-10060" H 6915 2216 60  0001 L CNN "Field4"
+F 4 "Q_NMOSFET,HW-M3-6,HW-M3-NUT" H 6915 2216 60  0001 L CNN "PartId"
 	1    6750 2300
 	1    0    0    -1  
 $EndComp
@@ -365,6 +360,7 @@ F 0 "R3" H 5732 5154 50  0000 R CNN
 F 1 "10k" H 5732 5245 50  0000 R CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5840 5190 50  0001 C CNN
 F 3 "~" H 5800 5200 50  0001 C CNN
+F 4 "R_10k" H 5800 5200 50  0001 C CNN "PartId"
 	1    5800 5200
 	1    0    0    1   
 $EndComp
@@ -376,6 +372,7 @@ F 0 "R4" H 6068 5246 50  0000 L CNN
 F 1 "10k" H 6068 5155 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6040 5190 50  0001 C CNN
 F 3 "~" H 6000 5200 50  0001 C CNN
+F 4 "R_10k" H 6000 5200 50  0001 C CNN "PartId"
 	1    6000 5200
 	1    0    0    -1  
 $EndComp
@@ -429,4 +426,16 @@ F 3 "~" H 7650 3700 50  0001 C CNN
 $EndComp
 NoConn ~ 7450 3700
 NoConn ~ 7450 2350
+$Comp
+L DMXDemonstrator:MOSFET-NCH-FQP30N06L-SparkFun-DiscreteSemi Q2
+U 1 1 5F63E22E
+P 6750 3650
+F 0 "Q2" H 6915 3692 45  0000 L CNN
+F 1 "FQP30N06L" H 6915 3608 45  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 6750 3900 20  0001 C CNN
+F 3 "" H 6750 3650 50  0001 C CNN
+F 4 "Q_NMOSFET,HW-M3-6,HW-M3-NUT" H 6915 3566 60  0001 L CNN "PartId"
+	1    6750 3650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

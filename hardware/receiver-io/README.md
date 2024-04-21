@@ -10,8 +10,8 @@ The Receiver IO Interface is an [Arduino](https://www.arduino.cc/) Shield which 
 
 For a complete list of parts, see:
 
-- [Bill of materials](receiver.bom.md)
-- [Part lists](receiver.parts.md)
+- [Bill of materials](receiver-io.bom.md)
+- [Part lists](receiver-io.parts.md)
 
 You can also buy some of the parts for the Receiver IO Interface online from a Wishlist:
 
@@ -24,7 +24,7 @@ You can order the PCBs from [OHS Park](https://oshpark.com/):
 
 - [DMX-RX2, Rev 1.2](https://oshpark.com/shared_projects/PPpqqPVH)
 
-You can read more about ordering pcbs [here](..\pcb.md).
+You can read more about ordering pcbs [here](../pcb.md).
 
 ## Version History
 

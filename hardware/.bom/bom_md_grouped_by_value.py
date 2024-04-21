@@ -142,13 +142,20 @@ for group in grouped:
         if len(refs) > 0:
             refs += ', '
         refs += c.getRef()
+        component = c
         if (len(c.getField('PartId')) > 0):
-            component = c
             partIds = c.getField('PartId')
             partCount += 1
             if len(partRefs) > 0:
                 partRefs += ', '
             partRefs += c.getRef()
+
+    # Debug
+    #print('group=')
+    #print(group)
+    #for c in group:
+    #    print('c=')
+    #    print(c.getRef())
 
     # Lookup the part in parts.json
     if (len(partIds) >= 1):
@@ -170,7 +177,7 @@ for group in grouped:
 
             # Start the bomRow with an item number, quantity, and list of references.
             quantity = str(partCount)
-            bomRow = str(itemNumber) + '|' + quantity +'|' + partRefs      
+            bomRow = str(itemNumber) + '|' + quantity +'|' + partRefs
 
             # Get the value and description from the schematic
             partDefinition = partDefinitions[partId]
@@ -181,9 +188,9 @@ for group in grouped:
             # Include a datasheet link of there is one.
             # Sometime datasheet has '~' instead of an empty string.
             datasheet = component.getDatasheet()
-            if ('datasheet' in partDefinition) and (len(partDefinition['datasheet']) > 1): 
+            if ('datasheet' in partDefinition) and (len(partDefinition['datasheet']) > 1):
                 datasheet= partDefinition['datasheet']
-                
+
             if (len(datasheet) > 1):
                 datasheet = '[Data Sheet](' + datasheet + ')'
             else:

@@ -18,7 +18,7 @@ For a complete list of parts, see:
 You can also buy the parts for the Receiver online from a Wishlist:
 
 - Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-RX1](https://www.sparkfun.com/wish_lists/160542)
-- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [RMX-RX1](https://www.adafruit.com/wishlists/589834). Note that VR1 is not included.
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [RMX-RX1](https://www.adafruit.com/wishlists/589834)
 
 The Receiver needs parts from the common parts list but there are enough parts left over to build a Transmitter (DMX-TX1), Transmitter IO (DMX-TX2), and Frame Scrambler (DMX-FS1).
 
@@ -28,7 +28,7 @@ You can order the PCB from [OHS Park](https://oshpark.com/):
 
 - [DMX-RX1, Rev 1.4](https://oshpark.com/shared_projects/KHwUs20e).
 
-You can read more about ordering pcbs [here](..\pcb.md).
+You can read more about ordering pcbs [here](../pcb.md).
 
 - ## Compatibility
 

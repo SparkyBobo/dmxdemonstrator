@@ -48,12 +48,5 @@ Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
 J1, J2|2x7 shrouded right-angle header|Mouser|710-61201421721|2|[Order](https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201421721?qs=PhR8RmCirEbQk5OcjPFu0A%3D%3D)|
 <!--PARTROW-->
-
-### Newark
-
-Reference|Description|Supplier|Part Number|Quantity|Link|Notes
----------|-----------|--------|-----------|--------|----|-----
-J1, J2|2x7 shrouded right-angle header|Newark|20X0890|2|[Order](https://www.newark.com/wurth-elektronik/61201421721/wire-to-board-connector-right/dp/20X0890?ost=61201421721)|
-<!--PARTROW-->
 <!--VENDORLIST-->
 

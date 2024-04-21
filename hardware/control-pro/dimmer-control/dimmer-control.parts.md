@@ -61,13 +61,6 @@ R1, R2, R3, R4|10k slide potentiometer|Mouser|652-PTA45432015DPB10|4|[Order](htt
 R1, R2, R3, R4|slide potentiometer knob|Mouser|450-3051|4|[Order](https://www.mouser.com/ProductDetail/Eagle-Plastic-Devices/450-3051?qs=hTs5c5NaUrTeABpuQnP9ug%3D%3D)|
 <!--PARTROW-->
 
-### Newark
-
-Reference|Description|Supplier|Part Number|Quantity|Link|Notes
----------|-----------|--------|-----------|--------|----|-----
-J1, J2|2x8 shrouded right-angle header|Newark|19P1272|2|[Order](https://www.newark.com/wurth-elektronik/61201621721/wire-to-board-connector-right/dp/19P1272?ost=61201621721)|
-<!--PARTROW-->
-
 ### Amazon
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes

@@ -32,7 +32,7 @@ You can order the PCB from [OHS Park](https://oshpark.com/):
 
 - [DMX-TX1, Rev 1.3](https://oshpark.com/shared_projects/BYd66lVx)
 
-You can read more about ordering pcbs [here](..\pcb.md).
+You can read more about ordering pcbs [here](../pcb.md).
 
 ## Compatibility
 
