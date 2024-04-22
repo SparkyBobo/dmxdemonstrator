@@ -12,12 +12,6 @@ K TTL Buffer
 F https://www.ti.com/lit/ds/symlink/sn74ls07.pdf
 $ENDCMP
 #
-$CMP XLR-3-5
-D XLR Connector, Male or Female, 5 Pins
-K xlr connector
-F  ~
-$ENDCMP
-#
 $CMP 74LS164
 D IC 8-BIT SHIFT REGISTER 14-DIP
 K 74164 74HC SHIFT REGISTER
@@ -27,6 +21,18 @@ $ENDCMP
 $CMP POWER_JACKPTH_BREAD
 D Power Jack Connector This is the standard 5.5mm barrel jack for power.<br>The PTH is the most common, proven, reliable, footprint.<br>The Slot footprint only works if the mill layer is transmitted to the PCB fab house so be warned.<br> <b>Here are the connectors we sell at SparkFun:</b><ul><li><a href="https://www.sparkfun.com/products/119">DC Barrel Power Jack/Connector</a> (PRT-00119)</li><li><a href="https://www.sparkfun.com/products/12748">DC Barrel Power Jack/Connector (SMD)</a> (PRT-12748)</li><li><a href="https://www.sparkfun.com/products/10811">DC Barrel Jack Adapter - Breadboard Compatible</a> (PRT-10811)</li></ul> <b>It is used on this SparkFun product (and many, many others):</b><ul><li><a href="https://www.sparkfun.com/products/12757">SparkFun RedBoard - Programmed with Arduino</a> (DEV-12757)</li></ul> <b>Also, if you need a mating power supply or connector, please check these out:</b><ul><li><a href="https://www.sparkfun.com/products/298">Wall Adapter Power Supply - 9VDC 650mA</a> (TOL-00298)</li><li><a href="https://www.sparkfun.com/products/10287">DC Barrel Jack Adapter - Male</a> (PRT-10287)</li></ul>
 K PROD_ID:PRT-10811
+$ENDCMP
+#
+$CMP RFB-0505S
+D 200mA Isolated 1W DC/DC Converter Module, 5V Input Voltage, 5V Output Voltage, SIP7
+K Recom isolated isolation dc-dc converter
+F https://recom-power.com/pdf/Econoline/RFB.pdf
+$ENDCMP
+#
+$CMP RFM-0505S
+D 200mA Isolated 1W DC/DC Converter Module, 5V Input Voltage, 5V Output Voltage, SIP4
+K Recom isolated isolation dc-dc converter
+F https://recom-power.com/pdf/Econoline/RFM.pdf
 $ENDCMP
 #
 $CMP TL1431
@@ -44,6 +50,12 @@ $CMP TLV2774CN
 D Quad Rail-to-Rail Operational Amplifiers, DIP-8/SOIC-8/TSSOP-8/VSSOP-8
 K quad opamp
 F https://www.ti.com/lit/gpn/tlv2771
+$ENDCMP
+#
+$CMP XLR-3-5
+D XLR Connector, Male or Female, 5 Pins
+K xlr connector
+F  ~
 $ENDCMP
 #
 #End Doc Library

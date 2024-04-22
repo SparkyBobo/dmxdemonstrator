@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - DMX-512 IO Module (DMX-IO1)"
 Date "2023-12-19"
-Rev "1.5"
+Rev "1.6"
 Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -52,16 +52,11 @@ L Interface_UART:MAX3485 U5
 U 1 1 5F5E5E97
 P 7400 3600
 F 0 "U5" H 7550 4150 50  0000 C CNN
-F 1 "MAX3485CPA+" H 7750 4050 50  0000 C CNN
+F 1 "MAX485" H 7650 4050 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm_Socket" H 7400 2900 50  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/MAX3483-MAX3491.pdf" H 7400 3650 50  0001 C CNN
-F 4 "81Y9431" H 7400 3600 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/maxim-integrated-products/max3485cpa/rs422-rs485-transceiver-10mbps/dp/81Y9431?st=max3485" H 7400 3600 50  0001 C CNN "NW_Detail_Page"
-F 6 "700-MAX3485CPA" H 7400 3600 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Maxim-Integrated/MAX3485CPA%2b/?qs=LHmEVA8xxfbU8x9nGoNB%2Fw%3D%3D" H 7400 3600 50  0001 C CNN "MO_Detail_Page"
-F 8 "MAX3485CPA+-ND" H 7400 3600 50  0001 C CNN "Digi-Key_PN"
-F 9 "products/detail/MAX3485CPA%2B/MAX3485CPA%2B-ND/1702227" H 7400 3600 50  0001 C CNN "DK_Page_Detail"
-F 10 "RS-485/RS-422 Transceiver" H 7400 3600 50  0001 C CNN "Description"
+F 4 "U_485" H 7400 3600 50  0001 C CNN "PartId"
+F 5 "RS-485/RS-422 Transceiver" H 7400 3600 50  0001 C CNN "Description"
 	1    7400 3600
 	1    0    0    -1  
 $EndComp
@@ -76,12 +71,12 @@ Wire Wire Line
 $Comp
 L power:GNDD #PWR0105
 U 1 1 5F5EC1FB
-P 7400 4350
-F 0 "#PWR0105" H 7400 4100 50  0001 C CNN
-F 1 "GNDD" H 7404 4195 50  0000 C CNN
-F 2 "" H 7400 4350 50  0001 C CNN
-F 3 "" H 7400 4350 50  0001 C CNN
-	1    7400 4350
+P 7400 4700
+F 0 "#PWR0105" H 7400 4450 50  0001 C CNN
+F 1 "GNDD" H 7404 4545 50  0000 C CNN
+F 2 "" H 7400 4700 50  0001 C CNN
+F 3 "" H 7400 4700 50  0001 C CNN
+	1    7400 4700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -162,12 +157,7 @@ F 0 "R2" V 5345 1950 50  0000 C CNN
 F 1 "470" V 5436 1950 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5590 1940 50  0001 C CNN
 F 3 "~" H 5550 1950 50  0001 C CNN
-F 4 "38K0375" V 5550 1950 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375" V 5550 1950 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-470R" V 5550 1950 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D" V 5550 1950 50  0001 C CNN "MO_Detail_Page"
-F 8 "2781" V 5550 1950 50  0001 C CNN "AF_PN"
-F 9 "https://www.adafruit.com/product/2781" V 5550 1950 50  0001 C CNN "AF_Detail_Page"
+F 4 "R_470" V 5550 1950 50  0001 C CNN "PartId"
 	1    5550 1950
 	0    1    1    0   
 $EndComp
@@ -206,15 +196,10 @@ F 4 "160-1791-ND" H 6200 5400 60  0001 L CNN "Digi-Key_PN"
 F 5 "6N137" H 6200 5500 60  0001 L CNN "MPN"
 F 6 "Isolators" H 6200 5600 60  0001 L CNN "Category"
 F 7 "Optoisolators - Logic Output" H 6200 5700 60  0001 L CNN "Family"
-F 8 "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/6N137%20Series.pdf" H 6200 5800 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/6N137/160-1791-ND/1969175" H 6200 5900 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISO 5KV 1CH OPEN COLL 8DIP" H 6200 6000 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 6200 6100 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 6200 6200 60  0001 L CNN "Status"
-F 13 "52M1895" H 6000 5000 50  0001 C CNN "NW_PN"
-F 14 "https://www.newark.com/vishay/6n137/optocoupler-transistor-5300vrms/dp/52M1895?st=6n137" H 6000 5000 50  0001 C CNN "NW_Detail_Page"
-F 15 "782-6N137" H 6000 5000 50  0001 C CNN "MO_PN"
-F 16 "https://www.mouser.com/ProductDetail/Vishay-Semiconductors/6N137/?qs=xCMk%252BIHWTZMrQz4FyDXhMg%3D%3D" H 6000 5000 50  0001 C CNN "MO_Detail_Page"
+F 8 "U_6N137" H 6200 5800 60  0001 L CNN "PartId"
+F 9 "OPTOISO 5KV 1CH OPEN COLL 8DIP" H 6200 6000 60  0001 L CNN "Description"
+F 10 "Lite-On Inc." H 6200 6100 60  0001 L CNN "Manufacturer"
+F 11 "Active" H 6200 6200 60  0001 L CNN "Status"
 	1    6000 5000
 	1    0    0    -1  
 $EndComp
@@ -292,55 +277,25 @@ Wire Wire Line
 Connection ~ 6900 3650
 Wire Wire Line
 	6900 3800 6900 5000
-$Comp
-L Device:R_US R1
-U 1 1 5F6A6B31
-P 8100 3650
-F 0 "R1" H 8032 3604 50  0000 R CNN
-F 1 "120" H 8032 3695 50  0000 R CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8140 3640 50  0001 C CNN
-F 3 "~" H 8100 3650 50  0001 C CNN
-F 4 "38K0333" H 8100 3650 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-120r/carbon-film-resistor-120-ohm-250mw/dp/38K0333" H 8100 3650 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-120R" H 8100 3650 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-120R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40ae6q2awCfJoc%3D" H 8100 3650 50  0001 C CNN "MO_Detail_Page"
-F 8 "DMX Termination" H 8100 3650 50  0001 C CNN "Description"
-	1    8100 3650
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
-	8100 3400 8100 3500
-Connection ~ 8100 3400
+	9200 4500 9200 4600
 Wire Wire Line
-	7800 3800 7900 3800
-Wire Wire Line
-	8100 3900 8100 3800
-Connection ~ 8100 3900
-Wire Wire Line
-	9000 4100 9000 4200
-Wire Wire Line
-	8700 3900 8550 3900
-Wire Wire Line
-	7900 3400 8100 3400
-Wire Wire Line
-	8450 4200 9000 4200
-Wire Wire Line
-	8700 3800 8650 3800
+	8900 4200 8850 4200
 $Comp
 L power:GNDD #PWR0119
 U 1 1 5F71AD0A
-P 8650 4350
-F 0 "#PWR0119" H 8650 4100 50  0001 C CNN
-F 1 "GNDD" H 8654 4195 50  0000 C CNN
-F 2 "" H 8650 4350 50  0001 C CNN
-F 3 "" H 8650 4350 50  0001 C CNN
-	1    8650 4350
+P 8850 4700
+F 0 "#PWR0119" H 8850 4450 50  0001 C CNN
+F 1 "GNDD" H 8854 4545 50  0000 C CNN
+F 2 "" H 8850 4700 50  0001 C CNN
+F 3 "" H 8850 4700 50  0001 C CNN
+	1    8850 4700
 	1    0    0    -1  
 $EndComp
-NoConn ~ 9300 3800
-NoConn ~ 9300 3900
+NoConn ~ 9500 4200
+NoConn ~ 9500 4300
 Wire Wire Line
-	7400 4350 7400 4200
+	7400 4700 7400 4200
 Wire Wire Line
 	7400 3100 7400 3000
 $Comp
@@ -413,23 +368,6 @@ Wire Wire Line
 	5250 6550 5250 6750
 Wire Wire Line
 	4700 7150 4850 7150
-NoConn ~ 4700 6950
-$Comp
-L Regulator_Switching:NMA0505SC U1
-U 1 1 5F5E628E
-P 4200 6950
-F 0 "U1" H 4200 7417 50  0000 C CNN
-F 1 "NMA0505SC" H 4200 7326 50  0000 C CNN
-F 2 "footprints:Converter_DCDC_muRata_NMAxxxxSC_THT_Bypass" H 4200 6600 50  0001 C CIN
-F 3 "http://power.murata.com/data/power/ncl/kdc_nma.pdf" H 4200 6950 50  0001 C CNN
-F 4 "61K3058" H 4200 6950 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/murata-power-solutions/nma0505sc/dc-dc-converter-iso-pol-2-o-p/dp/61K3058?ost=nma0505sc" H 4200 6950 50  0001 C CNN "NW_Detail_Page"
-F 6 "580-NMA0505SC" H 4200 6950 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Murata-Power-Solutions/NMA0505SC/?qs=%2Fha2pyFaduhGNEy44F69mkKiigmHmVay9P4cLoAL7Ps%3D" H 4200 6950 50  0001 C CNN "MO_Detail_Page"
-F 8 "Isolated 1W Dual Output DC-DC Converter" H 4200 6950 50  0001 C CNN "Description"
-	1    4200 6950
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 5F7CBB6F
@@ -510,87 +448,68 @@ F 3 "" H 2800 7400 50  0001 C CNN
 	1    2800 7400
 	1    0    0    -1  
 $EndComp
-Connection ~ 8550 3900
 Wire Wire Line
-	8450 4200 8450 3400
-Wire Wire Line
-	9000 3300 9000 3400
-Wire Wire Line
-	9000 3400 8450 3400
-Connection ~ 8450 3400
-Wire Wire Line
-	8100 3400 8450 3400
-Wire Wire Line
-	8100 3900 8550 3900
+	9200 3700 9200 3800
 $Comp
 L DMXDemonstrator:XLR-3-5 J3
 U 1 1 5FA9D811
-P 9000 3800
-F 0 "J3" H 9000 4150 50  0000 C CNN
-F 1 "NC3MAH/NC5MAH" H 9000 4050 50  0000 C CNN
-F 2 "footprints:NEUTRIK-NC3MAH-NC5MAH" H 9000 3800 50  0001 C CNN
-F 3 "https://www.neutrik.com/en/product/nc5mah.pdf" H 9000 3800 50  0001 C CNN
-F 4 "25C4313" H 9000 3800 50  0001 C CNN "NW_PM"
-F 5 "https://www.newark.com/neutrik/nc5mah/connector-xlr-audio-plug-5pos/dp/25C4313?ost=nc5mah" H 9000 3800 50  0001 C CNN "NW_Detail_Page"
-F 6 "568-NC5MAH" H 9000 3800 50  0001 C CNN "MO"
-F 7 "https://www.mouser.com/ProductDetail/Neutrik/NC5MAH/?qs=43pPWqpsSNtpdAMzqMXlkw%3D%3D" H 9000 3800 50  0001 C CNN "MO_Detail_page"
-F 8 "DMX Connector" H 9000 3800 50  0001 C CNN "Description"
-	1    9000 3800
+P 9200 4200
+F 0 "J3" H 9200 4550 50  0000 C CNN
+F 1 "NC3MAH/NC5MAH" H 9200 4450 50  0000 C CNN
+F 2 "footprints:NEUTRIK-NC3MAH-NC5MAH" H 9200 4200 50  0001 C CNN
+F 3 "https://www.neutrik.com/en/product/nc5mah.pdf" H 9200 4200 50  0001 C CNN
+F 4 "J_XLR5M" H 9200 4200 50  0001 C CNN "PartId"
+F 5 "DMX Connector" H 9200 4200 50  0001 C CNN "Description"
+	1    9200 4200
 	1    0    0    -1  
 $EndComp
 $Comp
 L DMXDemonstrator:XLR-3-5 J2
 U 1 1 5FA9D8B9
-P 9000 3000
-F 0 "J2" H 9000 3350 50  0000 C CNN
-F 1 "NC3FAH/NC5FAH" H 9000 3250 50  0000 C CNN
-F 2 "footprints:NEUTRIK-NC3FAH-NC5FAH" H 9000 3000 50  0001 C CNN
-F 3 "https://www.neutrik.com/en/product/nc5fah.pdf" H 9000 3000 50  0001 C CNN
-F 4 "94C1524" H 9000 3000 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/neutrik/nc5fah/connector-xlr-receptacle-5-position/dp/94C1524?ost=nc5fah" H 9000 3000 50  0001 C CNN "NW_Detail_Page"
-F 6 "568-NC5FAH" H 9000 3000 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Neutrik/NC5FAH/?qs=JfNPhaIww3Jo8umm7Mfi2w%3D%3D" H 9000 3000 50  0001 C CNN "MO_Detail_Page"
-F 8 "DMX Connector" H 9000 3000 50  0001 C CNN "Description"
-	1    9000 3000
+P 9200 3400
+F 0 "J2" H 9200 3750 50  0000 C CNN
+F 1 "NC3FAH/NC5FAH" H 9200 3650 50  0000 C CNN
+F 2 "footprints:NEUTRIK-NC3FAH-NC5FAH" H 9200 3400 50  0001 C CNN
+F 3 "https://www.neutrik.com/en/product/nc5fah.pdf" H 9200 3400 50  0001 C CNN
+F 4 "J_XLR5F" H 9200 3400 50  0001 C CNN "PartId"
+F 5 "DMX Connector" H 9200 3400 50  0001 C CNN "Description"
+	1    9200 3400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 9300 3100
-NoConn ~ 9300 3000
+NoConn ~ 9500 3500
+NoConn ~ 9500 3400
 Wire Wire Line
-	8700 3100 8550 3100
+	8900 3500 8750 3500
 Wire Wire Line
-	8550 3100 8550 3900
+	8850 4200 8850 4050
 Wire Wire Line
-	8650 3800 8650 3650
+	8850 3400 8900 3400
+Connection ~ 8850 4200
 Wire Wire Line
-	8650 3000 8700 3000
-Connection ~ 8650 3800
+	8850 3400 8850 3250
 Wire Wire Line
-	8650 3000 8650 2850
+	8850 3250 8950 3250
+Connection ~ 8850 3400
 Wire Wire Line
-	8650 2850 8750 2850
-Connection ~ 8650 3000
+	9450 3250 9650 3250
 Wire Wire Line
-	9250 2850 9450 2850
+	9650 3250 9650 4050
 Wire Wire Line
-	9450 2850 9450 3650
+	9450 4050 9650 4050
 Wire Wire Line
-	9250 3650 9450 3650
+	8950 4050 8850 4050
+Connection ~ 8850 4050
 Wire Wire Line
-	8750 3650 8650 3650
-Connection ~ 8650 3650
+	8850 4050 8850 3400
 Wire Wire Line
-	8650 3650 8650 3000
+	8850 4200 8850 4700
 Wire Wire Line
-	8650 3800 8650 4350
+	8750 3500 8750 2950
 Wire Wire Line
-	8550 3100 8550 2550
+	8750 2950 9650 2950
 Wire Wire Line
-	8550 2550 9450 2550
-Wire Wire Line
-	9450 2550 9450 2850
-Connection ~ 8550 3100
-Connection ~ 9450 2850
+	9650 2950 9650 3250
+Connection ~ 9650 3250
 Wire Wire Line
 	3500 7150 3500 7400
 Wire Wire Line
@@ -628,11 +547,8 @@ P 3850 3650
 F 0 "J1" H 3900 4167 50  0000 C CNN
 F 1 "IO EXTENSION" H 3900 4076 50  0000 C CNN
 F 2 "Connector_IDC:IDC-Header_2x07_P2.54mm_Horizontal" H 3850 3650 50  0001 C CNN
-F 3 "https://www.we-online.com/components/products/datasheet/61201421721.pdf" H 3850 3650 50  0001 C CNN
-F 4 "75AJ1395" H 3850 3650 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/wurth-elektronik/612014235221/conn-r-a-header-14pos-2row-2-54mm/dp/75AJ1395" H 3850 3650 50  0001 C CNN "NW_Detail_Page"
-F 6 "710-61201421721" H 3850 3650 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201421721?qs=PhR8RmCirEbQk5OcjPFu0A%3D%3D" H 3850 3650 50  0001 C CNN "MO_Detail_Page"
+F 3 "~" H 3850 3650 50  0001 C CNN
+F 4 "H_IO_RA,JP_IO" H 3850 3650 50  0001 C CNN "PartId"
 	1    3850 3650
 	1    0    0    -1  
 $EndComp
@@ -794,14 +710,7 @@ F 1 "0.1uF" H 2915 6905 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 2838 6800 50  0001 C CNN
 F 3 "~" H 2800 6950 50  0001 C CNN
 F 4 "Decoupling Capacitor" H -2850 -50 50  0001 C CNN "Description"
-F 5 "https://www.sparkfun.com/products/8375" H 2800 6950 50  0001 C CNN "SP_Detail_Page"
-F 6 "COM-08375" H 2800 6950 50  0001 C CNN "SP_PN"
-F 7 "753" H 2800 6950 50  0001 C CNN "AF_PN"
-F 8 "https://www.adafruit.com/product/753" H 2800 6950 50  0001 C CNN "AF_Detail_Page"
-F 9 "13K6284" H 2800 6950 50  0001 C CNN "NW_PN"
-F 10 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 2800 6950 50  0001 C CNN "NW_Detail_Page"
-F 11 "80-C320C104K5R7301" H 2800 6950 50  0001 C CNN "MO_PN"
-F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 2800 6950 50  0001 C CNN "MO_Detail_Page"
+F 5 "C_DECOUPLE" H 2800 6950 50  0001 C CNN "PartId"
 	1    2800 6950
 	1    0    0    -1  
 $EndComp
@@ -817,15 +726,10 @@ F 4 "160-1791-ND" H 6200 4050 60  0001 L CNN "Digi-Key_PN"
 F 5 "6N137" H 6200 4150 60  0001 L CNN "MPN"
 F 6 "Isolators" H 6200 4250 60  0001 L CNN "Category"
 F 7 "Optoisolators - Logic Output" H 6200 4350 60  0001 L CNN "Family"
-F 8 "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/6N137%20Series.pdf" H 6200 4450 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/6N137/160-1791-ND/1969175" H 6200 4550 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISO 5KV 1CH OPEN COLL 8DIP" H 6200 4650 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 6200 4750 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 6200 4850 60  0001 L CNN "Status"
-F 13 "52M1895" H 6000 3650 50  0001 C CNN "NW_PN"
-F 14 "https://www.newark.com/vishay/6n137/optocoupler-transistor-5300vrms/dp/52M1895?st=6n137" H 6000 3650 50  0001 C CNN "NW_Detail_Page"
-F 15 "782-6N137" H 6000 3650 50  0001 C CNN "MO_PN"
-F 16 "https://www.mouser.com/ProductDetail/Vishay-Semiconductors/6N137/?qs=xCMk%252BIHWTZMrQz4FyDXhMg%3D%3D" H 6000 3650 50  0001 C CNN "MO_Detail_Page"
+F 8 "U_6N137" H 6200 4450 60  0001 L CNN "PartId"
+F 9 "OPTOISO 5KV 1CH OPEN COLL 8DIP" H 6200 4650 60  0001 L CNN "Description"
+F 10 "Lite-On Inc." H 6200 4750 60  0001 L CNN "Manufacturer"
+F 11 "Active" H 6200 4850 60  0001 L CNN "Status"
 	1    6000 3650
 	1    0    0    -1  
 $EndComp
@@ -841,15 +745,9 @@ F 4 "160-1791-ND" H 6200 2700 60  0001 L CNN "Digi-Key_PN"
 F 5 "6N137" H 6200 2800 60  0001 L CNN "MPN"
 F 6 "Isolators" H 6200 2900 60  0001 L CNN "Category"
 F 7 "Optoisolators - Logic Output" H 6200 3000 60  0001 L CNN "Family"
-F 8 "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/6N137%20Series.pdf" H 6200 3100 60  0001 L CNN "DK_Datasheet_Link"
-F 9 "/product-detail/en/lite-on-inc/6N137/160-1791-ND/1969175" H 6200 3200 60  0001 L CNN "DK_Detail_Page"
-F 10 "OPTOISO 5KV 1CH OPEN COLL 8DIP" H 6200 3300 60  0001 L CNN "Description"
-F 11 "Lite-On Inc." H 6200 3400 60  0001 L CNN "Manufacturer"
-F 12 "Active" H 6200 3500 60  0001 L CNN "Status"
-F 13 "52M1895" H 6000 2300 50  0001 C CNN "NW_PN"
-F 14 "https://www.newark.com/vishay/6n137/optocoupler-transistor-5300vrms/dp/52M1895?st=6n137" H 6000 2300 50  0001 C CNN "NW_Detail_Page"
-F 15 "782-6N137" H 6000 2300 50  0001 C CNN "MO_PN"
-F 16 "https://www.mouser.com/ProductDetail/Vishay-Semiconductors/6N137/?qs=xCMk%252BIHWTZMrQz4FyDXhMg%3D%3D" H 6000 2300 50  0001 C CNN "MO_Detail_Page"
+F 8 "U_6N137" H 6200 3100 60  0001 L CNN "PartId"
+F 9 "OPTOISO 5KV 1CH OPEN COLL 8DIP" H 6200 3300 60  0001 L CNN "Description"
+F 10 "Lite-On Inc." H 6200 3400 60  0001 L CNN "Manufacturer"
 	1    6000 2300
 	-1   0    0    -1  
 $EndComp
@@ -861,12 +759,7 @@ F 0 "R3" V 6495 2400 50  0000 C CNN
 F 1 "470" V 6586 2400 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6740 2390 50  0001 C CNN
 F 3 "~" H 6700 2400 50  0001 C CNN
-F 4 "38K0375" V 6700 2400 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375" V 6700 2400 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-470R" V 6700 2400 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D" V 6700 2400 50  0001 C CNN "MO_Detail_Page"
-F 8 "2781" V 6700 2400 50  0001 C CNN "AF_PN"
-F 9 "https://www.adafruit.com/product/2781" V 6700 2400 50  0001 C CNN "AF_Detail_Page"
+F 4 "R_470" V 6700 2400 50  0001 C CNN "PartId"
 	1    6700 2400
 	0    1    1    0   
 $EndComp
@@ -878,12 +771,7 @@ F 0 "R5" V 6245 3300 50  0000 C CNN
 F 1 "470" V 6336 3300 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6490 3290 50  0001 C CNN
 F 3 "~" H 6450 3300 50  0001 C CNN
-F 4 "38K0375" V 6450 3300 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375" V 6450 3300 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-470R" V 6450 3300 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D" V 6450 3300 50  0001 C CNN "MO_Detail_Page"
-F 8 "2781" V 6450 3300 50  0001 C CNN "AF_PN"
-F 9 "https://www.adafruit.com/product/2781" V 6450 3300 50  0001 C CNN "AF_Detail_Page"
+F 4 "R_470" V 6450 3300 50  0001 C CNN "PartId"
 	1    6450 3300
 	0    1    1    0   
 $EndComp
@@ -895,12 +783,7 @@ F 0 "R4" V 5095 3750 50  0000 C CNN
 F 1 "470" V 5186 3750 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5340 3740 50  0001 C CNN
 F 3 "~" H 5300 3750 50  0001 C CNN
-F 4 "38K0375" V 5300 3750 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375" V 5300 3750 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-470R" V 5300 3750 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D" V 5300 3750 50  0001 C CNN "MO_Detail_Page"
-F 8 "2781" V 5300 3750 50  0001 C CNN "AF_PN"
-F 9 "https://www.adafruit.com/product/2781" V 5300 3750 50  0001 C CNN "AF_Detail_Page"
+F 4 "R_470" V 5300 3750 50  0001 C CNN "PartId"
 	1    5300 3750
 	0    1    1    0   
 $EndComp
@@ -912,12 +795,7 @@ F 0 "R7" V 6245 4650 50  0000 C CNN
 F 1 "470" V 6336 4650 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6490 4640 50  0001 C CNN
 F 3 "~" H 6450 4650 50  0001 C CNN
-F 4 "38K0375" V 6450 4650 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375" V 6450 4650 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-470R" V 6450 4650 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D" V 6450 4650 50  0001 C CNN "MO_Detail_Page"
-F 8 "2781" V 6450 4650 50  0001 C CNN "AF_PN"
-F 9 "https://www.adafruit.com/product/2781" V 6450 4650 50  0001 C CNN "AF_Detail_Page"
+F 4 "R_470" V 6450 4650 50  0001 C CNN "PartId"
 	1    6450 4650
 	0    1    1    0   
 $EndComp
@@ -929,12 +807,7 @@ F 0 "R6" V 5095 5100 50  0000 C CNN
 F 1 "470" V 5186 5100 50  0000 C CNN
 F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5340 5090 50  0001 C CNN
 F 3 "~" H 5300 5100 50  0001 C CNN
-F 4 "38K0375" V 5300 5100 50  0001 C CNN "NW_PN"
-F 5 "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375" V 5300 5100 50  0001 C CNN "NW_Detail_Page"
-F 6 "603-CFR-25JT-52-470R" V 5300 5100 50  0001 C CNN "MO_PN"
-F 7 "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D" V 5300 5100 50  0001 C CNN "MO_Detail_Page"
-F 8 "2781" V 5300 5100 50  0001 C CNN "AF_PN"
-F 9 "https://www.adafruit.com/product/2781" V 5300 5100 50  0001 C CNN "AF_Detail_Page"
+F 4 "R_470" V 5300 5100 50  0001 C CNN "PartId"
 	1    5300 5100
 	0    1    1    0   
 $EndComp
@@ -947,14 +820,7 @@ F 1 "0.1uF" H 5765 6955 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 5688 6850 50  0001 C CNN
 F 3 "~" H 5650 7000 50  0001 C CNN
 F 4 "Decoupling Capacitor" H 0   0   50  0001 C CNN "Description"
-F 5 "https://www.sparkfun.com/products/8375" H 5650 7000 50  0001 C CNN "SP_Detail_Page"
-F 6 "COM-08375" H 5650 7000 50  0001 C CNN "SP_PN"
-F 7 "753" H 5650 7000 50  0001 C CNN "AF_PN"
-F 8 "https://www.adafruit.com/product/753" H 5650 7000 50  0001 C CNN "AF_Detail_Page"
-F 9 "13K6284" H 5650 7000 50  0001 C CNN "NW_PN"
-F 10 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 5650 7000 50  0001 C CNN "NW_Detail_Page"
-F 11 "80-C320C104K5R7301" H 5650 7000 50  0001 C CNN "MO_PN"
-F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 5650 7000 50  0001 C CNN "MO_Detail_Page"
+F 5 "C_DECOUPLE" H 5650 7000 50  0001 C CNN "PartId"
 	1    5650 7000
 	1    0    0    -1  
 $EndComp
@@ -967,14 +833,7 @@ F 1 "0.1uF" H 6215 6955 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 6138 6850 50  0001 C CNN
 F 3 "~" H 6100 7000 50  0001 C CNN
 F 4 "Decoupling Capacitor" H 450 0   50  0001 C CNN "Description"
-F 5 "https://www.sparkfun.com/products/8375" H 6100 7000 50  0001 C CNN "SP_Detail_Page"
-F 6 "COM-08375" H 6100 7000 50  0001 C CNN "SP_PN"
-F 7 "753" H 6100 7000 50  0001 C CNN "AF_PN"
-F 8 "https://www.adafruit.com/product/753" H 6100 7000 50  0001 C CNN "AF_Detail_Page"
-F 9 "13K6284" H 6100 7000 50  0001 C CNN "NW_PN"
-F 10 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 6100 7000 50  0001 C CNN "NW_Detail_Page"
-F 11 "80-C320C104K5R7301" H 6100 7000 50  0001 C CNN "MO_PN"
-F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 6100 7000 50  0001 C CNN "MO_Detail_Page"
+F 5 "C_DECOUPLE" H 6100 7000 50  0001 C CNN "PartId"
 	1    6100 7000
 	1    0    0    -1  
 $EndComp
@@ -987,14 +846,7 @@ F 1 "0.1uF" H 6665 6955 50  0000 L CNN
 F 2 "Capacitor_THT:C_Rect_L4.6mm_W2.0mm_P2.50mm_MKS02_FKP02" H 6588 6850 50  0001 C CNN
 F 3 "~" H 6550 7000 50  0001 C CNN
 F 4 "Decoupling Capacitor" H 900 0   50  0001 C CNN "Description"
-F 5 "https://www.sparkfun.com/products/8375" H 6550 7000 50  0001 C CNN "SP_Detail_Page"
-F 6 "COM-08375" H 6550 7000 50  0001 C CNN "SP_PN"
-F 7 "753" H 6550 7000 50  0001 C CNN "AF_PN"
-F 8 "https://www.adafruit.com/product/753" H 6550 7000 50  0001 C CNN "AF_Detail_Page"
-F 9 "13K6284" H 6550 7000 50  0001 C CNN "NW_PN"
-F 10 "https://www.newark.com/kemet/c315c104m5u5ta/capacitor-mlcc-z5u-100nf-50v-radial/dp/39K6432" H 6550 7000 50  0001 C CNN "NW_Detail_Page"
-F 11 "80-C320C104K5R7301" H 6550 7000 50  0001 C CNN "MO_PN"
-F 12 "https://www.mouser.com/ProductDetail/KEMET/C320C104K5R5TA7301/?qs=cWONFOU2MXytiO%2Fz22pl%252Bg%3D%3D" H 6550 7000 50  0001 C CNN "MO_Detail_Page"
+F 5 "C_DECOUPLE" H 6550 7000 50  0001 C CNN "PartId"
 	1    6550 7000
 	1    0    0    -1  
 $EndComp
@@ -1006,6 +858,7 @@ F 0 "JP1" H 5250 3105 50  0000 C CNN
 F 1 "Bypass Iso" H 5250 3014 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5250 2900 50  0001 C CNN
 F 3 "~" H 5250 2900 50  0001 C CNN
+F 4 "JP_SOLDER" H 5250 2900 50  0001 C CNN "PartId"
 	1    5250 2900
 	1    0    0    -1  
 $EndComp
@@ -1026,6 +879,7 @@ F 0 "JP2" H 5300 4455 50  0000 C CNN
 F 1 "Bypass Iso" H 5300 4364 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5300 4250 50  0001 C CNN
 F 3 "~" H 5300 4250 50  0001 C CNN
+F 4 "JP_SOLDER" H 5300 4250 50  0001 C CNN "PartId"
 	1    5300 4250
 	1    0    0    -1  
 $EndComp
@@ -1048,6 +902,7 @@ F 0 "JP3" H 5300 5805 50  0000 C CNN
 F 1 "Bypass Iso" H 5300 5714 50  0000 C CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm" H 5300 5600 50  0001 C CNN
 F 3 "~" H 5300 5600 50  0001 C CNN
+F 4 "JP_SOLDER" H 5300 5600 50  0001 C CNN "PartId"
 	1    5300 5600
 	1    0    0    -1  
 $EndComp
@@ -1083,12 +938,71 @@ Wire Notes Line
 	3650 6750 3650 6300
 Wire Notes Line
 	3650 6300 4000 6300
+$Comp
+L Switch:SW_SPDT SW1
+U 1 1 663A2E4F
+P 8200 4600
+F 0 "SW1" H 8200 4885 50  0000 C CNN
+F 1 "TERM" H 8200 4794 50  0000 C CNN
+F 2 "footprints:ESWITCH_1218_SPDT" H 8200 4600 50  0001 C CNN
+F 3 "~" H 8200 4600 50  0001 C CNN
+F 4 "SW_SLIDE_SM" H 8200 4600 50  0001 C CNN "PartId"
+	1    8200 4600
+	-1   0    0    1   
+$EndComp
 Wire Wire Line
-	7800 3500 7900 3500
+	7900 4700 8000 4700
+NoConn ~ 7900 4700
 Wire Wire Line
-	7900 3500 7900 3400
+	8000 4500 7900 4500
 Wire Wire Line
-	7900 3800 7900 3900
+	8750 4300 8900 4300
+Connection ~ 8750 3500
 Wire Wire Line
-	7900 3900 8100 3900
+	8750 3500 8750 4300
+$Comp
+L DMXDemonstrator:RFM-0505S U1
+U 1 1 662AC778
+P 4200 6950
+F 0 "U1" H 4200 7417 50  0000 C CNN
+F 1 "RFM-0505S" H 4200 7326 50  0000 C CNN
+F 2 "footprints:Converter_DCDC_Recom_RFM0505S_THT_Bypass" H 4200 6600 50  0001 C CIN
+F 3 "https://recom-power.com/pdf/Econoline/RFM.pdf" H 4200 6950 50  0001 C CNN
+F 4 "U_0505" H 4200 6950 50  0001 C CNN "PartId"
+	1    4200 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_US R1
+U 1 1 663529CD
+P 8200 4300
+F 0 "R1" V 7995 4300 50  0000 C CNN
+F 1 "120" V 8086 4300 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8240 4290 50  0001 C CNN
+F 3 "~" H 8200 4300 50  0001 C CNN
+F 4 "R_120" V 8200 4300 50  0001 C CNN "PartId"
+	1    8200 4300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7900 4300 8050 4300
+Wire Wire Line
+	7900 4300 7900 4500
+Wire Wire Line
+	7800 3500 8750 3500
+Wire Wire Line
+	8350 4300 8750 4300
+Connection ~ 8750 4300
+Wire Wire Line
+	9200 3800 9750 3800
+Wire Wire Line
+	9750 3800 9750 4600
+Wire Wire Line
+	9750 4600 9200 4600
+Connection ~ 9200 3800
+Connection ~ 9200 4600
+Wire Wire Line
+	7800 3800 9200 3800
+Wire Wire Line
+	8400 4600 9200 4600
 $EndSCHEMATC
