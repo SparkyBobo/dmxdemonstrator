@@ -103,11 +103,11 @@ From the [Recommended Practices...](https://tsp.esta.org/tsp/documents/docs/DMX5
 
 The DMX-IO1 shamelessly steals it's isolation design from [SparkFun ESP32 Thing Plus DMX to LED Shield](https://www.sparkfun.com/products/15110) which implements isolation including power supply isolation. Isolation is implemented using the following parts:
 
-- U1, NMA0505SC
+- U1, RFM-0505S
 
-  - [NMA0505SC Datasheet](https://www.mouser.com/datasheet/2/281/kdc_nma-29224.pdf)
-  - [Mouser 580-NMA0505SC](https://www.mouser.com/ProductDetail/Murata-Power-Solutions/NMA0505SC/?qs=%2Fha2pyFaduhGNEy44F69mkKiigmHmVay9P4cLoAL7Ps%3D)
-  - [Newark 61K3058](https://www.newark.com/murata-power-solutions/nma0505sc/dc-dc-converter-iso-pol-2-o-p/dp/61K3058?ost=nma0505sc)
+  - [RFM-0505S Datasheet](https://recom-power.com/pdf/Econoline/RFM.pdf)
+  - [Mouser 5919-RFM-0505S](https://mou.sr/3UqOlN3)
+  - [Newark 54AC6727](https://www.newark.com/recom-power/rfm-0505s/dc-dc-converter-5v-0-2a/dp/54AC6727)
 
 - U2-U4, 6N137
 
@@ -131,8 +131,8 @@ The DMX-IO1 shamelessly steals it's isolation design from [SparkFun ESP32 Thing 
 You can use the DMX-IO1 without isolation by leaving out these parts (saving about $12 USD) and installing 5 solder bridges to bypass the isolation circuits:
 
 - Omit U1
-- Under U1, connect pins 1 and 6 to bypass +5v
-- Under U1, connect pins 2 and 4 to bypass GND
+- Under U1, connect pins 1 and 4 to bypass +5v
+- Under U1, connect pins 2 and 3 to bypass GND
 - Omit U2
 - Under U2, solder JP1 closed to bypass RX
 - Omit U3
@@ -150,7 +150,7 @@ You can use the DMX-IO1 without isolation by leaving out these parts (saving abo
 
 You can order the PCBs from [OHS Park](https://oshpark.com/):
 
-- [DMX-IO1, Rev 1.6](https://oshpark.com/shared_projects/ky3I3Pa5)
+- [DMX-IO1, Rev 1.6](https://oshpark.com/shared_projects/F78SkVHp)
 
 You can read more about ordering pcbs [here](..\pcb.md).
 

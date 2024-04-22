@@ -5,7 +5,7 @@
 
 **Filename:** E:\OpenSource\dmxdemonstrator\hardware\io-dmx\io-dmx-512.sch
 
-**Date Modified:** 4/21/2024 7:21:00 PM
+**Date Modified:** 4/21/2024 7:26:20 PM
 
 **Kicad Version:** Eeschema (5.1.12)-1
 
@@ -15,7 +15,7 @@
 
 Item#|Quantity|Reference|Description|Manufacturer|Part Number|Datasheet|Notes
 -----|--------|---------|-----------|------------|-----------|---------|-----
-1|1|PCB|DMX-512 IO Module PCB|OHSPark|DMX-IO1, Rev 1.6||[Order](https://oshpark.com/shared_projects/ky3I3Pa5)|
+1|1|PCB|DMX-512 IO Module PCB|OHSPark|DMX-IO1, Rev 1.6||[Order](https://oshpark.com/shared_projects/F78SkVHp)|
 2|4|C2, C3, C4, C5|0.1uF||||
 3|1|J1|2x7 shrouded right-angle header|Wurth Elektronik|61201421721|[Data Sheet](https://www.we-online.com/catalog/datasheet/61201421721.pdf)|
 4|1|J1|2x7 ribbon cable||||
