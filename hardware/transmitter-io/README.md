@@ -1,10 +1,10 @@
 # DMX Demonstrator Transmitter IO Interface (DMX-TX2)
 
-![status](https://img.shields.io/badge/status-verified-brightgreen)
+![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 
-The Transmitter IO Interface is an [Arduino](https://www.arduino.cc/) Shield which provides the 3-wire data/clock signal to the Receiver (DMX-RX1) and encode the data stream to control the brightness of 4 LEDs using the Control Pro (DMX-CP*).
+The Transmitter IO Interface is an Arduino Shield which provides an IO extension port to connect to IO modules to the transmitter.
 
 ## Online parts list
 
@@ -15,8 +15,8 @@ For a complete list of parts, see:
 
 You can also buy the some of parts for the Transmitter IO Interface online from a Wishlist:
 
-- Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-TX2](https://www.sparkfun.com/wish_lists/160543)
-- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [DMX-TX2](http://www.adafruit.com/wishlists/590129). Note that VR1 is not included.
+- Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-TX2](https://www.sparkfun.com/wish_lists/175836)
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [DMX-TX2](http://www.adafruit.com/wishlists/592504)
 
 The Transmitter IO Interface needs parts from the common parts list but there are enough parts left over to build a Transmitter (DMX-TX1), Receiver (DMX-RX1), and Frame Scrambler (DMX-FS1).
 
@@ -24,7 +24,7 @@ The Transmitter IO Interface needs parts from the common parts list but there ar
 
 You can order the PCBs from [OHS Park](https://oshpark.com/):
 
-- [DMX-TX2, Rev 1.3](https://oshpark.com/shared_projects/mKdzHGgN)
+- [DMX-TX2, Rev 1.4](https://oshpark.com/shared_projects/RWoki94h)
 
 You can read more about ordering pcbs [here](..\pcb.md).
 
@@ -39,6 +39,11 @@ You can read more about ordering pcbs [here](..\pcb.md).
 - Arduino Mega or Mega 2560: Hardware Revision 1.2+, Software Version 1.2+
 
 ## Version History
+
+### Rev 1.4
+
+- Remove support for control-pro
+- Supports IO module with DMX-TX1 or DMX-CPAD
 
 ### Rev 1.3
 

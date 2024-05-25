@@ -31,6 +31,21 @@
             ]
         },
         {
+            "id": "PCB_TX2_1_4",
+            "description" : "Transmitter IO PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-TX2, Rev 1.4",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-TX2, Rev 1.4",
+                    "link" : "https://oshpark.com/shared_projects/RWoki94h",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "PCB_RX1_1_4",
             "description" : "Receiver PCB",
             "mfg": "OHSPark",
@@ -131,6 +146,21 @@
                     "vendor" : "OHSPark",
                     "vendorNumber" : "DMX-CPDF, Rev 1.3",
                     "link" : "https://oshpark.com/shared_projects/bZqKigQF",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_CPAD_1_3",
+            "description" : "Control-Pro Adapter PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-CPAD, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-CPAD, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/xCkM6ON9",
                     "quantity" : 3
                 }
             ]
