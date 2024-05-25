@@ -5,7 +5,7 @@
 
 **Filename:** E:\OpenSource\dmxdemonstrator\hardware\transmitter\transmitter.sch
 
-**Date Modified:** 3/31/2024 7:18:02 PM
+**Date Modified:** 5/25/2024 1:06:09 AM
 
 **Kicad Version:** Eeschema (5.1.12)-1
 
@@ -33,6 +33,6 @@ Item#|Quantity|Reference|Description|Manufacturer|Part Number|Datasheet|Notes
 16|1|S3|Momentary switch, 12mm||||
 17|1|VR1|10k slide potentiometer||||
 18|1|VR1|slide potentiometer knob||||
-19|1|VR2|10k potentiometer, linear|Bourns|PTV09A-4020F-B103||
+19|1|VR2|10k potentiometer, linear|Bourns|PTV09A-4020F-B103|[Data Sheet](https://www.bourns.com/docs/Product-Datasheets/PTV09.pdf)|
 <!--BOMROW-->
 
