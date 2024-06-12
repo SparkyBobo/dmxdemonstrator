@@ -1,6 +1,6 @@
 # DMX Demonstrator Control Pro  (DMX-CP*)
 
-![status](https://img.shields.io/badge/status-verified-brightgreen)
+![status](https://img.shields.io/badge/status-prototype-orange)
 
 ## Overview
 
@@ -16,6 +16,7 @@ For a complete list of parts, see:
 - [Dimmer Control Bill of materials](dimmer-control/dimmer-control.bom.md), [Dimmer Control Parts](dimmer-control/dimmer-control.parts.md)
 - [Clock Faceplate Bill of materials](clock-faceplate/clock-faceplate.bom.md), [Clock Faceplate Parts](clock-faceplate/clock-faceplate.parts.md)
 - [Dimmer Faceplate Bill of materials](dimmer-faceplate/dimmer-faceplate.bom.md), [Dimmer Faceplate Parts](dimmer-faceplate/dimmer-faceplate.parts.md)
+- [Transmitter Adapter Bill of materials](transmitter-adapter/transmitter-adapter.bom.md), [Transmitter Adapter Parts](transmitter-adapter/transmitter-adapter.parts.md)
 
 You can also buy some of the parts for the Control Pro online from a Wishlist:
 
@@ -32,6 +33,7 @@ You can order the PCBs from [OHS Park](https://oshpark.com/):
 - [Clock Faceplate: DMX-CPCF, Rev 1.3](https://oshpark.com/shared_projects/S9LARHyr)
 - [Dimmer Control: DMX-CPDB, Rev 1.3](https://oshpark.com/shared_projects/O76YiRT8)
 - [Dimmer Faceplate: DMX-CPDF, Rev 1.3](https://oshpark.com/shared_projects/bZqKigQF)
+- [Transmitter Adapter: DMX-CPAD, Rev 1.3](https://oshpark.com/shared_projects/xCkM6ON9)
 
 
 You can read more about ordering pcbs [here](../pcb.md).
@@ -117,19 +119,11 @@ I like the [Sparkfun rainbow LED Kit](https://www.sparkfun.com/products/12903) w
 
 To connect the controller to the transmitter, you'll need some cables and connectors. Ribbon cable makes a nice choice for this and you can find pre-made ribbon cable assemblies on Amazon and EBay easily. I've designed for a 16 pin cable. I recommend shrouded headers for connecting to PCBs and it ensures you don't plug the cable in backwards. Here are some suitable headers:
 
-- Header, horizontal: Würth Elektronik 61201621721, quantity 4:
+- Header, horizontal: Würth Elektronik 61201621721, quantity 5:
 
   - [Datasheet](https://www.we-online.com/components/products/datasheet/61201621721.pdf)
   - [Digikey 732-2099-ND](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61201621721/2060595)
   - [Mouser 710-61201621721](https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201621721?qs=ZtY9WdtwX56ShT0tAQh3qw%3D%3D)
-  - [Newark 19P1272](https://www.newark.com/wurth-elektronik/61201621721/wire-to-board-connector-right/dp/19P1272?ost=61201621721)
-
-- Header, vertical: Würth Elektronik 61201621621, quantity 1:
-
-  - [Datasheet](https://www.we-online.com/catalog/datasheet/61201621621.pdf)
-  - [Digikey 732-2095-ND](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61201621621/2060591)
-  - [Mouser 710-61201621621](https://www.mouser.com/ProductDetail/Wurth-Elektronik/61201621621?qs=ZtY9WdtwX55qFf4n3EFuaA%3D%3D)
-  - [Newark 19P1271](https://www.newark.com/wurth-elektronik/61201621621/connector-header-16pos-2row-2/dp/19P1271?ost=61201621621)
 
 - Cable, quantity 2:
 
@@ -158,6 +152,7 @@ The Control Pro has a few passive listed on the schematic and are included in th
 
 - Add copper pours to both faceplates
 - No changes to control boards.
+- Added transmitter adapter.
 
 ### Rev 1.2
 

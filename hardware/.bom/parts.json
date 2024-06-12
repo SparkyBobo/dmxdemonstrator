@@ -31,6 +31,21 @@
             ]
         },
         {
+            "id": "PCB_TX2_1_4",
+            "description" : "Transmitter IO PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-TX2, Rev 1.4",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-TX2, Rev 1.4",
+                    "link" : "https://oshpark.com/shared_projects/RWoki94h",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "PCB_RX1_1_4",
             "description" : "Receiver PCB",
             "mfg": "OHSPark",
@@ -136,6 +151,21 @@
             ]
         },
         {
+            "id": "PCB_CPAD_1_3",
+            "description" : "Control-Pro Adapter PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-CPAD, Rev 1.3",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-CPAD, Rev 1.3",
+                    "link" : "https://oshpark.com/shared_projects/xCkM6ON9",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "PCB_DCV_1_6",
             "description" : "Constant Voltage LED Driver PCB",
             "mfg": "OHSPark",
@@ -146,6 +176,36 @@
                     "vendor" : "OHSPark",
                     "vendorNumber" : "DMX-DCV, Rev 1.6",
                     "link" : "https://oshpark.com/shared_projects/vsJuLlDO",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_IO1_1_6",
+            "description" : "DMX-512 IO Module PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO1, Rev 1.6",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO1, Rev 1.6",
+                    "link" : "https://oshpark.com/shared_projects/F78SkVHp",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
+            "id": "PCB_IO1_1_7",
+            "description" : "DMX-512 IO Module PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO1, Rev 1.7",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO1, Rev 1.7",
+                    "link" : "https://oshpark.com/shared_projects/uaF9lrbr",
                     "quantity" : 3
                 }
             ]
@@ -246,6 +306,39 @@
             ]
         },
         {
+            "id": "H_1x2",
+            "description" : "2-pin header",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-00116",
+                    "link" : "https://www.sparkfun.com/products/116",
+                    "quantity" : 20
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "392",
+                    "link" : "https://www.adafruit.com/product/392",
+                    "quantity" : 180
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "200-TSW10207GS",
+                    "link" : "https://www.mouser.com/ProductDetail/Samtec/TSW-102-07-G-S?qs=iT52DjcXudsNPhlNCDp8vw%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "71Y9500",
+                    "link" : "https://www.newark.com/samtec/tsw-102-07-g-s/board-to-board-connector-unshrouded/dp/71Y9500?st=tsw-102-07-g-s",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "H_1x3_RA",
             "description" : "3-pin right-angle header",
             "mfg": "",
@@ -318,6 +411,48 @@
                     "link" : "https://www.adafruit.com/product/793",
                     "quantity" : 39
                 }
+            ]
+        },
+        {
+            "id": "JP_SHUNT",
+            "description" : "2-pin shunt",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-09044",
+                    "link" : "https://www.sparkfun.com/products/9044",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "3525",
+                    "link" : "https://www.adafruit.com/product/3525",
+                    "quantity" : 10
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "571-382811-6",
+                    "link" : "https://www.mouser.com/ProductDetail/TE-Connectivity/382811-6?qs=VKrXD49J9Ep1YEYh168mVQ%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "09H9320",
+                    "link" : "https://www.newark.com/amp-te-connectivity/1-382811-6/shunt-jumper-2way-2-54mm/dp/09H9320?st=2%20pin%20shunt",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "JP_SOLDER",
+            "description" : "solder jumper",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
             ]
         },
         {
@@ -458,6 +593,48 @@
                     "vendorNumber" : "3366",
                     "link" : "https://www.adafruit.com/product/3366",
                     "quantity" : 15
+                }
+            ]
+        },
+        {
+            "id": "J_XLR5M",
+            "description" : "XLR 5 pin, male",
+            "mfg": "Neutrik",
+            "mfgNumber" : "NC5MAH",
+            "datasheet" : "https://www.neutrik.com/en/product/nc5mah.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "568-NC5MAH",
+                    "link" : "https://www.mouser.com/ProductDetail/Neutrik/NC5MAH/?qs=43pPWqpsSNtpdAMzqMXlkw%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "38K6012",
+                    "link" : "https://www.newark.com/neutrik/nc5mah/xlr-audio-connector-plug-5-cable/dp/38K6012?st=nc5mah",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "J_XLR5F",
+            "description" : "XLR 5 pin, female",
+            "mfg": "Neutrik",
+            "mfgNumber" : "NC5FAH",
+            "datasheet" : "https://www.neutrik.com/en/product/nc5fah.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "568-NC5FAH",
+                    "link" : "https://www.mouser.com/ProductDetail/Neutrik/NC5FAH/?qs=JfNPhaIww3Jo8umm7Mfi2w%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "94C1524",
+                    "link" : "https://www.newark.com/neutrik/nc5fah/connector-xlr-receptacle-5-position/dp/94C1524?ost=nc5fah",
+                    "quantity" : 1
                 }
             ]
         },
@@ -605,6 +782,27 @@
             ]
         },
         {
+            "id": "R_120",
+            "description" : "120 ohm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-CFR-25JT-52-120R",
+                    "link" : "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-120R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40ae6q2awCfJoc%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "38K0333",
+                    "link" : "https://www.newark.com/multicomp-pro/mcf-0-25w-120r/carbon-film-resistor-120-ohm-250mw/dp/38K0333",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "R_392",
             "description" : "392 ohm 1% resistor",
             "mfg": "",
@@ -621,6 +819,33 @@
                     "vendor" : "Mouser",
                     "vendorNumber" : "603-MFR-25FBF52-392R",
                     "link" : "https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-392R?qs=oAGoVhmvjhy6pvrooMNCwg%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_470",
+            "description" : "470 ohm",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "2781",
+                    "link" : "https://www.adafruit.com/product/2781",
+                    "quantity" : 25
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "603-CFR-25JT-52-470R",
+                    "link" : "https://www.mouser.com/ProductDetail/Yageo/CFR-25JT-52-470R/?qs=sGAEpiMZZMtlubZbdhIBIFoOGUvNp40adtovOrQ4BzA%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "38K0375",
+                    "link" : "https://www.newark.com/multicomp-pro/mcf-0-25w-470r/carbon-film-resistor-470-ohm-250mw/dp/38K0375",
                     "quantity" : 1
                 }
             ]
@@ -838,6 +1063,75 @@
                     "vendor" : "Mouser",
                     "vendorNumber" : "512-FQP30N06L",
                     "link" : "https://www.mouser.com/ProductDetail/onsemi-Fairchild/FQP30N06L?qs=%252Beu4QTTVkDqugBwFplJ%252Bug%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_0505",
+            "description" : "Isolated 1W DC-DC Converters",
+            "mfg": "Recom Power",
+            "mfgNumber" : "RFM-0505S",
+            "datasheet" : "https://recom-power.com/pdf/Econoline/RFM.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "919-RFM-0505S",
+                    "link" : "https://mou.sr/3UqOlN3",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "54AC6727",
+                    "link" : "https://www.newark.com/recom-power/rfm-0505s/dc-dc-converter-5v-0-2a/dp/54AC6727",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_485",
+            "description" : "RS-485/RS-422 Transceivers",
+            "mfg": "Analog Devices",
+            "mfgNumber" : "MAX485E",
+            "datasheet" : "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX1487E-MAX491E.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "700-MAX485CPA",
+                    "link" : "https://www.mouser.com/ProductDetail/Analog-Devices-Maxim-Integrated/MAX485CPA%2b?qs=1THa7WoU59FcxPgOoQv70A%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "81Y9485",
+                    "link" : "https://www.newark.com/analog-devices/max485cpa/rs422-rs485-transceiver-2-5mbps/dp/81Y9485?ost=max485cpa",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_6N137",
+            "description" : "High Speed Optocouplers",
+            "mfg": "Lite-On",
+            "mfgNumber" : "6N137",
+            "datasheet" : "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/6N137%20Series.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "160-1791-ND",
+                    "link" : "https://www.digikey.com//product-detail/en/lite-on-inc/6N137/160-1791-ND/1969175",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "782-6N137",
+                    "link" : "https://www.mouser.com/ProductDetail/Vishay-Semiconductors/6N137/?qs=xCMk%252BIHWTZMrQz4FyDXhMg%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "52M1895",
+                    "link" : "https://www.newark.com/vishay/6n137/optocoupler-transistor-5300vrms/dp/52M1895?st=6n137",
                     "quantity" : 1
                 }
             ]
@@ -1251,6 +1545,39 @@
                     "vendorNumber" : "1009",
                     "link" : "https://www.adafruit.com/product/1009",
                     "quantity" : 15
+                }
+            ]
+        },
+        {
+            "id": "SW_SLIDE_SM",
+            "description" : "Slide switch",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-00102",
+                    "link" : "https://www.sparkfun.com/products/102",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "805",
+                    "link" : "https://www.adafruit.com/product/805",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "612-EG1218",
+                    "link" : "https://www.mouser.com/ProductDetail/E-Switch/EG1218?qs=xDsBkp9LkocT0c8K%252B5e%2FgA%3D%3D",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Newark",
+                    "vendorNumber" : "15N7301",
+                    "link" : "https://www.newark.com/e-switch/eg1218/slide-switch-spdt-200ma/dp/15N7301?st=eg1218",
+                    "quantity" : 1
                 }
             ]
         },

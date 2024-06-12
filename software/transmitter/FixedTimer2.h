@@ -65,11 +65,11 @@ class FixedTimer2 {
 #if defined(__AVR_ATmega32U4__)
         TCNT3 = 0;                    // Reset count.
         OCR3A = clockCount;           // Set max count.
-        TCCR3B |= clockSelect;        // Set clock source.
+        TCCR3B = clockSelect;         // Set clock source.
 #else
         TCNT2 = 0;                    // Reset count.
         OCR2A = clockCount;           // Set max count.
-        TCCR2B |= clockSelect;        // Set clock source.
+        TCCR2B = clockSelect;         // Set clock source.
 #endif
     }
 

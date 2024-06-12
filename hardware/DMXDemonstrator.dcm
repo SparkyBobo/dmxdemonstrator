@@ -23,6 +23,18 @@ D Power Jack Connector This is the standard 5.5mm barrel jack for power.<br>The 
 K PROD_ID:PRT-10811
 $ENDCMP
 #
+$CMP RFB-0505S
+D 200mA Isolated 1W DC/DC Converter Module, 5V Input Voltage, 5V Output Voltage, SIP7
+K Recom isolated isolation dc-dc converter
+F https://recom-power.com/pdf/Econoline/RFB.pdf
+$ENDCMP
+#
+$CMP RFM-0505S
+D 200mA Isolated 1W DC/DC Converter Module, 5V Input Voltage, 5V Output Voltage, SIP4
+K Recom isolated isolation dc-dc converter
+F https://recom-power.com/pdf/Econoline/RFM.pdf
+$ENDCMP
+#
 $CMP TL1431
 D IC VREF SHUNT ADJ TO92-3
 F https://www.ti.com/lit/gpn/TL1431
@@ -38,6 +50,12 @@ $CMP TLV2774CN
 D Quad Rail-to-Rail Operational Amplifiers, DIP-8/SOIC-8/TSSOP-8/VSSOP-8
 K quad opamp
 F https://www.ti.com/lit/gpn/tlv2771
+$ENDCMP
+#
+$CMP XLR-3-5
+D XLR Connector, Male or Female, 5 Pins
+K xlr connector
+F  ~
 $ENDCMP
 #
 #End Doc Library
