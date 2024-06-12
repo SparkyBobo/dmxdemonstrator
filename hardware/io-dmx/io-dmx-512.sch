@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - DMX-512 IO Module (DMX-IO1)"
-Date "2023-12-19"
-Rev "1.6"
+Date "2024-06-11"
+Rev "1.7"
 Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"

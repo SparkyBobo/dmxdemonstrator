@@ -71,7 +71,7 @@ class AdjustableTimer1 {
         Stop();
         TCNT1 = 0;                   // Reset count.
         OCR1A = clockCount;          // Set max count.
-        TCCR1B |= clockSelect;       // Set clock source.
+        TCCR1B = clockSelect;        // Set clock source.
     }
 
     void Stop() __attribute__((always_inline)) {

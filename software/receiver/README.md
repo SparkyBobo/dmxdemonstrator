@@ -2,7 +2,7 @@
 
 ## Overview
 
-The receiver software is an Arduino sketch design for use with the both the DMX-RX1, the standard receiver.
+The receiver software is an Arduino sketch design for use with the the DMX-RX1, the standard receiver.
 
 ## Compatibility
 
@@ -16,9 +16,14 @@ The receiver software is an Arduino sketch design for use with the both the DMX-
 
 ## Version History
 
+### Rev 1.5
+
+- Added io-dmx module support
+
 ### Rev 1.4
 
 - Added io-analog module support
+- Changes to work with demo software
 
 ### Rev 1.3
 

@@ -150,11 +150,15 @@ You can use the DMX-IO1 without isolation by leaving out these parts (saving abo
 
 You can order the PCBs from [OHS Park](https://oshpark.com/):
 
-- [DMX-IO1, Rev 1.6](https://oshpark.com/shared_projects/F78SkVHp)
+- [DMX-IO1, Rev 1.7](https://oshpark.com/shared_projects/uaF9lrbr)
 
 You can read more about ordering pcbs [here](..\pcb.md).
 
 ## Version History
+
+### Rev 1.7
+
+- Fix pinout of U1
 
 ### Rev 1.6
 

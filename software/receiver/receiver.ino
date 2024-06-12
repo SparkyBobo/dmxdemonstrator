@@ -21,17 +21,9 @@
 /**
   * About DMX Demonstrator Receiver
   *
-  * This software supports the Arduio-based DMX Demonstrator Receiver
-  * running any of the supported hardware options. All output options
-  * can be used at the same time.
+  * The receiver software is an Arduino sketch design for use with the
+  * the DMX-RX1, the standard receiver.
   *
-  * When using the DMX output option, there may be a conflict with pins
-  * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
-  * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
-  *
-  * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
-  * to learn more about the serial port boards and options, see the README
-  * at https://github.com/mathertel/DMXSerial/blob/master/README.md
   */
 #define _VERSION_ "1.5"
 
@@ -41,18 +33,29 @@
 #include "PinChange.h"
 
 /**
- * Include DMX Serial library.
- * To make DMX work, you need an Arduino with two serial ports
- * such as the Leonardo. To include DMX support, uncomment
- * line: #include <DMXSerial.h>
- * To have the DMX-RX1 re-send the data it receives to DMX512,
- * uncomment line: DMXMode dmxMode = DMXController;
- * To have the DMX-RX1 receieve data via DMX512, uncomment
- * line: DMXMode dmxMode = DMXReceiver;
+ * To make DMX work, you need an Arduino with two serial ports such as the Leonardo.
+ * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
+ * This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
+ * 
+ * When using the DMX output option, there may be a conflict with pins
+ * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
+ * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
+ * See: https://www.arduino.cc/reference/en/language/functions/communication/serial/
+ *    On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
+ *    Connecting anything to these pins can interfere with that communication, including causing failed uploads
+ *    to the board.
+ * Hence, DMX512 is not supported on Uno, Nano, and Mini..
+  * To enable DMX512 support, uncomment line:
+ *     #include "DMX512.h";
+ * To have the DMX-RX1 re-send the data it receives to DMX512, uncomment line:
+ *     DMXMode dmxMode = DMXController;
+ * To have the DMX-RX1 receieve data via DMX512, uncomment line:
+ *     DMXMode dmxMode = DMXReceiver;
  * To set the starting address to read/write to DMX512, set
- * dmxStartChannel to the starting address (1-based).
+ * dmxStartChannel to the starting address (1-based), uncomment line:
+ *     int dmxStartChannel = 1;
  */
-#include <DMXSerial.h>
+#include "DMX512.h"
 DMXMode dmxMode = DMXController;
 //DMXMode dmxMode = DMXReceiver;
 int dmxStartChannel = 1;
@@ -69,8 +72,8 @@ int dimmerLevelOut3LedPin = 6;    // The dimmer output 3 led.
 int dimmerLevelOut2LedPin = 10;   // The dimmer output 2 led.
 int dimmerLevelOut1LedPin = 11;   // The dimmer output 1 led.
 
-int dataInPin = 12;   // The data input from the transmitter.
-int clockInPin = 13;  // The clock input from the transmitter.
+int dataInPin = 12;               // The data input from the transmitter.
+int clockInPin = 13;              // The clock input from the transmitter.
 
 int shiftRegisterClearPin = 7;    // Clear for the IO shift register.
 int shiftRegisterClockPin = 4;    // Clock for the IO shift register.
@@ -227,9 +230,9 @@ void setup() {
   PinChange.Start();
 
   // Enable DMX as a transmitter for forwarding
-#ifdef DmxSerial_h
-  DMXSerial.init(dmxMode);
-#endif  // DmxSerial_h
+#ifdef DMX512_H
+  Dmx512.init(dmxMode);
+#endif  // DMX512_H
 
   // Complete startup message.
   SendProgmemMessage(readyMessage);
@@ -269,26 +272,33 @@ void loop() {
   }
 
   // Support reading DMX512
-#ifdef DmxSerial_h
+#ifdef DMX512_H
   if (dmxMode == DMXReceiver) {
     // Calculate how long no data was received
-    unsigned long lastPacket = DMXSerial.noDataSince();
+    unsigned long lastPacket = Dmx512.noDataSince();
     if (lastPacket < 5000) {
       // read recent DMX values
-      dimmerLevels[0] = DMXSerial.read(dmxStartChannel);
-      dimmerLevels[1] = DMXSerial.read(dmxStartChannel + 1);
-      dimmerLevels[2] = DMXSerial.read(dmxStartChannel + 2);
-      dimmerLevels[3] = DMXSerial.read(dmxStartChannel + 3);
-
+      dimmerLevels[0] = Dmx512.read(dmxStartChannel);
+      dimmerLevels[1] = Dmx512.read(dmxStartChannel + 1);
+      dimmerLevels[2] = Dmx512.read(dmxStartChannel + 2);
+      dimmerLevels[3] = Dmx512.read(dmxStartChannel + 3);
+      dataInBit = !dataInBit;
+      clockInBit = !clockInBit;
+      startCodeMatch = 1;
+      frameState = frameStateBreak;
     } else {
       // Zero out the levels if we lose DMX512 signal
       dimmerLevels[0] = 0;
       dimmerLevels[1] = 0;
       dimmerLevels[2] = 0;
       dimmerLevels[3] = 0;
+      dataInBit = 0;
+      clockInBit = 0;
+      startCodeMatch = 0;
+      frameState = frameStateError;
     }
   }
-#endif  // DmxSerial_h
+#endif  // DMX512_H
 }
 
 /**
@@ -416,13 +426,13 @@ void OnClockPulse() {
           // Store the dimmer data if the counter is less than the max dimmer.
           if (dimmerCounter >= 0 && dimmerCounter < maxDimmerCount) {
             dimmerLevels[dimmerCounter] = receivedData;
-#ifdef DmxSerial_h
+#ifdef DMX512_H
             if (dmxMode == DMXController) {
-              DMXSerial.write(dmxStartChannel + dimmerCounter, receivedData);
+              Dmx512.write(dmxStartChannel + dimmerCounter, receivedData);
               sprintf(serialPortMessage, "%d=%d\r\n", dmxStartChannel + dimmerCounter, receivedData);
               Serial.print(serialPortMessage);
             }
-#endif  // DmxSerial_h
+#endif  // DMX512_H
           }
 
           // Wait for the mark after data.
@@ -540,8 +550,6 @@ void SendDimmerValue(int channel, int value) {
   
   // Send the dimmer data.
   shiftOut(shiftRegisterDataPin, shiftRegisterClockPin, LSBFIRST, value);
-  sprintf(serialPortMessage, "shifted %d to %d\n", value, channel);
-  Serial.print(serialPortMessage);
   
   // Write dimmer data to the DAC. Width of the write pulse
   // in the TLC7524 datasheet is 40ns, which is about

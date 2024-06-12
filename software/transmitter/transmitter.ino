@@ -20,17 +20,11 @@
 /**
  * About DMX Demonstrator Transmitter
  *
- * This software supports the Arduio-based DMX Demonstrator Transmitter
- * running any of the supported hardware options.
+ * The transmitter software is an Arduino sketch design for use with the both the
+ * DMX-TX1, the standard transmitter, or DMX-CPAD, the control-pro adapter. The
+ * transmitter software automatically detects whether DMX-TX1 or DMX-CPAD is connected.
  *
- * When using the DMX output option, there may be a conflict with pins
- * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
- * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
- *
- * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
- * to learn more about the serial port boards and options, see the README
- * at https://github.com/mathertel/DMXSerial/blob/master/README.md
- */
+*/
 #define _VERSION_ "1.5"
 
 /**
@@ -55,43 +49,54 @@
 #include "FixedTimer2.h"
 
 /**
- * Include DMX Serial library.
- * To make DMX work, you need an Arduino with two serial ports
- * such as the Leonardo. To include DMX support, uncomment
- * line: #include <DMXSerial.h>
- * To set the starting address to write to DMX512, set
- * dmxStartChannel to the starting address (1-based).
+ * To make DMX work, you need an Arduino with two serial ports such as the Leonardo.
+ * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
+ * This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
+*
+ * When using the DMX output option, there may be a conflict with pins
+ * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
+ * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
+ * See: https://www.arduino.cc/reference/en/language/functions/communication/serial/
+ *    On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
+ *    Connecting anything to these pins can interfere with that communication, including causing failed uploads
+ *    to the board.
+ * Hence, DMX512 is not supported on Uno, Nano, and Mini..
+ * To enable DMX512 support, uncomment line:
+ *     #include "DMX512Send.h";
+ * To set the starting address to read/write to DMX512, set
+ * dmxStartChannel to the starting address (1-based), uncomment line:
+ *     int dmxStartChannel = 1;
  */
-#include <DMXSerial.h>
+#include "DMX512.h"
 int dmxStartChannel = 1;
 
 /**
  * Pin definitions.
  */
 int currentDimmerLevelInputPin = A0;      // The single dimmer level control for the DMX-TX1.
-int currentDimmerLevel1InputPin = A0;     // The dimmer 1 level control for the DMX-TX2/DMX-CPB.
-int currentDimmerLevel2InputPin = A1;     // The dimmer 2 level control for the DMX-TX2/DMX-CPB.
+int currentDimmerLevel1InputPin = A0;     // The dimmer 1 level control for the DMX-CP*.
+int currentDimmerLevel2InputPin = A1;     // The dimmer 2 level control for the DMX-CP*.
 int currentSelectedDimmerButtonPin = A1;  // The dimmer select button for the DMX-TX1.
-int currentDimmerLevel3InputPin = A2;     // The dimmer 3 level control for the DMX-TX2/DMX-CPB.
+int currentDimmerLevel3InputPin = A2;     // The dimmer 3 level control for the DMX-CP*.
 int clockModeButtonPin = A2;              // The clock mode button for the DMX-TX1.
-int currentDimmerLevel4InputPin = A3;     // The dimmer 4 level control for the DMX-TX2/DMX-CPB.
-int clockSpeedInputPin = A4;              // The clock speed control for both the DMX-TX1 and DMX-TX2/DMX-CPB.
+int currentDimmerLevel4InputPin = A3;     // The dimmer 4 level control for the DMX-CP*.
+int clockSpeedInputPin = A4;              // The clock speed control for both the DMX-TX1 and DMX-CP*.
 int clockStepButtonPin = A5;              // The clock step button for the DMX-TX1.
 
-int dmxReserved0Pin = 0;               // Reserved for DMX IO Module/shield.
-int dmxReserved1Pin = 1;               // Reserved for DMX IO Module/shield.
-int dataLedPin = 2;                    // The data led output for both the DMX-TX1 and DMX-TX2/DMX-CPB.
-int clockLedPin = 3;                   // The clock led output for both the DMX-TX1 and DMX-TX2/DMX-CPB.
-int currentSelectedDimmer4LedPin = 4;  // The dimmer select 4 led output for the DMX-TX1.
-int currentSelectedDimmer3LedPin = 5;  // The dimmer select 3 led output for the DMX-TX1.
-int currentSelectedDimmer2LedPin = 6;  // The dimmer select 2 led output for the DMX-TX1.
-int currentSelectedDimmer1LedPin = 7;  // The dimmer select 1 led output for the DMX-TX1.
-int clockFastIOPin = 8;                // The clock speed fast out for the DMX-TX1, in for the DMX-TX2/DMX-CPB.
-int clockSlowIOPin = 9;                // The clock speed slow out for the DMX-TX1, in for the DMX-TX2/DMX-CPB.
-int hardwareDetectOutPin = 10;         // Output to indicate which transmitter board is connected, LOW for DMX-TX2.
-int hardwareDetectInPin = 11;          // Input to determine which transmitter board is connected, LOW for DMX-TX2.
-int dataOutPin = 12;                   // The data output to the receiver.
-int clockOutPin = 13;                  // The clock output to the receiver.
+int dmxRxPin = 0;                         // DMX receiver pin (UART0).
+int dmxTxPin = 1;                         // DMX transmit pin (UART0).
+int dataLedPin = 2;                       // The data led output for both the DMX-TX1 and DMX-CP*.
+int clockLedPin = 3;                      // The clock led output for both the DMX-TX1 and DMX-CP*.
+int currentSelectedDimmer4LedPin = 4;     // The dimmer select 4 led output for the DMX-TX1.
+int currentSelectedDimmer3LedPin = 5;     // The dimmer select 3 led output for the DMX-TX1.
+int currentSelectedDimmer2LedPin = 6;     // The dimmer select 2 led output for the DMX-TX1.
+int currentSelectedDimmer1LedPin = 7;     // The dimmer select 1 led output for the DMX-TX1.
+int clockFastIOPin = 8;                   // The clock speed fast out for the DMX-TX1, in for the DMX-CP*.
+int clockSlowIOPin = 9;                   // The clock speed slow out for the DMX-TX1, in for the DMX-CP*.
+int hardwareDetectOutPin = 10;            // Output to indicate which transmitter board is connected, LOW for DMX-CP*.
+int hardwareDetectInPin = 11;             // Input to determine which transmitter board is connected, LOW for DMX-CP*.
+int dataOutPin = 12;                      // The data output to the receiver.
+int clockOutPin = 13;                     // The clock output to the receiver.
 
 /**
  * Switches.
@@ -109,8 +114,8 @@ int usingControlPro = 0;
 
 const char hardwareDetectFormat[] PROGMEM = "Hardware Detection: found %s\r\n";
 const char hardwareDetectTX1[] PROGMEM = "DMX-TX1";
-const char hardwareDetectTX2[] PROGMEM = "DMX-TX2";
-const char* const hardwareDetectMessages[] PROGMEM = { hardwareDetectTX1, hardwareDetectTX2, };
+const char hardwareDetectCP[] PROGMEM = "DMX-CP*";
+const char* const hardwareDetectMessages[] PROGMEM = { hardwareDetectTX1, hardwareDetectCP, };
 
 /**
  * Analog capture data.
@@ -376,7 +381,7 @@ void setup() {
   pinMode(clockOutPin, OUTPUT);
 
   // For the DMX-TX1, these are LED outputs.
-  // For the DMX-TX2/DMX-CPB, these are inputs.
+  // For the DMX-CP*, these are inputs.
   if (!usingControlPro) {
     pinMode(clockSlowIOPin, OUTPUT);
     pinMode(clockFastIOPin, OUTPUT);
@@ -390,11 +395,6 @@ void setup() {
     clockSlowButton.begin();
     clockFastButton.begin();
   }
-
-  // Enable DMX as a transmitter for forwarding
-#ifdef DmxSerial_h
-  DMXSerial.init(DMXController);
-#endif  // DmxSerial_h
 
   // Configure timers.
   Timer1.Initialize();
@@ -427,11 +427,16 @@ void setup() {
   // Start the timers
   Timer2.Start();
 
-  // Complete startup message.
-  SendProgmemMessage(readyMessage);
-
   // Enable all interrupts.
   interrupts();
+
+// Enable DMX as a transmitter for sending.
+#ifdef DMX512_H
+  Dmx512.init(DMXController);
+#endif  // DMX512_H
+
+  // Complete startup message.
+  SendProgmemMessage(readyMessage);
 }
 
 /**
@@ -464,7 +469,7 @@ void loop() {
     }
   }
 
-  // Look for clock fast and slow presses on DMX-TX2/DMX-CPB.
+  // Look for clock fast and slow presses on DMX-CP*.
   else if (usingControlPro) {
 
     // If the clock slow mode was pressed, switch to slow mode.
@@ -579,12 +584,12 @@ void AdvanceToNextFrame() {
   if (dimmerTransmit >= 0) {
     int dimmerBit = frameSteps[currentFrameStep].dimmerBit;
     dataOutBit = (bitRead(currentDimmerLevel, dimmerBit) > 0);
-#ifdef DmxSerial_h
+#ifdef DMX512_H
     // When trasmitting the last bit, send to DMX512
     if (dimmerBit == 7) {
-      DMXSerial.write(dmxStartChannel + dimmerTransmit, currentDimmerLevel);
+      Dmx512.write(dmxStartChannel + dimmerTransmit, currentDimmerLevel);
     }
-#endif  // DmxSerial_h
+#endif  // DMX512_H
   }
 
   // Get the fixed data for the frame.
@@ -618,7 +623,7 @@ void StartAnalogCapture(int channel) {
                              ? clockSpeedInputPin
                              : currentDimmerLevelInputPin;
 
-  // The DMX-TX2/DMX-CPB has 4 different dimmer levels.
+  // The DMX-CP* has 4 different dimmer levels.
   if (usingControlPro) {
     switch (channel) {
       case 0:
@@ -672,14 +677,14 @@ int ReadAnalogCapture(int channel) {
   if (channel == 0) {
     clockValue = analogLevel;
   } else {
-    
+
     // Allow value to go to zero
     // 50 of 1024 is not too much.
     if (analogLevel < 50) {
       analogLevel = 0;
     }
-    
-    // The DMX-TX2/DMX-CPB has 4 different dimmer levels so read/store using the capture channel.
+
+    // The DMX-CP* has 4 different dimmer levels so read/store using the capture channel.
     // The DMX-TX1 only has a single dimmer level so read/store using the selected channel.
     int dimmerChannel = usingControlPro
                           ? channel - 1
@@ -949,7 +954,7 @@ int HandleReceivedChar(char receivedChar) {
     case 'q':
       compactStatus = LOW;
       verboseStatus = LOW;
-      break;      
+      break;
 
     case 'i':
       SendProgmemStringFormat(versionFormat, _VERSION_);

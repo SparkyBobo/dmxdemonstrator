@@ -181,6 +181,21 @@
             ]
         },
         {
+            "id": "PCB_IO1_1_7",
+            "description" : "DMX-512 IO Module PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-IO1, Rev 1.7",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-IO1, Rev 1.7",
+                    "link" : "https://oshpark.com/shared_projects/uaF9lrbr",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "A_ARDUINO",
             "description" : "Arduino UNO/Leonardo",
             "mfg": "",
