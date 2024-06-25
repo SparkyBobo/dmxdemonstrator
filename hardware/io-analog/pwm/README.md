@@ -1,6 +1,6 @@
 # DMX Demonstrator Analog PWM Module (DMX-IO4)
 
-- ![status](https://img.shields.io/badge/status-prototype-orange)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
@@ -38,7 +38,7 @@ Output Voltage|R4|R5|Input Voltage
 15V|392 1%|43.2k 1%|20v-24v
 24V|392 1%|71.5k 1%|28v-30v
 
-R4 uses the same values in all configuration to reduce the number of parts required. There is nothing terrible special about this value, they just happen to work for a wide range of output voltages and is the value mention in the LM317 data sheet. If you want to create a custom voltage range, use the following formulas:
+R4 uses the same values in all configuration to reduce the number of parts required. There is nothing terrible special about this value, it just happen to work for a wide range of output voltages and is the value mention in the LM317 data sheet. If you want to create a custom voltage range, use the following formulas:
 
 Vo = 1.25v + (1 + (R5 / R4))
 Vi = Vo + 2v or 3v (for higher current, use 3v)
