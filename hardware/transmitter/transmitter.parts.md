@@ -5,7 +5,7 @@
 
 **Filename:** E:\OpenSource\dmxdemonstrator\hardware\transmitter\transmitter.sch
 
-**Date Modified:** 3/31/2024 7:18:02 PM
+**Date Modified:** 5/25/2024 1:06:09 AM
 
 **Kicad Version:** Eeschema (5.1.12)-1
 
@@ -35,7 +35,7 @@ R1, R2, R3, R4, R5, R6, R7, R8|330 ohm|Sparkfun|PRT-14490|1|[Order](https://www.
 S1, S2, S3|Momentary switch, 12mm|Sparkfun|COM-10302|1|[Order](https://www.sparkfun.com/products/10302)|pack of 12, 9 not used
 VR1|10k slide potentiometer|Sparkfun|COM-11620|1|[Order](https://www.sparkfun.com/products/11620)|slide knob needed
 VR1|slide potentiometer knob|Sparkfun|COM-14889|1|[Order](https://www.sparkfun.com/products/14889)|
-VR2|10k potentiometer, linear|Sparkfun|COM-9288|1|[Order](https://www.sparkfun.com/products/9288)|
+VR2|10k potentiometer, linear|Sparkfun|COM-9288|1|[Order](https://www.sparkfun.com/products/9288)|knob needed
 <!--PARTROW-->
 
 ### Adafruit
@@ -50,6 +50,7 @@ D3, D4, D5, D6|Multicolor LED Kit, 5mm|Adafruit|4203|1|[Order](https://www.adafr
 J1|3-pin right-angle header|Adafruit|1540|1|[Order](https://www.adafruit.com/product/1540)|pack of 120, 119 not used
 R1, R2, R3, R4, R5, R6, R7, R8|330 ohm|Adafruit|2781|1|[Order](https://www.adafruit.com/product/2781)|use 470 ohm instead, pack of 25, 17 not used
 S1, S2, S3|Momentary switch, 12mm|Adafruit|1009|1|[Order](https://www.adafruit.com/product/1009)|pack of 15, 12 not used
+VR1|10k slide potentiometer|Adafruit|4271|1|[Order](https://www.adafruit.com/product/4271)|
 VR2|10k potentiometer, linear|Adafruit|4133|1|[Order](https://www.adafruit.com/product/4133)|
 <!--PARTROW-->
 
@@ -64,14 +65,14 @@ A1|Arduino UNO/Leonardo|Arduino|Leonardo|1|[Order](https://store-usa.arduino.cc/
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
-VR2|10k potentiometer, linear|Digikey|PTV09A-4020F-B103-ND|1|[Order](https://www.digikey.com/products/en?keywords=PTV09A-4020F-B103)|
+VR2|10k potentiometer, linear|Digikey|PTV09A-4020F-B103-ND|1|[Order](https://www.digikey.com/products/en?keywords=PTV09A-4020F-B103)|knob needed
 <!--PARTROW-->
 
 ### Mouser
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
-VR2|10k potentiometer, linear|Mouser|652-PTV09A-4020FB103|1|[Order](https://www.mouser.com/ProductDetail/Bourns/PTV09A-4020F-B103?qs=Qzws7J6gxqx9VaKCiVoniw%3D%3D)|
+VR2|10k potentiometer, linear|Mouser|652-PTV09A-4020FB103|1|[Order](https://www.mouser.com/ProductDetail/Bourns/PTV09A-4020F-B103?qs=Qzws7J6gxqx9VaKCiVoniw%3D%3D)|knob needed
 <!--PARTROW-->
 <!--VENDORLIST-->
 

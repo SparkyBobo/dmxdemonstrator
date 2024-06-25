@@ -1077,6 +1077,12 @@
                     "link" : "https://www.sparkfun.com/products/11620",
                     "quantity" : 1,
                     "notes" : "slide knob needed"
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "4271",
+                    "link" : "https://www.adafruit.com/product/4271",
+                    "quantity" : 1
                 }
             ]
         },
@@ -1157,8 +1163,7 @@
                     "vendor" : "Adafruit",
                     "vendorNumber" : "4133",
                     "link" : "https://www.adafruit.com/product/4133",
-                    "quantity" : 1,
-                    "notes" : "knob included"
+                    "quantity" : 1
                 },
                 {
                     "vendor" : "Digikey",
