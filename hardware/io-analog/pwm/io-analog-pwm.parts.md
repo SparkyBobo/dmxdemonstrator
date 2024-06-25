@@ -5,11 +5,11 @@
 
 **Filename:** E:\OpenSource\dmxdemonstrator\hardware\io-analog\pwm\io-analog-pwm.sch
 
-**Date Modified:** 4/11/2024 8:56:17 PM
+**Date Modified:** 4/13/2024 8:04:18 PM
 
 **Kicad Version:** Eeschema (5.1.12)-1
 
-**Component Count:** 25
+**Component Count:** 28
 
 ## Parts
 
@@ -18,7 +18,7 @@
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
-PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.5|1|[Order]()|pack of 3, 2 not used
+PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.5|1|[Order](https://oshpark.com/shared_projects/pHUTiBM3)|pack of 3, 2 not used
 <!--PARTROW-->
 
 ### Sparkfun
@@ -30,7 +30,7 @@ C6, C7|10uF|Sparkfun|COM-00523|2|[Order](https://www.sparkfun.com/products/523)|
 D1|Schottky Diode, 40V 1A|Sparkfun|COM-10926|1|[Order](https://www.sparkfun.com/products/10926)|
 J1|0.1 Female header, stacking|Sparkfun|PRT-09279|1|[Order](https://www.sparkfun.com/products/9279)|
 R1|330 ohm|Sparkfun|PRT-14490|1|[Order](https://www.sparkfun.com/products/14490)|pack of 20, 19 not used
-R2, R3|10k ohm|Sparkfun|PRT-14491|1|[Order](https://www.sparkfun.com/products/14491)|pack of 20, 18 not used
+R2, R3, R6, R7, R8, R9|10k ohm|Sparkfun|PRT-14491|1|[Order](https://www.sparkfun.com/products/14491)|pack of 20, 14 not used
 U1|555 Precision Timer|Sparkfun|COM-16473|1|[Order](https://www.sparkfun.com/products/16473)|
 U3|Linear Regulator, Adjustable, 1.5A TO220AB|Sparkfun|COM-00527|1|[Order](https://www.sparkfun.com/products/527)|
 <!--PARTROW-->
@@ -44,7 +44,7 @@ C6, C7|10uF|Adafruit|2195|1|[Order](https://www.adafruit.com/product/2195)|pack 
 D1|Schottky Diode, 40V 1A|Adafruit|755|1|[Order](https://www.adafruit.com/product/755)|pack of 10, 9 not used
 J1|0.1 Female header, stacking|Adafruit|3366|1|[Order](https://www.adafruit.com/product/3366)|pack of 15, 14 not used
 R1|330 ohm|Adafruit|2781|1|[Order](https://www.adafruit.com/product/2781)|use 470 ohm instead, pack of 25, 24 not used
-R2, R3|10k ohm|Adafruit|2784|1|[Order](https://www.adafruit.com/product/2784)|pack of 25, 23 not used
+R2, R3, R6, R7, R8, R9|10k ohm|Adafruit|2784|1|[Order](https://www.adafruit.com/product/2784)|pack of 25, 19 not used
 U1|555 Precision Timer|Adafruit|5222|1|[Order](https://www.adafruit.com/product/5222)|
 <!--PARTROW-->
 
@@ -62,7 +62,6 @@ J4|Screw Terminal, 2 pin, 3.81 pitch|Digikey|277-1206-ND|1|[Order](https://www.d
 J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Digikey|277-1161-ND|1|[Order](https://www.digikey.com/en/products/detail/phoenix-contact/1803578/260529)|
 R4|392 ohm 1% resistor|Digikey|392XBK-ND|1|[Order](https://www.digikey.com/en/products/detail/yageo/MFR-25FBF52-392R/12919)|
 R5|2.74k 1% resistor|Digikey|13-MFR-25FRF52-2K74TR-ND|1|[Order](https://www.digikey.com/en/products/detail/yageo/MFR-25FRF52-2K74/14933)|
-RN1|10k ohm network|Digikey|4605X-101-103LF-ND|1|[Order](https://www.digikey.com/en/products/detail/bourns-inc/4605X-101-103LF/3593670)|
 RV1|10k trimmer pot|Digikey|3299P-103LF-ND|1|[Order](https://www.digikey.com/en/products/detail/bourns-inc/3299P-1-103LF/1088121)|
 U1|555 Precision Timer|Digikey|296-NE555P-ND|1|[Order](https://www.digikey.com/en/products/detail/texas-instruments/NE555P/277057)|
 U2|Quad Differential Comparator|Digikey|296-1393-5-ND|1|[Order](https://www.digikey.com/en/products/detail/texas-instruments/LM339N/277628)|
@@ -83,7 +82,6 @@ J4|Screw Terminal, 2 pin, 3.81 pitch|Mouser|651-1803277|1|[Order](https://www.mo
 J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Mouser|651-1803578|1|[Order](https://www.mouser.com/ProductDetail/Phoenix-Contact/1803578?qs=qgZcrvoyHAesJBL6Ph4eYw%3D%3D)|
 R4|392 ohm 1% resistor|Mouser|603-MFR-25FBF52-392R|1|[Order](https://www.mouser.com/ProductDetail/YAGEO/MFR-25FBF52-392R?qs=oAGoVhmvjhy6pvrooMNCwg%3D%3D)|
 R5|2.74k 1% resistor|Mouser|603-MFR-25FRF52-2K74|1|[Order](https://www.mouser.com/ProductDetail/YAGEO/MFR-25FRF52-2K74?qs=oAGoVhmvjhwhcYVvwkvvFg%3D%3D)|
-RN1|10k ohm network|Mouser|652-4605X-1LF-10K|1|[Order](https://www.mouser.com/ProductDetail/Bourns/4605X-101-103LF?qs=fY9U8%252BfrILOSaQNeIwg%252BVw%3D%3D)|
 RV1|10k trimmer pot|Mouser|652-3299P-1-103LF|1|[Order](https://www.mouser.com/ProductDetail/Bourns/3299P-1-103LF?qs=WQTe6SLNdBmzK4IlGV4toA%3D%3D)|
 U1|555 Precision Timer|Mouser|595-NE555P|1|[Order](https://www.mouser.com/ProductDetail/Texas-Instruments/NE555P?qs=rkhjVJ6%2F3EIf4CWgjIKuKQ%3D%3D)|
 U2|Quad Differential Comparator|Mouser|595-LM339N|1|[Order](https://www.mouser.com/ProductDetail/Texas-Instruments/LM339N?qs=rshUhwi3fbY%252BaR%252BOl3edNw%3D%3D)|

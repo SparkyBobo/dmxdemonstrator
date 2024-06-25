@@ -1,6 +1,6 @@
 # DMX Demonstrator Constant Voltage LED Driver (DMX-DCV)
 
-![status](https://img.shields.io/badge/status-testing-yellow)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
@@ -20,8 +20,7 @@ For a complete list of parts, see:
 You can also buy the parts for the constant voltage led driver online from a Wishlist:
 
 - Sparkfun: [Common](https://www.sparkfun.com/wish_lists/160406), [DMX-DCV](https://www.sparkfun.com/wish_lists/160583)
-- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [RMX-DCV](http://www.adafruit.com/wishlists/590543)
-
+- Adafruit: [Common](http://www.adafruit.com/wishlists/589832), [DMX-DCV](http://www.adafruit.com/wishlists/590543)
 
 If you plan to use something else for the display, you can leave out the Big Dome Buttons, the 12v power supply (you'll likely need something to supply more current anyway). You may also want to consider adding heat sinks depending on your load.
 

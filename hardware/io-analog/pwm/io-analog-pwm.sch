@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 1
 Title "DMX Demonstrator - Analog IO PWM (DMX-IO4)"
 Date "2023-12-19"
-Rev "1.4"
+Rev "1.5"
 Comp "Sparky Bobo Designs"
 Comment1 ""
 Comment2 "Designed by: SparkyBobo"
@@ -16,27 +16,27 @@ $EndDescr
 $Comp
 L power:GND #PWR0111
 U 1 1 5F4012A9
-P 8750 3450
-F 0 "#PWR0111" H 8750 3200 50  0001 C CNN
-F 1 "GND" H 8755 3277 50  0000 C CNN
-F 2 "" H 8750 3450 50  0001 C CNN
-F 3 "" H 8750 3450 50  0001 C CNN
-	1    8750 3450
+P 8750 3100
+F 0 "#PWR0111" H 8750 2850 50  0001 C CNN
+F 1 "GND" H 8755 2927 50  0000 C CNN
+F 2 "" H 8750 3100 50  0001 C CNN
+F 3 "" H 8750 3100 50  0001 C CNN
+	1    8750 3100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8750 3450 8750 3350
+	8750 3100 8750 3000
 $Comp
 L Connector:Screw_Terminal_01x05 J2
 U 1 1 5F42826E
-P 9100 3150
-F 0 "J2" H 9100 2700 50  0000 L CNN
-F 1 "Output" H 8950 2800 50  0000 L CNN
-F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal" H 9100 3150 50  0001 C CNN
-F 3 "~" H 9100 3150 50  0001 C CNN
-F 4 "J-381x5,P-381x5" H 9100 3150 50  0001 C CNN "PartId"
-F 5 "Screw Terminal" H 9100 3150 50  0001 C CNN "Description"
-	1    9100 3150
+P 9100 2800
+F 0 "J2" H 9100 2350 50  0000 L CNN
+F 1 "Output" H 8950 2450 50  0000 L CNN
+F 2 "Connector_Phoenix_MC:PhoenixContact_MC_1,5_5-G-3.81_1x05_P3.81mm_Horizontal" H 9100 2800 50  0001 C CNN
+F 3 "~" H 9100 2800 50  0001 C CNN
+F 4 "J-381x5,P-381x5" H 9100 2800 50  0001 C CNN "PartId"
+F 5 "Screw Terminal" H 9100 2800 50  0001 C CNN "Description"
+	1    9100 2800
 	1    0    0    1   
 $EndComp
 $Comp
@@ -75,7 +75,7 @@ F 3 "~" H 10900 6850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8750 3350 8900 3350
+	8750 3000 8900 3000
 Text Label 6250 2300 0    50   ~ 0
 AO0
 Text Label 6250 2200 0    50   ~ 0
@@ -85,9 +85,9 @@ AO2
 Text Label 6250 2000 0    50   ~ 0
 AO3
 Wire Wire Line
-	8900 3150 8100 3150
+	8900 2800 8100 2800
 Wire Wire Line
-	8900 3250 8200 3250
+	8900 2900 8200 2900
 $Comp
 L Device:C C1
 U 1 1 5F7C4002
@@ -271,10 +271,10 @@ Wire Wire Line
 Wire Wire Line
 	4800 7450 4800 7500
 Connection ~ 4800 5050
-Text Notes 9250 3250 0    50   ~ 0
+Text Notes 9250 2900 0    50   ~ 0
 PWM Output\n0%-100% duty cycle\n0v-Vo
 Wire Wire Line
-	7800 1800 8400 1800
+	7800 1800 8200 1800
 Wire Wire Line
 	7800 3600 8100 3600
 Wire Wire Line
@@ -559,15 +559,11 @@ F 5 "Arduino Stackable Header - 8 Pin" H 3950 2100 50  0001 C CNN "Description"
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	8300 3050 8900 3050
+	8100 2700 8900 2700
 Wire Wire Line
-	8400 2950 8900 2950
+	8200 2600 8900 2600
 Wire Wire Line
-	7800 2700 8300 2700
-Wire Wire Line
-	8400 1800 8400 2950
-Wire Wire Line
-	8300 2700 8300 3050
+	7800 2700 8100 2700
 Wire Wire Line
 	2500 7350 1950 7350
 Wire Wire Line
@@ -811,10 +807,6 @@ Wire Wire Line
 	4550 1700 4550 1900
 Connection ~ 4250 1900
 Wire Wire Line
-	8100 3150 8100 3600
-Wire Wire Line
-	8200 3250 8200 4500
-Wire Wire Line
 	3900 7450 4350 7450
 Wire Wire Line
 	3900 6650 4350 6650
@@ -850,81 +842,134 @@ F 3 "" H 5400 6550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5400 6550 5400 6900
-$Comp
-L Connector_Generic:Conn_02x03_Odd_Even J3
-U 1 1 64BD059C
-P 9100 4400
-F 0 "J3" H 9150 4717 50  0000 C CNN
-F 1 "Output" H 9150 4626 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal" H 9100 4400 50  0001 C CNN
-F 3 "~" H 9100 4400 50  0001 C CNN
-F 4 "Header" H 9100 4400 50  0001 C CNN "Description"
-F 5 "H_2x3_RA" H 9100 4400 50  0001 C CNN "PartId"
-	1    9100 4400
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR0103
-U 1 1 64BD49F3
-P 8750 4650
-F 0 "#PWR0103" H 8750 4400 50  0001 C CNN
-F 1 "GND" H 8755 4477 50  0000 C CNN
-F 2 "" H 8750 4650 50  0001 C CNN
-F 3 "" H 8750 4650 50  0001 C CNN
-	1    8750 4650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8750 4650 8750 4400
-Wire Wire Line
-	8750 4400 8900 4400
-$Comp
-L power:GND #PWR0104
-U 1 1 64BDCF0D
-P 9550 4650
-F 0 "#PWR0104" H 9550 4400 50  0001 C CNN
-F 1 "GND" H 9555 4477 50  0000 C CNN
-F 2 "" H 9550 4650 50  0001 C CNN
-F 3 "" H 9550 4650 50  0001 C CNN
-	1    9550 4650
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	9550 4650 9550 4400
-Wire Wire Line
-	9550 4400 9400 4400
-Wire Wire Line
-	8200 4500 8900 4500
-Wire Wire Line
-	8900 4300 8100 4300
-Wire Wire Line
-	8100 4300 8100 3600
-Connection ~ 8100 3600
-Connection ~ 8200 4500
-Wire Wire Line
-	8300 3050 8300 3950
-Wire Wire Line
-	8300 3950 9750 3950
-Wire Wire Line
-	9750 3950 9750 4500
-Wire Wire Line
-	9750 4500 9400 4500
-Connection ~ 8300 3050
-Wire Wire Line
-	9400 4300 9650 4300
-Wire Wire Line
-	9650 4300 9650 3850
-Wire Wire Line
-	9650 3850 8400 3850
-Wire Wire Line
-	8400 3850 8400 2950
-Connection ~ 8400 2950
-Text Notes 9850 4550 0    50   ~ 0
-PWM Output\n0%-100% duty cycle\n0v-Vo\n
 Wire Wire Line
 	1650 6650 2000 6650
 Wire Wire Line
 	1950 7350 1950 7500
+Connection ~ 8200 1800
+Connection ~ 8100 2700
+$Comp
+L power:VDC #PWR0105
+U 1 1 661D757E
+P 4800 6550
+F 0 "#PWR0105" H 4800 6450 50  0001 C CNN
+F 1 "VDC" H 4815 6723 50  0000 C CNN
+F 2 "" H 4800 6550 50  0001 C CNN
+F 3 "" H 4800 6550 50  0001 C CNN
+	1    4800 6550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 6650 4800 6550
+Connection ~ 4800 6650
+$Comp
+L power:VDC #PWR0106
+U 1 1 661DDF9A
+P 9100 1550
+F 0 "#PWR0106" H 9100 1450 50  0001 C CNN
+F 1 "VDC" H 9115 1723 50  0000 C CNN
+F 2 "" H 9100 1550 50  0001 C CNN
+F 3 "" H 9100 1550 50  0001 C CNN
+	1    9100 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 2700 8100 2150
+$Comp
+L Device:R_US R6
+U 1 1 662B1A8E
+P 8750 1800
+F 0 "R6" V 8545 1800 50  0000 C CNN
+F 1 "10k" V 8636 1800 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8790 1790 50  0001 C CNN
+F 3 "~" H 8750 1800 50  0001 C CNN
+F 4 "R_10k" V 8750 1800 50  0001 C CNN "PartId"
+	1    8750 1800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R7
+U 1 1 662B244B
+P 8750 2150
+F 0 "R7" V 8545 2150 50  0000 C CNN
+F 1 "10k" V 8636 2150 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8790 2140 50  0001 C CNN
+F 3 "~" H 8750 2150 50  0001 C CNN
+F 4 "R_10k" V 8750 2150 50  0001 C CNN "PartId"
+	1    8750 2150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R8
+U 1 1 662B2A3C
+P 8750 4150
+F 0 "R8" V 8545 4150 50  0000 C CNN
+F 1 "10k" V 8636 4150 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8790 4140 50  0001 C CNN
+F 3 "~" H 8750 4150 50  0001 C CNN
+F 4 "R_10k" V 8750 4150 50  0001 C CNN "PartId"
+	1    8750 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_US R9
+U 1 1 662B2F49
+P 8750 4500
+F 0 "R9" V 8545 4500 50  0000 C CNN
+F 1 "10k" V 8636 4500 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 8790 4490 50  0001 C CNN
+F 3 "~" H 8750 4500 50  0001 C CNN
+F 4 "R_10k" V 8750 4500 50  0001 C CNN "PartId"
+	1    8750 4500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8200 1800 8600 1800
+Wire Wire Line
+	8600 2150 8100 2150
+Wire Wire Line
+	8600 4150 8100 4150
+Wire Wire Line
+	8600 4500 8200 4500
+Wire Wire Line
+	8200 1800 8200 2600
+Wire Wire Line
+	8900 4500 9100 4500
+Wire Wire Line
+	9100 4500 9100 4150
+Wire Wire Line
+	8900 1800 9100 1800
+Connection ~ 9100 1800
+Wire Wire Line
+	9100 1800 9100 1550
+Wire Wire Line
+	8900 2150 9100 2150
+Wire Wire Line
+	9100 2150 9100 1800
+Wire Wire Line
+	8900 4150 9100 4150
+Connection ~ 9100 4150
+Wire Wire Line
+	9100 4150 9100 3800
+Wire Wire Line
+	8100 2800 8100 3600
+Wire Wire Line
+	8200 2900 8200 4500
+Connection ~ 8200 4500
+$Comp
+L power:VDC #PWR?
+U 1 1 6630E7BB
+P 9100 3800
+F 0 "#PWR?" H 9100 3700 50  0001 C CNN
+F 1 "VDC" H 9115 3973 50  0000 C CNN
+F 2 "" H 9100 3800 50  0001 C CNN
+F 3 "" H 9100 3800 50  0001 C CNN
+	1    9100 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 3600 8100 4150
+Connection ~ 8100 3600
 Wire Bus Line
 	6500 1800 6500 4300
 $EndSCHEMATC

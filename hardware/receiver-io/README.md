@@ -16,7 +16,7 @@ For a complete list of parts, see:
 You can also buy some of the parts for the Receiver IO Interface online from a Wishlist:
 
 - Sparkfun: [DMX-RX2](https://www.sparkfun.com/wish_lists/175216). Note that JP1, JP2 are not included.
-- Adafruit: [RMX-RX2](http://www.adafruit.com/wishlists/590132). Note that JP1, JP2 are not included.
+- Adafruit: [DMX-RX2](http://www.adafruit.com/wishlists/590132). Note that JP1, JP2 are not included.
 
 ## PCB
 
