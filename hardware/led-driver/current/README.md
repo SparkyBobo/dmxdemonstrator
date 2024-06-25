@@ -1,6 +1,6 @@
 # DMX Demonstrator Constant Current LED Driver (DMX-DCC)
 
-![status](https://img.shields.io/badge/status-prototype-orange)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
