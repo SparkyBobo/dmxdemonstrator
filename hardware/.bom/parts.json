@@ -136,6 +136,21 @@
             ]
         },
         {
+            "id": "PCB_DCC_1_1",
+            "description" : "Constant Current LED Driver PCB",
+            "mfg": "OHSPark",
+            "mfgNumber" : "DMX-DCC, Rev 1.1",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "OHSPark",
+                    "vendorNumber" : "DMX-DCC, Rev 1.1",
+                    "link" : "https://oshpark.com/shared_projects/NdE986eJ",
+                    "quantity" : 3
+                }
+            ]
+        },
+        {
             "id": "PCB_DCV_1_6",
             "description" : "Constant Voltage LED Driver PCB",
             "mfg": "OHSPark",
@@ -261,6 +276,27 @@
             ]
         },
         {
+            "id": "H_1x2",
+            "description" : "2-pin header",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-00116",
+                    "link" : "https://www.sparkfun.com/products/116",
+                    "quantity" : 20
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "392",
+                    "link" : "https://www.adafruit.com/product/392",
+                    "quantity" : 180
+                }
+            ]
+        },
+        {
             "id": "H_1x3_RA",
             "description" : "3-pin right-angle header",
             "mfg": "",
@@ -278,6 +314,27 @@
                     "vendorNumber" : "1540",
                     "link" : "https://www.adafruit.com/product/1540",
                     "quantity" : 120
+                }
+            ]
+        },
+        {
+            "id": "H_1x4",
+            "description" : "4-pin header",
+            "mfg": "",
+            "mfgNumber" : "",
+            "datasheet" : "",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "PRT-00116",
+                    "link" : "https://www.sparkfun.com/products/116",
+                    "quantity" : 10
+                },
+                {
+                    "vendor" : "Adafruit",
+                    "vendorNumber" : "392",
+                    "link" : "https://www.adafruit.com/product/392",
+                    "quantity" : 90
                 }
             ]
         },
@@ -510,6 +567,48 @@
             ]
         },
         {
+            "id": "D_FLYBACK_SMD",
+            "description" : "Schottky Diode, 40V 1A",
+            "mfg": "onsemi",
+            "mfgNumber" : "MBRA140",
+            "datasheet" : "https://www.mouser.com/datasheet/2/308/1/MBRA140T3_D-2315036.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "MBRA140T3OSTR-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/onsemi/MBRA140T3/607802",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "863-MBRA140T3G",
+                    "link" : "https://mou.sr/4dcc5vI",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "ZD_5v1_SMD",
+            "description" : "Zenor Diode, 5.1V 1.5A",
+            "mfg": "onsemi",
+            "mfgNumber" : "1SMA5918BT3G",
+            "datasheet" : "https://www.onsemi.com/pdf/datasheet/1sma5913bt3-d.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "1SMA5918BT3GOSCT-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/onsemi/1SMA5918BT3G/918092",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "863-1SMA5918BT3G",
+                    "link" : "https://mou.sr/3xVDNwU",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
             "id": "C_DECOUPLE",
             "description" : "0.1uF",
             "mfg": "",
@@ -543,34 +642,22 @@
             ]
         },
         {
-            "id": "C_FILTER",
-            "description" : "10uF",
-            "mfg": "",
-            "mfgNumber" : "",
-            "datasheet" : "",
+            "id": "C_FILTER_SMD",
+            "description" : "10uF, SMD 1206",
+            "mfg": "Samsung",
+            "mfgNumber" : "CL31B106KBHNNNE",
+            "datasheet" : "https://www.mouser.com/datasheet/2/585/MLCC-1837944.pdf",
             "vendors": [
                 {
-                    "vendor" : "Sparkfun",
-                    "vendorNumber" : "COM-00523",
-                    "link" : "https://www.sparkfun.com/products/523",
-                    "quantity" : 1
-                },
-                {
-                    "vendor" : "Adafruit",
-                    "vendorNumber" : "2195",
-                    "link" : "https://www.adafruit.com/product/2195",
-                    "quantity" : 10
-                },
-                {
                     "vendor" : "Digikey",
-                    "vendorNumber" : "P10425CT-ND",
-                    "link" : "https://www.digikey.com/en/products/detail/panasonic-electronic-components/ECA-1HM100I/268510",
+                    "vendorNumber" : "1276-6767-1-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/samsung-electro-mechanics/CL31B106KBHNNNE/5961251",
                     "quantity" : 1
                 },
                 {
                     "vendor" : "Mouser",
-                    "vendorNumber" : "667-ECA-1HM100I",
-                    "link" : "https://www.mouser.com/ProductDetail/Panasonic/ECA-1HM100I?qs=iJXPy%2FkScuGKyyHdlAUvZA%3D%3D",
+                    "vendorNumber" : "187-CL31B106KBHNNNE",
+                    "link" : "https://mou.sr/3QgFSK1",
                     "quantity" : 1
                 }
             ]
@@ -582,7 +669,7 @@
             "mfgNumber" : "",
             "datasheet" : "",
             "vendors": [
-                {
+            {
                     "vendor" : "Digikey",
                     "vendorNumber" : "399-9749-ND",
                     "link" : "https://www.digikey.com/en/products/detail/kemet/C315C684K5R5TA/3726079",
@@ -596,7 +683,50 @@
                 }
             ]
         },
-
+        {
+            "id": "L_33u_SMD",
+            "description" : "33uF inductor",
+            "mfg": "Bourns",
+            "mfgNumber" : "SRN6045TA-330M",
+            "datasheet" : "https://www.bourns.com/docs/Product-Datasheets/SRN6045TA.pdf",
+            "vendors": [
+            {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "SRN6045TA-330MCT-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/bourns-inc/SRN6045TA-330M/6155110",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-SRN6045TA-330M",
+                    "link" : "https://mou.sr/3QjeWZU",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "R_CC_SMD",
+            "description" : "0.1 ohm, 1% 1/2W, 1206 SMD",
+            "mfg": "Bournes",
+            "mfgNumber" : "CRL1206-FW-R100ELF",
+            "datasheet" : "https://www.bourns.com/docs/Product-Datasheets/CRL.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "CRL1206-FW-R100ELFCT-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/bourns-inc/CRL1206-FW-R100ELF/3593165",
+                    "quantity" : 1,
+                    "notes" : "0.33: 350ma, 0.15: 700ma, 0.1:  900ma"
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-CRL1206FWR100ELF",
+                    "link" : "https://mou.sr/3xVE1UM",
+                    "quantity" : 1,
+                    "notes" : "0.33: 350ma, 0.15: 700ma, 0.1:  900ma"
+                }
+            ]
+        },
         {
             "id": "R_LED",
             "description" : "330 ohm",
@@ -700,6 +830,27 @@
                     "vendorNumber" : "2784",
                     "link" : "https://www.adafruit.com/product/2784",
                     "quantity" : 25
+                }
+            ]
+        },
+        {
+            "id": "R_10k_SMD",
+            "description" : "10k  ohm, 1206 SMD",
+            "mfg": "Bournes",
+            "mfgNumber" : "CRM1206-FX-1002ELF",
+            "datasheet" : "https://www.bourns.com/docs/Product-Datasheets/CRM0805_1206_2010.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "118-CRM1206-FX-1002ELFCT-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/bourns-inc/CRM1206-FX-1002ELF/4698225",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "652-CRM1206FX1002ELF",
+                    "link" : "https://mou.sr/44fhtKA",
+                    "quantity" : 1
                 }
             ]
         },
@@ -1060,6 +1211,48 @@
                     "vendor" : "Mouser",
                     "vendorNumber" : "511-LM317T",
                     "link" : "https://www.mouser.com/ProductDetail/STMicroelectronics/LM317T?qs=swDD%252BF%252Bps7c8uLyY%252B3mJJw%3D%3D",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "U_8861",
+            "description" : "Buck Led Driver, 40V 1.5A ",
+            "mfg": "Diodes Inc.",
+            "mfgNumber" : "AL8861Y-13",
+            "datasheet" : "https://www.mouser.com/datasheet/2/115/AL8861-1094677.pdf",
+            "vendors": [
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "AL8861Y-13DICT-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/diodes-incorporated/AL8861Y-13/6702376",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Mouser",
+                    "vendorNumber" : "621-AL8861Y-13",
+                    "link" : "https://mou.sr/4dfIiTc",
+                    "quantity" : 1
+                }
+            ]
+        },
+        {
+            "id": "MOD_8861",
+            "description" : "FemtoBuck LED Driver",
+            "mfg": "Sparkfun",
+            "mfgNumber" : "COM-13716",
+            "datasheet" : "https://www.sparkfun.com/products/13716",
+            "vendors": [
+                {
+                    "vendor" : "Sparkfun",
+                    "vendorNumber" : "COM-13716",
+                    "link" : "https://www.sparkfun.com/products13716",
+                    "quantity" : 1
+                },
+                {
+                    "vendor" : "Digikey",
+                    "vendorNumber" : "1568-1374-ND",
+                    "link" : "https://www.digikey.com/en/products/detail/sparkfun-electronics/COM-13716/5995005",
                     "quantity" : 1
                 }
             ]
