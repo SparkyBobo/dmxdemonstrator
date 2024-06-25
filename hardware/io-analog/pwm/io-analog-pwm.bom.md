@@ -5,17 +5,17 @@
 
 **Filename:** E:\OpenSource\dmxdemonstrator\hardware\io-analog\pwm\io-analog-pwm.sch
 
-**Date Modified:** 4/11/2024 8:56:17 PM
+**Date Modified:** 4/13/2024 8:04:18 PM
 
 **Kicad Version:** Eeschema (5.1.12)-1
 
-**Component Count:** 25
+**Component Count:** 28
 
 ## Components
 
 Item#|Quantity|Reference|Description|Manufacturer|Part Number|Datasheet|Notes
 -----|--------|---------|-----------|------------|-----------|---------|-----
-1|1|PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.4||[Order](https://oshpark.com/shared_projects/xqcuVAnE)|
+1|1|PCB|Analog IO PWM PCB|OHSPark|DMX-IO4, Rev 1.5||[Order](https://oshpark.com/shared_projects/pHUTiBM3)|
 2|3|C1, C2, C3|0.1uF||||
 3|2|C4, C5|0.68uF||||
 4|2|C6, C7|10uF||||
@@ -26,7 +26,7 @@ Item#|Quantity|Reference|Description|Manufacturer|Part Number|Datasheet|Notes
 9|1|J4|Screw Terminal, 2 pin, 3.81 pitch|Phoenix Contact|1803277||
 10|1|J4|Screw Terminal Plug, 2 pin, 3.81 pitch|Phoenix Contact|1803578||
 11|1|R1|330 ohm||||
-12|2|R2, R3|10k ohm||||
+12|6|R2, R3, R6, R7, R8, R9|10k ohm||||
 13|1|R4|392 ohm 1% resistor||||
 14|1|R5|2.74k 1% resistor||||
 15|1|RV1|10k trimmer pot|Bourns|3299P-1-103LF|[Data Sheet](https://www.bourns.com/docs/Product-Datasheets/3299.pdf)|
