@@ -33,10 +33,10 @@
  * Mode of Operation
  */
 typedef enum { 
-  DMXNone, // unspecified
-  DMXController , // always sending
-  DMXReceiver,   // always listening
-  DMXProbe       // send and receive upon request
+  DMXNone = 0,       // unspecified
+  DMXController = 1, // always sending
+  DMXReceiver = 2,   // always listening
+  DMXProbe = 3       // send and receive upon request
 } DMXMode;
 
 

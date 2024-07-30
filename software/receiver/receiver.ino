@@ -41,23 +41,23 @@
  * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
  * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
  * See: https://www.arduino.cc/reference/en/language/functions/communication/serial/
- *    On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
- *    Connecting anything to these pins can interfere with that communication, including causing failed uploads
- *    to the board.
+ * >   On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
+ * >   Connecting anything to these pins can interfere with that communication, including causing failed uploads
+ * >   to the board.
  * Hence, DMX512 is not supported on Uno, Nano, and Mini..
-  * To enable DMX512 support, uncomment line:
- *     #include "DMX512.h";
- * To have the DMX-RX1 re-send the data it receives to DMX512, uncomment line:
+ * 
+ * To have the DMX-RX1 disable DMX512, set dmxMode to DMXNone:
+ *     DMXMode dmxMode = DMXNone;
+ * To have the DMX-RX1 re-send the data it receives to DMX512, set dmxMode to DMXNone:
  *     DMXMode dmxMode = DMXController;
- * To have the DMX-RX1 receieve data via DMX512, uncomment line:
+ * To have the DMX-RX1 receieve data via DMX512, set dmxMode to DMXReceiver:
  *     DMXMode dmxMode = DMXReceiver;
  * To set the starting address to read/write to DMX512, set
  * dmxStartChannel to the starting address (1-based), uncomment line:
  *     int dmxStartChannel = 1;
  */
 #include "DMX512.h"
-DMXMode dmxMode = DMXController;
-//DMXMode dmxMode = DMXReceiver;
+DMXMode dmxMode = DMXController; // DMXNone or DMXController or DMXReceiver
 int dmxStartChannel = 1;
 
 /**
@@ -157,6 +157,11 @@ const char startUpMessage[] PROGMEM = "DMX Demonstrator Receiver starting up...\
 const char readyMessage[] PROGMEM = "DMX Demonstrator Receiver ready!\r\n";
 const char versionFormat[] PROGMEM = "DMX Demonstrator Receiver Version %s\r\n";
 const char hardwareDetect[] PROGMEM = "Hardware Detection: found DMX-RX1\r\n";
+const char dmxModeFormat[] PROGMEM = "DMX-512 support: %s\r\n";
+const char dmxModeDisabled[] PROGMEM = "disabled";
+const char dmxModeController[] PROGMEM = "sending";
+const char dmxModeReceiver[] PROGMEM = "receiving";
+const char* const dmxModes[] PROGMEM = { dmxModeDisabled, dmxModeController, dmxModeReceiver, };
 
 const char compactStatusFormat[] PROGMEM = "Compact Status: %s\r\n";
 const char verboseStatusFormat[] PROGMEM = "Verbose Status: %s\r\n";
@@ -230,9 +235,8 @@ void setup() {
   PinChange.Start();
 
   // Enable DMX as a transmitter for forwarding
-#ifdef DMX512_H
   Dmx512.init(dmxMode);
-#endif  // DMX512_H
+  SendProgmemStringArrayFormat(dmxModeFormat, dmxModes, dmxMode);
 
   // Complete startup message.
   SendProgmemMessage(readyMessage);
@@ -272,7 +276,6 @@ void loop() {
   }
 
   // Support reading DMX512
-#ifdef DMX512_H
   if (dmxMode == DMXReceiver) {
     // Calculate how long no data was received
     unsigned long lastPacket = Dmx512.noDataSince();
@@ -298,7 +301,6 @@ void loop() {
       frameState = frameStateError;
     }
   }
-#endif  // DMX512_H
 }
 
 /**
@@ -426,13 +428,11 @@ void OnClockPulse() {
           // Store the dimmer data if the counter is less than the max dimmer.
           if (dimmerCounter >= 0 && dimmerCounter < maxDimmerCount) {
             dimmerLevels[dimmerCounter] = receivedData;
-#ifdef DMX512_H
             if (dmxMode == DMXController) {
               Dmx512.write(dmxStartChannel + dimmerCounter, receivedData);
               sprintf(serialPortMessage, "%d=%d\r\n", dmxStartChannel + dimmerCounter, receivedData);
               Serial.print(serialPortMessage);
             }
-#endif  // DMX512_H
           }
 
           // Wait for the mark after data.
@@ -809,6 +809,7 @@ int HandleReceivedChar(char receivedChar) {
     case 'i':
       SendProgmemStringFormat(versionFormat, _VERSION_);
       SendProgmemMessage(hardwareDetect);
+      SendProgmemStringArrayFormat(dmxModeFormat, dmxModes, dmxMode);
       SendProgmemStringArrayFormat(compactStatusFormat, statusMessages, compactStatus);
       SendProgmemStringArrayFormat(verboseStatusFormat, statusMessages, verboseStatus);
       break;
