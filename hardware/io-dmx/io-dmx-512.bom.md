@@ -15,7 +15,7 @@
 
 Item#|Quantity|Reference|Description|Manufacturer|Part Number|Datasheet|Notes
 -----|--------|---------|-----------|------------|-----------|---------|-----
-1|1|PCB|DMX-512 IO Module PCB|OHSPark|DMX-IO1, Rev 1.7||[Order](https://oshpark.com/shared_projects/uaF9lrbr)|
+1|1|PCB|DMX-512 IO Module PCB|OHSPark|DMX-IO1, Rev 1.7||[Order](https://oshpark.com/shared_projects/jqZlCb1q)|
 2|4|C2, C3, C4, C5|0.1uF||||
 3|1|J1|2x7 shrouded right-angle header|Wurth Elektronik|61201421721|[Data Sheet](https://www.we-online.com/catalog/datasheet/61201421721.pdf)|
 4|1|J1|2x7 ribbon cable||||

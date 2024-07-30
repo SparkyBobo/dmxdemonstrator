@@ -1,6 +1,6 @@
 # DMX Demonstrator DMX-512 IO Module (DMX-IO1)
 
-![status](https://img.shields.io/badge/status-prototype-orange)
+![status](https://img.shields.io/badge/status-verified-brightgreen)
 
 ## Overview
 
@@ -150,7 +150,7 @@ You can use the DMX-IO1 without isolation by leaving out these parts (saving abo
 
 You can order the PCBs from [OHS Park](https://oshpark.com/):
 
-- [DMX-IO1, Rev 1.7](https://oshpark.com/shared_projects/uaF9lrbr)
+- [DMX-IO1, Rev 1.7](https://oshpark.com/shared_projects/jqZlCb1q)
 
 You can read more about ordering pcbs [here](..\pcb.md).
 

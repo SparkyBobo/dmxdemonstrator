@@ -18,7 +18,7 @@
 
 Reference|Description|Supplier|Part Number|Quantity|Link|Notes
 ---------|-----------|--------|-----------|--------|----|-----
-PCB|DMX-512 IO Module PCB|OHSPark|DMX-IO1, Rev 1.7|1|[Order](https://oshpark.com/shared_projects/uaF9lrbr)|pack of 3, 2 not used
+PCB|DMX-512 IO Module PCB|OHSPark|DMX-IO1, Rev 1.7|1|[Order](https://oshpark.com/shared_projects/jqZlCb1q)|pack of 3, 2 not used
 <!--PARTROW-->
 
 ### Sparkfun
