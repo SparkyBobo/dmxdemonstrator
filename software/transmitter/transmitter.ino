@@ -49,22 +49,21 @@
 #include "FixedTimer2.h"
 
 /**
- * To make DMX work, you need an Arduino with two serial ports such as the Leonardo.
+ * To make DMX-512 work, you need an Arduino with two serial ports such as the Leonardo.
  * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
  * This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
-*
+ *
  * When using the DMX output option, there may be a conflict with pins
  * D0 and D1, i.e. RXD and TXD, which is also used as a serial output.
  * To deal with this, use an Arduino with 2 UARTS, such as the Leonardo.
  * See: https://www.arduino.cc/reference/en/language/functions/communication/serial/
- *    On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
- *    Connecting anything to these pins can interfere with that communication, including causing failed uploads
- *    to the board.
- * Hence, DMX512 is not supported on Uno, Nano, and Mini..
- * To enable DMX512 support, uncomment line:
- *     #include "DMX512Send.h";
- * To set the starting address to read/write to DMX512, set
- * dmxStartChannel to the starting address (1-based), uncomment line:
+ * >   On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
+ * >   Connecting anything to these pins can interfere with that communication, including causing failed uploads
+ * >   to the board.
+ * Hence, DMX-512 is not supported on Uno, Nano, and Mini..
+ *
+ * To set the starting address to write to DMX-512, set
+ * dmxStartChannel to the starting address (1-based):
  *     int dmxStartChannel = 1;
  */
 #include "DMX512.h"
@@ -431,9 +430,7 @@ void setup() {
   interrupts();
 
 // Enable DMX as a transmitter for sending.
-#ifdef DMX512_H
   Dmx512.init(DMXController);
-#endif  // DMX512_H
 
   // Complete startup message.
   SendProgmemMessage(readyMessage);
@@ -584,12 +581,11 @@ void AdvanceToNextFrame() {
   if (dimmerTransmit >= 0) {
     int dimmerBit = frameSteps[currentFrameStep].dimmerBit;
     dataOutBit = (bitRead(currentDimmerLevel, dimmerBit) > 0);
-#ifdef DMX512_H
+
     // When trasmitting the last bit, send to DMX512
     if (dimmerBit == 7) {
       Dmx512.write(dmxStartChannel + dimmerTransmit, currentDimmerLevel);
     }
-#endif  // DMX512_H
   }
 
   // Get the fixed data for the frame.

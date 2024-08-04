@@ -33,7 +33,7 @@
 #include "PinChange.h"
 
 /**
- * To make DMX work, you need an Arduino with two serial ports such as the Leonardo.
+ * To make DMX-512 work, you need an Arduino with two serial ports such as the Leonardo.
  * DMX is supported using the DMXSerial library: https://github.com/mathertel/DMXSerial
  * This work is licensed under a BSD style license. See http://www.mathertel.de/License.aspx
  * 
@@ -44,16 +44,16 @@
  * >   On older boards (Uno, Nano, Mini, and Mega), pins 0 and 1 are used for communication with the computer.
  * >   Connecting anything to these pins can interfere with that communication, including causing failed uploads
  * >   to the board.
- * Hence, DMX512 is not supported on Uno, Nano, and Mini..
+ * Hence, DMX-512 is not supported on Uno, Nano, and Mini..
  * 
- * To have the DMX-RX1 disable DMX512, set dmxMode to DMXNone:
+ * To have the DMX-RX1 disable DMX-512, set dmxMode to DMXNone:
  *     DMXMode dmxMode = DMXNone;
- * To have the DMX-RX1 re-send the data it receives to DMX512, set dmxMode to DMXNone:
+ * To have the DMX-RX1 re-send the data it receives to DMX-512, set dmxMode to DMXNone:
  *     DMXMode dmxMode = DMXController;
- * To have the DMX-RX1 receieve data via DMX512, set dmxMode to DMXReceiver:
+ * To have the DMX-RX1 receieve data via DMX-512, set dmxMode to DMXReceiver:
  *     DMXMode dmxMode = DMXReceiver;
- * To set the starting address to read/write to DMX512, set
- * dmxStartChannel to the starting address (1-based), uncomment line:
+ * To set the starting address to read/write to DMX-512, set
+ * dmxStartChannel to the starting address (1-based):
  *     int dmxStartChannel = 1;
  */
 #include "DMX512.h"
@@ -275,7 +275,7 @@ void loop() {
     HandleReceivedChar(incomingByte);
   }
 
-  // Support reading DMX512
+  // Support reading DMX-512
   if (dmxMode == DMXReceiver) {
     // Calculate how long no data was received
     unsigned long lastPacket = Dmx512.noDataSince();
@@ -290,7 +290,7 @@ void loop() {
       startCodeMatch = 1;
       frameState = frameStateBreak;
     } else {
-      // Zero out the levels if we lose DMX512 signal
+      // Zero out the levels if we lose DMX-512 signal
       dimmerLevels[0] = 0;
       dimmerLevels[1] = 0;
       dimmerLevels[2] = 0;
