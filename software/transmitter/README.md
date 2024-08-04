@@ -2,7 +2,7 @@
 
 ## Overview
 
-The transmitter software is an Arduino sketch design for use with the both the DMX-TX1, the standard transmitter, or DMX-TX2, the control-pro adapter. The transmitter software automatically detects whether DMX-TX1 or DMX-TX2 is connected.
+The transmitter software is an Arduino sketch design for use with the both the DMX-TX1, the standard transmitter, or DMX-CPAD, the control-pro adapter. The transmitter software automatically detects whether DMX-TX1 or DMX-CPAD is connected.
 
 ## Compatibility
 
@@ -16,9 +16,15 @@ The transmitter software is an Arduino sketch design for use with the both the D
 
 ## Version History
 
-### Rev 1.3
+### Rev 1.5
 
-- Fix discovery of DMX-TX2
+- Added io-dmx module support
+
+### Rev 1.4
+
+- Fix discovery of DMX-TX2, a.k.a., DMX-CPAD
+- Allow dimmer level to goto zero
+- Changes to work with demo software
 
 ### Rev 1.3
 

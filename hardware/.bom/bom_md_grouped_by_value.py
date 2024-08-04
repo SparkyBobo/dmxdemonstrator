@@ -98,7 +98,7 @@ partsContent = partsContent.replace('<!--COMPCOUNT-->', str(len(components)))
 # Now see if we can find the PCB info from the title block
 title = net.getTitle()
 titleParts = title.split('DMX-')
-boardName = str(titleParts[1])[:-1]
+boardName = str(titleParts[len(titleParts)-1])[:-1]
 revision = net.getRev()
 boardId = 'PCB_' + boardName + '_' + revision.replace('.','_')
 pcbDefinition = partDefinitions[boardId]
