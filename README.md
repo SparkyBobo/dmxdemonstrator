@@ -1,26 +1,55 @@
 # DMX Demonstrator
 
+A collection of hardware projects for exploring, demonstrating, and understanding DMX512 through both programmable and discrete-logic implementations.
+
 ## Background
 
-When I was in grad school, I was challenged by my technical theater professor to create a device to demonstrate DMX. What we devised was a transmitter receiver pair with 4 controls and 4 dimmers and the pair was linked by a three-wire cable. The transmitter had a fixed clock that could run at reasonable fast, xxkHz, and a variable clock that could be adjusted down to 0.5 hZ. By switching back and forth, you could toggle between "real-time" updates and a slow pace that can be used to see each bit on the wire. We then built a lecture around how the data was digitized, serialized, de-serialized, and converted back to analog to control the dimmers.
+The DMX Demonstrator began in 1994 as a graduate-school project. My technical theater professor, Frank Silberstein, challenged me to create a device that could demonstrate how DMX works.
 
-The device was built and did function even though it failed to follow a number of best engineering practices. At that time, we didn't have [GitHub](https://github.com/) and [Tindie](https://www.tindie.com/) so sharing the project was by word-of-mouth and email; yes, we did have [email](https://en.wikipedia.org/wiki/Email). Only one other group considered building a replica but alas they never did. The device was built only once and transported to a USITT conference in Las Vegas, where the EPROM failed and we had nothing to show except a presentation. Only a handful of students at my school ever got to see it function.
+The original device was built entirely from discrete logic. It consisted of a transmitter and receiver connected by a three-wire cable. The transmitter had four controls, and the receiver had four dimmers. It could run at a normal operating speed or use an adjustable, much slower clock—down to 0.5 Hz—so that individual bits could be observed on the wire.
 
-That was 25 years ago. For it's anniversary, I've decided to revive the project and build 2 new implementations. The first is based on Arduino for a cheap but functional version of the project that is unlikely to fail or break the bank. The second is an updated recreation of the original using today's available hardware but without deviating from the original TTL-based design, i.e. no microprocessors or microcontrollers. I'll admit this last one is really just for me because I love designing electronics, drawing schematics, laying out PCBs, and assembling electronics.
+By switching between the two speeds, the device could demonstrate how data is digitized, serialized, transmitted, deserialized, and converted back into analog signals to control lighting.
 
-## Hardware
+My roommate Tobin and I developed the original teaching materials and lecture together, and we co-presented the project at the 1994 USITT conference in Las Vegas. The device worked, although an EPROM failure during the conference left the hardware unable to demonstrate its operation. The original device has since been lost, but the teaching materials and circuit description survived. The schematics have also been recreated in KiCad.
 
-In the hardware folder, you'll find a series of designs:
+### The 30th Anniversary
 
-- transmitter - An arduino-based transmitter.
-- receiver - An arduino-based receiver.
-- control-pro - A controller built to work with either transmitter or transmitter-pro.
-- constant voltage display driver - An external large-format display for data and clock signals.
+In 2024, I revived the project with a new Arduino-based implementation. The next-generation DMX Demonstrator was presented at USITT in Seattle, marking 30 years since the original project's presentation in Las Vegas.
 
-## Firmware/Software
+Tobin and I co-presented again. His contributions to the original teaching materials and lecture were an essential part of the project, and his participation made the 2024 session possible.
 
-As you would expect, the Arduino-based version is implemented mostly in software. The Sketch files for both transmitter and receiver are in the software folder and ready to upload to an Arduino UNO R3. The sketch and hardware will likely work with any Arduino-compatible board.
+The revival was also an opportunity to pay tribute to Frank Silberstein, my graduate-school professor. His challenge started the original project, but his influence went far beyond that. His mentorship, teaching, and thoughtful feedback helped shape the work and the engineer I became. Frank has since passed away, and this project remains a way to recognize and thank him for the lasting impact he had on me.
 
-## Monitoring
+Tobin's partnership was equally important to the project's history. From creating the original teaching materials and lecture to co-presenting both the 1994 and 2024 sessions, he helped make the educational vision a reality across both generations of the project.
 
-All informational output is sent to via the serial port for easy display on a computer. However, the clock and serial data are displayed via LEDs to visualize the serial data.
+### DMX Pro
+
+DMX Pro began during the COVID period as a separate effort to preserve the original design and recreate it using modern components and contemporary engineering practices.
+
+Rather than simply reproducing the original hardware, DMX Pro retains its defining philosophy: implementing the DMX transmitter and receiver using discrete logic, without relying on microprocessors or microcontrollers.
+
+It is an opportunity to revisit the original electronics, improve the design, and build a modern interpretation of the hardware that started the project.
+
+## Projects in This Repository
+
+### DMX Demonstrator
+
+The Arduino-based educational implementation. Version 1.0 has shipped and provides a practical way to demonstrate DMX transmission, reception, and the underlying data concepts.
+
+### DMX Pro
+
+A discrete-logic recreation of the original 1994 design. It uses modern components and updated engineering practices while retaining the original approach to implementing the protocol in hardware.
+
+The transmitter and receiver are separate design efforts.
+
+## Shared Ecosystem
+
+DMX Demonstrator and DMX Pro are independent implementations within the same project ecosystem. They share components and supporting design work where practical, while pursuing different approaches to the same educational goal.
+
+The repository preserves the history of the original project as well as the modern implementations.
+
+## Monitoring and Visualization
+
+A central goal of the Demonstrator concept is to make DMX operation observable. Clock and data signals can be displayed directly on hardware indicators, while serial output provides additional information for monitoring and debugging from a computer.
+
+The intention is not just to produce DMX signals, but to make the underlying operation understandable.
